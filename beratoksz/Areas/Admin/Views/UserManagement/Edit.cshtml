@@ -1,0 +1,28 @@
+﻿@model beratoksz.Models.EditUserViewModel
+
+@{
+    ViewData["Title"] = "Kullanıcı Düzenle";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<form asp-action="Edit" method="post">
+    <input type="hidden" asp-for="Id" />
+    <div class="mb-3">
+        <label asp-for="Email" class="form-label"></label>
+        <input asp-for="Email" class="form-control" readonly />
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Roller</label>
+        @foreach (var role in Model.Roles)
+        {
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="SelectedRoles" value="@role"
+                @(Model.SelectedRoles.Contains(role) ? "checked" : "") />
+                <label class="form-check-label">@role</label>
+            </div>
+        }
+    </div>
+    <button type="submit" class="btn btn-primary">Kaydet</button>
+    <a asp-action="Index" class="btn btn-secondary">İptal</a>
+</form>

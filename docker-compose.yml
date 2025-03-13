@@ -1,0 +1,39 @@
+version: '3.8'
+
+services:
+  webapp:
+    image: webapp:latest
+    build:
+      context: .
+      dockerfile: beratoksz/Dockerfile
+    restart: always
+    networks:
+      - vps_network
+    expose:
+      - "8080"
+    environment:
+      - VIRTUAL_HOST=beratoksz.com
+      - LETSENCRYPT_HOST=beratoksz.com
+      - LETSENCRYPT_EMAIL=beratokszhosting@gmail.com
+      - ASPNETCORE_ENVIRONMENT=Production
+      - ASPNETCORE_URLS=http://+:8080
+      - ConnectionStrings__DefaultConnection=Server=sqlserver,1433;Database=beratokszDB;User Id=sa;Password=D0ck3rD4t4b4s3!;TrustServerCertificate=True;
+    depends_on:
+      - sqlserver
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://localhost:8080/ || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    deploy:
+      resources:
+        limits:
+          cpus: '0.50'
+          memory: 512M
+        reservations:
+          cpus: '0.25'
+          memory: 256M
+
+networks:
+  vps_network:
+    external: true

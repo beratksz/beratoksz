@@ -1,0 +1,24 @@
+﻿@model Microsoft.AspNetCore.Identity.IdentityUser
+
+@{
+    ViewData["Title"] = "Kullanıcı Detayları";
+    var roles = ViewBag.Roles as IList<string>;
+}
+
+<h2>@ViewData["Title"]</h2>
+<div class="mb-3">
+    <strong>Email:</strong> @Model.Email
+</div>
+<div class="mb-3">
+    <strong>Roller:</strong>
+    <ul>
+        @if (roles != null)
+        {
+            foreach (var role in roles)
+            {
+                <li>@role</li>
+            }
+        }
+    </ul>
+</div>
+<a asp-action="Index" class="btn btn-secondary">Geri Dön</a>
