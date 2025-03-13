@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.12.35527.113 d17.12
+VisualStudioVersion = 17.12.35527.113
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "beratoksz", "beratoksz\beratoksz.csproj", "{7138BA50-D8E2-404D-9C96-32D2CF7CF7C2}"
 EndProject
@@ -9,6 +9,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Çözüm Öğeleri", "Çöz
 	ProjectSection(SolutionItems) = preProject
 		docker-compose.yml = docker-compose.yml
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "beratoksz.Tests", "beratoksz.Tests\beratoksz.Tests.csproj", "{0F0D4B09-173A-481C-ADB8-C9B19FC1B4FA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -20,6 +22,10 @@ Global
 		{7138BA50-D8E2-404D-9C96-32D2CF7CF7C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7138BA50-D8E2-404D-9C96-32D2CF7CF7C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7138BA50-D8E2-404D-9C96-32D2CF7CF7C2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0F0D4B09-173A-481C-ADB8-C9B19FC1B4FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0F0D4B09-173A-481C-ADB8-C9B19FC1B4FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0F0D4B09-173A-481C-ADB8-C9B19FC1B4FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0F0D4B09-173A-481C-ADB8-C9B19FC1B4FA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
