@@ -10,10 +10,10 @@ namespace beratoksz.Models
         [EmailAddress]
         public string Email { get; set; }
 
-        // Tüm rollerin listesi
-        public List<string> Roles { get; set; }
+        // Tüm rollerin listesi; varsayılan olarak boş liste
+        public List<string> Roles { get; set; } = new List<string>();
 
-        // Kullanıcının seçtiği roller
-        public IList<string> SelectedRoles { get; set; }
+        // Kullanıcının seçtiği roller; varsayılan olarak boş liste
+        public IList<string> SelectedRoles { get; set; } = new List<string>();
     }
 }

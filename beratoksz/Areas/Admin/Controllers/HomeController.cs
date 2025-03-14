@@ -9,7 +9,9 @@ namespace beratoksz.Areas.Admin.Controllers
     {
         public IActionResult Index()
         {
-            return View();
+            var claims = User.Claims.Select(c => new { c.Type, c.Value }).ToList();
+            // Bu bilgiyi loglayabilir veya view'e gönderebilirsiniz
+            return View(claims);
         }
     }
 }

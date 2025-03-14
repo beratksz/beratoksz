@@ -1,0 +1,47 @@
+﻿@model beratoksz.Models.EditUserViewModel
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    ViewData["Title"] = "Yeni Kullanıcı Ekle";
+}
+
+<div class="container mt-4">
+    <h1>Yeni Kullanıcı Ekle</h1>
+
+    @if (ViewData["ErrorMessage"] != null)
+    {
+        <div class="alert alert-danger">
+            @ViewData["ErrorMessage"]
+        </div>
+    }
+
+    @if (ViewData["SuccessMessage"] != null)
+    {
+        <div class="alert alert-success">
+            @ViewData["SuccessMessage"]
+        </div>
+    }
+
+    <form asp-action="Create" method="post">
+        <div class="mb-3">
+            <label asp-for="Email" class="form-label"></label>
+            <input type="email" class="form-control" id="Email" name="Email" value="" />
+            <span asp-validation-for="Email" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label for="password" class="form-label">Şifre</label>
+            <input type="password" class="form-control" name="Password" id="password" required />
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Roller</label>
+            @foreach (var role in Model.Roles)
+            {
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="SelectedRoles" value="@role" />
+                    <label class="form-check-label">@role</label>
+                </div>
+            }
+        </div>
+        <button type="submit" class="btn btn-primary">Kaydet</button>
+        <a href="@Url.Action("Index", "UserManagement", new { area = "Admin" })" class="btn btn-secondary">İptal</a>
+    </form>
+</div>

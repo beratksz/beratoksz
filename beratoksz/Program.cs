@@ -1,13 +1,11 @@
+using beratoksz;
 using beratoksz.Data;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
-using System.Text;
 using Serilog;
-using Serilog.Extensions.Hosting;
-using Serilog.Settings.Configuration;
+using System.Text;
 using System.Threading.Tasks;
 
 public class Program
@@ -16,6 +14,7 @@ public class Program
     {
         var builder = WebApplication.CreateBuilder(args);
 
+        // Serilog yapýlandýrmasý
         builder.Host.UseSerilog((context, services, configuration) =>
             configuration.ReadFrom.Configuration(context.Configuration)
                          .ReadFrom.Services(services)
@@ -28,39 +27,41 @@ public class Program
         // Identity ve Rol yönetimi
         builder.Services.AddIdentity<IdentityUser, IdentityRole>(options =>
         {
-            // Parola, Lockout vb. ayarlarý burada yapýlandýrabilirsiniz.
             options.Password.RequireDigit = true;
             options.Password.RequireLowercase = true;
             options.Password.RequireUppercase = true;
             options.Password.RequireNonAlphanumeric = false;
             options.Password.RequiredLength = 6;
         })
-            .AddEntityFrameworkStores<ApplicationDbContext>()
-            .AddDefaultTokenProviders();
+        .AddEntityFrameworkStores<ApplicationDbContext>()
+        .AddDefaultTokenProviders();
+
+        // Custom ClaimsPrincipalFactory, rol claim'lerini eklemek için
+        builder.Services.AddScoped<IUserClaimsPrincipalFactory<IdentityUser>, AdditionalUserClaimsPrincipalFactory>();
 
         builder.Services.AddMemoryCache();
-
         builder.Services.AddControllersWithViews();
-
         builder.Services.AddResponseCaching();
-
         builder.Services.AddHealthChecks();
 
+        // Identity cookie ayarlarý (ConfigureApplicationCookie kullanýlýyor)
         builder.Services.ConfigureApplicationCookie(options =>
         {
             options.Cookie.HttpOnly = true;
-            options.Cookie.SecurePolicy = CookieSecurePolicy.Always;
+            options.Cookie.SecurePolicy = Microsoft.AspNetCore.Http.CookieSecurePolicy.Always;
             options.Cookie.SameSite = Microsoft.AspNetCore.Http.SameSiteMode.Lax;
             options.LoginPath = "/Account/Login";
             options.LogoutPath = "/Account/Logout";
         });
 
+        // Authentication ayarlarýný Identity'nin varsayýlan þemasý ile yapýlandýrýyoruz.
+        // Identity, otomatik olarak "Identity.Application" adlý cookie þemasýný ekler.
         builder.Services.AddAuthentication(options =>
         {
-            options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-            options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            options.DefaultAuthenticateScheme = IdentityConstants.ApplicationScheme;
+            options.DefaultChallengeScheme = IdentityConstants.ApplicationScheme;
         })
-        .AddJwtBearer(options =>
+        .AddJwtBearer("Jwt", options =>
         {
             var jwtConfig = builder.Configuration.GetSection("JWT");
             options.TokenValidationParameters = new TokenValidationParameters
@@ -75,10 +76,10 @@ public class Program
             };
         });
 
+        // Swagger ayarlarý (JWT desteði içeriyor)
         builder.Services.AddEndpointsApiExplorer();
         builder.Services.AddSwaggerGen(options =>
         {
-            // JWT desteði ekleyelim ki Swagger üzerinden de token ile test edebilelim
             options.AddSecurityDefinition("Bearer", new Microsoft.OpenApi.Models.OpenApiSecurityScheme
             {
                 Description = "JWT Authorization header using the Bearer scheme. Örneðin: \"Bearer {token}\"",
@@ -89,23 +90,22 @@ public class Program
             });
             options.AddSecurityRequirement(new Microsoft.OpenApi.Models.OpenApiSecurityRequirement()
             {
-        {
-            new Microsoft.OpenApi.Models.OpenApiSecurityScheme
-            {
-                Reference = new Microsoft.OpenApi.Models.OpenApiReference
                 {
-                    Type = Microsoft.OpenApi.Models.ReferenceType.SecurityScheme,
-                    Id = "Bearer"
-                },
-                Scheme = "oauth2",
-                Name = "Bearer",
-                In = Microsoft.OpenApi.Models.ParameterLocation.Header,
-            },
-            new List<string>()
-        }
+                    new Microsoft.OpenApi.Models.OpenApiSecurityScheme
+                    {
+                        Reference = new Microsoft.OpenApi.Models.OpenApiReference
+                        {
+                            Type = Microsoft.OpenApi.Models.ReferenceType.SecurityScheme,
+                            Id = "Bearer"
+                        },
+                        Scheme = "oauth2",
+                        Name = "Bearer",
+                        In = Microsoft.OpenApi.Models.ParameterLocation.Header,
+                    },
+                    new List<string>()
+                }
             });
         });
-
 
         var app = builder.Build();
 
@@ -121,6 +121,7 @@ public class Program
             app.UseSwaggerUI();
         }
 
+        // DbInitializer: Kullanýcý ve rol seeding iþlemleri
         using (var scope = app.Services.CreateScope())
         {
             var services = scope.ServiceProvider;
@@ -128,21 +129,16 @@ public class Program
         }
 
         app.UseHttpsRedirection();
-
         app.UseStaticFiles();
-
         app.UseResponseCaching();
-
         app.UseRouting();
-
         app.MapHealthChecks("/health");
 
-
+        // Authentication & Authorization middleware'leri
         app.UseAuthentication();
-
         app.UseAuthorization();
 
-        // Admin alaný (Area) ve varsayýlan rota ayarý
+        // Routing ayarlarý
         app.MapControllerRoute(
             name: "areas",
             pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}");
@@ -151,6 +147,5 @@ public class Program
             pattern: "{controller=Home}/{action=Index}/{id?}");
 
         app.Run();
-
     }
 }

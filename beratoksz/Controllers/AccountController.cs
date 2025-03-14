@@ -1,7 +1,8 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using beratoksz.Models;
+using beratoksz.Models;  // LoginViewModel sınıfının bulunduğu yer
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authentication;
 
 namespace beratoksz.Controllers
 {
@@ -17,6 +18,7 @@ namespace beratoksz.Controllers
             _userManager = userManager;
         }
 
+        // GET: /Account/Login
         [HttpGet]
         public IActionResult Login(string returnUrl = null)
         {
@@ -24,6 +26,7 @@ namespace beratoksz.Controllers
             return View();
         }
 
+        // POST: /Account/Login
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Login(LoginViewModel model, string returnUrl = null)
@@ -34,12 +37,23 @@ namespace beratoksz.Controllers
                 var result = await _signInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, lockoutOnFailure: false);
                 if (result.Succeeded)
                 {
+                    var user = await _userManager.FindByEmailAsync(model.Email);
+                    // Manuel olarak ClaimsPrincipal oluşturup cookie'yi yeniden oluşturuyoruz:
+                    var principal = await _signInManager.CreateUserPrincipalAsync(user);
+                    await HttpContext.SignInAsync(IdentityConstants.ApplicationScheme, principal);
+
+                    if (await _userManager.IsInRoleAsync(user, "Admin"))
+                    {
+                        return RedirectToAction("Index", "Home", new { area = "Admin" });
+                    }
                     return RedirectToLocal(returnUrl);
                 }
                 ModelState.AddModelError(string.Empty, "Geçersiz giriş denemesi.");
             }
             return View(model);
         }
+
+
 
         [HttpPost]
         [ValidateAntiForgeryToken]

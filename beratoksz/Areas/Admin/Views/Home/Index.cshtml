@@ -1,9 +1,21 @@
 ﻿@{
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
     ViewData["Title"] = "Admin Paneli";
 }
 
 <div class="container mt-4">
     <h1>Admin Paneline Hoşgeldiniz</h1>
     <p>Buradan kullanıcı yönetimi ve diğer idari işlemleri gerçekleştirebilirsiniz.</p>
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Kullanıcı Yönetimi</h5>
+                    <a href="/Admin/UserManagement" class="btn btn-primary">Yönet</a>
+                </div>
+            </div>
+        </div>
+        <!-- Diğer yönetim modülleri ekleyin -->
+    </div>
 </div>

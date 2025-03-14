@@ -25,7 +25,7 @@ namespace beratoksz.Data
                 }
 
                 // Admin kullanıcı seeding: Bu bilgiler deploy sonrası sistemin ilk admin kullanıcısını oluşturur
-                string adminEmail = "denemeadmin@example.com";
+                string adminEmail = "admin@example.com";
                 string adminPassword = "Admin123!";
                 var adminUser = await userManager.FindByEmailAsync(adminEmail);
 

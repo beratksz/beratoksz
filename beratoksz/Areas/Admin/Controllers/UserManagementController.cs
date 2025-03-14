@@ -1,9 +1,10 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Mvc;
 using beratoksz.Models;
 using System.Linq;
 using System.Threading.Tasks;
+using System;
 
 namespace beratoksz.Areas.Admin.Controllers
 {
@@ -20,38 +21,83 @@ namespace beratoksz.Areas.Admin.Controllers
             _roleManager = roleManager;
         }
 
-        // Kullanıcı listesini görüntüleme
         public IActionResult Index()
         {
             var users = _userManager.Users.ToList();
-            return View(users);
+            var model = users.Select(u => new UserViewModel
+            {
+                Id = u.Id,
+                Email = u.Email,
+                // Roller asenkron alıyoruz, örnek amaçlı .Result
+                Roles = _userManager.GetRolesAsync(u).Result,
+                CreatedAt = DateTime.Now // Örnek, gerçekte veritabanından gelmeli
+            });
+            return View(model);
         }
 
-        // Kullanıcı detaylarını görüntüleme
-        public async Task<IActionResult> Details(string id)
+        [HttpGet]
+        public IActionResult Create()
         {
-            if (id == null)
-                return NotFound();
-
-            var user = await _userManager.FindByIdAsync(id);
-            if (user == null)
-                return NotFound();
-
-            var roles = await _userManager.GetRolesAsync(user);
-            ViewBag.Roles = roles;
-            return View(user);
+            var model = new EditUserViewModel
+            {
+                Roles = _roleManager.Roles.Select(r => r.Name).ToList(),
+                SelectedRoles = new List<string>()
+            };
+            return View(model);
         }
 
-        // Kullanıcı rollerini düzenleme (GET)
+        [HttpPost]
+public async Task<IActionResult> Create(EditUserViewModel model, string[] SelectedRoles, string Password)
+{
+    ModelState.Remove("Id");
+
+    if (model.SelectedRoles == null)
+    {
+        model.SelectedRoles = new List<string>();
+    }
+
+    if (!ModelState.IsValid)
+    {
+        model.Roles = _roleManager.Roles.Select(r => r.Name).ToList();
+        return View(model);
+    }
+    try
+    {
+        var user = new IdentityUser
+        {
+            UserName = model.Email,
+            Email = model.Email,
+            EmailConfirmed = true
+        };
+        var result = await _userManager.CreateAsync(user, Password);
+        if (result.Succeeded)
+        {
+            await _userManager.AddToRolesAsync(user, SelectedRoles);
+            ViewData["SuccessMessage"] = "Kullanıcı başarıyla oluşturuldu.";
+            return RedirectToAction("Index");
+        }
+        foreach (var error in result.Errors)
+        {
+            ModelState.AddModelError("", error.Description);
+        }
+        model.Roles = _roleManager.Roles.Select(r => r.Name).ToList();
+        return View(model);
+    }
+    catch (Exception ex)
+    {
+        ModelState.AddModelError("", "Beklenmeyen bir hata oluştu: " + ex.Message);
+        model.Roles = _roleManager.Roles.Select(r => r.Name).ToList();
+        return View(model);
+    }
+}
+
+
+
         [HttpGet]
         public async Task<IActionResult> Edit(string id)
         {
-            if (id == null)
-                return NotFound();
-
             var user = await _userManager.FindByIdAsync(id);
-            if (user == null)
-                return NotFound();
+            if (user == null) return NotFound();
 
             var userRoles = await _userManager.GetRolesAsync(user);
             var allRoles = _roleManager.Roles.Select(r => r.Name).ToList();
@@ -63,61 +109,83 @@ namespace beratoksz.Areas.Admin.Controllers
                 Roles = allRoles,
                 SelectedRoles = userRoles
             };
-
             return View(model);
         }
 
-        // Kullanıcı rollerini düzenleme (POST)
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(EditUserViewModel model)
+        public async Task<IActionResult> Edit(EditUserViewModel model, string[] SelectedRoles)
         {
             if (!ModelState.IsValid)
+            {
+                model.Roles = _roleManager.Roles.Select(r => r.Name).ToList();
                 return View(model);
-
+            }
             var user = await _userManager.FindByIdAsync(model.Id);
-            if (user == null)
-                return NotFound();
+            if (user == null) return NotFound();
 
+            // Mevcut rolleri kaldır
             var userRoles = await _userManager.GetRolesAsync(user);
+            await _userManager.RemoveFromRolesAsync(user, userRoles);
 
-            // Önce mevcut roller kaldırılıyor
-            var removeResult = await _userManager.RemoveFromRolesAsync(user, userRoles);
-            if (!removeResult.Succeeded)
-            {
-                ModelState.AddModelError("", "Rolleri kaldırırken hata oluştu.");
-                return View(model);
-            }
+            // Yeni rolleri ekle
+            await _userManager.AddToRolesAsync(user, SelectedRoles);
 
-            // Ardından yeni roller ekleniyor
-            var addResult = await _userManager.AddToRolesAsync(user, model.SelectedRoles);
-            if (!addResult.Succeeded)
-            {
-                ModelState.AddModelError("", "Rolleri eklerken hata oluştu.");
-                return View(model);
-            }
-
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction("Index");
         }
 
-        // Kullanıcı silme işlemi
-        [HttpPost]
-        [ValidateAntiForgeryToken]
+        [HttpGet]
+        public async Task<IActionResult> Details(string id)
+        {
+            var user = await _userManager.FindByIdAsync(id);
+            if (user == null) return NotFound();
+
+            var roles = await _userManager.GetRolesAsync(user);
+            var model = new UserViewModel
+            {
+                Id = user.Id,
+                Email = user.Email,
+                Roles = roles,
+                CreatedAt = DateTime.Now // Örnek
+            };
+            return View(model);
+        }
+
+        [HttpGet]
         public async Task<IActionResult> Delete(string id)
         {
-            if (id == null)
-                return NotFound();
-
             var user = await _userManager.FindByIdAsync(id);
-            if (user == null)
-                return NotFound();
+            if (user == null) return NotFound();
+
+            var roles = await _userManager.GetRolesAsync(user);
+            var model = new UserViewModel
+            {
+                Id = user.Id,
+                Email = user.Email,
+                Roles = roles,
+                CreatedAt = DateTime.Now
+            };
+            return View(model);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        [ActionName("DeleteConfirmed")]
+        public async Task<IActionResult> DeleteConfirmed(string id)
+        {
+            var user = await _userManager.FindByIdAsync(id);
+            if (user == null) return NotFound();
 
             var result = await _userManager.DeleteAsync(user);
             if (!result.Succeeded)
             {
-                TempData["Error"] = "Kullanıcı silinirken bir hata oluştu.";
+                // Hata durumunda geri bildirim
+                TempData["ErrorMessage"] = "Kullanıcı silinirken bir hata oluştu.";
+                return RedirectToAction("Index");
             }
-            return RedirectToAction(nameof(Index));
+            TempData["SuccessMessage"] = "Kullanıcı başarıyla silindi.";
+            return RedirectToAction("Index", "UserManagement", new { area = "Admin" });
         }
+
+
     }
 }
