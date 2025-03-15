@@ -13,5 +13,6 @@ namespace beratoksz.Areas.Admin.Controllers
             // Bu bilgiyi loglayabilir veya view'e gönderebilirsiniz
             return View(claims);
         }
+
     }
 }

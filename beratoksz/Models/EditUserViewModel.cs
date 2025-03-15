@@ -6,8 +6,6 @@ namespace beratoksz.Models
     public class EditUserViewModel
     {
         public string Id { get; set; }
-
-        [EmailAddress]
         public string Email { get; set; }
 
         // Tüm rollerin listesi; varsayılan olarak boş liste

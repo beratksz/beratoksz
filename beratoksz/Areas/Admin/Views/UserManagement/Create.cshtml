@@ -1,13 +1,12 @@
 ﻿@model beratoksz.Models.EditUserViewModel
 @{
-    Layout = "~/Views/Shared/_AdminLayout.cshtml";
     ViewData["Title"] = "Yeni Kullanıcı Ekle";
 }
 
-<div class="container mt-4">
+<div class="container-fluid mt-4">
     <h1>Yeni Kullanıcı Ekle</h1>
     <form asp-controller="UserManagement" asp-action="Create" asp-route-area="Admin" method="post">
-        
+
         @Html.AntiForgeryToken()
         <div asp-validation-summary="All" class="text-danger"></div>
         <div class="mb-3">

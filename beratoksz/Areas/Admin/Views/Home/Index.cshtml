@@ -1,21 +1,77 @@
 ﻿@{
-    Layout = "~/Views/Shared/_AdminLayout.cshtml";
     ViewData["Title"] = "Admin Paneli";
 }
 
-<div class="container mt-4">
+<div class="container-fluid mt-4">
     <h1>Admin Paneline Hoşgeldiniz</h1>
     <p>Buradan kullanıcı yönetimi ve diğer idari işlemleri gerçekleştirebilirsiniz.</p>
     <hr />
-    <div class="row">
-        <div class="col-md-4">
-            <div class="card">
+
+    <div class="row justify-content-center">
+        <!-- Kullanıcı Yönetimi Kartı -->
+        <div class="col-md-4 mb-4">
+            <div class="card h-100">
                 <div class="card-body text-center">
                     <h5 class="card-title">Kullanıcı Yönetimi</h5>
+                    <p class="card-text">Kullanıcı hesaplarını yönetin, roller atayın ve izinleri düzenleyin.</p>
                     <a href="/Admin/UserManagement" class="btn btn-primary">Yönet</a>
                 </div>
             </div>
         </div>
-        <!-- Diğer yönetim modülleri ekleyin -->
+
+        <!-- Ürün Yönetimi Kartı -->
+        <div class="col-md-4 mb-4">
+            <div class="card h-100">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Ürün Yönetimi</h5>
+                    <p class="card-text">Ürünleri ekleyin, düzenleyin ve stok durumunu takip edin.</p>
+                    <a href="/Admin/ProductManagement" class="btn btn-primary">Yönet</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sipariş Yönetimi Kartı -->
+        <div class="col-md-4 mb-4">
+            <div class="card h-100">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Sipariş Yönetimi</h5>
+                    <p class="card-text">Siparişleri görüntüleyin, durumlarını güncelleyin ve raporlar oluşturun.</p>
+                    <a href="/Admin/OrderManagement" class="btn btn-primary">Yönet</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- İçerik Yönetimi Kartı -->
+        <div class="col-md-4 mb-4">
+            <div class="card h-100">
+                <div class="card-body text-center">
+                    <h5 class="card-title">İçerik Yönetimi</h5>
+                    <p class="card-text">Blog yazıları, sayfalar ve diğer içerikleri yönetin.</p>
+                    <a href="/Admin/ContentManagement" class="btn btn-primary">Yönet</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Raporlar Kartı -->
+        <div class="col-md-4 mb-4">
+            <div class="card h-100">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Raporlar</h5>
+                    <p class="card-text">Sistem performansı ve kullanıcı aktiviteleri hakkında raporlar alın.</p>
+                    <a href="/Admin/Reports" class="btn btn-primary">Yönet</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Ayarlar Kartı -->
+        <div class="col-md-4 mb-4">
+            <div class="card h-100">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Ayarlar</h5>
+                    <p class="card-text">Sistem ayarlarını düzenleyin ve genel yapılandırmaları yapın.</p>
+                    <a href="/Admin/Settings" class="btn btn-primary">Yönet</a>
+                </div>
+            </div>
+        </div>
     </div>
 </div>

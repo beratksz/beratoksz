@@ -1086,3 +1086,8 @@ C:\Users\berat\source\repos\beratoksz\beratoksz\obj\Debug\net9.0\beratoksz.pdb
 C:\Users\berat\source\repos\beratoksz\beratoksz\obj\Debug\net9.0\beratoksz.genruntimeconfig.cache
 C:\Users\berat\source\repos\beratoksz\beratoksz\obj\Debug\net9.0\ref\beratoksz.dll
 C:\Users\berat\source\repos\beratoksz\beratoksz\obj\Debug\net9.0\staticwebassets.upToDateCheck.txt
+C:\Users\berat\source\repos\beratoksz\beratoksz\bin\Debug\net9.0\Microsoft.AspNetCore.JsonPatch.dll
+C:\Users\berat\source\repos\beratoksz\beratoksz\bin\Debug\net9.0\Microsoft.AspNetCore.Mvc.Razor.Extensions.dll
+C:\Users\berat\source\repos\beratoksz\beratoksz\bin\Debug\net9.0\Microsoft.AspNetCore.Razor.Language.dll
+C:\Users\berat\source\repos\beratoksz\beratoksz\bin\Debug\net9.0\Microsoft.CodeAnalysis.Razor.dll
+C:\Users\berat\source\repos\beratoksz\beratoksz\bin\Debug\net9.0\Newtonsoft.Json.Bson.dll

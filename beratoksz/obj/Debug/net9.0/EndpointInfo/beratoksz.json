@@ -107,11 +107,16 @@
       },
       "RefreshRequest": {
         "required": [
+          "accessToken",
           "refreshToken"
         ],
         "type": "object",
         "properties": {
           "refreshToken": {
+            "type": "string",
+            "nullable": true
+          },
+          "accessToken": {
             "type": "string",
             "nullable": true
           }

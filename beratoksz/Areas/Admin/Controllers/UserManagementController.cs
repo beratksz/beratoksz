@@ -159,7 +159,7 @@ namespace beratoksz.Areas.Admin.Controllers
             var model = new EditUserViewModel
             {
                 Id = user.Id,
-                Email = user.Email,
+                Email = user.Email, // Email alanı burada modele atanıyor
                 Roles = allRoles,
                 SelectedRoles = userRoles
             };
@@ -175,7 +175,6 @@ namespace beratoksz.Areas.Admin.Controllers
 
 
 
-
         // Kullanıcı düzenleme: POST
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -186,13 +185,40 @@ namespace beratoksz.Areas.Admin.Controllers
                 model.Roles = _roleManager.Roles.Select(r => r.Name).ToList();
                 return View(model);
             }
+
             var user = await _userManager.FindByIdAsync(model.Id);
-            if (user == null) return NotFound();
+            if (user == null)
+            {
+                ModelState.AddModelError("", "Kullanıcı bulunamadı.");
+                return View(model);
+            }
+
+            // Email alanının boş olup olmadığını kontrol edin
+            if (string.IsNullOrEmpty(model.Email))
+            {
+                ModelState.AddModelError("", "Email alanı boş olamaz.");
+                return View(model);
+            }
+
+            // Kullanıcının email adresini güncelleme
+            user.Email = model.Email;
+            user.UserName = model.Email; // Kullanıcı adını da güncellemeyi unutmayın
 
             // Mevcut rolleri kaldırın ve yeni rolleri ekleyin
             var userRoles = await _userManager.GetRolesAsync(user);
             await _userManager.RemoveFromRolesAsync(user, userRoles);
             await _userManager.AddToRolesAsync(user, SelectedRoles);
+
+            // Kullanıcıyı güncelleme
+            var updateResult = await _userManager.UpdateAsync(user);
+            if (!updateResult.Succeeded)
+            {
+                foreach (var error in updateResult.Errors)
+                {
+                    ModelState.AddModelError("", error.Description);
+                }
+                return View(model);
+            }
 
             TempData["SuccessMessage"] = "Kullanıcı başarıyla güncellendi.";
             return RedirectToAction("Index");
@@ -251,6 +277,7 @@ namespace beratoksz.Areas.Admin.Controllers
             TempData["SuccessMessage"] = "Kullanıcı başarıyla silindi.";
             return RedirectToAction("Index", "UserManagement", new { area = "Admin" });
         }
+
 
     }
 }

@@ -11,5 +11,12 @@ namespace beratoksz.Models
         public bool IsRevoked { get; set; }
         public string UserId { get; set; }
         public IdentityUser User { get; set; }
+
+    }
+    public sealed class RefreshRequest
+    {
+        public required string RefreshToken { get; init; }
+        public required string AccessToken { get; init; } // Add this line
     }
 }
+
