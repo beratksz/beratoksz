@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   webapp:
-    image: webapp:latest
+    image: beratoksz:latest
     build:
       context: .
       dockerfile: beratoksz/Dockerfile
