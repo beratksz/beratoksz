@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("beratoksz.Tests")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+49e60601ce3533a67cf3edc3df65ad25e29c76aa")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7aec9d18ebdbebddeb91bece8925bde9cc861bc4")]
 [assembly: System.Reflection.AssemblyProductAttribute("beratoksz.Tests")]
 [assembly: System.Reflection.AssemblyTitleAttribute("beratoksz.Tests")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -60,7 +60,7 @@
               "RelativeDocumentMoniker": "docker-compose.yml",
               "ToolTip": "C:\\Users\\berat\\source\\repos\\beratoksz\\docker-compose.yml",
               "RelativeToolTip": "docker-compose.yml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB0AAAAPAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAYAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003775|",
               "WhenOpened": "2025-03-15T11:30:11.461Z",
               "EditorCaption": ""
@@ -75,8 +75,7 @@
               "RelativeToolTip": "beratoksz\\Dockerfile",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAB4AAAAWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2025-03-15T11:30:06.006Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-15T11:30:06.006Z"
             },
             {
               "$type": "Document",
@@ -88,8 +87,7 @@
               "RelativeToolTip": "beratoksz\\Program.cs",
               "ViewState": "AgIAAGEAAAAAAAAAAAAgwHwAAAArAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-15T11:19:50.525Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-15T11:19:50.525Z"
             },
             {
               "$type": "Document",
@@ -101,8 +99,7 @@
               "RelativeToolTip": "beratoksz\\Areas\\Admin\\Views\\UserManagement\\Create.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAABcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-03-15T11:05:15.573Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-15T11:05:15.573Z"
             },
             {
               "$type": "Document",
@@ -114,8 +111,7 @@
               "RelativeToolTip": "beratoksz\\Areas\\Admin\\Views\\UserManagement\\Details.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-03-15T11:05:14.455Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-15T11:05:14.455Z"
             },
             {
               "$type": "Document",
@@ -127,8 +123,7 @@
               "RelativeToolTip": "beratoksz\\Areas\\Admin\\Views\\UserManagement\\Edit.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAAWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-03-15T11:01:21.273Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-15T11:01:21.273Z"
             },
             {
               "$type": "Document",
@@ -140,8 +135,7 @@
               "RelativeToolTip": "beratoksz\\Areas\\Admin\\Views\\UserManagement\\Index.cshtml",
               "ViewState": "AgIAABIAAAAAAAAAAAAAACsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-03-15T10:58:32.285Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-15T10:58:32.285Z"
             },
             {
               "$type": "Document",
@@ -153,8 +147,7 @@
               "RelativeToolTip": "beratoksz\\Areas\\Admin\\Controllers\\UserManagementController.cs",
               "ViewState": "AgIAAH4AAAAAAAAAAAAowJkAAAAuAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-15T10:43:52.927Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-15T10:43:52.927Z"
             }
           ]
         }
