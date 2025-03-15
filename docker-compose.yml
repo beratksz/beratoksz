@@ -18,8 +18,6 @@ services:
       - ASPNETCORE_ENVIRONMENT=Production
       - ASPNETCORE_URLS=http://+:8080
       - ConnectionStrings__DefaultConnection=Server=sqlserver,1433;Database=beratokszDB;User Id=sa;Password=D0ck3rD4t4b4s3!;TrustServerCertificate=True;
-    depends_on:
-      - sqlserver
     healthcheck:
       test: ["CMD-SHELL", "curl -f http://localhost:8080/ || exit 1"]
       interval: 30s
