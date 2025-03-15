@@ -17,7 +17,7 @@ services:
       - LETSENCRYPT_EMAIL=admin@beratoksz.com
       - ASPNETCORE_ENVIRONMENT=Production
       - ASPNETCORE_URLS=http://+:8080
-      - ConnectionStrings__DefaultConnection=Server=sqlserver,1433;Database=beratokszDB;User Id=sa;Password=Dockerdatabase1234!;TrustServerCertificate=True;
+      - ConnectionStrings__DefaultConnection=Server=sqlserver,1433;Database=beratokszDB;User Id=sa;Password=Dockerdatabase123!;TrustServerCertificate=True;
     healthcheck:
       test: ["CMD-SHELL", "curl -f http://localhost:8080/ || exit 1"]
       interval: 30s
