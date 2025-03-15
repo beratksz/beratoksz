@@ -14,7 +14,7 @@ services:
     environment:
       - VIRTUAL_HOST=beratoksz.com
       - LETSENCRYPT_HOST=beratoksz.com
-      - LETSENCRYPT_EMAIL=beratokszhosting@gmail.com
+      - LETSENCRYPT_EMAIL=admin@beratoksz.com
       - ASPNETCORE_ENVIRONMENT=Production
       - ASPNETCORE_URLS=http://+:8080
       - ConnectionStrings__DefaultConnection=Server=sqlserver,1433;Database=beratokszDB;User Id=sa;Password=D0ck3rD4t4b4s3!;TrustServerCertificate=True;
