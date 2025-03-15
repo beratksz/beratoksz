@@ -4,22 +4,16 @@
     ViewData["Title"] = "Kullanıcı Yönetimi";
 }
 
-<div class="container mt-4">
+<div class="container">
     <h1 class="mb-4">Kullanıcı Yönetimi</h1>
-
     @if (TempData["SuccessMessage"] != null)
     {
-        <div class="alert alert-success">
-            @TempData["SuccessMessage"]
-        </div>
+        <div class="alert alert-success">@TempData["SuccessMessage"]</div>
     }
     @if (TempData["ErrorMessage"] != null)
     {
-        <div class="alert alert-danger">
-            @TempData["ErrorMessage"]
-        </div>
+        <div class="alert alert-danger">@TempData["ErrorMessage"]</div>
     }
-
     <a href="@Url.Action("Create", "UserManagement", new { area = "Admin" })" class="btn btn-success mb-3">Yeni Kullanıcı Ekle</a>
     <table class="table table-striped table-hover">
         <thead>
@@ -42,11 +36,12 @@
                     <td>
                         <a href="@Url.Action("Details", "UserManagement", new { area = "Admin", id = user.Id })" class="btn btn-info btn-sm">Detay</a>
                         <a href="@Url.Action("Edit", "UserManagement", new { area = "Admin", id = user.Id })" class="btn btn-warning btn-sm">Düzenle</a>
-                        <form asp-controller="UserManagement" asp-action="DeleteConfirmed" asp-route-area="Admin" method="post" onsubmit="return confirm('Silmek istediğinize emin misiniz?');" class="d-inline">
+                        <form action="/Admin/UserManagement/DeleteConfirmed" method="post" onsubmit="return confirm('Silmek istediğinize emin misiniz?');" class="d-inline">
                             @Html.AntiForgeryToken()
                             <input type="hidden" name="id" value="@user.Id" />
                             <button type="submit" class="btn btn-danger btn-sm">Sil</button>
                         </form>
+
                     </td>
                 </tr>
             }

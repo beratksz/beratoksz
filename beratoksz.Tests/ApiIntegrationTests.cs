@@ -34,7 +34,7 @@ namespace beratoksz.Tests
             // Arrange: Önce token almak için /api/token endpoint'ine istek gönderelim.
             var loginData = new
             {
-                Email = "denemeadmin@example.com",
+                Email = "admin@example.com",
                 Password = "Admin123!",
                 RememberMe = false
             };

@@ -7,19 +7,22 @@
 <div class="container mt-4">
     <h1>Kullanıcı Düzenle</h1>
     <form asp-action="Edit" method="post">
+
+        @Html.AntiForgeryToken()
+        <div asp-validation-summary="All" class="text-danger"></div>
         <input type="hidden" asp-for="Id" />
         <div class="mb-3">
             <label asp-for="Email" class="form-label"></label>
-            <input asp-for="Email" class="form-control" readonly />
+            <input asp-for="Email" type="email" class="form-control" id="Email" name="Email" readonly />
             <span asp-validation-for="Email" class="text-danger"></span>
         </div>
+
         <div class="mb-3">
             <label class="form-label">Roller</label>
             @foreach (var role in Model.Roles)
             {
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" name="SelectedRoles" value="@role"
-                    @(Model.SelectedRoles.Contains(role) ? "checked" : "") />
+                    <input class="form-check-input" type="checkbox" name="SelectedRoles" value="@role" @(Model.SelectedRoles.Contains(role) ? "checked" : "") />
                     <label class="form-check-label">@role</label>
                 </div>
             }

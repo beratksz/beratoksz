@@ -14,7 +14,7 @@ public class Program
     {
         var builder = WebApplication.CreateBuilder(args);
 
-        // Serilog yapýlandýrmasý
+        // Production loglama için Serilog
         builder.Host.UseSerilog((context, services, configuration) =>
             configuration.ReadFrom.Configuration(context.Configuration)
                          .ReadFrom.Services(services)
@@ -24,7 +24,7 @@ public class Program
         builder.Services.AddDbContext<ApplicationDbContext>(options =>
             options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-        // Identity ve Rol yönetimi
+        // Identity ve rol yönetimi (güvenlik için güçlü þifre kurallarý)
         builder.Services.AddIdentity<IdentityUser, IdentityRole>(options =>
         {
             options.Password.RequireDigit = true;
@@ -36,7 +36,7 @@ public class Program
         .AddEntityFrameworkStores<ApplicationDbContext>()
         .AddDefaultTokenProviders();
 
-        // Custom ClaimsPrincipalFactory, rol claim'lerini eklemek için
+        // Custom ClaimsPrincipalFactory, cookie içine rol claim'lerini eklemek için
         builder.Services.AddScoped<IUserClaimsPrincipalFactory<IdentityUser>, AdditionalUserClaimsPrincipalFactory>();
 
         builder.Services.AddMemoryCache();
@@ -44,7 +44,7 @@ public class Program
         builder.Services.AddResponseCaching();
         builder.Services.AddHealthChecks();
 
-        // Identity cookie ayarlarý (ConfigureApplicationCookie kullanýlýyor)
+        // Identity cookie ayarlarý (anti-forgery, secure cookie)
         builder.Services.ConfigureApplicationCookie(options =>
         {
             options.Cookie.HttpOnly = true;
@@ -54,8 +54,7 @@ public class Program
             options.LogoutPath = "/Account/Logout";
         });
 
-        // Authentication ayarlarýný Identity'nin varsayýlan þemasý ile yapýlandýrýyoruz.
-        // Identity, otomatik olarak "Identity.Application" adlý cookie þemasýný ekler.
+        // Authentication ayarlarý – MVC için Identity'nin default cookie (Identity.Application) kullanýlýyor.
         builder.Services.AddAuthentication(options =>
         {
             options.DefaultAuthenticateScheme = IdentityConstants.ApplicationScheme;
@@ -76,7 +75,7 @@ public class Program
             };
         });
 
-        // Swagger ayarlarý (JWT desteði içeriyor)
+        // Swagger (API dokümantasyonu için)
         builder.Services.AddEndpointsApiExplorer();
         builder.Services.AddSwaggerGen(options =>
         {
@@ -109,42 +108,35 @@ public class Program
 
         var app = builder.Build();
 
+        // Production için gerekli middleware'ler
         if (!app.Environment.IsDevelopment())
         {
             app.UseExceptionHandler("/Home/Error");
             app.UseHsts();
         }
-
-        if (app.Environment.IsDevelopment())
-        {
-            app.UseSwagger();
-            app.UseSwaggerUI();
-        }
-
-        // DbInitializer: Kullanýcý ve rol seeding iþlemleri
-        using (var scope = app.Services.CreateScope())
-        {
-            var services = scope.ServiceProvider;
-            await DbInitializer.InitializeAsync(services);
-        }
-
         app.UseHttpsRedirection();
         app.UseStaticFiles();
         app.UseResponseCaching();
         app.UseRouting();
         app.MapHealthChecks("/health");
-
-        // Authentication & Authorization middleware'leri
         app.UseAuthentication();
         app.UseAuthorization();
 
-        // Routing ayarlarý
+        // Routing: Area (Admin) ve default
         app.MapControllerRoute(
             name: "areas",
             pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}");
         app.MapControllerRoute(
             name: "default",
             pattern: "{controller=Home}/{action=Index}/{id?}");
+
+
+        // Seeding: DbInitializer, admin ve roller oluþturuluyor
+        using (var scope = app.Services.CreateScope())
+        {
+            var services = scope.ServiceProvider;
+            await DbInitializer.InitializeAsync(services);
+        }
 
         app.Run();
     }

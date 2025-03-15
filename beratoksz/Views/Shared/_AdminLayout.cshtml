@@ -9,31 +9,28 @@
 </head>
 <body>
     <div class="d-flex" id="wrapper">
-        <!-- Sidebar-->
+        <!-- Sidebar -->
         <div class="border-end bg-white" id="sidebar-wrapper">
             <div class="sidebar-heading border-bottom bg-light">Admin Paneli</div>
             <div class="list-group list-group-flush">
-                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="/Admin/Home/Index">Dashboard</a>
-                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="/Admin/UserManagement/Index">Kullanıcı Yönetimi</a>
+                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="@Url.Action("Index", "Home", new { area = "Admin" })">Dashboard</a>
+                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="@Url.Action("Index", "UserManagement", new { area = "Admin" })">Kullanıcı Yönetimi</a>
                 <!-- Diğer modüller -->
             </div>
         </div>
-        <!-- Page content wrapper-->
+        <!-- Page Content -->
         <div id="page-content-wrapper">
-            <!-- Top navigation-->
             <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
                 <div class="container-fluid">
                     <button class="btn btn-primary" id="sidebarToggle">Menüyü Göster/Gizle</button>
-                    <span class="navbar-text ms-auto">Hoşgeldiniz, @User.Identity.Name!</span>
-                    <form asp-controller="Account" asp-action="Logout" asp-route-area="" method="post" class="d-inline">
+                    <span class="navbar-text ms-auto">Hoşgeldiniz, admin@example.com</span>
+                    <form asp-controller="Account" asp-action="Logout" method="post" class="d-inline">
                         @Html.AntiForgeryToken()
-                        <button type="submit" class="btn btn-outline-danger">Çıkış Yap</button>
+                        <button type="submit" class="btn btn-outline-danger ms-3">Çıkış Yap</button>
                     </form>
-
                 </div>
             </nav>
-            <!-- Page content-->
-            <div class="container-fluid">
+            <div class="container-fluid mt-4">
                 @RenderBody()
             </div>
         </div>

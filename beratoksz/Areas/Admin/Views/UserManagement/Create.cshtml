@@ -6,30 +6,19 @@
 
 <div class="container mt-4">
     <h1>Yeni Kullanıcı Ekle</h1>
-
-    @if (ViewData["ErrorMessage"] != null)
-    {
-        <div class="alert alert-danger">
-            @ViewData["ErrorMessage"]
-        </div>
-    }
-
-    @if (ViewData["SuccessMessage"] != null)
-    {
-        <div class="alert alert-success">
-            @ViewData["SuccessMessage"]
-        </div>
-    }
-
-    <form asp-action="Create" method="post">
+    <form asp-controller="UserManagement" asp-action="Create" asp-route-area="Admin" method="post">
+        
+        @Html.AntiForgeryToken()
+        <div asp-validation-summary="All" class="text-danger"></div>
         <div class="mb-3">
             <label asp-for="Email" class="form-label"></label>
-            <input type="email" class="form-control" id="Email" name="Email" value="" />
+            <input name="Email" id="Email" type="email" asp-for="Email" class="form-control" placeholder="Email adresinizi girin" />
+
             <span asp-validation-for="Email" class="text-danger"></span>
         </div>
         <div class="mb-3">
             <label for="password" class="form-label">Şifre</label>
-            <input type="password" class="form-control" name="Password" id="password" required />
+            <input type="password" class="form-control" name="Password" id="password" placeholder="Güçlü bir şifre belirleyin" required />
         </div>
         <div class="mb-3">
             <label class="form-label">Roller</label>
