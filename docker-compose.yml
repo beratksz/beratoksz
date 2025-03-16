@@ -10,16 +10,16 @@ services:
     networks:
       - vps_network
     expose:
-      - "8080"
+      - "80"
     environment:
       - VIRTUAL_HOST=beratoksz.com
       - LETSENCRYPT_HOST=beratoksz.com
       - LETSENCRYPT_EMAIL=admin@beratoksz.com
       - ASPNETCORE_ENVIRONMENT=Production
-      - ASPNETCORE_URLS=http://+:8080
+      - ASPNETCORE_URLS=http://+:80
       - ConnectionStrings__DefaultConnection=Server=sqlserver,1433;Database=beratokszDB;User Id=sa;Password=Dockerdatabase123!;TrustServerCertificate=True;
     healthcheck:
-      test: ["CMD-SHELL", "curl -f http://localhost:8080/ || exit 1"]
+      test: ["CMD-SHELL", "curl -f http://localhost:80/ || exit 1"]
       interval: 30s
       timeout: 10s
       retries: 3

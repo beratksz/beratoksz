@@ -3,28 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\berat\\source\\repos\\beratoksz\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{7138BA50-D8E2-404D-9C96-32D2CF7CF7C2}|beratoksz\\beratoksz.csproj|c:\\users\\berat\\source\\repos\\beratoksz\\beratoksz\\areas\\admin\\views\\usermanagement\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{7138BA50-D8E2-404D-9C96-32D2CF7CF7C2}|beratoksz\\beratoksz.csproj|solutionrelative:beratoksz\\areas\\admin\\views\\usermanagement\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{7138BA50-D8E2-404D-9C96-32D2CF7CF7C2}|beratoksz\\beratoksz.csproj|c:\\users\\berat\\source\\repos\\beratoksz\\beratoksz\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{7138BA50-D8E2-404D-9C96-32D2CF7CF7C2}|beratoksz\\beratoksz.csproj|solutionrelative:beratoksz\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7138BA50-D8E2-404D-9C96-32D2CF7CF7C2}|beratoksz\\beratoksz.csproj|c:\\users\\berat\\source\\repos\\beratoksz\\beratoksz\\areas\\admin\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{7138BA50-D8E2-404D-9C96-32D2CF7CF7C2}|beratoksz\\beratoksz.csproj|solutionrelative:beratoksz\\areas\\admin\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7138BA50-D8E2-404D-9C96-32D2CF7CF7C2}|beratoksz\\beratoksz.csproj|c:\\users\\berat\\source\\repos\\beratoksz\\beratoksz\\areas\\admin\\views\\usermanagement\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{7138BA50-D8E2-404D-9C96-32D2CF7CF7C2}|beratoksz\\beratoksz.csproj|solutionrelative:beratoksz\\areas\\admin\\views\\usermanagement\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7138BA50-D8E2-404D-9C96-32D2CF7CF7C2}|beratoksz\\beratoksz.csproj|c:\\users\\berat\\source\\repos\\beratoksz\\beratoksz\\areas\\admin\\views\\usermanagement\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{7138BA50-D8E2-404D-9C96-32D2CF7CF7C2}|beratoksz\\beratoksz.csproj|solutionrelative:beratoksz\\areas\\admin\\views\\usermanagement\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7138BA50-D8E2-404D-9C96-32D2CF7CF7C2}|beratoksz\\beratoksz.csproj|c:\\users\\berat\\source\\repos\\beratoksz\\beratoksz\\areas\\admin\\views\\usermanagement\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{7138BA50-D8E2-404D-9C96-32D2CF7CF7C2}|beratoksz\\beratoksz.csproj|solutionrelative:beratoksz\\areas\\admin\\views\\usermanagement\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7138BA50-D8E2-404D-9C96-32D2CF7CF7C2}|beratoksz\\beratoksz.csproj|c:\\users\\berat\\source\\repos\\beratoksz\\beratoksz\\areas\\admin\\views\\shared\\_adminlayout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{7138BA50-D8E2-404D-9C96-32D2CF7CF7C2}|beratoksz\\beratoksz.csproj|solutionrelative:beratoksz\\areas\\admin\\views\\shared\\_adminlayout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{7138BA50-D8E2-404D-9C96-32D2CF7CF7C2}|beratoksz\\beratoksz.csproj|c:\\users\\berat\\source\\repos\\beratoksz\\beratoksz\\views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{7138BA50-D8E2-404D-9C96-32D2CF7CF7C2}|beratoksz\\beratoksz.csproj|solutionrelative:beratoksz\\views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -48,78 +32,26 @@
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\berat\\source\\repos\\beratoksz\\beratoksz\\Areas\\Admin\\Views\\UserManagement\\Index.cshtml",
-              "RelativeDocumentMoniker": "beratoksz\\Areas\\Admin\\Views\\UserManagement\\Index.cshtml",
-              "ToolTip": "C:\\Users\\berat\\source\\repos\\beratoksz\\beratoksz\\Areas\\Admin\\Views\\UserManagement\\Index.cshtml*",
-              "RelativeToolTip": "beratoksz\\Areas\\Admin\\Views\\UserManagement\\Index.cshtml*",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAADIAAAAAAAAAAAAAAA==",
+              "DocumentMoniker": "C:\\Users\\berat\\source\\repos\\beratoksz\\beratoksz\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "beratoksz\\Views\\Home\\Index.cshtml",
+              "ToolTip": "C:\\Users\\berat\\source\\repos\\beratoksz\\beratoksz\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "beratoksz\\Views\\Home\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAmAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-03-15T15:31:38.095Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Edit.cshtml",
-              "DocumentMoniker": "C:\\Users\\berat\\source\\repos\\beratoksz\\beratoksz\\Areas\\Admin\\Views\\UserManagement\\Edit.cshtml",
-              "RelativeDocumentMoniker": "beratoksz\\Areas\\Admin\\Views\\UserManagement\\Edit.cshtml",
-              "ToolTip": "C:\\Users\\berat\\source\\repos\\beratoksz\\beratoksz\\Areas\\Admin\\Views\\UserManagement\\Edit.cshtml*",
-              "RelativeToolTip": "beratoksz\\Areas\\Admin\\Views\\UserManagement\\Edit.cshtml*",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB8AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-03-15T15:31:30.589Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Details.cshtml",
-              "DocumentMoniker": "C:\\Users\\berat\\source\\repos\\beratoksz\\beratoksz\\Areas\\Admin\\Views\\UserManagement\\Details.cshtml",
-              "RelativeDocumentMoniker": "beratoksz\\Areas\\Admin\\Views\\UserManagement\\Details.cshtml",
-              "ToolTip": "C:\\Users\\berat\\source\\repos\\beratoksz\\beratoksz\\Areas\\Admin\\Views\\UserManagement\\Details.cshtml*",
-              "RelativeToolTip": "beratoksz\\Areas\\Admin\\Views\\UserManagement\\Details.cshtml*",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-03-15T15:31:21.974Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Create.cshtml",
-              "DocumentMoniker": "C:\\Users\\berat\\source\\repos\\beratoksz\\beratoksz\\Areas\\Admin\\Views\\UserManagement\\Create.cshtml",
-              "RelativeDocumentMoniker": "beratoksz\\Areas\\Admin\\Views\\UserManagement\\Create.cshtml",
-              "ToolTip": "C:\\Users\\berat\\source\\repos\\beratoksz\\beratoksz\\Areas\\Admin\\Views\\UserManagement\\Create.cshtml*",
-              "RelativeToolTip": "beratoksz\\Areas\\Admin\\Views\\UserManagement\\Create.cshtml*",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACMAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-03-15T15:31:15.088Z",
+              "WhenOpened": "2025-03-15T15:33:25.699Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\berat\\source\\repos\\beratoksz\\beratoksz\\Areas\\Admin\\Views\\Home\\Index.cshtml",
-              "RelativeDocumentMoniker": "beratoksz\\Areas\\Admin\\Views\\Home\\Index.cshtml",
-              "ToolTip": "C:\\Users\\berat\\source\\repos\\beratoksz\\beratoksz\\Areas\\Admin\\Views\\Home\\Index.cshtml*",
-              "RelativeToolTip": "beratoksz\\Areas\\Admin\\Views\\Home\\Index.cshtml*",
-              "ViewState": "AgIAACQAAAAAAAAAAAAkwE0AAAAAAAAAAAAAAA==",
+              "Title": "Login.cshtml",
+              "DocumentMoniker": "C:\\Users\\berat\\source\\repos\\beratoksz\\beratoksz\\Views\\Account\\Login.cshtml",
+              "RelativeDocumentMoniker": "beratoksz\\Views\\Account\\Login.cshtml",
+              "ToolTip": "C:\\Users\\berat\\source\\repos\\beratoksz\\beratoksz\\Views\\Account\\Login.cshtml",
+              "RelativeToolTip": "beratoksz\\Views\\Account\\Login.cshtml",
+              "ViewState": "AgIAAEsAAAAAAAAAAAAAABYAAAAcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-03-15T15:31:04.945Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "_AdminLayout.cshtml",
-              "DocumentMoniker": "C:\\Users\\berat\\source\\repos\\beratoksz\\beratoksz\\Areas\\Admin\\Views\\Shared\\_AdminLayout.cshtml",
-              "RelativeDocumentMoniker": "beratoksz\\Areas\\Admin\\Views\\Shared\\_AdminLayout.cshtml",
-              "ToolTip": "C:\\Users\\berat\\source\\repos\\beratoksz\\beratoksz\\Areas\\Admin\\Views\\Shared\\_AdminLayout.cshtml*",
-              "RelativeToolTip": "beratoksz\\Areas\\Admin\\Views\\Shared\\_AdminLayout.cshtml*",
-              "ViewState": "AgIAAAUAAAAAAAAAAAAowC4AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-03-15T15:16:53.941Z",
+              "WhenOpened": "2025-03-15T15:33:19.516Z",
               "EditorCaption": ""
             }
           ]
