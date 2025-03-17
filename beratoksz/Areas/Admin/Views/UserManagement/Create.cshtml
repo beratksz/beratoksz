@@ -12,8 +12,12 @@
         <div class="mb-3">
             <label asp-for="Email" class="form-label"></label>
             <input name="Email" id="Email" type="email" asp-for="Email" class="form-control" placeholder="Email adresinizi girin" />
-
             <span asp-validation-for="Email" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="UserName" class="form-label">Kullanıcı Adı</label>
+            <input asp-for="UserName" class="form-control" id="UserName" name="UserName" placeholder="Kullanıcı belirleyin" title="Kullanıcı Adı" />
+            <span asp-validation-for="UserName" class="text-danger"></span>
         </div>
         <div class="mb-3">
             <label for="password" class="form-label">Şifre</label>

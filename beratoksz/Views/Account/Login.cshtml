@@ -73,32 +73,38 @@
     }
 </style>
 
-<div class="login-wrap">
-    <div class="login-html">
-        <h2 class="text-center">@ViewData["Title"]</h2>
-        <form asp-action="Login" method="post">
+
+<h2>@ViewData["Title"]</h2>
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Login">
+            <h4>Hesabınızla giriş yapın.</h4>
+            <hr />
             <div asp-validation-summary="All" class="text-danger"></div>
-            <div class="group">
-                <label asp-for="Email" class="form-label">Email</label>
-                <input asp-for="Email" class="form-control" placeholder="Email adresinizi girin" />
-                <span asp-validation-for="Email" class="text-danger"></span>
+            <div class="form-group">
+                <label asp-for="LoginIdentifier" class="control-label">Email, Kullanıcı Adı veya Telefon Numarası</label>
+                <input asp-for="LoginIdentifier" class="form-control" />
+                <span asp-validation-for="LoginIdentifier" class="text-danger"></span>
             </div>
-            <div class="group">
-                <label asp-for="Password" class="form-label">Şifre</label>
-                <input asp-for="Password" class="form-control" placeholder="Şifrenizi girin" />
+            <div class="form-group">
+                <label asp-for="Password" class="control-label">Şifre</label>
+                <input asp-for="Password" class="form-control" />
                 <span asp-validation-for="Password" class="text-danger"></span>
             </div>
-            <div class="group">
-                <div class="form-check">
-                    <input asp-for="RememberMe" class="form-check-input" />
-                    <label asp-for="RememberMe" class="form-check-label">Beni Hatırla</label>
+            <div class="form-group">
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="RememberMe" /> @Html.DisplayNameFor(m => m.RememberMe)
+                    </label>
                 </div>
             </div>
-            <div class="group">
-                <button type="submit" class="button">Giriş Yap</button>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary">Giriş Yap</button>
             </div>
         </form>
-        <p class="text-center mt-4">Kayıt olmak için <a href="mailto:Admin@example.com">Admin@example.com</a> mail atınız</p>
     </div>
 </div>
+
+
 

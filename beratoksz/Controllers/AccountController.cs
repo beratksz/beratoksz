@@ -34,24 +34,44 @@ namespace beratoksz.Controllers
             ViewData["ReturnUrl"] = returnUrl;
             if (ModelState.IsValid)
             {
-                var result = await _signInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, lockoutOnFailure: false);
-                if (result.Succeeded)
-                {
-                    var user = await _userManager.FindByEmailAsync(model.Email);
-                    // Manuel olarak ClaimsPrincipal oluşturup cookie'yi yeniden oluşturuyoruz:
-                    var principal = await _signInManager.CreateUserPrincipalAsync(user);
-                    await HttpContext.SignInAsync(IdentityConstants.ApplicationScheme, principal);
+                IdentityUser user = null;
 
-                    if (await _userManager.IsInRoleAsync(user, "Admin"))
-                    {
-                        return RedirectToAction("Index", "Home", new { area = "Admin" });
-                    }
-                    return RedirectToLocal(returnUrl);
+                // Kullanıcıyı email, kullanıcı adı veya telefon numarasına göre bulma
+                if (model.LoginIdentifier.Contains("@"))
+                {
+                    user = await _userManager.FindByEmailAsync(model.LoginIdentifier);
                 }
+                else if (model.LoginIdentifier.All(char.IsDigit))
+                {
+                    user = _userManager.Users.SingleOrDefault(u => u.PhoneNumber == model.LoginIdentifier);
+                }
+                else
+                {
+                    user = await _userManager.FindByNameAsync(model.LoginIdentifier);
+                }
+
+                if (user != null)
+                {
+                    var result = await _signInManager.PasswordSignInAsync(user.UserName, model.Password, model.RememberMe, lockoutOnFailure: false);
+                    if (result.Succeeded)
+                    {
+                        // Manuel olarak ClaimsPrincipal oluşturup cookie'yi yeniden oluşturuyoruz:
+                        var principal = await _signInManager.CreateUserPrincipalAsync(user);
+                        await HttpContext.SignInAsync(IdentityConstants.ApplicationScheme, principal);
+
+                        if (await _userManager.IsInRoleAsync(user, "Admin"))
+                        {
+                            return RedirectToAction("Index", "Home", new { area = "Admin" });
+                        }
+                        return RedirectToLocal(returnUrl);
+                    }
+                }
+
                 ModelState.AddModelError(string.Empty, "Geçersiz giriş denemesi.");
             }
             return View(model);
         }
+
 
 
 

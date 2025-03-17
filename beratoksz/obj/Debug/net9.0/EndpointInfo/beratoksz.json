@@ -84,15 +84,14 @@
     "schemas": {
       "LoginViewModel": {
         "required": [
-          "email",
+          "loginIdentifier",
           "password"
         ],
         "type": "object",
         "properties": {
-          "email": {
+          "loginIdentifier": {
             "minLength": 1,
-            "type": "string",
-            "format": "email"
+            "type": "string"
           },
           "password": {
             "minLength": 1,

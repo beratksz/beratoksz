@@ -55,6 +55,13 @@ namespace beratoksz.Areas.Admin.Controllers
         {
             // ModelState'den "Id" alanı hatasını kaldırıyoruz
             ModelState.Remove(nameof(model.Id));
+            ModelState.Remove(nameof(model.NormalizedUserName));
+            ModelState.Remove(nameof(model.NormalizedEmail));
+            ModelState.Remove(nameof(model.PasswordHash));
+            ModelState.Remove(nameof(model.SecurityStamp));
+            ModelState.Remove(nameof(model.ConcurrencyStamp));
+            ModelState.Remove(nameof(model.PhoneNumber));
+
 
             // Eğer SelectedRoles null ise, boş liste atıyoruz
             if (model.SelectedRoles == null)
@@ -82,7 +89,7 @@ namespace beratoksz.Areas.Admin.Controllers
                 Console.WriteLine("User oluşturuluyor: " + model.Email);
                 var user = new IdentityUser
                 {
-                    UserName = model.Email,
+                    UserName = model.UserName,
                     Email = model.Email,
                     EmailConfirmed = true
                 };
@@ -159,7 +166,20 @@ namespace beratoksz.Areas.Admin.Controllers
             var model = new EditUserViewModel
             {
                 Id = user.Id,
-                Email = user.Email, // Email alanı burada modele atanıyor
+                Email = user.Email,
+                UserName = user.UserName,
+                NormalizedUserName = user.NormalizedUserName,
+                NormalizedEmail = user.NormalizedEmail,
+                EmailConfirmed = user.EmailConfirmed,
+                PasswordHash = user.PasswordHash,
+                SecurityStamp = user.SecurityStamp,
+                ConcurrencyStamp = user.ConcurrencyStamp,
+                PhoneNumber = user.PhoneNumber,
+                PhoneNumberConfirmed = user.PhoneNumberConfirmed,
+                TwoFactorEnabled = user.TwoFactorEnabled,
+                LockoutEnd = user.LockoutEnd,
+                LockoutEnabled = user.LockoutEnabled,
+                AccessFailedCount = user.AccessFailedCount,
                 Roles = allRoles,
                 SelectedRoles = userRoles
             };
@@ -171,6 +191,7 @@ namespace beratoksz.Areas.Admin.Controllers
 
             return View(model);
         }
+
 
 
 
@@ -193,16 +214,21 @@ namespace beratoksz.Areas.Admin.Controllers
                 return View(model);
             }
 
-            // Email alanının boş olup olmadığını kontrol edin
-            if (string.IsNullOrEmpty(model.Email))
-            {
-                ModelState.AddModelError("", "Email alanı boş olamaz.");
-                return View(model);
-            }
-
-            // Kullanıcının email adresini güncelleme
+            // Kullanıcının bilgilerini güncelleme
             user.Email = model.Email;
-            user.UserName = model.Email; // Kullanıcı adını da güncellemeyi unutmayın
+            user.UserName = model.UserName;
+            user.NormalizedUserName = model.NormalizedUserName;
+            user.NormalizedEmail = model.NormalizedEmail;
+            user.EmailConfirmed = model.EmailConfirmed;
+            user.PasswordHash = model.PasswordHash;
+            user.SecurityStamp = model.SecurityStamp;
+            user.ConcurrencyStamp = model.ConcurrencyStamp;
+            user.PhoneNumber = model.PhoneNumber;
+            user.PhoneNumberConfirmed = model.PhoneNumberConfirmed;
+            user.TwoFactorEnabled = model.TwoFactorEnabled;
+            user.LockoutEnd = model.LockoutEnd;
+            user.LockoutEnabled = model.LockoutEnabled;
+            user.AccessFailedCount = model.AccessFailedCount;
 
             // Mevcut rolleri kaldırın ve yeni rolleri ekleyin
             var userRoles = await _userManager.GetRolesAsync(user);
@@ -223,6 +249,7 @@ namespace beratoksz.Areas.Admin.Controllers
             TempData["SuccessMessage"] = "Kullanıcı başarıyla güncellendi.";
             return RedirectToAction("Index");
         }
+
 
         // Kullanıcı detayları: GET
         [HttpGet]
