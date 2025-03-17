@@ -5,10 +5,30 @@
     "version": "1.0"
   },
   "paths": {
-    "/api/Example": {
+    "/api/activitylog": {
       "get": {
         "tags": [
-          "Example"
+          "ActivityLog"
+        ],
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 1
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 10
+            }
+          }
         ],
         "responses": {
           "200": {
@@ -17,10 +37,34 @@
         }
       }
     },
-    "/admin/TestStatus/send": {
+    "/api/adminanalytics/top-pages": {
       "get": {
         "tags": [
-          "TestStatus"
+          "AdminAnalytics"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/adminanalytics/browsers": {
+      "get": {
+        "tags": [
+          "AdminAnalytics"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Example": {
+      "get": {
+        "tags": [
+          "Example"
         ],
         "responses": {
           "200": {

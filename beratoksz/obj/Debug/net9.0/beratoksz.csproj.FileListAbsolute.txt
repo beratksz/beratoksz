@@ -1100,4 +1100,10 @@ C:\Users\berat-oksuz\source\repos\beratoksz\beratoksz\bin\Debug\net9.0\Serilog.F
 C:\Users\berat-oksuz\source\repos\beratoksz\beratoksz\bin\Debug\net9.0\Serilog.Sinks.Console.dll
 C:\Users\berat-oksuz\source\repos\beratoksz\beratoksz\bin\Debug\net9.0\Serilog.Sinks.Debug.dll
 C:\Users\berat-oksuz\source\repos\beratoksz\beratoksz\bin\Debug\net9.0\Serilog.Sinks.File.dll
+C:\Users\berat-oksuz\source\repos\beratoksz\beratoksz\bin\Debug\net9.0\UAParser.dll
 C:\Users\berat-oksuz\source\repos\beratoksz\beratoksz\obj\Debug\net9.0\staticwebassets.upToDateCheck.txt
+C:\Users\berat-oksuz\source\repos\beratoksz\beratoksz\bin\Debug\net9.0\AspNetCoreRateLimit.dll
+C:\Users\berat-oksuz\source\repos\beratoksz\beratoksz\bin\Debug\net9.0\Microsoft.Extensions.Caching.StackExchangeRedis.dll
+C:\Users\berat-oksuz\source\repos\beratoksz\beratoksz\bin\Debug\net9.0\Pipelines.Sockets.Unofficial.dll
+C:\Users\berat-oksuz\source\repos\beratoksz\beratoksz\bin\Debug\net9.0\StackExchange.Redis.dll
+C:\Users\berat-oksuz\source\repos\beratoksz\beratoksz\obj\Debug\net9.0\compressed\tcpggfr4g3-1asjn5txbj.gz

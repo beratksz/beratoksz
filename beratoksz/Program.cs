@@ -8,6 +8,7 @@ using Microsoft.IdentityModel.Tokens;
 using Serilog;
 using System.Text;
 using beratoksz;
+using AspNetCoreRateLimit;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -49,10 +50,14 @@ builder.Services.AddResponseCaching();
 builder.Services.AddHealthChecks();
 
 // SignalR servisini ekleyin
-builder.Services.AddSignalR();
+builder.Services.AddSignalR(options =>
+{
+    options.KeepAliveInterval = TimeSpan.FromSeconds(15); // ? Baðlantý kontrol süresi
+    options.ClientTimeoutInterval = TimeSpan.FromSeconds(30); // ? Client baðlantýsý düþtüðünde timeout süresi
+});
 
 // Background service: Performans metriklerini toplayan servisi ekleyin
-builder.Services.AddHostedService<beratoksz.PerformanceMetrics.PerformanceMetricsService>();
+builder.Services.AddHostedService<PerformanceMetricsService>();
 
 
 // Identity cookie ayarlarý
@@ -85,6 +90,22 @@ builder.Services.AddAuthentication(options =>
         IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtConfig["Secret"]))
     };
 });
+
+builder.Services.Configure<IpRateLimitOptions>(options =>
+{
+    options.GeneralRules = new List<RateLimitRule>
+    {
+        new RateLimitRule
+        {
+            Endpoint = "*",
+            Limit = 100,
+            Period = "1m" // ? Her IP için 1 dakikada 100 istek sýnýrý
+        }
+    };
+});
+builder.Services.AddSingleton<IRateLimitConfiguration, RateLimitConfiguration>();
+
+
 
 // Swagger (API dokümantasyonu)
 builder.Services.AddEndpointsApiExplorer();
@@ -137,15 +158,19 @@ app.UseAuthorization();
 app.MapHub<StatusHub>("/statusHub");
 
 // Performans metrikleri middleware
-app.UseMiddleware<beratoksz.PerformanceMetrics.PerformanceMetricsMiddleware>();
+app.UseMiddleware<PerformanceMetricsMiddleware>();
+app.UseMiddleware<ActivityLoggingMiddleware>();
 
 // Swagger middleware'leri
-app.UseSwagger();
-app.UseSwaggerUI(c =>
+if (app.Environment.IsDevelopment())
 {
-    c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
-    c.RoutePrefix = string.Empty;
-});
+    app.UseSwagger();
+    app.UseSwaggerUI(c =>
+    {
+        c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
+        c.RoutePrefix = string.Empty;
+    });
+}
 
 // Routing: Areas ve default route
 app.MapControllerRoute(

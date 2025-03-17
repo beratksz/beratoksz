@@ -1,8 +1,39 @@
 [
   {
-    "ContainingType": "beratoksz.Areas.Admin.Controllers.TestStatusController",
-    "Method": "SendTestStatus",
-    "RelativePath": "admin/TestStatus/send",
+    "ContainingType": "beratoksz.Areas.Admin.Controllers.ActivityLogController",
+    "Method": "GetActivityLogs",
+    "RelativePath": "api/activitylog",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "page",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "pageSize",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "beratoksz.Areas.Admin.Controllers.AdminAnalyticsController",
+    "Method": "GetBrowserStats",
+    "RelativePath": "api/adminanalytics/browsers",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "beratoksz.Areas.Admin.Controllers.AdminAnalyticsController",
+    "Method": "GetTopPages",
+    "RelativePath": "api/adminanalytics/top-pages",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,

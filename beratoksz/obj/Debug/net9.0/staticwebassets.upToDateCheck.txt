@@ -49,6 +49,7 @@ C:\Users\berat-oksuz\source\repos\beratoksz\beratoksz\wwwroot\lib\bootstrap\dist
 C:\Users\berat-oksuz\source\repos\beratoksz\beratoksz\wwwroot\favicon.ico
 C:\Users\berat-oksuz\source\repos\beratoksz\beratoksz\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.min.css
 C:\Users\berat-oksuz\source\repos\beratoksz\beratoksz\wwwroot\lib\bootstrap\dist\js\bootstrap.esm.min.js.map
+C:\Users\berat-oksuz\source\repos\beratoksz\beratoksz\wwwroot\css\Dashboard.css
 C:\Users\berat-oksuz\source\repos\beratoksz\beratoksz\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.min.css.map
 C:\Users\berat-oksuz\source\repos\beratoksz\beratoksz\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.min.js
 C:\Users\berat-oksuz\source\repos\beratoksz\beratoksz\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.min.css.map
@@ -57,6 +58,7 @@ C:\Users\berat-oksuz\source\repos\beratoksz\beratoksz\wwwroot\lib\bootstrap\dist
 C:\Users\berat-oksuz\source\repos\beratoksz\beratoksz\wwwroot\lib\jquery\dist\jquery.min.map
 C:\Users\berat-oksuz\source\repos\beratoksz\beratoksz\wwwroot\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.js
 C:\Users\berat-oksuz\source\repos\beratoksz\beratoksz\wwwroot\lib\bootstrap\dist\js\bootstrap.esm.js
+wwwroot\css\Dashboard.css
 wwwroot\css\site.css
 wwwroot\favicon.ico
 wwwroot\js\site.js

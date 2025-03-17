@@ -27,7 +27,6 @@ namespace beratoksz.Hubs
         public async Task SendTestMessage(string message)
         {
             _logger.LogInformation($"📨 Test mesajı alındı: {message}");
-            await Clients.All.SendAsync("ReceiveTestMessage", message);
         }
     }
 }

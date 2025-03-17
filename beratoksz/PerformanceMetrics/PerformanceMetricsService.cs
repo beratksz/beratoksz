@@ -1,44 +1,43 @@
-﻿using Microsoft.AspNetCore.SignalR;
-using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
-using System;
-using System.Diagnostics;
-using System.Threading;
-using System.Threading.Tasks;
+﻿using beratoksz.Data;
 using beratoksz.Hubs;
+using beratoksz.PerformanceMetrics;
+using Microsoft.AspNetCore.SignalR;
+using System.Diagnostics;
 
-namespace beratoksz.PerformanceMetrics
+public class PerformanceMetricsService : BackgroundService
 {
-    public class PerformanceMetricsService : BackgroundService
+    private readonly IServiceScopeFactory _scopeFactory;
+    private readonly IHubContext<StatusHub> _hubContext;
+    private readonly ILogger<PerformanceMetricsService> _logger;
+    private readonly Process _process;
+    private TimeSpan _prevCpuTime;
+    private DateTime _prevTime;
+
+    public PerformanceMetricsService(IServiceScopeFactory scopeFactory, IHubContext<StatusHub> hubContext, ILogger<PerformanceMetricsService> logger)
     {
-        private readonly IHubContext<StatusHub> _hubContext;
-        private readonly ILogger<PerformanceMetricsService> _logger;
-        private readonly Process _process;
-        private TimeSpan _prevCpuTime;
-        private DateTime _prevTime;
+        _scopeFactory = scopeFactory;
+        _hubContext = hubContext;
+        _logger = logger;
+        _process = Process.GetCurrentProcess();
+        _prevCpuTime = _process.TotalProcessorTime;
+        _prevTime = DateTime.UtcNow;
+    }
 
-        public PerformanceMetricsService(IHubContext<StatusHub> hubContext, ILogger<PerformanceMetricsService> logger)
+    protected override async Task ExecuteAsync(CancellationToken stoppingToken)
+    {
+        _logger.LogInformation("🚀 PerformanceMetricsService BAŞLADI!");
+
+        while (!stoppingToken.IsCancellationRequested)
         {
-            _hubContext = hubContext;
-            _logger = logger;
-            _process = Process.GetCurrentProcess();
-            _prevCpuTime = _process.TotalProcessorTime;
-            _prevTime = DateTime.UtcNow;
-        }
-
-        protected override async Task ExecuteAsync(CancellationToken stoppingToken)
-        {
-            _logger.LogInformation("🚀 PerformanceMetricsService BAŞLADI!");
-
-            while (!stoppingToken.IsCancellationRequested)
+            using (var scope = _scopeFactory.CreateScope())
             {
-                var reqMetrics = PerformanceMetricsCollector.GetMetrics();
+                var dbContext = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
 
+                var reqMetrics = PerformanceMetricsCollector.GetMetrics();
                 _process.Refresh();
                 DateTime currentTime = DateTime.UtcNow;
                 TimeSpan currentCpuTime = _process.TotalProcessorTime;
 
-                // **CPU Kullanımını Gerçek Yüzde Olarak Hesapla!**
                 double elapsedMs = (currentTime - _prevTime).TotalMilliseconds;
                 double cpuUsedMs = (currentCpuTime - _prevCpuTime).TotalMilliseconds;
                 double cpuUsage = (cpuUsedMs / elapsedMs) * 100 / Environment.ProcessorCount;
