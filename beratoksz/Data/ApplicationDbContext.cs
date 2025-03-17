@@ -16,6 +16,5 @@ namespace beratoksz.Data
         // public DbSet<YourEntity> YourEntities { get; set; }
 
         public DbSet<RefreshToken> RefreshTokens { get; set; }
-
     }
 }

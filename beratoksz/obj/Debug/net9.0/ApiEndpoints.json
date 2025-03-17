@@ -1,5 +1,15 @@
 [
   {
+    "ContainingType": "beratoksz.Areas.Admin.Controllers.TestStatusController",
+    "Method": "SendTestStatus",
+    "RelativePath": "admin/TestStatus/send",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "beratoksz.Controllers.Api.ExampleController",
     "Method": "Get",
     "RelativePath": "api/Example",

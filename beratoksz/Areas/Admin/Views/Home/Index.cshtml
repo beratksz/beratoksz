@@ -68,10 +68,43 @@
             <div class="card h-100">
                 <div class="card-body text-center">
                     <h5 class="card-title">Ayarlar</h5>
-                    <p class="card-text">Sistem ayarlarını düzenleyin ve genel yapılandırmaları yapın.</p>
-                    <a href="/Admin/Settings" class="btn btn-primary">Yönet</a>
+                    <p class="card-text">Sistemi izleyin ve genel performans analizi yapın.</p>
+                    <a href="/Admin/Dashboard" class="btn btn-primary">Yönet</a>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+            <script>
+                    const connection = new signalR.HubConnectionBuilder()
+        .withUrl("/statusHub")
+        .configureLogging(signalR.LogLevel.Information)
+        .build();
+
+    async function startSignalR() {
+        try {
+            await connection.start();
+            console.log("SignalR bağlantısı başarılı:", connection.state);
+
+            // Bağlantı testi
+            connection.invoke("SendTestMessage", "Bağlantı testi çalışıyor mu?")
+                .catch(err => console.error("SignalR hata:", err));
+
+        } catch (err) {
+            console.error("SignalR bağlantı hatası:", err);
+            setTimeout(startSignalR, 5000); // Bağlantı başarısız olursa tekrar dene
+        }
+    }
+
+    connection.on("UpdatePerformanceMetrics", function(data) {
+        console.log("Sunucudan veri geldi:", data);
+
+        document.getElementById("cpuUsage").innerText = data.SystemMetrics.CpuUsage;
+        document.getElementById("memoryUsage").innerText = data.SystemMetrics.MemoryUsage;
+        document.getElementById("uptime").innerText = data.SystemMetrics.Uptime;
+    });
+
+    startSignalR();
+
+            </script>

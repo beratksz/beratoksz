@@ -18,5 +18,6 @@ namespace beratoksz.Controllers.Api
                 Time = DateTime.UtcNow
             });
         }
+
     }
 }

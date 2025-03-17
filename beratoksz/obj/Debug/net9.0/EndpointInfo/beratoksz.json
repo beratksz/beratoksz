@@ -17,6 +17,18 @@
         }
       }
     },
+    "/admin/TestStatus/send": {
+      "get": {
+        "tags": [
+          "TestStatus"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/Token": {
       "post": {
         "tags": [
