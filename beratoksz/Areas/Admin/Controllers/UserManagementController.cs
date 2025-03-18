@@ -264,6 +264,15 @@ namespace beratoksz.Areas.Admin.Controllers
                 Id = user.Id,
                 Email = user.Email,
                 Roles = roles,
+                UserName = user.UserName,
+                AccessFailedCount = user.AccessFailedCount,
+                EmailConfirmed = user.EmailConfirmed,
+                PhoneNumber = user.PhoneNumber,
+                PhoneNumberConfirmed = user.PhoneNumberConfirmed,
+                TwoFactorEnabled = user.TwoFactorEnabled,
+                LockoutEnd = user.LockoutEnd,
+                LockoutEnabled = user.LockoutEnabled,
+
                 CreatedAt = DateTime.Now // Gerçek tarih eklenebilir
             };
             return View(model);

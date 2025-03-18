@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "6Q9Ll+JMVf8=",
+  "dgSpecHash": "6Va1VRhFp1Y=",
   "success": true,
   "projectFilePath": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\beratoksz.csproj",
   "expectedPackageFiles": [
@@ -8,6 +8,8 @@
     "C:\\Users\\berat-oksuz\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\berat-oksuz\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",
     "C:\\Users\\berat-oksuz\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
+    "C:\\Users\\berat-oksuz\\.nuget\\packages\\maxmind.db\\4.1.0\\maxmind.db.4.1.0.nupkg.sha512",
+    "C:\\Users\\berat-oksuz\\.nuget\\packages\\maxmind.geoip2\\5.2.0\\maxmind.geoip2.5.2.0.nupkg.sha512",
     "C:\\Users\\berat-oksuz\\.nuget\\packages\\microsoft.aspnetcore.antiforgery\\2.3.0\\microsoft.aspnetcore.antiforgery.2.3.0.nupkg.sha512",
     "C:\\Users\\berat-oksuz\\.nuget\\packages\\microsoft.aspnetcore.authentication.abstractions\\2.3.0\\microsoft.aspnetcore.authentication.abstractions.2.3.0.nupkg.sha512",
     "C:\\Users\\berat-oksuz\\.nuget\\packages\\microsoft.aspnetcore.authentication.core\\2.3.0\\microsoft.aspnetcore.authentication.core.2.3.0.nupkg.sha512",

@@ -23,6 +23,7 @@ namespace beratoksz.Models
         public bool LockoutEnabled { get; set; }
         public int AccessFailedCount { get; set; }
 
+
         // Tüm rollerin listesi; varsayılan olarak boş liste
         public List<string> Roles { get; set; } = new List<string>();
 

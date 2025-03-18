@@ -5,8 +5,20 @@
       "PackagePath": "staticwebassets\\beratoksz.n38d5skk9f.bundle.scp.css"
     },
     {
+      "Id": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\wwwroot\\GeoLite2-City.mmdb",
+      "PackagePath": "staticwebassets\\GeoLite2-City.mmdb"
+    },
+    {
+      "Id": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\wwwroot\\GeoLite2-City.mmdb.gz",
+      "PackagePath": "staticwebassets\\GeoLite2-City.mmdb.gz"
+    },
+    {
       "Id": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\wwwroot\\css\\Dashboard.css",
       "PackagePath": "staticwebassets\\css\\Dashboard.css"
+    },
+    {
+      "Id": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\wwwroot\\css\\adminlayout.css",
+      "PackagePath": "staticwebassets\\css\\adminlayout.css"
     },
     {
       "Id": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\wwwroot\\css\\site.css",

@@ -3,37 +3,55 @@
     ViewData["Title"] = "Yeni Kullanıcı Ekle";
 }
 
-<div class="container-fluid mt-4">
-    <h1>Yeni Kullanıcı Ekle</h1>
-    <form asp-controller="UserManagement" asp-action="Create" asp-route-area="Admin" method="post">
+<div class="container py-5">
+    <div class="card shadow">
+        <div class="card-header bg-success text-white">
+            <h3 class="mb-0">Yeni Kullanıcı Ekle</h3>
+        </div>
+        <div class="card-body">
+            <form asp-controller="UserManagement" asp-action="Create" asp-route-area="Admin" method="post">
+                @Html.AntiForgeryToken()
+                <div asp-validation-summary="All" class="text-danger"></div>
 
-        @Html.AntiForgeryToken()
-        <div asp-validation-summary="All" class="text-danger"></div>
-        <div class="mb-3">
-            <label asp-for="Email" class="form-label"></label>
-            <input name="Email" id="Email" type="email" asp-for="Email" class="form-control" placeholder="Email adresinizi girin" />
-            <span asp-validation-for="Email" class="text-danger"></span>
-        </div>
-        <div class="mb-3">
-            <label asp-for="UserName" class="form-label">Kullanıcı Adı</label>
-            <input asp-for="UserName" class="form-control" id="UserName" name="UserName" placeholder="Kullanıcı belirleyin" title="Kullanıcı Adı" />
-            <span asp-validation-for="UserName" class="text-danger"></span>
-        </div>
-        <div class="mb-3">
-            <label for="password" class="form-label">Şifre</label>
-            <input type="password" class="form-control" name="Password" id="password" placeholder="Güçlü bir şifre belirleyin" required />
-        </div>
-        <div class="mb-3">
-            <label class="form-label">Roller</label>
-            @foreach (var role in Model.Roles)
-            {
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" name="SelectedRoles" value="@role" />
-                    <label class="form-check-label">@role</label>
+                <div class="mb-3">
+                    <label asp-for="Email" class="form-label">Email Adresi</label>
+                    <input asp-for="Email" type="email" class="form-control" placeholder="Email adresini girin" required />
+                    <span asp-validation-for="Email" class="text-danger"></span>
                 </div>
-            }
+
+                <div class="mb-3">
+                    <label asp-for="UserName" class="form-label">Kullanıcı Adı</label>
+                    <input asp-for="UserName" class="form-control" placeholder="Kullanıcı adını belirleyin" required />
+                    <span asp-validation-for="UserName" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label for="password" class="form-label">Şifre</label>
+                    <input type="password" name="Password" class="form-control" id="password" placeholder="Güçlü bir şifre belirleyin" required />
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="PhoneNumber" class="form-label">Telefon Numarası</label>
+                    <input asp-for="PhoneNumber" class="form-control" placeholder="Telefon numarasını girin (Opsiyonel)" />
+                    <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Roller</label>
+                    <div class="border rounded p-2">
+                        @foreach (var role in Model.Roles)
+                        {
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" name="SelectedRoles" value="@role" />
+                                <label class="form-check-label">@role</label>
+                            </div>
+                        }
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-success"><i class="bx bx-save"></i> Kaydet</button>
+                <a href="@Url.Action("Index", "UserManagement", new { area = "Admin" })" class="btn btn-outline-secondary">İptal</a>
+            </form>
         </div>
-        <button type="submit" class="btn btn-primary">Kaydet</button>
-        <a href="@Url.Action("Index", "UserManagement", new { area = "Admin" })" class="btn btn-secondary">İptal</a>
-    </form>
+    </div>
 </div>

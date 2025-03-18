@@ -38,6 +38,7 @@
       "beratoksz/1.0.0": {
         "dependencies": {
           "AspNetCoreRateLimit": "5.0.0",
+          "MaxMind.GeoIP2": "5.2.0",
           "Microsoft.AspNetCore.Authentication.JwtBearer": "9.0.3",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "9.0.3",
           "Microsoft.AspNetCore.Mvc": "2.3.0",
@@ -397,6 +398,32 @@
             "assemblyVersion": "2.14.0.0",
             "fileVersion": "2.14.1.48190"
           }
+        }
+      },
+      "MaxMind.Db/4.1.0": {
+        "runtime": {
+          "lib/net8.0/MaxMind.Db.dll": {
+            "assemblyVersion": "4.0.0.0",
+            "fileVersion": "4.0.0.0"
+          }
+        },
+        "compile": {
+          "lib/net8.0/MaxMind.Db.dll": {}
+        }
+      },
+      "MaxMind.GeoIP2/5.2.0": {
+        "dependencies": {
+          "MaxMind.Db": "4.1.0",
+          "Microsoft.Extensions.Options": "9.0.3"
+        },
+        "runtime": {
+          "lib/net8.0/MaxMind.GeoIP2.dll": {
+            "assemblyVersion": "4.0.0.0",
+            "fileVersion": "4.0.0.0"
+          }
+        },
+        "compile": {
+          "lib/net8.0/MaxMind.GeoIP2.dll": {}
         }
       },
       "Microsoft.AspNetCore.Antiforgery/2.3.0": {
@@ -4236,6 +4263,20 @@
       "sha512": "sha512-lQKvtaTDOXnoVJ20ibTuSIOf2i0uO0MPbDhd1jm238I+U/2ZnRENj0cktKZhtchBMtCUSRQ5v4xBCUbKNmyVMw==",
       "path": "humanizer.core/2.14.1",
       "hashPath": "humanizer.core.2.14.1.nupkg.sha512"
+    },
+    "MaxMind.Db/4.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-lEjCFX0TUQCRmFS8xrXIQSi+4omJ1Fwy0gAHlbnjg8cgSBa0cllP5zOEftQ23EP247EbnF7mNCQ3JsG/bMkHAA==",
+      "path": "maxmind.db/4.1.0",
+      "hashPath": "maxmind.db.4.1.0.nupkg.sha512"
+    },
+    "MaxMind.GeoIP2/5.2.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-E8i6yQPlAznLTfS8w208uY3oqCg6i7sQ9cxKmlDdhFMXVLfm4sKphOTMsIWdAHJCV7RxW2a3DlqxAPkQrqmqlA==",
+      "path": "maxmind.geoip2/5.2.0",
+      "hashPath": "maxmind.geoip2.5.2.0.nupkg.sha512"
     },
     "Microsoft.AspNetCore.Antiforgery/2.3.0": {
       "type": "package",

@@ -33,6 +33,7 @@ C:\Users\berat-oksuz\source\repos\beratoksz\beratoksz\wwwroot\lib\bootstrap\dist
 C:\Users\berat-oksuz\source\repos\beratoksz\beratoksz\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.rtl.min.css
 C:\Users\berat-oksuz\source\repos\beratoksz\beratoksz\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.min.js.map
 C:\Users\berat-oksuz\source\repos\beratoksz\beratoksz\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.rtl.min.css.map
+C:\Users\berat-oksuz\source\repos\beratoksz\beratoksz\wwwroot\css\adminlayout.css
 C:\Users\berat-oksuz\source\repos\beratoksz\beratoksz\wwwroot\lib\jquery-validation-unobtrusive\LICENSE.txt
 C:\Users\berat-oksuz\source\repos\beratoksz\beratoksz\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.rtl.min.css
 C:\Users\berat-oksuz\source\repos\beratoksz\beratoksz\wwwroot\lib\bootstrap\dist\css\bootstrap.min.css.map
@@ -58,9 +59,12 @@ C:\Users\berat-oksuz\source\repos\beratoksz\beratoksz\wwwroot\lib\bootstrap\dist
 C:\Users\berat-oksuz\source\repos\beratoksz\beratoksz\wwwroot\lib\jquery\dist\jquery.min.map
 C:\Users\berat-oksuz\source\repos\beratoksz\beratoksz\wwwroot\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.js
 C:\Users\berat-oksuz\source\repos\beratoksz\beratoksz\wwwroot\lib\bootstrap\dist\js\bootstrap.esm.js
+wwwroot\css\adminlayout.css
 wwwroot\css\Dashboard.css
 wwwroot\css\site.css
 wwwroot\favicon.ico
+wwwroot\GeoLite2-City.mmdb
+C:\Users\berat-oksuz\source\repos\beratoksz\beratoksz\wwwroot\GeoLite2-City.mmdb
 wwwroot\js\site.js
 wwwroot\lib\bootstrap\dist\css\bootstrap.css
 wwwroot\lib\bootstrap\dist\css\bootstrap.css.map

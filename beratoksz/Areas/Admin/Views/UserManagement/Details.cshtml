@@ -1,18 +1,61 @@
 ﻿@model beratoksz.Models.UserViewModel
+
 @{
     ViewData["Title"] = "Kullanıcı Detayları";
 }
 
-<div class="container-fluid mt-4">
-    <h1>Kullanıcı Detayları</h1>
-    <div class="card">
+<div class="container py-5">
+    <div class="card shadow">
+        <div class="card-header bg-primary text-white">
+            <h3 class="mb-0">Kullanıcı Detayları</h3>
+        </div>
         <div class="card-body">
-            <h5 class="card-title">@Model.Email</h5>
-            <p><strong>ID:</strong> @Model.Id</p>
-            <p><strong>Roller:</strong> @string.Join(", ", Model.Roles)</p>
-            <p><strong>Oluşturulma Tarihi:</strong> @Model.CreatedAt.ToString("dd.MM.yyyy HH:mm")</p>
-            <a href="@Url.Action("Edit", "UserManagement", new { area = "Admin", id = Model.Id })" class="btn btn-warning">Düzenle</a>
-            <a href="@Url.Action("Index", "UserManagement", new { area = "Admin" })" class="btn btn-secondary">Geri Dön</a>
+            <dl class="row">
+                <dt class="col-md-3">ID</dt>
+                <dd class="col-md-9">@Model.Id</dd>
+
+                <dt class="col-md-3">Email</dt>
+                <dd class="col-md-9">@Model.Email</dd>
+
+                <dt class="col-md-3">Kullanıcı Adı</dt>
+                <dd class="col-md-9">@Model.UserName</dd>
+
+                <dt class="col-md-3">Telefon Numarası</dt>
+                <dd class="col-md-9">@Model.PhoneNumber</dd>
+
+                <dt class="col-md-3">Telefon Onaylı</dt>
+                <dd class="col-md-9">@(Model.PhoneNumberConfirmed ? "Evet" : "Hayır")</dd>
+
+                <dt class="col-md-3">Email Onaylı</dt>
+                <dd class="col-md-9">@(Model.EmailConfirmed ? "Evet" : "Hayır")</dd>
+
+                <dt class="col-md-3">İki Faktörlü Doğrulama</dt>
+                <dd class="col-md-9">@(Model.TwoFactorEnabled ? "Evet" : "Hayır")</dd>
+
+                <dt class="col-md-3">Başarısız Giriş Sayısı</dt>
+                <dd class="col-md-9">@Model.AccessFailedCount</dd>
+
+                <dt class="col-md-3">Roller</dt>
+                <dd class="col-md-9">
+                    @foreach (var role in Model.Roles)
+                    {
+                        <span class="badge bg-primary">@role</span>
+                    }
+                </dd>
+
+                <dt class="col-md-3">Oluşturulma Tarihi</dt>
+                <dd class="col-md-9">@Model.CreatedAt.ToString("dd.MM.yyyy HH:mm")</dd>
+
+                <dt class="col-md-3">Kilitlenme Durumu</dt>
+                <dd class="col-md-9">@(Model.LockoutEnabled ? "Etkin" : "Devre Dışı")</dd>
+
+                <dt class="col-md-3">Kilitlenme Bitiş Tarihi</dt>
+                <dd class="col-md-9">@(Model.LockoutEnd.HasValue ? Model.LockoutEnd.Value.ToString("dd.MM.yyyy HH:mm") : "Yok")</dd>
+            </dl>
+            <div class="mt-4">
+                <a href="@Url.Action("Edit", "UserManagement", new { area = "Admin", id = Model.Id })" class="btn btn-warning"><i class="bx bx-edit"></i> Düzenle</a>
+                <a href="@Url.Action("Index", "UserManagement", new { area = "Admin" })" class="btn btn-outline-secondary">Geri Dön</a>
+            </div>
         </div>
     </div>
 </div>

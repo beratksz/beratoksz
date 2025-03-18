@@ -1,9 +1,6 @@
 C:\Users\berat-oksuz\source\repos\beratoksz\beratoksz.Tests\bin\Debug\net9.0\testhost.dll
 C:\Users\berat-oksuz\source\repos\beratoksz\beratoksz.Tests\bin\Debug\net9.0\testhost.exe
 C:\Users\berat-oksuz\source\repos\beratoksz\beratoksz.Tests\bin\Debug\net9.0\MvcTestingAppManifest.json
-C:\Users\berat-oksuz\source\repos\beratoksz\beratoksz.Tests\bin\Debug\net9.0\xunit.runner.visualstudio.dotnetcore.testadapter.dll
-C:\Users\berat-oksuz\source\repos\beratoksz\beratoksz.Tests\bin\Debug\net9.0\xunit.runner.reporters.netcoreapp10.dll
-C:\Users\berat-oksuz\source\repos\beratoksz\beratoksz.Tests\bin\Debug\net9.0\xunit.runner.utility.netcoreapp10.dll
 C:\Users\berat-oksuz\source\repos\beratoksz\beratoksz.Tests\bin\Debug\net9.0\beratoksz.Tests.deps.json
 C:\Users\berat-oksuz\source\repos\beratoksz\beratoksz.Tests\bin\Debug\net9.0\beratoksz.Tests.runtimeconfig.json
 C:\Users\berat-oksuz\source\repos\beratoksz\beratoksz.Tests\bin\Debug\net9.0\beratoksz.Tests.dll
@@ -321,7 +318,6 @@ C:\Users\berat-oksuz\source\repos\beratoksz\beratoksz.Tests\bin\Debug\net9.0\Mic
 C:\Users\berat-oksuz\source\repos\beratoksz\beratoksz.Tests\bin\Debug\net9.0\Microsoft.TestPlatform.Utilities.dll
 C:\Users\berat-oksuz\source\repos\beratoksz\beratoksz.Tests\bin\Debug\net9.0\Microsoft.VisualStudio.TestPlatform.Common.dll
 C:\Users\berat-oksuz\source\repos\beratoksz\beratoksz.Tests\bin\Debug\net9.0\Newtonsoft.Json.dll
-C:\Users\berat-oksuz\source\repos\beratoksz\beratoksz.Tests\bin\Debug\net9.0\NuGet.Frameworks.dll
 C:\Users\berat-oksuz\source\repos\beratoksz\beratoksz.Tests\bin\Debug\net9.0\System.Diagnostics.EventLog.dll
 C:\Users\berat-oksuz\source\repos\beratoksz\beratoksz.Tests\bin\Debug\net9.0\xunit.abstractions.dll
 C:\Users\berat-oksuz\source\repos\beratoksz\beratoksz.Tests\bin\Debug\net9.0\xunit.assert.dll
@@ -811,3 +807,4 @@ C:\Users\berat\source\repos\beratoksz\beratoksz.Tests\obj\Debug\net9.0\refint\be
 C:\Users\berat\source\repos\beratoksz\beratoksz.Tests\obj\Debug\net9.0\beratoksz.Tests.pdb
 C:\Users\berat\source\repos\beratoksz\beratoksz.Tests\obj\Debug\net9.0\beratoksz.Tests.genruntimeconfig.cache
 C:\Users\berat\source\repos\beratoksz\beratoksz.Tests\obj\Debug\net9.0\ref\beratoksz.Tests.dll
+C:\Users\berat-oksuz\source\repos\beratoksz\beratoksz.Tests\bin\Debug\net9.0\xunit.runner.visualstudio.testadapter.dll

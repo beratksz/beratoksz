@@ -105,6 +105,7 @@ builder.Services.Configure<IpRateLimitOptions>(options =>
 });
 builder.Services.AddSingleton<IRateLimitConfiguration, RateLimitConfiguration>();
 
+builder.Services.AddSingleton<GeoIPService>();
 
 
 // Swagger (API dokümantasyonu)

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "tDZXEZQiqrCQHEuLKtX0oQ0IUndfhfB2j5zTqXEQVVc=",
+  "Hash": "gZ8XcYL6inryM9BtYluxEUWRC2gTsBY9zbDhPShXzzs=",
   "Source": "beratoksz",
   "BasePath": "_content/beratoksz",
   "Mode": "Default",
@@ -794,6 +794,27 @@
       "OriginalItemSpec": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\obj\\Debug\\net9.0\\scopedcss\\projectbundle\\beratoksz.bundle.scp.css"
     },
     {
+      "Identity": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\obj\\Debug\\net9.0\\compressed\\naifeof7to-g4pqupspci.gz",
+      "SourceId": "beratoksz",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\obj\\Debug\\net9.0\\compressed\\",
+      "BasePath": "_content/beratoksz",
+      "RelativePath": "css/adminlayout#[.{fingerprint=g4pqupspci}]?.css.gz",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\wwwroot\\css\\adminlayout.css",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "Fingerprint": "p1oo03lmed",
+      "Integrity": "vUuZtAtxxFs9qDkEG6zNQ5SW3YUUWv8frbTiScPLpew=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\wwwroot\\css\\adminlayout.css"
+    },
+    {
       "Identity": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\obj\\Debug\\net9.0\\compressed\\ngoha7nfuz-356vix0kms.gz",
       "SourceId": "beratoksz",
       "SourceType": "Discovered",
@@ -1130,12 +1151,12 @@
       "OriginalItemSpec": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map"
     },
     {
-      "Identity": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\obj\\Debug\\net9.0\\compressed\\tcpggfr4g3-1asjn5txbj.gz",
+      "Identity": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\obj\\Debug\\net9.0\\compressed\\tcpggfr4g3-s5myexr0s2.gz",
       "SourceId": "beratoksz",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\obj\\Debug\\net9.0\\compressed\\",
       "BasePath": "_content/beratoksz",
-      "RelativePath": "css/Dashboard#[.{fingerprint=1asjn5txbj}]?.css.gz",
+      "RelativePath": "css/Dashboard#[.{fingerprint=s5myexr0s2}]?.css.gz",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Alternative",
@@ -1144,8 +1165,8 @@
       "RelatedAsset": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\wwwroot\\css\\Dashboard.css",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
-      "Fingerprint": "byobinq45r",
-      "Integrity": "EwG8C9HBFI56HRqlNJDeNGlMWbdQZFT8U1KRQEkXaD4=",
+      "Fingerprint": "65braszb6w",
+      "Integrity": "Kpuv5OBfawdHNLvj30VM9hHpnqYmnM5bjfyXHBcgn18=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\wwwroot\\css\\Dashboard.css"
@@ -1361,6 +1382,27 @@
       "OriginalItemSpec": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\obj\\Debug\\net9.0\\scopedcss\\projectbundle\\beratoksz.bundle.scp.css"
     },
     {
+      "Identity": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\wwwroot\\css\\adminlayout.css",
+      "SourceId": "beratoksz",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\wwwroot\\",
+      "BasePath": "_content/beratoksz",
+      "RelativePath": "css/adminlayout#[.{fingerprint}]?.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "g4pqupspci",
+      "Integrity": "sOObqHXlfodsB4GUejl9X/erhC95OLuzoqnabWtZsdA=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\adminlayout.css"
+    },
+    {
       "Identity": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\wwwroot\\css\\Dashboard.css",
       "SourceId": "beratoksz",
       "SourceType": "Discovered",
@@ -1375,8 +1417,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "1asjn5txbj",
-      "Integrity": "Fy9t6ddoHWDIIVWD76tm9qerqoieXifGEg7lHkH/Oco=",
+      "Fingerprint": "s5myexr0s2",
+      "Integrity": "ULl2MaMdlWuJXf4y28mAS5BsbdZ/vspDhADmuPMN500=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\Dashboard.css"
@@ -1422,6 +1464,48 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\wwwroot\\GeoLite2-City.mmdb",
+      "SourceId": "beratoksz",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\wwwroot\\",
+      "BasePath": "_content/beratoksz",
+      "RelativePath": "GeoLite2-City#[.{fingerprint}]?.mmdb",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "uaubqgit2f",
+      "Integrity": "2peoI3jf9uq1vOJIM2sb7NH3FSRCTfmMMLl5saWoIBA=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\GeoLite2-City.mmdb"
+    },
+    {
+      "Identity": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\wwwroot\\GeoLite2-City.mmdb.gz",
+      "SourceId": "beratoksz",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\wwwroot\\",
+      "BasePath": "_content/beratoksz",
+      "RelativePath": "GeoLite2-City#[.{fingerprint=uaubqgit2f}]?.mmdb.gz",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\wwwroot\\GeoLite2-City.mmdb",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "Fingerprint": "nrami02t5v",
+      "Integrity": "A5KZaVOGww06ZsGx9x0PkzUArcopi6D8cHrQeANfNCA=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\wwwroot\\GeoLite2-City.mmdb"
     },
     {
       "Identity": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\wwwroot\\js\\site.js",
@@ -3240,13 +3324,13 @@
       ]
     },
     {
-      "Route": "css/Dashboard.1asjn5txbj.css",
-      "AssetFile": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\obj\\Debug\\net9.0\\compressed\\tcpggfr4g3-1asjn5txbj.gz",
+      "Route": "css/adminlayout.css",
+      "AssetFile": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\obj\\Debug\\net9.0\\compressed\\naifeof7to-g4pqupspci.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.002824858757"
+          "Quality": "0.001908396947"
         }
       ],
       "ResponseHeaders": [
@@ -3256,15 +3340,152 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "353"
+          "Value": "523"
         },
         {
           "Name": "ETag",
-          "Value": "\"EwG8C9HBFI56HRqlNJDeNGlMWbdQZFT8U1KRQEkXaD4=\""
+          "Value": "\"vUuZtAtxxFs9qDkEG6zNQ5SW3YUUWv8frbTiScPLpew=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 17 Mar 2025 13:35:00 GMT"
+          "Value": "Tue, 18 Mar 2025 06:20:28 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"sOObqHXlfodsB4GUejl9X/erhC95OLuzoqnabWtZsdA=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-sOObqHXlfodsB4GUejl9X/erhC95OLuzoqnabWtZsdA="
+        }
+      ]
+    },
+    {
+      "Route": "css/adminlayout.css",
+      "AssetFile": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\wwwroot\\css\\adminlayout.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1270"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"sOObqHXlfodsB4GUejl9X/erhC95OLuzoqnabWtZsdA=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 18 Mar 2025 06:20:28 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-sOObqHXlfodsB4GUejl9X/erhC95OLuzoqnabWtZsdA="
+        }
+      ]
+    },
+    {
+      "Route": "css/adminlayout.css.gz",
+      "AssetFile": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\obj\\Debug\\net9.0\\compressed\\naifeof7to-g4pqupspci.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "523"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"vUuZtAtxxFs9qDkEG6zNQ5SW3YUUWv8frbTiScPLpew=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 18 Mar 2025 06:20:28 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-vUuZtAtxxFs9qDkEG6zNQ5SW3YUUWv8frbTiScPLpew="
+        }
+      ]
+    },
+    {
+      "Route": "css/adminlayout.g4pqupspci.css",
+      "AssetFile": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\obj\\Debug\\net9.0\\compressed\\naifeof7to-g4pqupspci.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.001908396947"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "523"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"vUuZtAtxxFs9qDkEG6zNQ5SW3YUUWv8frbTiScPLpew=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 18 Mar 2025 06:20:28 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3284,26 +3505,179 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"Fy9t6ddoHWDIIVWD76tm9qerqoieXifGEg7lHkH/Oco=\""
+          "Value": "W/\"sOObqHXlfodsB4GUejl9X/erhC95OLuzoqnabWtZsdA=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "1asjn5txbj"
+          "Value": "g4pqupspci"
         },
         {
           "Name": "label",
-          "Value": "css/Dashboard.css"
+          "Value": "css/adminlayout.css"
         },
         {
           "Name": "integrity",
-          "Value": "sha256-Fy9t6ddoHWDIIVWD76tm9qerqoieXifGEg7lHkH/Oco="
+          "Value": "sha256-sOObqHXlfodsB4GUejl9X/erhC95OLuzoqnabWtZsdA="
         }
       ]
     },
     {
-      "Route": "css/Dashboard.1asjn5txbj.css",
+      "Route": "css/adminlayout.g4pqupspci.css",
+      "AssetFile": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\wwwroot\\css\\adminlayout.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1270"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"sOObqHXlfodsB4GUejl9X/erhC95OLuzoqnabWtZsdA=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 18 Mar 2025 06:20:28 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "g4pqupspci"
+        },
+        {
+          "Name": "label",
+          "Value": "css/adminlayout.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-sOObqHXlfodsB4GUejl9X/erhC95OLuzoqnabWtZsdA="
+        }
+      ]
+    },
+    {
+      "Route": "css/adminlayout.g4pqupspci.css.gz",
+      "AssetFile": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\obj\\Debug\\net9.0\\compressed\\naifeof7to-g4pqupspci.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "523"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"vUuZtAtxxFs9qDkEG6zNQ5SW3YUUWv8frbTiScPLpew=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 18 Mar 2025 06:20:28 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "g4pqupspci"
+        },
+        {
+          "Name": "label",
+          "Value": "css/adminlayout.css.gz"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-vUuZtAtxxFs9qDkEG6zNQ5SW3YUUWv8frbTiScPLpew="
+        }
+      ]
+    },
+    {
+      "Route": "css/Dashboard.css",
+      "AssetFile": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\obj\\Debug\\net9.0\\compressed\\tcpggfr4g3-s5myexr0s2.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.003236245955"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "308"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"Kpuv5OBfawdHNLvj30VM9hHpnqYmnM5bjfyXHBcgn18=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 18 Mar 2025 05:04:35 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"ULl2MaMdlWuJXf4y28mAS5BsbdZ/vspDhADmuPMN500=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-ULl2MaMdlWuJXf4y28mAS5BsbdZ/vspDhADmuPMN500="
+        }
+      ]
+    },
+    {
+      "Route": "css/Dashboard.css",
       "AssetFile": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\wwwroot\\css\\Dashboard.css",
       "Selectors": [],
       "ResponseHeaders": [
@@ -3313,7 +3687,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "945"
+          "Value": "560"
         },
         {
           "Name": "Content-Type",
@@ -3321,11 +3695,156 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"Fy9t6ddoHWDIIVWD76tm9qerqoieXifGEg7lHkH/Oco=\""
+          "Value": "\"ULl2MaMdlWuJXf4y28mAS5BsbdZ/vspDhADmuPMN500=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 17 Mar 2025 13:35:00 GMT"
+          "Value": "Tue, 18 Mar 2025 05:04:35 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-ULl2MaMdlWuJXf4y28mAS5BsbdZ/vspDhADmuPMN500="
+        }
+      ]
+    },
+    {
+      "Route": "css/Dashboard.css.gz",
+      "AssetFile": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\obj\\Debug\\net9.0\\compressed\\tcpggfr4g3-s5myexr0s2.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "308"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"Kpuv5OBfawdHNLvj30VM9hHpnqYmnM5bjfyXHBcgn18=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 18 Mar 2025 05:04:35 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-Kpuv5OBfawdHNLvj30VM9hHpnqYmnM5bjfyXHBcgn18="
+        }
+      ]
+    },
+    {
+      "Route": "css/Dashboard.s5myexr0s2.css",
+      "AssetFile": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\obj\\Debug\\net9.0\\compressed\\tcpggfr4g3-s5myexr0s2.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.003236245955"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "308"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"Kpuv5OBfawdHNLvj30VM9hHpnqYmnM5bjfyXHBcgn18=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 18 Mar 2025 05:04:35 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"ULl2MaMdlWuJXf4y28mAS5BsbdZ/vspDhADmuPMN500=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "s5myexr0s2"
+        },
+        {
+          "Name": "label",
+          "Value": "css/Dashboard.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-ULl2MaMdlWuJXf4y28mAS5BsbdZ/vspDhADmuPMN500="
+        }
+      ]
+    },
+    {
+      "Route": "css/Dashboard.s5myexr0s2.css",
+      "AssetFile": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\wwwroot\\css\\Dashboard.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "560"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"ULl2MaMdlWuJXf4y28mAS5BsbdZ/vspDhADmuPMN500=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 18 Mar 2025 05:04:35 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3335,7 +3854,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "1asjn5txbj"
+          "Value": "s5myexr0s2"
         },
         {
           "Name": "label",
@@ -3343,13 +3862,13 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-Fy9t6ddoHWDIIVWD76tm9qerqoieXifGEg7lHkH/Oco="
+          "Value": "sha256-ULl2MaMdlWuJXf4y28mAS5BsbdZ/vspDhADmuPMN500="
         }
       ]
     },
     {
-      "Route": "css/Dashboard.1asjn5txbj.css.gz",
-      "AssetFile": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\obj\\Debug\\net9.0\\compressed\\tcpggfr4g3-1asjn5txbj.gz",
+      "Route": "css/Dashboard.s5myexr0s2.css.gz",
+      "AssetFile": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\obj\\Debug\\net9.0\\compressed\\tcpggfr4g3-s5myexr0s2.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3358,7 +3877,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "353"
+          "Value": "308"
         },
         {
           "Name": "Content-Type",
@@ -3366,11 +3885,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"EwG8C9HBFI56HRqlNJDeNGlMWbdQZFT8U1KRQEkXaD4=\""
+          "Value": "\"Kpuv5OBfawdHNLvj30VM9hHpnqYmnM5bjfyXHBcgn18=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 17 Mar 2025 13:35:00 GMT"
+          "Value": "Tue, 18 Mar 2025 05:04:35 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3388,7 +3907,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "1asjn5txbj"
+          "Value": "s5myexr0s2"
         },
         {
           "Name": "label",
@@ -3396,144 +3915,7 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-EwG8C9HBFI56HRqlNJDeNGlMWbdQZFT8U1KRQEkXaD4="
-        }
-      ]
-    },
-    {
-      "Route": "css/Dashboard.css",
-      "AssetFile": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\obj\\Debug\\net9.0\\compressed\\tcpggfr4g3-1asjn5txbj.gz",
-      "Selectors": [
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip",
-          "Quality": "0.002824858757"
-        }
-      ],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "353"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"EwG8C9HBFI56HRqlNJDeNGlMWbdQZFT8U1KRQEkXaD4=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Mon, 17 Mar 2025 13:35:00 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        },
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip"
-        },
-        {
-          "Name": "Vary",
-          "Value": "Content-Encoding"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "W/\"Fy9t6ddoHWDIIVWD76tm9qerqoieXifGEg7lHkH/Oco=\""
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-Fy9t6ddoHWDIIVWD76tm9qerqoieXifGEg7lHkH/Oco="
-        }
-      ]
-    },
-    {
-      "Route": "css/Dashboard.css",
-      "AssetFile": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\wwwroot\\css\\Dashboard.css",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "945"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"Fy9t6ddoHWDIIVWD76tm9qerqoieXifGEg7lHkH/Oco=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Mon, 17 Mar 2025 13:35:00 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-Fy9t6ddoHWDIIVWD76tm9qerqoieXifGEg7lHkH/Oco="
-        }
-      ]
-    },
-    {
-      "Route": "css/Dashboard.css.gz",
-      "AssetFile": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\obj\\Debug\\net9.0\\compressed\\tcpggfr4g3-1asjn5txbj.gz",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "353"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"EwG8C9HBFI56HRqlNJDeNGlMWbdQZFT8U1KRQEkXaD4=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Mon, 17 Mar 2025 13:35:00 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        },
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip"
-        },
-        {
-          "Name": "Vary",
-          "Value": "Content-Encoding"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-EwG8C9HBFI56HRqlNJDeNGlMWbdQZFT8U1KRQEkXaD4="
+          "Value": "sha256-Kpuv5OBfawdHNLvj30VM9hHpnqYmnM5bjfyXHBcgn18="
         }
       ]
     },
@@ -4130,6 +4512,304 @@
         {
           "Name": "integrity",
           "Value": "sha256-wfFuuYm+Lh6RbCeeiUqxw334b/hIOkp5j9eokGUM1Y0="
+        }
+      ]
+    },
+    {
+      "Route": "GeoLite2-City.mmdb",
+      "AssetFile": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\wwwroot\\GeoLite2-City.mmdb",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "59816818"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/octet-stream"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"2peoI3jf9uq1vOJIM2sb7NH3FSRCTfmMMLl5saWoIBA=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 11 Mar 2025 09:20:13 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-2peoI3jf9uq1vOJIM2sb7NH3FSRCTfmMMLl5saWoIBA="
+        }
+      ]
+    },
+    {
+      "Route": "GeoLite2-City.mmdb",
+      "AssetFile": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\wwwroot\\GeoLite2-City.mmdb.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.000000034631"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "28875760"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"A5KZaVOGww06ZsGx9x0PkzUArcopi6D8cHrQeANfNCA=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 11 Mar 2025 09:20:13 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/octet-stream"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"2peoI3jf9uq1vOJIM2sb7NH3FSRCTfmMMLl5saWoIBA=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-2peoI3jf9uq1vOJIM2sb7NH3FSRCTfmMMLl5saWoIBA="
+        }
+      ]
+    },
+    {
+      "Route": "GeoLite2-City.mmdb.gz",
+      "AssetFile": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\wwwroot\\GeoLite2-City.mmdb.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "28875760"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/x-gzip"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"A5KZaVOGww06ZsGx9x0PkzUArcopi6D8cHrQeANfNCA=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 11 Mar 2025 09:20:13 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-A5KZaVOGww06ZsGx9x0PkzUArcopi6D8cHrQeANfNCA="
+        }
+      ]
+    },
+    {
+      "Route": "GeoLite2-City.uaubqgit2f.mmdb",
+      "AssetFile": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\wwwroot\\GeoLite2-City.mmdb",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "59816818"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/octet-stream"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"2peoI3jf9uq1vOJIM2sb7NH3FSRCTfmMMLl5saWoIBA=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 11 Mar 2025 09:20:13 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "uaubqgit2f"
+        },
+        {
+          "Name": "label",
+          "Value": "GeoLite2-City.mmdb"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-2peoI3jf9uq1vOJIM2sb7NH3FSRCTfmMMLl5saWoIBA="
+        }
+      ]
+    },
+    {
+      "Route": "GeoLite2-City.uaubqgit2f.mmdb",
+      "AssetFile": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\wwwroot\\GeoLite2-City.mmdb.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.000000034631"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "28875760"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"A5KZaVOGww06ZsGx9x0PkzUArcopi6D8cHrQeANfNCA=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 11 Mar 2025 09:20:13 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/octet-stream"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"2peoI3jf9uq1vOJIM2sb7NH3FSRCTfmMMLl5saWoIBA=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "uaubqgit2f"
+        },
+        {
+          "Name": "label",
+          "Value": "GeoLite2-City.mmdb"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-2peoI3jf9uq1vOJIM2sb7NH3FSRCTfmMMLl5saWoIBA="
+        }
+      ]
+    },
+    {
+      "Route": "GeoLite2-City.uaubqgit2f.mmdb.gz",
+      "AssetFile": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\wwwroot\\GeoLite2-City.mmdb.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "28875760"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/x-gzip"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"A5KZaVOGww06ZsGx9x0PkzUArcopi6D8cHrQeANfNCA=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 11 Mar 2025 09:20:13 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "uaubqgit2f"
+        },
+        {
+          "Name": "label",
+          "Value": "GeoLite2-City.mmdb.gz"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-A5KZaVOGww06ZsGx9x0PkzUArcopi6D8cHrQeANfNCA="
         }
       ]
     },
