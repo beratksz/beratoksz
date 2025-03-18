@@ -300,6 +300,30 @@ namespace beratoksz.Migrations
                     b.ToTable("RefreshTokens");
                 });
 
+            modelBuilder.Entity("beratoksz.Models.RolePermission", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<bool?>("CanAccess")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("PagePath")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("RoleName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("RolePermissions");
+                });
+
             modelBuilder.Entity("beratoksz.Models.UserSecurityActivity", b =>
                 {
                     b.Property<int>("Id")

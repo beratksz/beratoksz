@@ -18,6 +18,7 @@ namespace beratoksz.Data
         public DbSet<RefreshToken> RefreshTokens { get; set; }
         public DbSet<ActivityLog> ActivityLogs { get; set; }
         public DbSet<UserSecurityActivity> UserSecurityActivities { get; set; }
+        public DbSet<RolePermission> RolePermissions { get; set; }
 
     }
 }

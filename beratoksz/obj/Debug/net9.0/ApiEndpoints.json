@@ -61,6 +61,69 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "RolePermissionController",
+    "Method": "GetRolePermissions",
+    "RelativePath": "api/role-permissions",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "RolePermissionController",
+    "Method": "AddPermission",
+    "RelativePath": "api/role-permissions",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "permission",
+        "Type": "beratoksz.Models.RolePermission",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "RolePermissionController",
+    "Method": "UpdatePermission",
+    "RelativePath": "api/role-permissions/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "permission",
+        "Type": "beratoksz.Models.RolePermission",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "RolePermissionController",
+    "Method": "DeletePermission",
+    "RelativePath": "api/role-permissions/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "beratoksz.Controllers.Api.TokenController",
     "Method": "Post",
     "RelativePath": "api/Token",

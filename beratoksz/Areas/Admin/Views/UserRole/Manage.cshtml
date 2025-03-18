@@ -1,0 +1,101 @@
+﻿@model UserRoleViewModel
+
+@{
+    ViewData["Title"] = "Kullanıcı Rol Yönetimi";
+}
+
+<div class="container-fluid mt-4">
+    <h1>@Model.UserName Kullanıcı Rollerini Yönet</h1>
+
+    <form asp-action="Manage" asp-controller="UserRole" asp-area="Admin" method="post">
+        @Html.AntiForgeryToken()
+        <input type="hidden" asp-for="UserId" />
+
+        <div class="mb-3">
+            <label class="form-label">Mevcut Roller</label>
+            @foreach (var role in Model.AssignedRoles)
+            {
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="AssignedRoles" value="@role" checked />
+                    <label class="form-check-label">@role</label>
+                </div>
+            }
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Eklenebilir Roller</label>
+            @foreach (var role in Model.AvailableRoles)
+            {
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="AssignedRoles" value="@role" />
+                    <label class="form-check-label">@role</label>
+                </div>
+            }
+        </div>
+
+        <button type="submit" class="btn btn-primary">Kaydet</button>
+        <a href="@Url.Action("Index", "UserRole", new { area = "Admin" })" class="btn btn-secondary">İptal</a>
+    </form>
+
+
+
+<h2>Rol Yetkilendirme</h2>
+<table class="table table-hover table-bordered">
+    <thead class="table-dark">
+        <tr>
+            <th>Rol</th>
+            <th>Sayfa</th>
+            <th>Erişim</th>
+            <th>İşlemler</th>
+        </tr>
+    </thead>
+    <tbody id="rolePermissionTable">
+        <tr><td colspan="4" class="text-center">Yükleniyor...</td></tr>
+    </tbody>
+</table>
+
+<script>
+    async function fetchPermissions() {
+        let response = await fetch('/api/role-permissions');
+        let permissions = await response.json();
+        let tbody = document.getElementById('rolePermissionTable');
+
+        tbody.innerHTML = "";
+        permissions.forEach(p => {
+            let row = `<tr>
+                <td>${p.roleName}</td>
+                <td>${p.pagePath}</td>
+                <td>
+                    <input type="checkbox" class="toggle-permission" data-id="${p.id}" ${p.canAccess ? "checked" : ""}>
+                </td>
+                <td>
+                    <button class="btn btn-danger delete-permission" data-id="${p.id}">Sil</button>
+                </td>
+            </tr>`;
+            tbody.innerHTML += row;
+        });
+
+        document.querySelectorAll('.toggle-permission').forEach(el => {
+            el.addEventListener('change', async function() {
+                let id = this.getAttribute("data-id");
+                let canAccess = this.checked;
+                await fetch(`/api/role-permissions/${id}`, {
+                    method: "PUT",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ canAccess })
+                });
+            });
+        });
+
+        document.querySelectorAll('.delete-permission').forEach(el => {
+            el.addEventListener('click', async function() {
+                let id = this.getAttribute("data-id");
+                await fetch(`/api/role-permissions/${id}`, { method: "DELETE" });
+                fetchPermissions(); // Yeniden yükle
+            });
+        });
+    }
+
+    fetchPermissions();
+</script>
+</div>

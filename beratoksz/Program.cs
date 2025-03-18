@@ -10,6 +10,7 @@ using System.Text;
 using beratoksz;
 using AspNetCoreRateLimit;
 using beratoksz.Services;
+using beratoksz.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -110,6 +111,10 @@ builder.Services.AddSingleton<GeoIPService>();
 
 builder.Services.AddScoped<UserSecurityService>();
 
+builder.Services.AddScoped<RolePermissionService>();
+
+builder.Services.AddScoped<PageDiscoveryService>();
+
 
 // Swagger (API dokümantasyonu)
 builder.Services.AddEndpointsApiExplorer();
@@ -144,6 +149,31 @@ builder.Services.AddSwaggerGen(options =>
 
 var app = builder.Build();
 
+using (var scope = app.Services.CreateScope())
+{
+    var scopedProvider = scope.ServiceProvider;
+    var pageDiscoveryService = scopedProvider.GetRequiredService<PageDiscoveryService>();
+    var dbContext = scopedProvider.GetRequiredService<ApplicationDbContext>();
+
+    var existingPages = dbContext.RolePermissions.Select(r => r.PagePath).ToList();
+    var allPages = pageDiscoveryService.GetAllPages();
+
+    foreach (var page in allPages)
+    {
+        if (!existingPages.Contains(page))
+        {
+            dbContext.RolePermissions.Add(new RolePermission
+            {
+                RoleName = "Admin",
+                PagePath = page,
+                CanAccess = false // Yeni eklenen sayfalar varsayýlan olarak eriþilemez olur.
+            });
+        }
+    }
+    dbContext.SaveChanges();
+}
+
+
 // Production ortamý için hata yönetimi
 if (!app.Environment.IsDevelopment())
 {
@@ -164,6 +194,7 @@ app.MapHub<StatusHub>("/statusHub");
 // Performans metrikleri middleware
 app.UseMiddleware<PerformanceMetricsMiddleware>();
 app.UseMiddleware<ActivityLoggingMiddleware>();
+app.UseMiddleware<RolePermissionMiddleware>();
 
 // Swagger middleware'leri
 if (app.Environment.IsDevelopment())
@@ -174,6 +205,7 @@ if (app.Environment.IsDevelopment())
         c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
         c.RoutePrefix = string.Empty;
     });
+
 }
 
 // Routing: Areas ve default route
