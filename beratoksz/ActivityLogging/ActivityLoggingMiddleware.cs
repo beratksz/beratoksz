@@ -77,7 +77,7 @@ public class ActivityLoggingMiddleware
                 Duration = duration,
                 Country = country,
                 City = city,
-                Region = region
+                Region = region,
             };
 
             _logger.LogInformation($"📌 Kullanıcı: {userName}, Sayfa: {pagePath}, IP: {ipAddress}, OS: {os}, Tarayıcı: {clientInfo.UA}, Ülke: {country}, Şehir: {city}, Bölge: {region}");

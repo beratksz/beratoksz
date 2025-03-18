@@ -9,6 +9,7 @@ using Serilog;
 using System.Text;
 using beratoksz;
 using AspNetCoreRateLimit;
+using beratoksz.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -106,6 +107,8 @@ builder.Services.Configure<IpRateLimitOptions>(options =>
 builder.Services.AddSingleton<IRateLimitConfiguration, RateLimitConfiguration>();
 
 builder.Services.AddSingleton<GeoIPService>();
+
+builder.Services.AddScoped<UserSecurityService>();
 
 
 // Swagger (API dokümantasyonu)

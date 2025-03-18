@@ -73,6 +73,18 @@
         }
       }
     },
+    "/api/activities/activities": {
+      "get": {
+        "tags": [
+          "Security"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/Token": {
       "post": {
         "tags": [

@@ -1,5 +1,6 @@
 ﻿using beratoksz.Data;
 using beratoksz.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Caching.Memory;
 using System;
@@ -8,6 +9,8 @@ using System.Linq;
 
 namespace beratoksz.Areas.Admin.Controllers
 {
+    [Area("Admin")]
+    [Authorize]
     [ApiController]
     [Route("api/adminanalytics")]
     public class AdminAnalyticsController : ControllerBase

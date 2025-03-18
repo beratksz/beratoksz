@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using beratoksz.Models;  // LoginViewModel sınıfının bulunduğu yer
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authentication;
+using beratoksz.Services;
 
 namespace beratoksz.Controllers
 {
@@ -10,12 +11,16 @@ namespace beratoksz.Controllers
     {
         private readonly SignInManager<IdentityUser> _signInManager;
         private readonly UserManager<IdentityUser> _userManager;
+        private readonly UserSecurityService _userSecurityService;
 
         public AccountController(SignInManager<IdentityUser> signInManager,
-                                 UserManager<IdentityUser> userManager)
+                                 UserManager<IdentityUser> userManager,
+                                 UserSecurityService userSecurityService)
         {
             _signInManager = signInManager;
             _userManager = userManager;
+            _userSecurityService = userSecurityService;
+
         }
 
         // GET: /Account/Login
@@ -26,6 +31,7 @@ namespace beratoksz.Controllers
             return View();
         }
 
+        // POST: /Account/Login
         // POST: /Account/Login
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -53,17 +59,26 @@ namespace beratoksz.Controllers
                 if (user != null)
                 {
                     var result = await _signInManager.PasswordSignInAsync(user.UserName, model.Password, model.RememberMe, lockoutOnFailure: false);
+                    var ipAddress = HttpContext.Connection.RemoteIpAddress?.ToString();
+                    var userAgent = HttpContext.Request.Headers["User-Agent"].ToString();
+
                     if (result.Succeeded)
                     {
                         // Manuel olarak ClaimsPrincipal oluşturup cookie'yi yeniden oluşturuyoruz:
                         var principal = await _signInManager.CreateUserPrincipalAsync(user);
                         await HttpContext.SignInAsync(IdentityConstants.ApplicationScheme, principal);
 
+                        await _userSecurityService.LogActivity(user.Id, "Login", ipAddress, userAgent, true);
+
                         if (await _userManager.IsInRoleAsync(user, "Admin"))
                         {
                             return RedirectToAction("Index", "Home", new { area = "Admin" });
                         }
                         return RedirectToLocal(returnUrl);
+                    }
+                    else
+                    {
+                        await _userSecurityService.LogActivity(user.Id, "FailedLogin", ipAddress, userAgent, false);
                     }
                 }
 

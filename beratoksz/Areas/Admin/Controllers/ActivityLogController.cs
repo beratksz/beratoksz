@@ -1,5 +1,6 @@
 ﻿using beratoksz.Data;
 using beratoksz.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
@@ -7,6 +8,8 @@ using System.Linq;
 
 namespace beratoksz.Areas.Admin.Controllers
 {
+    [Area("Admin")]
+    [Authorize]
     [ApiController]
     [Route("api/activitylog")]
     public class ActivityLogController : ControllerBase

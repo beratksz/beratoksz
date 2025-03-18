@@ -1,5 +1,15 @@
 [
   {
+    "ContainingType": "beratoksz.Areas.Admin.Controllers.SecurityController",
+    "Method": "GetRecentActivities",
+    "RelativePath": "api/activities/activities",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "beratoksz.Areas.Admin.Controllers.ActivityLogController",
     "Method": "GetActivityLogs",
     "RelativePath": "api/activitylog",
