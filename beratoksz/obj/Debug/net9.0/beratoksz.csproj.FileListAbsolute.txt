@@ -467,7 +467,6 @@ C:\Users\berat\source\repos\beratoksz\beratoksz\obj\Debug\net9.0\scopedcss\bundl
 C:\Users\berat\source\repos\beratoksz\beratoksz\obj\Debug\net9.0\scopedcss\projectbundle\beratoksz.bundle.scp.css
 C:\Users\berat\source\repos\beratoksz\beratoksz\obj\Debug\net9.0\compressed\f3dvjwtfmt-c2tiyv64ts.gz
 C:\Users\berat\source\repos\beratoksz\beratoksz\obj\Debug\net9.0\compressed\s7afpz379a-61n19gt1b8.gz
-C:\Users\berat\source\repos\beratoksz\beratoksz\obj\Debug\net9.0\compressed\egnn0m0ttr-xtxxf3hu2r.gz
 C:\Users\berat\source\repos\beratoksz\beratoksz\obj\Debug\net9.0\compressed\64huctqxag-nakmwdwsxp.gz
 C:\Users\berat\source\repos\beratoksz\beratoksz\obj\Debug\net9.0\compressed\1ye7o5aym8-st1cbwfwo5.gz
 C:\Users\berat\source\repos\beratoksz\beratoksz\obj\Debug\net9.0\compressed\51k5ezwgpo-5p029spbuu.gz
@@ -1111,3 +1110,19 @@ C:\Users\berat-oksuz\source\repos\beratoksz\beratoksz\obj\Debug\net9.0\ref\berat
 C:\Users\berat-oksuz\source\repos\beratoksz\beratoksz\obj\Debug\net9.0\staticwebassets.upToDateCheck.txt
 C:\Users\berat-oksuz\source\repos\beratoksz\beratoksz\obj\Debug\net9.0\compressed\vgle2aokzv-bkbrka2yoe.gz
 C:\Users\berat-oksuz\source\repos\beratoksz\beratoksz\obj\Debug\net9.0\compressed\925xn0q78r-1q4zmb0tvk.gz
+C:\Users\berat\source\repos\beratoksz\beratoksz\bin\Debug\net9.0\AspNetCoreRateLimit.dll
+C:\Users\berat\source\repos\beratoksz\beratoksz\bin\Debug\net9.0\MaxMind.Db.dll
+C:\Users\berat\source\repos\beratoksz\beratoksz\bin\Debug\net9.0\MaxMind.GeoIP2.dll
+C:\Users\berat\source\repos\beratoksz\beratoksz\bin\Debug\net9.0\Microsoft.Extensions.Caching.StackExchangeRedis.dll
+C:\Users\berat\source\repos\beratoksz\beratoksz\bin\Debug\net9.0\Pipelines.Sockets.Unofficial.dll
+C:\Users\berat\source\repos\beratoksz\beratoksz\bin\Debug\net9.0\Serilog.AspNetCore.dll
+C:\Users\berat\source\repos\beratoksz\beratoksz\bin\Debug\net9.0\Serilog.Formatting.Compact.dll
+C:\Users\berat\source\repos\beratoksz\beratoksz\bin\Debug\net9.0\Serilog.Sinks.Console.dll
+C:\Users\berat\source\repos\beratoksz\beratoksz\bin\Debug\net9.0\Serilog.Sinks.Debug.dll
+C:\Users\berat\source\repos\beratoksz\beratoksz\bin\Debug\net9.0\Serilog.Sinks.File.dll
+C:\Users\berat\source\repos\beratoksz\beratoksz\bin\Debug\net9.0\StackExchange.Redis.dll
+C:\Users\berat\source\repos\beratoksz\beratoksz\bin\Debug\net9.0\UAParser.dll
+C:\Users\berat\source\repos\beratoksz\beratoksz\obj\Debug\net9.0\compressed\naifeof7to-g4pqupspci.gz
+C:\Users\berat\source\repos\beratoksz\beratoksz\obj\Debug\net9.0\compressed\tcpggfr4g3-s5myexr0s2.gz
+C:\Users\berat\source\repos\beratoksz\beratoksz\obj\Debug\net9.0\compressed\vgle2aokzv-bkbrka2yoe.gz
+C:\Users\berat\source\repos\beratoksz\beratoksz\obj\Debug\net9.0\compressed\925xn0q78r-1q4zmb0tvk.gz

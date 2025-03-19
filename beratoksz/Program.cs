@@ -210,6 +210,10 @@ app.MapHub<StatusHub>("/statusHub");
 app.UseMiddleware<PerformanceMetricsMiddleware>();
 app.UseMiddleware<ActivityLoggingMiddleware>();
 app.UseMiddleware<RolePermissionMiddleware>();
+app.UseMiddleware<AutoDiscoverMiddleware>();
+
+
+
 
 // Swagger middleware'leri
 if (app.Environment.IsDevelopment())

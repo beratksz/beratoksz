@@ -55,11 +55,22 @@ public class RolePermissionService
             return hasPermission;
         }
 
-        // Kullanıcının rollerine göre erişim izni kontrolü (Area desteğiyle)
+        var normalizedPagePath = pagePath.Trim().ToLower().Replace("//", "/").TrimEnd('/');
+        var normalizedAreaPagePath = areaPagePath.Trim().ToLower().Replace("//", "/").TrimEnd('/');
+
         var permission = await _dbContext.RolePermissions
-            .Where(rp => roles.Contains(rp.RoleName) && (rp.PagePath == pagePath || rp.PagePath == areaPagePath))
+            .Where(rp => roles.Contains(rp.RoleName) &&
+                (rp.PagePath.ToLower() == normalizedPagePath || rp.PagePath.ToLower() == normalizedAreaPagePath))
             .Select(rp => rp.CanAccess)
             .FirstOrDefaultAsync();
+
+
+        Console.WriteLine($"🟡 [RolePermissionService] Gelen pagePath: {pagePath}");
+        Console.WriteLine($"🟡 [RolePermissionService] Normalized pagePath: {normalizedPagePath}");
+        Console.WriteLine($"🟡 [RolePermissionService] Gelen areaPagePath: {areaPagePath}");
+        Console.WriteLine($"🟡 [RolePermissionService] Normalized areaPagePath: {normalizedAreaPagePath}");
+        Console.WriteLine($"🟡 [RolePermissionService] Kullanıcının Rolleri: {string.Join(", ", roles)}");
+
 
         hasPermission = permission.GetValueOrDefault(false);
 

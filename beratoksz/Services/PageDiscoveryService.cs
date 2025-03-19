@@ -5,6 +5,8 @@ using Microsoft.AspNetCore.Mvc.Routing;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using System.Text.RegularExpressions;
+
 
 public class PageDiscoveryService
 {
@@ -64,5 +66,20 @@ public class PageDiscoveryService
         return pages.Distinct().ToList(); // 🔥 Tekrarları kaldır
     }
 
+    
+
+public static class UrlNormalizer
+{
+    public static string Normalize(string url)
+    {
+        if (string.IsNullOrEmpty(url)) return url;
+
+        // ID'leri, GUID'leri ve sayısal değerleri tespit edip yerine * koy
+        url = Regex.Replace(url, @"\/[0-9a-fA-F\-]{8,}", "/*");  // GUID'leri yakala
+        url = Regex.Replace(url, @"\/\d+", "/*");  // Sayıları yakala
+
+        return url.ToLower().TrimEnd('/');
+    }
+}
 
 }

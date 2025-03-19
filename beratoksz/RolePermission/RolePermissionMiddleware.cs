@@ -2,6 +2,7 @@
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using System;
+using System.Security.Claims;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
@@ -20,8 +21,18 @@ public class RolePermissionMiddleware
 
     public async Task Invoke(HttpContext context)
     {
-        var user = context.User;
-        var path = context.Request.Path.ToString().ToLowerInvariant().Trim();
+        var path = context.Request.Path.ToString().Trim('/').ToLower();
+        var user = context.User;  // 🔥 Burada user'ı tanımla!
+
+
+        var userRoles = context.User.Claims
+            .Where(c => c.Type == ClaimTypes.Role)
+            .Select(c => c.Value)
+            .ToList();
+
+        Console.WriteLine($"🟡 [Middleware] Gelen Path: {path}");
+        Console.WriteLine($"🟡 [Middleware] Kullanıcı Roller: {string.Join(", ", userRoles)}");
+
 
         while (path.Contains("//"))
         {
@@ -88,7 +99,9 @@ public class RolePermissionMiddleware
         }
 
         // 📌 6️⃣ TÜRKÇE KARAKTER DÜZELTME
+
         path = ConvertToAscii(path);
+        Console.WriteLine($"🛑 Yetki Kontrolü: Kullanıcı: {context.User.Identity?.Name}, Path: {path}");
 
         // 📌 7️⃣ Kullanıcı giriş yapmamışsa login sayfasına yönlendir
         if (!user.Identity.IsAuthenticated)
