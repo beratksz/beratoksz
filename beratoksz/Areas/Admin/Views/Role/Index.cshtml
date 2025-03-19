@@ -5,19 +5,18 @@
     ViewData["Title"] = "Rol Yönetimi";
 }
 
+<script src="/js/roles.js"></script>
+<script src="/js/permissions.js"></script>
+
 <div class="container-fluid mt-4">
     <h1 class="mb-4">Rol Yönetimi</h1>
 
-    @if (TempData["SuccessMessage"] != null)
-    {
-        <div class="alert alert-success">@TempData["SuccessMessage"]</div>
-    }
-    @if (TempData["ErrorMessage"] != null)
-    {
-        <div class="alert alert-danger">@TempData["ErrorMessage"]</div>
-    }
+    <div id="alert-container"></div>
 
-    <a href="@Url.Action("Create", "Role", new { area = "Admin" })" class="btn btn-success mb-3">Yeni Rol Ekle</a>
+    <!-- Arama Kutusu -->
+    <input type="text" id="roleFilterInput" class="form-control mb-3" placeholder="ID veya Rol Adı Ara..." onkeyup="filterRoles()">
+
+    <button class="btn btn-success mb-3" onclick="showAddRoleModal()">Yeni Rol Ekle</button>
 
     <div class="table-responsive">
         <table class="table table-hover table-bordered">
@@ -28,36 +27,42 @@
                     <th>İşlemler</th>
                 </tr>
             </thead>
-            <tbody>
-                @foreach (var role in Model)
-                {
-                    <tr>
-                        <td>@role.Id</td>
-                        <td>@role.Name</td>
-                        <td>
-                            <a href="@Url.Action("Edit", "Role", new { area = "Admin", id = role.Id })" class="btn btn-warning btn-sm">Düzenle</a>
-                            <form asp-action="Delete" asp-controller="Role" asp-area="Admin" method="post" onsubmit="return confirm('Silmek istediğinize emin misiniz?');" class="d-inline">
-                                @Html.AntiForgeryToken()
-                                <input type="hidden" name="id" value="@role.Id" />
-                                <button type="submit" class="btn btn-danger btn-sm">Sil</button>
-                            </form>
-                        </td>
-                    </tr>
-                }
-            </tbody>
+            <tbody id="roleTableBody"></tbody>
         </table>
     </div>
 </div>
 
 
+<!-- ✅ Yeni Rol Ekle Modal -->
+<div id="roleModal" class="modal fade" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Rol Ekle / Düzenle</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <input type="hidden" id="roleId">
+                <label for="roleName">Rol Adı:</label>
+                <input type="text" id="roleName" class="form-control" required />
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">İptal</button>
+                <button type="button" class="btn btn-primary" onclick="saveRole()">Kaydet</button>
+            </div>
+        </div>
+    </div>
+</div>
 
+<!-- ✅ Yetkilendirme Yönetimi -->
 <div class="container-fluid mt-4">
     <h1 class="mb-4">Rol Yetkilendirme Yönetimi</h1>
 
-    <!-- Yetki Ekleme Butonu -->
-    <button class="btn btn-primary mb-3" onclick="showAddModal()">Yeni Yetki Ekle</button>
+    <!-- Arama Kutusu -->
+    <input type="text" id="filterInput" class="form-control mb-3" placeholder="Rol veya Sayfa Ara..." onkeyup="filterTable()">
 
-    <!-- Yetki Yönetimi Tablosu -->
+    <button class="btn btn-primary mb-3" onclick="showAddPermissionModal()">Yeni Yetki Ekle</button>
+
     <div class="table-responsive">
         <table class="table table-hover table-bordered">
             <thead class="table-dark">
@@ -68,131 +73,74 @@
                     <th>İşlemler</th>
                 </tr>
             </thead>
-            <tbody id="rolePermissionTable">
-                <tr><td colspan="4" class="text-center">Yükleniyor...</td></tr>
-            </tbody>
+            <tbody id="rolePermissionTable"></tbody>
         </table>
     </div>
+</div>
 
-    <!-- Yetki Ekleme Modalı -->
-    <div id="addPermissionModal" class="modal fade" tabindex="-1">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Yeni Yetki Ekle</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                </div>
-                <div class="modal-body">
-                    <label>Rol Seç:</label>
-                    <select id="roleName" class="form-control">
-                        <option value="">Yükleniyor...</option>
-                    </select>
 
-                    <label>Sayfa Seç:</label>
-                    <select id="pagePath" class="form-control">
-                        <option value="">Yükleniyor...</option>
-                    </select>
+<!-- ✅ Yeni Yetki Ekle Modal -->
+<div id="addPermissionModal" class="modal fade" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Yeni Yetki Ekle</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <label>Rol Seç:</label>
+                <select id="roleNameSelect" class="form-control"></select>
 
-                    <label>Erişim:</label>
-                    <select id="canAccess" class="form-control">
-                        <option value="true">Evet</option>
-                        <option value="false">Hayır</option>
-                    </select>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">İptal</button>
-                    <button type="button" class="btn btn-primary" onclick="addPermission()">Kaydet</button>
-                </div>
+                <label>Sayfa Seç:</label>
+                <select id="pagePathSelect" class="form-control"></select>
+
+                <label>Erişim:</label>
+                <select id="canAccessSelect" class="form-control">
+                    <option value="true">Evet</option>
+                    <option value="false">Hayır</option>
+                </select>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">İptal</button>
+                <button type="button" class="btn btn-primary" onclick="addPermission()">Kaydet</button>
             </div>
         </div>
     </div>
 </div>
 
-<!-- JavaScript -->
-<script>
-    async function fetchRolesAndPages() {
-        let roleSelect = document.getElementById("roleName");
-        let pageSelect = document.getElementById("pagePath");
+                <script>
+                        function filterTable() {
+        let input = document.getElementById("filterInput").value.toLowerCase();
+        let rows = document.querySelectorAll("#rolePermissionTable tr");
 
-        // Rolleri getir
-        let roleRes = await fetch("/api/roles");
-        let roles = await roleRes.json();
-        roleSelect.innerHTML = roles.map(role => `<option value="${role.name}">${role.name}</option>`).join("");
+        rows.forEach(row => {
+            let role = row.cells[0].innerText.toLowerCase();
+            let page = row.cells[1].innerText.toLowerCase();
 
-        // Sayfaları getir
-        let pageRes = await fetch("/api/pages");
-        let pages = await pageRes.json();
-        pageSelect.innerHTML = pages.map(page => `<option value="${page}">${page}</option>`).join("");
-    }
-
-    async function fetchPermissions() {
-        let response = await fetch("/api/role-permissions");
-        let data = await response.json();
-        let tableBody = document.getElementById("rolePermissionTable");
-        tableBody.innerHTML = "";
-
-        data.forEach(permission => {
-            let row = `<tr>
-                <td>${permission.roleName}</td>
-                <td>${permission.pagePath}</td>
-                <td>
-                    <input type="checkbox" class="toggle-permission" data-id="${permission.id}" ${permission.canAccess ? "checked" : ""} />
-                </td>
-                <td>
-                    <button class="btn btn-danger btn-sm delete-permission" data-id="${permission.id}">Sil</button>
-                </td>
-            </tr>`;
-            tableBody.innerHTML += row;
-        });
-
-        document.querySelectorAll('.toggle-permission').forEach(el => {
-            el.addEventListener('change', async function() {
-                let id = this.getAttribute("data-id");
-                let canAccess = this.checked;
-
-                await fetch(`/api/role-permissions/${id}`, {
-                    method: "PUT",
-                    headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify({ canAccess })
-                });
-            });
-        });
-
-        document.querySelectorAll('.delete-permission').forEach(el => {
-            el.addEventListener('click', async function() {
-                let id = this.getAttribute("data-id");
-
-                if (confirm("Bu yetkiyi silmek istediğinize emin misiniz?")) {
-                    await fetch(`/api/role-permissions/${id}`, { method: "DELETE" });
-                    fetchPermissions();
-                }
-            });
+            if (role.includes(input) || page.includes(input)) {
+                row.style.display = "";
+            } else {
+                row.style.display = "none";
+            }
         });
     }
 
-    async function addPermission() {
-        let roleName = document.getElementById("roleName").value;
-        let pagePath = document.getElementById("pagePath").value;
-        let canAccess = document.getElementById("canAccess").value === "true";
 
-        let response = await fetch("/api/role-permissions", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ roleName, pagePath, canAccess })
+
+        function filterRoles() {
+        let input = document.getElementById("roleFilterInput").value.toLowerCase();
+        let rows = document.querySelectorAll("#roleTableBody tr");
+
+        rows.forEach(row => {
+            let roleId = row.cells[0].innerText.toLowerCase();
+            let roleName = row.cells[1].innerText.toLowerCase();
+
+            if (roleId.includes(input) || roleName.includes(input)) {
+                row.style.display = "";
+            } else {
+                row.style.display = "none";
+            }
         });
-
-        if (response.ok) {
-            alert("Yetki eklendi!");
-            fetchPermissions();
-            bootstrap.Modal.getInstance(document.getElementById('addPermissionModal')).hide();
-        }
     }
 
-    function showAddModal() {
-        let modal = new bootstrap.Modal(document.getElementById('addPermissionModal'));
-        modal.show();
-        fetchRolesAndPages();
-    }
-
-    fetchPermissions();
-</script>
+                </script>

@@ -1035,7 +1035,6 @@ C:\Users\berat-oksuz\source\repos\beratoksz\beratoksz\obj\Debug\net9.0\compresse
 C:\Users\berat-oksuz\source\repos\beratoksz\beratoksz\obj\Debug\net9.0\compressed\tcpggfr4g3-s5myexr0s2.gz
 C:\Users\berat-oksuz\source\repos\beratoksz\beratoksz\obj\Debug\net9.0\compressed\f3dvjwtfmt-c2tiyv64ts.gz
 C:\Users\berat-oksuz\source\repos\beratoksz\beratoksz\obj\Debug\net9.0\compressed\s7afpz379a-61n19gt1b8.gz
-C:\Users\berat-oksuz\source\repos\beratoksz\beratoksz\obj\Debug\net9.0\compressed\egnn0m0ttr-xtxxf3hu2r.gz
 C:\Users\berat-oksuz\source\repos\beratoksz\beratoksz\obj\Debug\net9.0\compressed\64huctqxag-agp80tu62r.gz
 C:\Users\berat-oksuz\source\repos\beratoksz\beratoksz\obj\Debug\net9.0\compressed\1ye7o5aym8-st1cbwfwo5.gz
 C:\Users\berat-oksuz\source\repos\beratoksz\beratoksz\obj\Debug\net9.0\compressed\51k5ezwgpo-unj9p35syc.gz
@@ -1110,3 +1109,5 @@ C:\Users\berat-oksuz\source\repos\beratoksz\beratoksz\obj\Debug\net9.0\beratoksz
 C:\Users\berat-oksuz\source\repos\beratoksz\beratoksz\obj\Debug\net9.0\beratoksz.genruntimeconfig.cache
 C:\Users\berat-oksuz\source\repos\beratoksz\beratoksz\obj\Debug\net9.0\ref\beratoksz.dll
 C:\Users\berat-oksuz\source\repos\beratoksz\beratoksz\obj\Debug\net9.0\staticwebassets.upToDateCheck.txt
+C:\Users\berat-oksuz\source\repos\beratoksz\beratoksz\obj\Debug\net9.0\compressed\vgle2aokzv-bkbrka2yoe.gz
+C:\Users\berat-oksuz\source\repos\beratoksz\beratoksz\obj\Debug\net9.0\compressed\925xn0q78r-1q4zmb0tvk.gz

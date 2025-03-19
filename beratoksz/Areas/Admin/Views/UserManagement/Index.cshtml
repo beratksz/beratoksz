@@ -26,42 +26,71 @@
         </div>
     }
 
-    <div class="table-responsive">
-        <table class="table table-hover table-bordered">
-            <thead class="table-dark">
-                <tr>
-                    <th>ID</th>
-                    <th>Email</th>
-                    <th>Roller</th>
-                    <th>Oluşturulma Tarihi</th>
-                    <th class="text-center">İşlemler</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var user in Model)
-                {
+    <div class="container-fluid mt-4">
+        <h1 class="mb-4">Kullanıcı Yönetimi</h1>
+
+        <!-- Arama Kutusu -->
+        <input type="text" id="userFilterInput" class="form-control mb-3" placeholder="ID, Email veya Rol Ara..." onkeyup="filterUsers()">
+
+        <div class="table-responsive">
+            <table class="table table-hover table-bordered">
+                <thead class="table-dark">
                     <tr>
-                        <td>@user.Id</td>
-                        <td>@user.Email</td>
-                        <td>
-                            @foreach (var role in user.Roles)
-                            {
-                                <span class="badge bg-primary">@role</span>
-                            }
-                        </td>
-                        <td>@user.CreatedAt.ToString("dd.MM.yyyy HH:mm")</td>
-                        <td class="text-center">
-                            <a href="@Url.Action("Details", "UserManagement", new { area = "Admin", id = user.Id })" class="btn btn-info btn-sm"><i class="bx bx-show"></i> Detay</a>
-                            <a href="@Url.Action("Edit", "UserManagement", new { area = "Admin", id = user.Id })" class="btn btn-warning btn-sm"><i class="bx bx-edit"></i> Düzenle</a>
-                            <form asp-controller="UserManagement" asp-action="DeleteConfirmed" asp-route-area="Admin" method="post" class="d-inline" onsubmit="return confirm('Silmek istediğinize emin misiniz?');">
-                                @Html.AntiForgeryToken()
-                                <input type="hidden" name="id" value="@user.Id" />
-                                <button type="submit" class="btn btn-danger btn-sm"><i class="bx bx-trash"></i> Sil</button>
-                            </form>
-                        </td>
+                        <th>ID</th>
+                        <th>Email</th>
+                        <th>Roller</th>
+                        <th>Oluşturulma Tarihi</th>
+                        <th class="text-center">İşlemler</th>
                     </tr>
-                }
-            </tbody>
-        </table>
+                </thead>
+                <tbody id="userTableBody">
+                    @foreach (var user in Model)
+                    {
+                        <tr>
+                            <td>@user.Id</td>
+                            <td>@user.Email</td>
+                            <td class="user-roles">
+                                @foreach (var role in user.Roles)
+                                {
+                                    <span class="badge bg-primary">@role</span>
+                                }
+                            </td>
+                            <td>@user.CreatedAt.ToString("dd.MM.yyyy HH:mm")</td>
+                            <td class="text-center">
+                                <a href="@Url.Action("Details", "UserManagement", new { area = "Admin", id = user.Id })" class="btn btn-info btn-sm"><i class="bx bx-show"></i> Detay</a>
+                                <a href="@Url.Action("Edit", "UserManagement", new { area = "Admin", id = user.Id })" class="btn btn-warning btn-sm"><i class="bx bx-edit"></i> Düzenle</a>
+                                <form asp-controller="UserManagement" asp-action="DeleteConfirmed" asp-route-area="Admin" method="post" class="d-inline" onsubmit="return confirm('Silmek istediğinize emin misiniz?');">
+                                    @Html.AntiForgeryToken()
+                                    <input type="hidden" name="id" value="@user.Id" />
+                                    <button type="submit" class="btn btn-danger btn-sm"><i class="bx bx-trash"></i> Sil</button>
+                                </form>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
     </div>
 </div>
+
+
+
+<script>
+        function filterUsers() {
+        let input = document.getElementById("userFilterInput").value.toLowerCase();
+        let rows = document.querySelectorAll("#userTableBody tr");
+
+        rows.forEach(row => {
+            let userId = row.cells[0].innerText.toLowerCase();   // ID sütunu
+            let email = row.cells[1].innerText.toLowerCase();    // Email sütunu
+            let roles = row.querySelector(".user-roles").innerText.toLowerCase(); // Roller sütunu
+
+            if (userId.includes(input) || email.includes(input) || roles.includes(input)) {
+                row.style.display = "";
+            } else {
+                row.style.display = "none";
+            }
+        });
+    }
+
+</script>

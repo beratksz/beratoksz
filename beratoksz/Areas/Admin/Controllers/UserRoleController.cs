@@ -9,7 +9,7 @@ using beratoksz.Models;
 namespace beratoksz.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    [Authorize(Roles = "Admin")] // Sadece Admin erişebilir
+    [Authorize(Roles = "Admin")] // Sadece Admin 
     public class UserRoleController : Controller
     {
         private readonly UserManager<IdentityUser> _userManager;

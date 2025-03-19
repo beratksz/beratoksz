@@ -96,17 +96,29 @@
       <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"uaubqgit2f"},{"Name":"integrity","Value":"sha256-A5KZaVOGww06ZsGx9x0PkzUArcopi6D8cHrQeANfNCA="},{"Name":"label","Value":"_content/beratoksz/GeoLite2-City.mmdb.gz"}]]]></EndpointProperties>
       <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Encoding","Value":"gzip"},{"Name":"Content-Length","Value":"28875760"},{"Name":"Content-Type","Value":"application/x-gzip"},{"Name":"ETag","Value":"\u0022A5KZaVOGww06ZsGx9x0PkzUArcopi6D8cHrQeANfNCA=\u0022"},{"Name":"Last-Modified","Value":"Tue, 11 Mar 2025 09:20:13 GMT"},{"Name":"Vary","Value":"Content-Encoding"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
-    <StaticWebAssetEndpoint Include="_content/beratoksz/js/site.js">
-      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\site.js'))</AssetFile>
+    <StaticWebAssetEndpoint Include="_content/beratoksz/js/permissions.bkbrka2yoe.js">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\permissions.js'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-hRQyftXiu1lLX2P9Ly9xa4gHJgLeR1uGN5qegUobtGo="}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"231"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022hRQyftXiu1lLX2P9Ly9xa4gHJgLeR1uGN5qegUobtGo=\u0022"},{"Name":"Last-Modified","Value":"Thu, 13 Mar 2025 09:14:55 GMT"}]]]></ResponseHeaders>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"bkbrka2yoe"},{"Name":"integrity","Value":"sha256-tfCOtrXiSE71ZuIoYblKSK3C9WUNZwghmp2L0j/XZkM="},{"Name":"label","Value":"_content/beratoksz/js/permissions.js"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"4384"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022tfCOtrXiSE71ZuIoYblKSK3C9WUNZwghmp2L0j/XZkM=\u0022"},{"Name":"Last-Modified","Value":"Wed, 19 Mar 2025 10:52:14 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
-    <StaticWebAssetEndpoint Include="_content/beratoksz/js/site.xtxxf3hu2r.js">
-      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\site.js'))</AssetFile>
+    <StaticWebAssetEndpoint Include="_content/beratoksz/js/permissions.js">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\permissions.js'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"xtxxf3hu2r"},{"Name":"integrity","Value":"sha256-hRQyftXiu1lLX2P9Ly9xa4gHJgLeR1uGN5qegUobtGo="},{"Name":"label","Value":"_content/beratoksz/js/site.js"}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"231"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022hRQyftXiu1lLX2P9Ly9xa4gHJgLeR1uGN5qegUobtGo=\u0022"},{"Name":"Last-Modified","Value":"Thu, 13 Mar 2025 09:14:55 GMT"}]]]></ResponseHeaders>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-tfCOtrXiSE71ZuIoYblKSK3C9WUNZwghmp2L0j/XZkM="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"4384"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022tfCOtrXiSE71ZuIoYblKSK3C9WUNZwghmp2L0j/XZkM=\u0022"},{"Name":"Last-Modified","Value":"Wed, 19 Mar 2025 10:52:14 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/beratoksz/js/roles.1q4zmb0tvk.js">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\roles.js'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"1q4zmb0tvk"},{"Name":"integrity","Value":"sha256-qSTukRsHaikqyvj2X294so3zjIodAn/6DCXQi9ilEmQ="},{"Name":"label","Value":"_content/beratoksz/js/roles.js"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"2995"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022qSTukRsHaikqyvj2X294so3zjIodAn/6DCXQi9ilEmQ=\u0022"},{"Name":"Last-Modified","Value":"Wed, 19 Mar 2025 10:51:59 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/beratoksz/js/roles.js">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\roles.js'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-qSTukRsHaikqyvj2X294so3zjIodAn/6DCXQi9ilEmQ="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"2995"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022qSTukRsHaikqyvj2X294so3zjIodAn/6DCXQi9ilEmQ=\u0022"},{"Name":"Last-Modified","Value":"Wed, 19 Mar 2025 10:51:59 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/beratoksz/lib/bootstrap/dist/css/bootstrap-grid.agp80tu62r.css">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\lib\bootstrap\dist\css\bootstrap-grid.css'))</AssetFile>

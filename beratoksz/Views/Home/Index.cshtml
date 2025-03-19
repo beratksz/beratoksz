@@ -1,7 +1,7 @@
 ﻿@{
     Layout = "_Layout";  // Genel (public) layout
     var isAuthenticated = User.Identity.IsAuthenticated;
-    ViewData["Title"] = "Hoşgeldiniz - Beratoksz";
+    ViewData["Title"] = "Hoşgeldiniz";
 }
 
 <div class="container py-5">
@@ -43,8 +43,11 @@
             <div class="col-md-12 text-center">
                 <h1 class="display-4">Merhaba, @User.Identity.Name!</h1>
                 <p class="lead">Sistemimize başarılı giriş yaptınız. Panelinize yönlendirilmek için aşağıdaki butona tıklayabilirsiniz.</p>
-                <a href="/Admin/Home/Index" class="btn btn-success btn-lg">Admin Paneline Git</a>
+                <a asp-area="Admin" asp-controller="Home" asp-action="Index">Admin Paneline Git</a>
+                Admin Paneline Git
+                
                 <form asp-controller="Account" asp-action="Logout" method="post" class="d-inline">
+
                     <button type="submit" class="btn btn-danger btn-lg">Çıkış Yap</button>
                 </form>
             </div>

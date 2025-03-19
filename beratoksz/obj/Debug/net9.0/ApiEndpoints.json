@@ -61,6 +61,16 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "PageApiController",
+    "Method": "GetPages",
+    "RelativePath": "api/pages",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "RolePermissionController",
     "Method": "GetRolePermissions",
     "RelativePath": "api/role-permissions",
@@ -118,6 +128,85 @@
       {
         "Name": "id",
         "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "beratoksz.Areas.Admin.Controllers.RoleApiController",
+    "Method": "GetRoles",
+    "RelativePath": "api/roles",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "beratoksz.Areas.Admin.Controllers.RoleApiController",
+    "Method": "CreateRole",
+    "RelativePath": "api/roles",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "beratoksz.Models.RoleViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "beratoksz.Areas.Admin.Controllers.RoleApiController",
+    "Method": "GetRole",
+    "RelativePath": "api/roles/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "beratoksz.Areas.Admin.Controllers.RoleApiController",
+    "Method": "UpdateRole",
+    "RelativePath": "api/roles/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "model",
+        "Type": "beratoksz.Models.RoleViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "beratoksz.Areas.Admin.Controllers.RoleApiController",
+    "Method": "DeleteRole",
+    "RelativePath": "api/roles/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
         "IsRequired": true
       }
     ],

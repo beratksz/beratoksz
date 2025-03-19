@@ -29,8 +29,12 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
-      "Id": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\wwwroot\\js\\site.js",
-      "PackagePath": "staticwebassets\\js\\site.js"
+      "Id": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\wwwroot\\js\\permissions.js",
+      "PackagePath": "staticwebassets\\js\\permissions.js"
+    },
+    {
+      "Id": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\wwwroot\\js\\roles.js",
+      "PackagePath": "staticwebassets\\js\\roles.js"
     },
     {
       "Id": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\wwwroot\\lib\\bootstrap\\LICENSE",

@@ -4,7 +4,9 @@ using Microsoft.AspNetCore.Mvc;
 namespace beratoksz.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    [Authorize]
+    [Authorize(Roles = "Admin")]
+
+
     public class DashboardController : Controller
     {
         // Dashboard üretim verileri ile dolu olacak şekilde, backend tarafında gerçek verileri gönderin.

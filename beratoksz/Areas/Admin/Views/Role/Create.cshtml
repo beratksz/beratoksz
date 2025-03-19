@@ -1,21 +1,36 @@
-﻿@model beratoksz.Models.RoleViewModel
-
-@{
+﻿@{
     ViewData["Title"] = "Yeni Rol Ekle";
 }
 
-<div class="container-fluid mt-4">
-    <h1>Yeni Rol Ekle</h1>
-    <form asp-action="Create" asp-controller="Role" asp-area="Admin" method="post">
+<div class="container mt-4">
+    <h2>Yeni Rol Ekle</h2>
+    <form id="createRoleForm">
         @Html.AntiForgeryToken()
-
         <div class="mb-3">
-            <label asp-for="Name" class="form-label"></label>
-            <input asp-for="Name" class="form-control" placeholder="Rol Adını Girin" />
-            <span asp-validation-for="Name" class="text-danger"></span>
+            <label for="roleName" class="form-label">Rol Adı</label>
+            <input id="roleName" class="form-control" placeholder="Rol Adını Girin" required />
         </div>
-
         <button type="submit" class="btn btn-primary">Kaydet</button>
-        <a href="@Url.Action("Index", "Role", new { area = "Admin" })" class="btn btn-secondary">İptal</a>
+        <a href="/Admin/Role" class="btn btn-secondary">İptal</a>
     </form>
 </div>
+
+<script>
+    document.getElementById("createRoleForm").addEventListener("submit", async function (e) {
+        e.preventDefault();
+        let roleName = document.getElementById("roleName").value;
+
+        let res = await fetch("/api/roles", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ name: roleName })
+        });
+
+        if (res.ok) {
+            alert("Rol başarıyla eklendi.");
+            window.location.href = "/Admin/Role";
+        } else {
+            alert("Bir hata oluştu.");
+        }
+    });
+</script>

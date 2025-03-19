@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace beratoksz.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    [Authorize]
+    [Authorize(Roles = "Admin")]
     [Route("api/activities")]
     [ApiController]
     public class SecurityController : ControllerBase

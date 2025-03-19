@@ -1,22 +1,70 @@
-﻿@model beratoksz.Models.RoleViewModel
-
-@{
+﻿@{
     ViewData["Title"] = "Rol Düzenle";
+    var roleId = ViewContext.RouteData.Values["id"]?.ToString() ?? "";
 }
 
-<div class="container-fluid mt-4">
-    <h1>Rol Düzenle</h1>
-    <form asp-action="Edit" asp-controller="Role" asp-area="Admin" method="post">
-        @Html.AntiForgeryToken()
-        <input type="hidden" asp-for="Id" />
-
+<div class="container mt-4">
+    <h2>Rol Düzenle</h2>
+    <form id="editRoleForm">
+        <input type="hidden" id="roleId" value="@Context.Request.Query["id"]" />
         <div class="mb-3">
-            <label asp-for="Name" class="form-label"></label>
-            <input asp-for="Name" class="form-control" placeholder="Rol Adını Güncelle" />
-            <span asp-validation-for="Name" class="text-danger"></span>
+            <label for="roleName" class="form-label">Rol Adı</label>
+            <input id="roleName" class="form-control" required />
         </div>
-
         <button type="submit" class="btn btn-primary">Güncelle</button>
-        <a href="@Url.Action("Index", "Role", new { area = "Admin" })" class="btn btn-secondary">İptal</a>
+        <a href="/Admin/Role" class="btn btn-secondary">İptal</a>
     </form>
 </div>
+
+<script>
+          async function loadRole() {
+            let roleId = document.getElementById("roleId")?.value?.trim();
+
+    if (!roleId) {
+        console.error("Hata: Rol ID bulunamadı!");
+        alert("Rol ID eksik! Sayfayı doğru açtığınızdan emin olun.");
+        return;
+    }
+
+
+        try {
+            let res = await fetch(`/api/roles/${roleId}`);
+            if (!res.ok) {
+                console.error("Hata: API'den geçersiz yanıt geldi", res);
+                alert("Bu ID'ye sahip bir rol bulunamadı!");
+                return;
+            }
+
+            let role = await res.json();
+            console.log("API Yanıtı:", role); // ✅ Debug için kontrol
+
+            if (!role || !role.name) {
+                console.error("Hata: Role objesinde isim yok!", role);
+                alert("Rol ismi eksik!");
+                return;
+            }
+
+            document.getElementById("roleName").value = role.name;
+        } catch (error) {
+            console.error("Rol yükleme hatası:", error);
+            alert("Rol yüklenirken bir hata oluştu.");
+        }
+    }
+
+    document.getElementById("editRoleForm").addEventListener("submit", async function (e) {
+        e.preventDefault();
+        let roleId = document.getElementById("roleId").value;
+        let roleName = document.getElementById("roleName").value;
+
+        await fetch(`/api/roles/${roleId}`, {
+            method: "PUT",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ name: roleName })
+        });
+
+        alert("Rol başarıyla güncellendi.");
+        window.location.href = "/Admin/Role";
+    });
+
+    loadRole();
+</script>

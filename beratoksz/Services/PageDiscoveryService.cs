@@ -21,11 +21,13 @@ public class PageDiscoveryService
 
         var controllers = Assembly.GetExecutingAssembly()
             .GetTypes()
-            .Where(type => typeof(Controller).IsAssignableFrom(type) && !type.IsAbstract);
+            .Where(type => (typeof(Controller).IsAssignableFrom(type) || typeof(ControllerBase).IsAssignableFrom(type))
+                            && !type.IsAbstract);
 
         foreach (var controller in controllers)
         {
             var controllerName = controller.Name.Replace("Controller", "");
+            var areaAttr = controller.GetCustomAttribute<AreaAttribute>(); // ✅ Area bilgisini al
             var routeAttr = controller.GetCustomAttribute<RouteAttribute>();
 
             foreach (var method in controller.GetMethods())
@@ -36,6 +38,7 @@ public class PageDiscoveryService
                     var methodAttr = method.GetCustomAttribute<HttpMethodAttribute>();
 
                     string path;
+
                     if (routeAttr != null)
                     {
                         path = routeAttr.Template
@@ -46,13 +49,20 @@ public class PageDiscoveryService
                     {
                         path = $"/{controllerName}/{actionName}";
                     }
-                    if (path == "/") path = "/home/index"; // ✅ Root path'leri düzeltiyoruz
 
-                    pages.Add(path.ToLower()); // Küçük harfe çevirerek ekle
+                    // ✅ Eğer Area varsa, URL'ye ekle
+                    if (areaAttr != null)
+                    {
+                        path = $"/{areaAttr.RouteValue}".TrimEnd('/') + "/" + path.TrimStart('/');
+                    }
+
+                    pages.Add(path.ToLowerInvariant()); // 🔥 Küçük harf dönüşümü hatasız yapıldı
                 }
             }
         }
 
-        return pages;
+        return pages.Distinct().ToList(); // 🔥 Tekrarları kaldır
     }
+
+
 }

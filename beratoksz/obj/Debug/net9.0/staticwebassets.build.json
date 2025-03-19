@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "DcR24cOhhI7YW8j7kzHDrVIH0HVfox+RfZ1JAeF3qbw=",
+  "Hash": "YKGIf5VpYcl6pP+xA/XTYdCLTGcObm7p3e+ibBR6jXw=",
   "Source": "beratoksz",
   "BasePath": "_content/beratoksz",
   "Mode": "Default",
@@ -353,6 +353,27 @@
       "OriginalItemSpec": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js"
     },
     {
+      "Identity": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\obj\\Debug\\net9.0\\compressed\\925xn0q78r-1q4zmb0tvk.gz",
+      "SourceId": "beratoksz",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\obj\\Debug\\net9.0\\compressed\\",
+      "BasePath": "_content/beratoksz",
+      "RelativePath": "js/roles#[.{fingerprint=1q4zmb0tvk}]?.js.gz",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\wwwroot\\js\\roles.js",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "Fingerprint": "r1tiy5eosg",
+      "Integrity": "cSaBrk8v8eeD3HPo7jVVsHn06XrXbgC8UQYY6UQ+Gww=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\wwwroot\\js\\roles.js"
+    },
+    {
       "Identity": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\obj\\Debug\\net9.0\\compressed\\9ickn4mann-6ukhryfubh.gz",
       "SourceId": "beratoksz",
       "SourceType": "Discovered",
@@ -477,27 +498,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js"
-    },
-    {
-      "Identity": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\obj\\Debug\\net9.0\\compressed\\egnn0m0ttr-xtxxf3hu2r.gz",
-      "SourceId": "beratoksz",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\obj\\Debug\\net9.0\\compressed\\",
-      "BasePath": "_content/beratoksz",
-      "RelativePath": "js/site#[.{fingerprint=xtxxf3hu2r}]?.js.gz",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Alternative",
-      "AssetMergeBehavior": "",
-      "AssetMergeSource": "",
-      "RelatedAsset": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\wwwroot\\js\\site.js",
-      "AssetTraitName": "Content-Encoding",
-      "AssetTraitValue": "gzip",
-      "Fingerprint": "rl5dcbfpcw",
-      "Integrity": "Ydq7YvQUzhbo68waLZeQvZnPOvmTeQ+HyDqjkA1whsA=",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\wwwroot\\js\\site.js"
     },
     {
       "Identity": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\obj\\Debug\\net9.0\\compressed\\f3dvjwtfmt-c2tiyv64ts.gz",
@@ -1235,6 +1235,27 @@
       "OriginalItemSpec": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map"
     },
     {
+      "Identity": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\obj\\Debug\\net9.0\\compressed\\vgle2aokzv-bkbrka2yoe.gz",
+      "SourceId": "beratoksz",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\obj\\Debug\\net9.0\\compressed\\",
+      "BasePath": "_content/beratoksz",
+      "RelativePath": "js/permissions#[.{fingerprint=bkbrka2yoe}]?.js.gz",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\wwwroot\\js\\permissions.js",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "Fingerprint": "dt57u8ng8p",
+      "Integrity": "z3jahfX1+xeydxPKBU3ZbWFE6kWoEihal6cQnhYjA94=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\wwwroot\\js\\permissions.js"
+    },
+    {
       "Identity": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\obj\\Debug\\net9.0\\compressed\\x8egu7b5mx-4gxs3k148c.gz",
       "SourceId": "beratoksz",
       "SourceType": "Discovered",
@@ -1508,12 +1529,12 @@
       "OriginalItemSpec": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\wwwroot\\GeoLite2-City.mmdb"
     },
     {
-      "Identity": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\wwwroot\\js\\site.js",
+      "Identity": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\wwwroot\\js\\permissions.js",
       "SourceId": "beratoksz",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\wwwroot\\",
       "BasePath": "_content/beratoksz",
-      "RelativePath": "js/site#[.{fingerprint}]?.js",
+      "RelativePath": "js/permissions#[.{fingerprint}]?.js",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -1522,11 +1543,32 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "xtxxf3hu2r",
-      "Integrity": "hRQyftXiu1lLX2P9Ly9xa4gHJgLeR1uGN5qegUobtGo=",
+      "Fingerprint": "bkbrka2yoe",
+      "Integrity": "tfCOtrXiSE71ZuIoYblKSK3C9WUNZwghmp2L0j/XZkM=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\js\\site.js"
+      "OriginalItemSpec": "wwwroot\\js\\permissions.js"
+    },
+    {
+      "Identity": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\wwwroot\\js\\roles.js",
+      "SourceId": "beratoksz",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\wwwroot\\",
+      "BasePath": "_content/beratoksz",
+      "RelativePath": "js/roles#[.{fingerprint}]?.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "1q4zmb0tvk",
+      "Integrity": "qSTukRsHaikqyvj2X294so3zjIodAn/6DCXQi9ilEmQ=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\roles.js"
     },
     {
       "Identity": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
@@ -4814,13 +4856,13 @@
       ]
     },
     {
-      "Route": "js/site.js",
-      "AssetFile": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\obj\\Debug\\net9.0\\compressed\\egnn0m0ttr-xtxxf3hu2r.gz",
+      "Route": "js/permissions.bkbrka2yoe.js",
+      "AssetFile": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\obj\\Debug\\net9.0\\compressed\\vgle2aokzv-bkbrka2yoe.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.005263157895"
+          "Quality": "0.000734214391"
         }
       ],
       "ResponseHeaders": [
@@ -4830,19 +4872,19 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "189"
+          "Value": "1361"
         },
         {
           "Name": "ETag",
-          "Value": "\"Ydq7YvQUzhbo68waLZeQvZnPOvmTeQ+HyDqjkA1whsA=\""
+          "Value": "\"z3jahfX1+xeydxPKBU3ZbWFE6kWoEihal6cQnhYjA94=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 13 Mar 2025 09:14:55 GMT"
+          "Value": "Wed, 19 Mar 2025 10:52:14 GMT"
         },
         {
           "Name": "Cache-Control",
-          "Value": "no-cache"
+          "Value": "max-age=31536000, immutable"
         },
         {
           "Name": "Content-Encoding",
@@ -4858,19 +4900,27 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"hRQyftXiu1lLX2P9Ly9xa4gHJgLeR1uGN5qegUobtGo=\""
+          "Value": "W/\"tfCOtrXiSE71ZuIoYblKSK3C9WUNZwghmp2L0j/XZkM=\""
         }
       ],
       "EndpointProperties": [
         {
+          "Name": "fingerprint",
+          "Value": "bkbrka2yoe"
+        },
+        {
+          "Name": "label",
+          "Value": "js/permissions.js"
+        },
+        {
           "Name": "integrity",
-          "Value": "sha256-hRQyftXiu1lLX2P9Ly9xa4gHJgLeR1uGN5qegUobtGo="
+          "Value": "sha256-tfCOtrXiSE71ZuIoYblKSK3C9WUNZwghmp2L0j/XZkM="
         }
       ]
     },
     {
-      "Route": "js/site.js",
-      "AssetFile": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\wwwroot\\js\\site.js",
+      "Route": "js/permissions.bkbrka2yoe.js",
+      "AssetFile": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\wwwroot\\js\\permissions.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -4879,7 +4929,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "231"
+          "Value": "4384"
         },
         {
           "Name": "Content-Type",
@@ -4887,27 +4937,35 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"hRQyftXiu1lLX2P9Ly9xa4gHJgLeR1uGN5qegUobtGo=\""
+          "Value": "\"tfCOtrXiSE71ZuIoYblKSK3C9WUNZwghmp2L0j/XZkM=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 13 Mar 2025 09:14:55 GMT"
+          "Value": "Wed, 19 Mar 2025 10:52:14 GMT"
         },
         {
           "Name": "Cache-Control",
-          "Value": "no-cache"
+          "Value": "max-age=31536000, immutable"
         }
       ],
       "EndpointProperties": [
         {
+          "Name": "fingerprint",
+          "Value": "bkbrka2yoe"
+        },
+        {
+          "Name": "label",
+          "Value": "js/permissions.js"
+        },
+        {
           "Name": "integrity",
-          "Value": "sha256-hRQyftXiu1lLX2P9Ly9xa4gHJgLeR1uGN5qegUobtGo="
+          "Value": "sha256-tfCOtrXiSE71ZuIoYblKSK3C9WUNZwghmp2L0j/XZkM="
         }
       ]
     },
     {
-      "Route": "js/site.js.gz",
-      "AssetFile": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\obj\\Debug\\net9.0\\compressed\\egnn0m0ttr-xtxxf3hu2r.gz",
+      "Route": "js/permissions.bkbrka2yoe.js.gz",
+      "AssetFile": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\obj\\Debug\\net9.0\\compressed\\vgle2aokzv-bkbrka2yoe.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -4916,7 +4974,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "189"
+          "Value": "1361"
         },
         {
           "Name": "Content-Type",
@@ -4924,15 +4982,15 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"Ydq7YvQUzhbo68waLZeQvZnPOvmTeQ+HyDqjkA1whsA=\""
+          "Value": "\"z3jahfX1+xeydxPKBU3ZbWFE6kWoEihal6cQnhYjA94=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 13 Mar 2025 09:14:55 GMT"
+          "Value": "Wed, 19 Mar 2025 10:52:14 GMT"
         },
         {
           "Name": "Cache-Control",
-          "Value": "no-cache"
+          "Value": "max-age=31536000, immutable"
         },
         {
           "Name": "Content-Encoding",
@@ -4945,19 +5003,27 @@
       ],
       "EndpointProperties": [
         {
+          "Name": "fingerprint",
+          "Value": "bkbrka2yoe"
+        },
+        {
+          "Name": "label",
+          "Value": "js/permissions.js.gz"
+        },
+        {
           "Name": "integrity",
-          "Value": "sha256-Ydq7YvQUzhbo68waLZeQvZnPOvmTeQ+HyDqjkA1whsA="
+          "Value": "sha256-z3jahfX1+xeydxPKBU3ZbWFE6kWoEihal6cQnhYjA94="
         }
       ]
     },
     {
-      "Route": "js/site.xtxxf3hu2r.js",
-      "AssetFile": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\obj\\Debug\\net9.0\\compressed\\egnn0m0ttr-xtxxf3hu2r.gz",
+      "Route": "js/permissions.js",
+      "AssetFile": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\obj\\Debug\\net9.0\\compressed\\vgle2aokzv-bkbrka2yoe.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.005263157895"
+          "Quality": "0.000734214391"
         }
       ],
       "ResponseHeaders": [
@@ -4967,15 +5033,152 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "189"
+          "Value": "1361"
         },
         {
           "Name": "ETag",
-          "Value": "\"Ydq7YvQUzhbo68waLZeQvZnPOvmTeQ+HyDqjkA1whsA=\""
+          "Value": "\"z3jahfX1+xeydxPKBU3ZbWFE6kWoEihal6cQnhYjA94=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 13 Mar 2025 09:14:55 GMT"
+          "Value": "Wed, 19 Mar 2025 10:52:14 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"tfCOtrXiSE71ZuIoYblKSK3C9WUNZwghmp2L0j/XZkM=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-tfCOtrXiSE71ZuIoYblKSK3C9WUNZwghmp2L0j/XZkM="
+        }
+      ]
+    },
+    {
+      "Route": "js/permissions.js",
+      "AssetFile": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\wwwroot\\js\\permissions.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "4384"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"tfCOtrXiSE71ZuIoYblKSK3C9WUNZwghmp2L0j/XZkM=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 19 Mar 2025 10:52:14 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-tfCOtrXiSE71ZuIoYblKSK3C9WUNZwghmp2L0j/XZkM="
+        }
+      ]
+    },
+    {
+      "Route": "js/permissions.js.gz",
+      "AssetFile": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\obj\\Debug\\net9.0\\compressed\\vgle2aokzv-bkbrka2yoe.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1361"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"z3jahfX1+xeydxPKBU3ZbWFE6kWoEihal6cQnhYjA94=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 19 Mar 2025 10:52:14 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-z3jahfX1+xeydxPKBU3ZbWFE6kWoEihal6cQnhYjA94="
+        }
+      ]
+    },
+    {
+      "Route": "js/roles.1q4zmb0tvk.js",
+      "AssetFile": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\obj\\Debug\\net9.0\\compressed\\925xn0q78r-1q4zmb0tvk.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.000958772771"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1042"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"cSaBrk8v8eeD3HPo7jVVsHn06XrXbgC8UQYY6UQ+Gww=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 19 Mar 2025 10:51:59 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -4995,27 +5198,27 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"hRQyftXiu1lLX2P9Ly9xa4gHJgLeR1uGN5qegUobtGo=\""
+          "Value": "W/\"qSTukRsHaikqyvj2X294so3zjIodAn/6DCXQi9ilEmQ=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "xtxxf3hu2r"
+          "Value": "1q4zmb0tvk"
         },
         {
           "Name": "label",
-          "Value": "js/site.js"
+          "Value": "js/roles.js"
         },
         {
           "Name": "integrity",
-          "Value": "sha256-hRQyftXiu1lLX2P9Ly9xa4gHJgLeR1uGN5qegUobtGo="
+          "Value": "sha256-qSTukRsHaikqyvj2X294so3zjIodAn/6DCXQi9ilEmQ="
         }
       ]
     },
     {
-      "Route": "js/site.xtxxf3hu2r.js",
-      "AssetFile": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\wwwroot\\js\\site.js",
+      "Route": "js/roles.1q4zmb0tvk.js",
+      "AssetFile": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\wwwroot\\js\\roles.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -5024,7 +5227,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "231"
+          "Value": "2995"
         },
         {
           "Name": "Content-Type",
@@ -5032,11 +5235,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"hRQyftXiu1lLX2P9Ly9xa4gHJgLeR1uGN5qegUobtGo=\""
+          "Value": "\"qSTukRsHaikqyvj2X294so3zjIodAn/6DCXQi9ilEmQ=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 13 Mar 2025 09:14:55 GMT"
+          "Value": "Wed, 19 Mar 2025 10:51:59 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -5046,21 +5249,21 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "xtxxf3hu2r"
+          "Value": "1q4zmb0tvk"
         },
         {
           "Name": "label",
-          "Value": "js/site.js"
+          "Value": "js/roles.js"
         },
         {
           "Name": "integrity",
-          "Value": "sha256-hRQyftXiu1lLX2P9Ly9xa4gHJgLeR1uGN5qegUobtGo="
+          "Value": "sha256-qSTukRsHaikqyvj2X294so3zjIodAn/6DCXQi9ilEmQ="
         }
       ]
     },
     {
-      "Route": "js/site.xtxxf3hu2r.js.gz",
-      "AssetFile": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\obj\\Debug\\net9.0\\compressed\\egnn0m0ttr-xtxxf3hu2r.gz",
+      "Route": "js/roles.1q4zmb0tvk.js.gz",
+      "AssetFile": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\obj\\Debug\\net9.0\\compressed\\925xn0q78r-1q4zmb0tvk.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -5069,7 +5272,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "189"
+          "Value": "1042"
         },
         {
           "Name": "Content-Type",
@@ -5077,11 +5280,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"Ydq7YvQUzhbo68waLZeQvZnPOvmTeQ+HyDqjkA1whsA=\""
+          "Value": "\"cSaBrk8v8eeD3HPo7jVVsHn06XrXbgC8UQYY6UQ+Gww=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 13 Mar 2025 09:14:55 GMT"
+          "Value": "Wed, 19 Mar 2025 10:51:59 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -5099,15 +5302,152 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "xtxxf3hu2r"
+          "Value": "1q4zmb0tvk"
         },
         {
           "Name": "label",
-          "Value": "js/site.js.gz"
+          "Value": "js/roles.js.gz"
         },
         {
           "Name": "integrity",
-          "Value": "sha256-Ydq7YvQUzhbo68waLZeQvZnPOvmTeQ+HyDqjkA1whsA="
+          "Value": "sha256-cSaBrk8v8eeD3HPo7jVVsHn06XrXbgC8UQYY6UQ+Gww="
+        }
+      ]
+    },
+    {
+      "Route": "js/roles.js",
+      "AssetFile": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\obj\\Debug\\net9.0\\compressed\\925xn0q78r-1q4zmb0tvk.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.000958772771"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1042"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"cSaBrk8v8eeD3HPo7jVVsHn06XrXbgC8UQYY6UQ+Gww=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 19 Mar 2025 10:51:59 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"qSTukRsHaikqyvj2X294so3zjIodAn/6DCXQi9ilEmQ=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-qSTukRsHaikqyvj2X294so3zjIodAn/6DCXQi9ilEmQ="
+        }
+      ]
+    },
+    {
+      "Route": "js/roles.js",
+      "AssetFile": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\wwwroot\\js\\roles.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2995"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"qSTukRsHaikqyvj2X294so3zjIodAn/6DCXQi9ilEmQ=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 19 Mar 2025 10:51:59 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-qSTukRsHaikqyvj2X294so3zjIodAn/6DCXQi9ilEmQ="
+        }
+      ]
+    },
+    {
+      "Route": "js/roles.js.gz",
+      "AssetFile": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\obj\\Debug\\net9.0\\compressed\\925xn0q78r-1q4zmb0tvk.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1042"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"cSaBrk8v8eeD3HPo7jVVsHn06XrXbgC8UQYY6UQ+Gww=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 19 Mar 2025 10:51:59 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-cSaBrk8v8eeD3HPo7jVVsHn06XrXbgC8UQYY6UQ+Gww="
         }
       ]
     },

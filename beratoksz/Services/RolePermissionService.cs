@@ -45,16 +45,19 @@ public class RolePermissionService
         // Kullanıcının rollerini al
         var roles = await _userManager.GetRolesAsync(userEntity);
 
-        // Cache kontrolü (Aynı rol için tekrar sorgu atılmasın)
-        var cacheKey = $"role_permissions_{string.Join("_", roles)}_{pagePath}";
+        // Area desteği için ek kontrol
+        var areaPagePath = pagePath.StartsWith("/admin") || pagePath.StartsWith("/user") ? pagePath : $"/{pagePath}";
+
+        // Cache kontrolü
+        var cacheKey = $"role_permissions_{string.Join("_", roles)}_{areaPagePath}";
         if (_cache.TryGetValue(cacheKey, out bool hasPermission))
         {
             return hasPermission;
         }
 
-        // Kullanıcının rollerine göre erişim izni kontrolü
+        // Kullanıcının rollerine göre erişim izni kontrolü (Area desteğiyle)
         var permission = await _dbContext.RolePermissions
-            .Where(rp => roles.Contains(rp.RoleName) && rp.PagePath == pagePath)
+            .Where(rp => roles.Contains(rp.RoleName) && (rp.PagePath == pagePath || rp.PagePath == areaPagePath))
             .Select(rp => rp.CanAccess)
             .FirstOrDefaultAsync();
 
@@ -63,8 +66,9 @@ public class RolePermissionService
         // Cache'e ekle (10 dakika boyunca sakla)
         _cache.Set(cacheKey, hasPermission, TimeSpan.FromMinutes(10));
 
-        _logger.LogInformation($"🔑 Yetki kontrolü: Kullanıcı: {userEntity.UserName}, Sayfa: {pagePath}, Erişim: {(hasPermission ? "✅ İzin Verildi" : "❌ Engellendi")}");
+        _logger.LogInformation($"🔑 Yetki kontrolü: Kullanıcı: {userEntity.UserName}, Sayfa: {areaPagePath}, Erişim: {(hasPermission ? "✅ İzin Verildi" : "❌ Engellendi")}");
 
         return hasPermission;
     }
+
 }

@@ -4,9 +4,11 @@ using beratoksz.Models;  // LoginViewModel sınıfının bulunduğu yer
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authentication;
 using beratoksz.Services;
+using Microsoft.AspNetCore.Authorization;
 
 namespace beratoksz.Controllers
 {
+    [AllowAnonymous]
     public class AccountController : Controller
     {
         private readonly SignInManager<IdentityUser> _signInManager;
@@ -25,6 +27,7 @@ namespace beratoksz.Controllers
 
         // GET: /Account/Login
         [HttpGet]
+
         public IActionResult Login(string returnUrl = null)
         {
             ViewData["ReturnUrl"] = returnUrl;
@@ -32,9 +35,9 @@ namespace beratoksz.Controllers
         }
 
         // POST: /Account/Login
-        // POST: /Account/Login
         [HttpPost]
         [ValidateAntiForgeryToken]
+
         public async Task<IActionResult> Login(LoginViewModel model, string returnUrl = null)
         {
             ViewData["ReturnUrl"] = returnUrl;
@@ -92,10 +95,11 @@ namespace beratoksz.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+
         public async Task<IActionResult> Logout()
         {
             await _signInManager.SignOutAsync();
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Login", "Account");
         }
 
         private IActionResult RedirectToLocal(string returnUrl)

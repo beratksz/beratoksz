@@ -5,16 +5,10 @@
 }
 
 <div class="container-fluid mt-4">
-    <h1 class="mb-4">Kullanıcı Rolleri Yönetimi</h1>
+    <h1 class="mb-4">Kullanıcı Rol Yönetimi</h1>
 
-    @if (TempData["SuccessMessage"] != null)
-    {
-        <div class="alert alert-success">@TempData["SuccessMessage"]</div>
-    }
-    @if (TempData["ErrorMessage"] != null)
-    {
-        <div class="alert alert-danger">@TempData["ErrorMessage"]</div>
-    }
+    <!-- Arama Kutusu -->
+    <input type="text" id="userRoleFilterInput" class="form-control mb-3" placeholder="ID, Kullanıcı Adı veya Rol Ara..." onkeyup="filterUserRoles()">
 
     <div class="table-responsive">
         <table class="table table-hover table-bordered">
@@ -26,13 +20,13 @@
                     <th>İşlemler</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody id="userRoleTableBody">
                 @foreach (var user in Model)
                 {
                     <tr>
                         <td>@user.UserId</td>
                         <td>@user.UserName</td>
-                        <td>@string.Join(", ", user.AssignedRoles)</td>
+                        <td class="user-roles">@string.Join(", ", user.AssignedRoles)</td>
                         <td>
                             <a href="@Url.Action("Manage", "UserRole", new { area = "Admin", userId = user.UserId })" class="btn btn-warning btn-sm">Düzenle</a>
                         </td>
@@ -43,4 +37,23 @@
     </div>
 </div>
 
+<script>
+        function filterUserRoles() {
+        let input = document.getElementById("userRoleFilterInput").value.toLowerCase();
+        let rows = document.querySelectorAll("#userRoleTableBody tr");
+
+        rows.forEach(row => {
+            let userId = row.cells[0].innerText.toLowerCase();   // ID sütunu
+            let userName = row.cells[1].innerText.toLowerCase(); // Kullanıcı Adı sütunu
+            let roles = row.querySelector(".user-roles").innerText.toLowerCase(); // Roller sütunu
+
+            if (userId.includes(input) || userName.includes(input) || roles.includes(input)) {
+                row.style.display = "";
+            } else {
+                row.style.display = "none";
+            }
+        });
+    }
+
+</script>
 

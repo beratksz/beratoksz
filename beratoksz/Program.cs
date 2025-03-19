@@ -11,6 +11,7 @@ using beratoksz;
 using AspNetCoreRateLimit;
 using beratoksz.Services;
 using beratoksz.Models;
+using System.Security.Claims;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -60,6 +61,17 @@ builder.Services.AddSignalR(options =>
 
 // Background service: Performans metriklerini toplayan servisi ekleyin
 builder.Services.AddHostedService<PerformanceMetricsService>();
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowSpecificOrigins", builder =>
+    {
+        builder.WithOrigins("https://localhost:7031","http://localhost:5234")  // Buraya izin verilen frontend domainini yaz
+               .AllowAnyMethod()
+               .AllowAnyHeader()
+               .AllowCredentials();  // Kimlik doðrulama bilgilerini destekle
+    });
+});
 
 
 // Identity cookie ayarlarý
@@ -155,18 +167,18 @@ using (var scope = app.Services.CreateScope())
     var pageDiscoveryService = scopedProvider.GetRequiredService<PageDiscoveryService>();
     var dbContext = scopedProvider.GetRequiredService<ApplicationDbContext>();
 
-    var existingPages = dbContext.RolePermissions.Select(r => r.PagePath).ToList();
-    var allPages = pageDiscoveryService.GetAllPages();
+    var existingPages = dbContext.RolePermissions.Select(r => r.PagePath).Distinct().ToList();
+    var allPages = pageDiscoveryService.GetAllPages().Distinct();
 
     foreach (var page in allPages)
     {
-        if (!existingPages.Contains(page))
+        if (!existingPages.Any(p => p.Equals(page, StringComparison.OrdinalIgnoreCase)))
         {
             dbContext.RolePermissions.Add(new RolePermission
             {
                 RoleName = "Admin",
                 PagePath = page,
-                CanAccess = false // Yeni eklenen sayfalar varsayýlan olarak eriþilemez olur.
+                CanAccess = true // Yeni eklenen sayfalar varsayýlan olarak eriþilemez olur.
             });
         }
     }
@@ -180,11 +192,14 @@ if (!app.Environment.IsDevelopment())
     app.UseExceptionHandler("/Home/Error");
     app.UseHsts();
 }
+app.UseCors("AllowSpecificOrigins");
+
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseResponseCaching();
 app.UseRouting();
 app.MapHealthChecks("/health");
+app.UseCors("AllowSpecificOrigins");
 app.UseAuthentication();
 app.UseAuthorization();
 
@@ -215,6 +230,39 @@ app.MapControllerRoute(
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
+
+app.Use(async (context, next) =>
+{
+    var path = context.Request.Path.ToString().ToLower();
+
+    // ?? ROOT URL NORMALÝZASYONU
+    if (path == "/" || path == "/index.html" || path == "/Home" || path == "/home")
+    {
+        Console.WriteLine($"?? PATH DÜZELTÝLDÝ: {path} ? /Home/Index");
+        path = "/Home/Index"; // ?? Ana sayfayý /Home/Index olarak yönlendir
+        context.Request.Path = path;
+    }
+
+    await next();
+});
+
+app.Use(async (context, next) =>
+{
+    var user = context.User;
+
+    if (user == null || !user.Identity.IsAuthenticated)
+    {
+        // Eðer kullanýcý giriþ yapmamýþsa, varsayýlan anonim rolünü ata
+        var claims = new List<Claim>
+        {
+            new Claim(ClaimTypes.Role, "Anonymous") // Varsayýlan anonim rol
+        };
+        var identity = new ClaimsIdentity(claims, "Custom");
+        context.User = new ClaimsPrincipal(identity);
+    }
+
+    await next();
+});
 
 // Seeding: Admin ve roller oluþturuluyor
 using (var scope = app.Services.CreateScope())

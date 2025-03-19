@@ -1,9 +1,11 @@
 using System.Diagnostics;
 using beratoksz.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace beratoksz.Controllers
 {
+    [AllowAnonymous]
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
@@ -19,6 +21,11 @@ namespace beratoksz.Controllers
         }
 
         public IActionResult Privacy()
+        {
+            return View();
+        }
+
+        public IActionResult AccessDenied()
         {
             return View();
         }

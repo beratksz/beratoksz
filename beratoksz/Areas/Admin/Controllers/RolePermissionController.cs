@@ -40,14 +40,31 @@ public class RolePermissionController : ControllerBase
     [HttpPut("{id}")]
     public async Task<IActionResult> UpdatePermission(int id, [FromBody] RolePermission permission)
     {
+        if (permission == null)
+        {
+            return BadRequest(new { message = "Geçersiz istek! Gönderilen veri boş olamaz." });
+        }
+
+        // ModelState kontrolü yapalım
+        if (!ModelState.IsValid)
+        {
+            return BadRequest(ModelState);
+        }
+
         var existingPermission = await _dbContext.RolePermissions.FindAsync(id);
         if (existingPermission == null)
-            return NotFound();
+        {
+            return NotFound(new { message = "Belirtilen ID'ye sahip izin bulunamadı." });
+        }
 
+        // Sadece gelen veriyi güncelle
         existingPermission.CanAccess = permission.CanAccess;
+
         await _dbContext.SaveChangesAsync();
+
         return Ok(new { message = "İzin başarıyla güncellendi." });
     }
+
 
     // 📌 Yetkiyi sil
     [HttpDelete("{id}")]

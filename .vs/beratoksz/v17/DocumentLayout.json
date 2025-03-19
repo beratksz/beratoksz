@@ -1,7 +1,28 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{7138BA50-D8E2-404D-9C96-32D2CF7CF7C2}|beratoksz\\beratoksz.csproj|c:\\users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\areas\\admin\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7138BA50-D8E2-404D-9C96-32D2CF7CF7C2}|beratoksz\\beratoksz.csproj|solutionrelative:beratoksz\\areas\\admin\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7138BA50-D8E2-404D-9C96-32D2CF7CF7C2}|beratoksz\\beratoksz.csproj|c:\\users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{7138BA50-D8E2-404D-9C96-32D2CF7CF7C2}|beratoksz\\beratoksz.csproj|solutionrelative:beratoksz\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7138BA50-D8E2-404D-9C96-32D2CF7CF7C2}|beratoksz\\beratoksz.csproj|c:\\users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7138BA50-D8E2-404D-9C96-32D2CF7CF7C2}|beratoksz\\beratoksz.csproj|solutionrelative:beratoksz\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7138BA50-D8E2-404D-9C96-32D2CF7CF7C2}|beratoksz\\beratoksz.csproj|c:\\users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\services\\rolepermissionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7138BA50-D8E2-404D-9C96-32D2CF7CF7C2}|beratoksz\\beratoksz.csproj|solutionrelative:beratoksz\\services\\rolepermissionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7138BA50-D8E2-404D-9C96-32D2CF7CF7C2}|beratoksz\\beratoksz.csproj|c:\\users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\rolepermission\\rolepermissionmiddleware.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7138BA50-D8E2-404D-9C96-32D2CF7CF7C2}|beratoksz\\beratoksz.csproj|solutionrelative:beratoksz\\rolepermission\\rolepermissionmiddleware.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -9,7 +30,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
@@ -18,6 +39,71 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{40ea2e6b-2121-4bb8-a43e-c83c04b51041}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\Areas\\Admin\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "beratoksz\\Areas\\Admin\\Controllers\\HomeController.cs",
+              "ToolTip": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\Areas\\Admin\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "beratoksz\\Areas\\Admin\\Controllers\\HomeController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-19T13:34:48.519Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "beratoksz\\Views\\Home\\Index.cshtml",
+              "ToolTip": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "beratoksz\\Views\\Home\\Index.cshtml",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAAAC8AAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-19T13:30:35.365Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "RolePermissionService.cs",
+              "DocumentMoniker": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\Services\\RolePermissionService.cs",
+              "RelativeDocumentMoniker": "beratoksz\\Services\\RolePermissionService.cs",
+              "ToolTip": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\Services\\RolePermissionService.cs",
+              "RelativeToolTip": "beratoksz\\Services\\RolePermissionService.cs",
+              "ViewState": "AgIAACQAAAAAAAAAAAAYwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-19T13:27:03.694Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "RolePermissionMiddleware.cs",
+              "DocumentMoniker": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\RolePermission\\RolePermissionMiddleware.cs",
+              "RelativeDocumentMoniker": "beratoksz\\RolePermission\\RolePermissionMiddleware.cs",
+              "ToolTip": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\RolePermission\\RolePermissionMiddleware.cs",
+              "RelativeToolTip": "beratoksz\\RolePermission\\RolePermissionMiddleware.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-19T13:26:13.998Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\Program.cs",
+              "RelativeDocumentMoniker": "beratoksz\\Program.cs",
+              "ToolTip": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\Program.cs",
+              "RelativeToolTip": "beratoksz\\Program.cs",
+              "ViewState": "AgIAAPMAAAAAAAAAAAAAABEBAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-19T13:26:02.424Z",
+              "EditorCaption": ""
             }
           ]
         }
