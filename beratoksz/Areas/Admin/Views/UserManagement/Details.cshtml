@@ -7,55 +7,77 @@
 <div class="container py-5">
     <div class="card shadow">
         <div class="card-header bg-primary text-white">
-            <h3 class="mb-0">Kullanıcı Detayları</h3>
+            <h3 class="mb-0"><i class="bx bx-user"></i> Kullanıcı Detayları</h3>
         </div>
         <div class="card-body">
-            <dl class="row">
-                <dt class="col-md-3">ID</dt>
-                <dd class="col-md-9">@Model.Id</dd>
+            @if (Model != null)
+            {
+                <dl class="row">
+                    <dt class="col-md-3">ID</dt>
+                    <dd class="col-md-9">@Model?.Id</dd>
 
-                <dt class="col-md-3">Email</dt>
-                <dd class="col-md-9">@Model.Email</dd>
+                    <dt class="col-md-3">Email</dt>
+                    <dd class="col-md-9">@Model?.Email</dd>
 
-                <dt class="col-md-3">Kullanıcı Adı</dt>
-                <dd class="col-md-9">@Model.UserName</dd>
+                    <dt class="col-md-3">Kullanıcı Adı</dt>
+                    <dd class="col-md-9">@Model?.UserName</dd>
 
-                <dt class="col-md-3">Telefon Numarası</dt>
-                <dd class="col-md-9">@Model.PhoneNumber</dd>
+                    <dt class="col-md-3">Telefon Numarası</dt>
+                    <dd class="col-md-9">@Model?.PhoneNumber ?? "Belirtilmemiş"</dd>
 
-                <dt class="col-md-3">Telefon Onaylı</dt>
-                <dd class="col-md-9">@(Model.PhoneNumberConfirmed ? "Evet" : "Hayır")</dd>
+                    <dt class="col-md-3">Telefon Onaylı</dt>
+                    <dd class="col-md-9">@(Model?.PhoneNumberConfirmed == true ? "Evet ✅" : "Hayır ❌")</dd>
 
-                <dt class="col-md-3">Email Onaylı</dt>
-                <dd class="col-md-9">@(Model.EmailConfirmed ? "Evet" : "Hayır")</dd>
+                    <dt class="col-md-3">Email Onaylı</dt>
+                    <dd class="col-md-9">@(Model?.EmailConfirmed == true ? "Evet ✅" : "Hayır ❌")</dd>
 
-                <dt class="col-md-3">İki Faktörlü Doğrulama</dt>
-                <dd class="col-md-9">@(Model.TwoFactorEnabled ? "Evet" : "Hayır")</dd>
+                    <dt class="col-md-3">İki Faktörlü Doğrulama</dt>
+                    <dd class="col-md-9">@(Model?.TwoFactorEnabled == true ? "Evet 🔒" : "Hayır")</dd>
 
-                <dt class="col-md-3">Başarısız Giriş Sayısı</dt>
-                <dd class="col-md-9">@Model.AccessFailedCount</dd>
+                    <dt class="col-md-3">Başarısız Giriş Sayısı</dt>
+                    <dd class="col-md-9">@Model?.AccessFailedCount</dd>
 
-                <dt class="col-md-3">Roller</dt>
-                <dd class="col-md-9">
-                    @foreach (var role in Model.Roles)
-                    {
-                        <span class="badge bg-primary">@role</span>
-                    }
-                </dd>
+                    <dt class="col-md-3">Roller</dt>
+                    <dd class="col-md-9">
+                        @if (Model?.Roles?.Any() == true)
+                        {
+                            @foreach (var role in Model.Roles)
+                            {
+                                <span class="badge bg-success">@role</span>
+                            }
+                        }
+                        else
+                        {
+                            <span class="text-muted">Rol atanmadı.</span>
+                        }
+                    </dd>
 
-                <dt class="col-md-3">Oluşturulma Tarihi</dt>
-                <dd class="col-md-9">@Model.CreatedAt.ToString("dd.MM.yyyy HH:mm")</dd>
+                    <dt class="col-md-3">Oluşturulma Tarihi</dt>
+                    <dd class="col-md-9">@Model.CreatedAt.ToString("dd.MM.yyyy HH:mm")</dd>
 
-                <dt class="col-md-3">Kilitlenme Durumu</dt>
-                <dd class="col-md-9">@(Model.LockoutEnabled ? "Etkin" : "Devre Dışı")</dd>
+                    <dt class="col-md-3">Kilitlenme Durumu</dt>
+                    <dd class="col-md-9">@(Model?.LockoutEnabled == true ? "Etkin 🛑" : "Devre Dışı ✅")</dd>
 
-                <dt class="col-md-3">Kilitlenme Bitiş Tarihi</dt>
-                <dd class="col-md-9">@(Model.LockoutEnd.HasValue ? Model.LockoutEnd.Value.ToString("dd.MM.yyyy HH:mm") : "Yok")</dd>
-            </dl>
-            <div class="mt-4">
-                <a href="@Url.Action("Edit", "UserManagement", new { area = "Admin", id = Model.Id })" class="btn btn-warning"><i class="bx bx-edit"></i> Düzenle</a>
-                <a href="@Url.Action("Index", "UserManagement", new { area = "Admin" })" class="btn btn-outline-secondary">Geri Dön</a>
-            </div>
+                    <dt class="col-md-3">Kilitlenme Bitiş Tarihi</dt>
+                    <dd class="col-md-9">@(Model.LockoutEnd.HasValue ? Model.LockoutEnd.Value.ToString("dd.MM.yyyy HH:mm") : "Yok")</dd>
+                </dl>
+
+                <!-- Butonlar -->
+                <div class="mt-4 d-flex gap-2">
+                    <a href="@Url.Action("Edit", "UserManagement", new { area = "Admin", id = Model?.Id })" class="btn btn-warning">
+                        <i class="bx bx-edit"></i> Düzenle
+                    </a>
+                    <a href="@Url.Action("Index", "UserManagement", new { area = "Admin" })" class="btn btn-outline-secondary">
+                        <i class="bx bx-arrow-back"></i> Geri Dön
+                    </a>
+                </div>
+            }
+            else
+            {
+                <div class="alert alert-danger">
+                    <i class="bx bx-error"></i> Kullanıcı bilgileri yüklenemedi.
+                </div>
+            }
         </div>
     </div>
 </div>

@@ -1,0 +1,112 @@
+﻿@{
+    ViewData["Title"] = "Kayıt Ol";
+}
+
+<div class="container d-flex justify-content-center align-items-center min-vh-100">
+    <div class="register-card p-4 shadow-lg">
+        <h2 class="text-center mb-4 fw-bold">Kayıt Ol</h2>
+
+        <div id="registerErrorMessage" class="text-danger text-center mb-3"></div>
+
+        <form id="registerForm">
+            <div class="mb-3">
+                <label for="UserName" class="form-label">Kullanıcı Adı</label>
+                <input type="text" id="UserName" class="form-control" required minlength="3" />
+            </div>
+
+            <div class="mb-3">
+                <label for="Email" class="form-label">Email</label>
+                <input type="email" id="Email" class="form-control" required />
+            </div>
+
+            <div class="mb-3">
+                <label for="PhoneNumber" class="form-label">Telefon Numarası</label>
+                <input type="tel" id="PhoneNumber" class="form-control" required pattern="^05\d{9}$" placeholder="05XX XXX XX XX" />
+            </div>
+
+            <div class="mb-3">
+                <label for="Password" class="form-label">Şifre</label>
+                <div class="input-group">
+                    <input type="password" id="Password" class="form-control" required minlength="6" />
+                    <button type="button" class="btn btn-outline-secondary toggle-password"><i class="bx bx-show"></i></button>
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label for="ConfirmPassword" class="form-label">Şifreyi Onayla</label>
+                <div class="input-group">
+                    <input type="password" id="ConfirmPassword" class="form-control" required />
+                    <button type="button" class="btn btn-outline-secondary toggle-password"><i class="bx bx-show"></i></button>
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-success w-100 py-2 fw-bold">Hesap Oluştur</button>
+        </form>
+
+        <div class="text-center mt-3">
+            <a href="/Account/Login" class="text-decoration-none">Zaten bir hesabın var mı? Giriş Yap</a>
+        </div>
+    </div>
+</div>
+
+<!-- 💡 Stil -->
+<link rel="stylesheet" href="~/css/login.css" />
+
+<!-- 💡 Script -->
+<script>
+    // Şifreyi göster/gizle butonları
+    document.querySelectorAll(".toggle-password").forEach(button => {
+        button.addEventListener("click", function () {
+            let passwordInput = this.parentNode.querySelector("input");
+            let icon = this.querySelector("i");
+            if (passwordInput.type === "password") {
+                passwordInput.type = "text";
+                icon.classList.replace("bx-show", "bx-hide");
+            } else {
+                passwordInput.type = "password";
+                icon.classList.replace("bx-hide", "bx-show");
+            }
+        });
+    });
+
+    document.getElementById("registerForm").addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        let registerData = {
+            UserName: document.getElementById("UserName").value.trim(),
+            Email: document.getElementById("Email").value.trim(),
+            PhoneNumber: document.getElementById("PhoneNumber").value.trim(),
+            Password: document.getElementById("Password").value.trim(),
+            ConfirmPassword: document.getElementById("ConfirmPassword").value.trim()
+        };
+
+        if (registerData.Password !== registerData.ConfirmPassword) {
+            document.getElementById("registerErrorMessage").innerText = "Şifreler eşleşmiyor!";
+            return;
+        }
+
+        fetch("/api/ApiAccount/register", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(registerData)
+        })
+        .then(response => {
+            if (!response.ok) {
+                return response.json().then(err => { throw new Error(err.message || "Kayıt başarısız"); });
+            }
+            return response.json();
+        })
+        .then(data => {
+            return fetch("/api/ApiAccount/check-auth");
+        })
+        .then(response => response.json())
+        .then(authData => {
+            if (authData.isAuthenticated) {
+                window.location.href = "/"; // Kayıt başarılı, anasayfaya yönlendir
+            }
+        })
+        .catch(error => {
+            document.getElementById("registerErrorMessage").innerText = error.message;
+        });
+    });
+</script>

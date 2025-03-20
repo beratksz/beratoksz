@@ -24,6 +24,8 @@
 .table-responsive {
     max-height: 300px;
     overflow-y: auto;
+    overflow-x: auto;
+    white-space: nowrap;
 }
 
 @media (max-width: 768px) {

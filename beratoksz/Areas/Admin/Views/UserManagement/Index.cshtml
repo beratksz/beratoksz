@@ -15,14 +15,14 @@
     {
         <div class="alert alert-success alert-dismissible fade show" role="alert">
             @TempData["SuccessMessage"]
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
         </div>
     }
     @if (TempData["ErrorMessage"] != null)
     {
         <div class="alert alert-danger alert-dismissible fade show" role="alert">
             @TempData["ErrorMessage"]
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
         </div>
     }
 
@@ -36,7 +36,7 @@
             <table class="table table-hover table-bordered">
                 <thead class="table-dark">
                     <tr>
-                        <th>ID</th>
+                        <th class="text-center">ID</th>
                         <th>Email</th>
                         <th>Roller</th>
                         <th>Oluşturulma Tarihi</th>
@@ -44,27 +44,49 @@
                     </tr>
                 </thead>
                 <tbody id="userTableBody">
-                    @foreach (var user in Model)
+                    @if (Model.Any())
+                    {
+                        @foreach (var user in Model)
+                        {
+                            <tr>
+                                <td class="text-center">@user.Id</td>
+                                <td>@user.Email</td>
+                                <td class="user-roles">
+                                    @if (user.Roles?.Any() == true)
+                                    {
+                                        @foreach (var role in user.Roles)
+                                        {
+                                            <span class="badge bg-primary">@role</span>
+                                        }
+                                    }
+                                    else
+                                    {
+                                        <span class="text-muted">Rol Yok</span>
+                                    }
+                                </td>
+                                <td>@user.CreatedAt.ToString("dd.MM.yyyy HH:mm")</td>
+                                <td class="text-center">
+                                    <div class="d-flex gap-1">
+                                        <a href="@Url.Action("Details", "UserManagement", new { area = "Admin", id = user.Id })" class="btn btn-info btn-sm w-100">
+                                            <i class="bx bx-show"></i> Detay
+                                        </a>
+                                        <a href="@Url.Action("Edit", "UserManagement", new { area = "Admin", id = user.Id })" class="btn btn-warning btn-sm w-100">
+                                            <i class="bx bx-edit"></i> Düzenle
+                                        </a>
+                                        <form asp-controller="UserManagement" asp-action="DeleteConfirmed" asp-route-area="Admin" method="post" class="d-inline w-100" onsubmit="return confirm('Silmek istediğinize emin misiniz?');">
+                                            @Html.AntiForgeryToken()
+                                            <input type="hidden" name="id" value="@user.Id" />
+                                            <button type="submit" class="btn btn-danger btn-sm w-100"><i class="bx bx-trash"></i> Sil</button>
+                                        </form>
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+                    }
+                    else
                     {
                         <tr>
-                            <td>@user.Id</td>
-                            <td>@user.Email</td>
-                            <td class="user-roles">
-                                @foreach (var role in user.Roles)
-                                {
-                                    <span class="badge bg-primary">@role</span>
-                                }
-                            </td>
-                            <td>@user.CreatedAt.ToString("dd.MM.yyyy HH:mm")</td>
-                            <td class="text-center">
-                                <a href="@Url.Action("Details", "UserManagement", new { area = "Admin", id = user.Id })" class="btn btn-info btn-sm"><i class="bx bx-show"></i> Detay</a>
-                                <a href="@Url.Action("Edit", "UserManagement", new { area = "Admin", id = user.Id })" class="btn btn-warning btn-sm"><i class="bx bx-edit"></i> Düzenle</a>
-                                <form asp-controller="UserManagement" asp-action="DeleteConfirmed" asp-route-area="Admin" method="post" class="d-inline" onsubmit="return confirm('Silmek istediğinize emin misiniz?');">
-                                    @Html.AntiForgeryToken()
-                                    <input type="hidden" name="id" value="@user.Id" />
-                                    <button type="submit" class="btn btn-danger btn-sm"><i class="bx bx-trash"></i> Sil</button>
-                                </form>
-                            </td>
+                            <td colspan="5" class="text-center text-muted">Hiç kullanıcı bulunamadı.</td>
                         </tr>
                     }
                 </tbody>
@@ -74,16 +96,17 @@
 </div>
 
 
-
 <script>
-        function filterUsers() {
+    function filterUsers() {
         let input = document.getElementById("userFilterInput").value.toLowerCase();
         let rows = document.querySelectorAll("#userTableBody tr");
 
         rows.forEach(row => {
-            let userId = row.cells[0].innerText.toLowerCase();   // ID sütunu
-            let email = row.cells[1].innerText.toLowerCase();    // Email sütunu
-            let roles = row.querySelector(".user-roles").innerText.toLowerCase(); // Roller sütunu
+            let userId = row.cells[0].innerText.toLowerCase();  // ID sütunu
+            let email = row.cells[1].innerText.toLowerCase();   // Email sütunu
+            let roleCell = row.querySelector(".user-roles");
+
+            let roles = roleCell ? roleCell.innerText.toLowerCase() : ""; // Null kontrolü
 
             if (userId.includes(input) || email.includes(input) || roles.includes(input)) {
                 row.style.display = "";
@@ -92,5 +115,4 @@
             }
         });
     }
-
 </script>

@@ -54,39 +54,39 @@
                     <div class="card-body text-center">
                         <h5 class="card-title">👥 Kullanıcı Yönetimi</h5>
                         <p class="card-text">Kullanıcı hesaplarını yönetin, roller atayın ve izinleri düzenleyin.</p>
-                        <a href="/Admin/UserManagement" class="btn btn-primary">Yönet</a>
+                        <a href="/Admin/UserManagement/Index" class="btn btn-primary">Yönet</a>
                     </div>
                 </div>
             </div>
             <div class="col-md-5 mb-4">
                 <div class="card">
                     <div class="card-body text-center">
-                        <h5 class="card-title">👥 Rol Yönetimi</h5>
+                        <h5 class="card-title">🎭 Rol Yönetimi</h5>
                         <p class="card-text">Rolleri yönetin, roller oluşturun.</p>
-                        <a href="/Admin/Role" class="btn btn-primary">Yönet</a>
+                        <a href="/Admin/Role/Index" class="btn btn-primary">Yönet</a>
                     </div>
                 </div>
             </div>
             <div class="col-md-5 mb-4">
                 <div class="card">
                     <div class="card-body text-center">
-                        <h5 class="card-title">👥 Kullanıcı Rol Yönetimi</h5>
-                        <p class="card-text">Kullanıcı Rollerini yönetin, roller atayın ve izinleri düzenleyin.</p>
-                        <a href="/Admin/UserRole" class="btn btn-primary">Yönet</a>
+                        <h5 class="card-title">🔒 Kullanıcı Rol Yönetimi</h5>
+                        <p class="card-text">Kullanıcı rollerini yönetin, roller atayın ve izinleri düzenleyin.</p>
+                        <a href="/Admin/UserRole/Manage" class="btn btn-primary">Yönet</a>
                     </div>
                 </div>
             </div>
-
             <div class="col-md-5 mb-4">
                 <div class="card">
                     <div class="card-body text-center">
                         <h5 class="card-title">📊 Raporlar</h5>
                         <p class="card-text">Sistem performansı ve kullanıcı aktiviteleri hakkında raporlar alın.</p>
-                        <a href="/Admin/Dashboard" class="btn btn-primary">Yönet</a>
+                        <a href="/Admin/Dashboard/Analytics" class="btn btn-primary">Yönet</a>
                     </div>
                 </div>
             </div>
         </div>
+
 
         <!-- Performans Bilgileri -->
         <div class="row justify-content-center">
@@ -105,55 +105,58 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/6.0.0/signalr.min.js"></script>
     <script>
-              const connection = new signalR.HubConnectionBuilder()
+        // SignalR bağlantısını başlat
+        const connection = new signalR.HubConnectionBuilder()
             .withUrl("/statusHub")
             .configureLogging(signalR.LogLevel.Information)
+            .withAutomaticReconnect() // Otomatik tekrar bağlanmayı etkinleştir
             .build();
+
+        // Sayfadaki DOM elemanlarını bir kez seç
+        const cpuUsageElement = document.getElementById("cpuUsage");
+        const memoryUsageElement = document.getElementById("memoryUsage");
+        const uptimeElement = document.getElementById("uptime");
 
         async function startSignalR() {
             try {
-                console.log("🔄 SignalR durumu:", connection.state);
-
                 if (connection.state !== signalR.HubConnectionState.Disconnected) {
                     console.warn("⚠ SignalR zaten bağlı veya bağlanmaya çalışıyor.");
                     return;
                 }
 
-                await connection.stop();
                 await connection.start();
                 console.log("✅ SignalR bağlantısı başlatıldı!");
-
             } catch (err) {
                 console.error("❌ SignalR bağlantısı başlatılamadı:", err);
-                setTimeout(startSignalR, 5000);
+                setTimeout(startSignalR, 5000); // 5 saniye sonra tekrar dene
             }
         }
 
-        connection.onclose(() => {
-            console.warn("⚠ SignalR bağlantısı kapandı, tekrar bağlanıyor...");
-            setTimeout(() => startSignalR(), 3000);
+        // SignalR bağlantı kapandığında otomatik yeniden bağlanacak
+        connection.onreconnecting(error => {
+            console.warn("⚠ SignalR bağlantısı yeniden kurulmaya çalışılıyor...", error);
+        });
+
+        connection.onreconnected(() => {
+            console.log("✅ SignalR bağlantısı yeniden kuruldu!");
         });
 
         connection.on("UpdatePerformanceMetrics", function (data) {
-            const cpuUsageElement = document.getElementById("cpuUsage");
-            const memoryUsageElement = document.getElementById("memoryUsage");
-            const uptimeElement = document.getElementById("uptime");
-
             if (!cpuUsageElement || !memoryUsageElement || !uptimeElement) {
-                console.warn("⚠ Güncellenmeye çalışılan DOM elemanları bulunamadı!");
+                console.warn("⚠ Güncellenecek DOM elemanları bulunamadı!");
                 return;
             }
 
-            cpuUsageElement.innerText = data.systemMetrics.cpuUsage;
-            memoryUsageElement.innerText = data.systemMetrics.memoryUsage;
-            uptimeElement.innerText = data.systemMetrics.uptime;
+            // Gelen verileri DOM'a yansıt
+            cpuUsageElement.innerText = data.systemMetrics.cpuUsage ?? "-";
+            memoryUsageElement.innerText = data.systemMetrics.memoryUsage ?? "-";
+            uptimeElement.innerText = data.systemMetrics.uptime ?? "-";
         });
 
-        document.addEventListener("DOMContentLoaded", async () => {
-            console.log("🔄 Sayfa yüklendi, SignalR başlatılıyor...");
-            await startSignalR();
-        });
+        // Sayfa tamamen yüklendiğinde SignalR başlat
+        document.addEventListener("DOMContentLoaded", startSignalR);
 
+        // Sayfa kapanırken bağlantıyı düzgün şekilde durdur
         window.addEventListener("beforeunload", () => {
             if (connection.state === signalR.HubConnectionState.Connected) {
                 connection.stop();
@@ -162,8 +165,5 @@
         });
 
     </script>
-
-
-
 </body>
 </html>

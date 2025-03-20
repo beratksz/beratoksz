@@ -1,4 +1,5 @@
 ﻿@model beratoksz.Models.EditUserViewModel
+
 @{
     ViewData["Title"] = "Yeni Kullanıcı Ekle";
 }
@@ -6,51 +7,97 @@
 <div class="container py-5">
     <div class="card shadow">
         <div class="card-header bg-success text-white">
-            <h3 class="mb-0">Yeni Kullanıcı Ekle</h3>
+            <h3 class="mb-0"><i class="bx bx-user-plus"></i> Yeni Kullanıcı Ekle</h3>
         </div>
         <div class="card-body">
             <form asp-controller="UserManagement" asp-action="Create" asp-route-area="Admin" method="post">
                 @Html.AntiForgeryToken()
                 <div asp-validation-summary="All" class="text-danger"></div>
 
+                <!-- ✅ Email Adresi -->
                 <div class="mb-3">
                     <label asp-for="Email" class="form-label">Email Adresi</label>
-                    <input asp-for="Email" type="email" class="form-control" placeholder="Email adresini girin" required />
+                    <input asp-for="Email" type="email" class="form-control" placeholder="Email adresini girin" value="@Model?.Email" required />
                     <span asp-validation-for="Email" class="text-danger"></span>
                 </div>
 
+                <!-- Email Onaylı -->
+                <div class="mb-3">
+                    <label class="form-label">Email Onaylı</label>
+                    <select asp-for="EmailConfirmed" class="form-select">
+                        <option value="true" selected="@(Model?.EmailConfirmed ?? false ? "selected" : "")">Evet</option>
+                        <option value="false" selected="@(Model?.EmailConfirmed ?? false ? "" : "selected")">Hayır</option>
+                    </select>
+                </div>
+
+                <!-- ✅ Kullanıcı Adı -->
                 <div class="mb-3">
                     <label asp-for="UserName" class="form-label">Kullanıcı Adı</label>
-                    <input asp-for="UserName" class="form-control" placeholder="Kullanıcı adını belirleyin" required />
+                    <input asp-for="UserName" class="form-control" placeholder="Kullanıcı adını belirleyin" value="@Model?.UserName" required />
                     <span asp-validation-for="UserName" class="text-danger"></span>
                 </div>
 
+                <!-- ✅ Şifre -->
                 <div class="mb-3">
-                    <label for="password" class="form-label">Şifre</label>
-                    <input type="password" name="Password" class="form-control" id="password" placeholder="Güçlü bir şifre belirleyin" required />
+                    <label asp-for="Password" class="form-label">Şifre</label>
+                    <input asp-for="Password" type="password" class="form-control" placeholder="Güçlü bir şifre belirleyin" />
+                    <span asp-validation-for="Password" class="text-danger"></span>
                 </div>
 
+                <!-- ✅ Telefon Numarası -->
                 <div class="mb-3">
                     <label asp-for="PhoneNumber" class="form-label">Telefon Numarası</label>
-                    <input asp-for="PhoneNumber" class="form-control" placeholder="Telefon numarasını girin (Opsiyonel)" />
+                    <input asp-for="PhoneNumber" class="form-control" placeholder="Telefon numarasını girin (Opsiyonel)" value="@Model?.PhoneNumber" />
                     <span asp-validation-for="PhoneNumber" class="text-danger"></span>
                 </div>
 
+                <!-- Telefon Onaylı -->
+                <div class="mb-3">
+                    <label class="form-label">Telefon Onaylı</label>
+                    <select asp-for="PhoneNumberConfirmed" class="form-select">
+                        <option value="true" selected="@(Model?.PhoneNumberConfirmed ?? false ? "selected" : "")">Evet</option>
+                        <option value="false" selected="@(Model?.PhoneNumberConfirmed ?? false ? "" : "selected")">Hayır</option>
+                    </select>
+                </div>
+
+                <!-- İki Faktörlü Doğrulama -->
+                <div class="mb-3">
+                    <label class="form-label">İki Faktörlü Doğrulama</label>
+                    <select asp-for="TwoFactorEnabled" class="form-select">
+                        <option value="true" selected="@(Model?.TwoFactorEnabled ?? false ? "selected" : "")">Evet</option>
+                        <option value="false" selected="@(Model?.TwoFactorEnabled ?? false ? "" : "selected")">Hayır</option>
+                    </select>
+                </div>
+
+                <!-- ✅ Roller -->
+                <!-- ✅ Roller -->
                 <div class="mb-3">
                     <label class="form-label">Roller</label>
                     <div class="border rounded p-2">
-                        @foreach (var role in Model.Roles)
+                        @if (Model?.Roles?.Any() == true)
                         {
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="checkbox" name="SelectedRoles" value="@role" />
-                                <label class="form-check-label">@role</label>
-                            </div>
+                            @foreach (var role in Model.Roles)
+                            {
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" name="SelectedRoles" value="@role"
+                                    @(Model?.SelectedRoles?.Contains(role) == true ? "checked" : "") />
+                                    <label class="form-check-label">@role</label>
+                                </div>
+                            }
+                        }
+                        else
+                        {
+                            <p class="text-muted">Henüz rol eklenmemiş.</p>
                         }
                     </div>
                 </div>
 
-                <button type="submit" class="btn btn-success"><i class="bx bx-save"></i> Kaydet</button>
-                <a href="@Url.Action("Index", "UserManagement", new { area = "Admin" })" class="btn btn-outline-secondary">İptal</a>
+
+                <!-- ✅ Butonlar -->
+                <div class="d-flex justify-content-between">
+                    <button type="submit" class="btn btn-success"><i class="bx bx-save"></i> Kaydet</button>
+                    <a href="@Url.Action("Index", "UserManagement", new { area = "Admin" })" class="btn btn-outline-secondary">İptal</a>
+                </div>
             </form>
         </div>
     </div>

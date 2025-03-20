@@ -1,0 +1,12 @@
+﻿@{
+    ViewData["Title"] = "Erişim Engellendi";
+    Layout = "_Layout";
+@using Microsoft.AspNetCore.Authorization
+@attribute [AllowAnonymous]
+
+}
+<div class="container text-center py-5">
+    <h1 class="text-danger">🚫 Erişim Engellendi</h1>
+    <p class="lead">Bu sayfaya erişim yetkiniz yok.</p>
+    <a href="javascript:history.back()" class="btn btn-secondary">Geri Dön</a>
+</div>

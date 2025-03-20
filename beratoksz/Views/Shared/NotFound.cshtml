@@ -1,0 +1,11 @@
+﻿@{
+    ViewData["Title"] = "Sayfa Bulunamadı";
+    Layout = "_Layout";
+    @using Microsoft.AspNetCore.Authorization
+    @attribute [AllowAnonymous]
+}
+<div class="container text-center py-5">
+    <h1 class="text-warning">🔍 404 - Sayfa Bulunamadı</h1>
+    <p class="lead">Aradığınız sayfa bulunamadı veya kaldırılmış olabilir.</p>
+    <a href="/" class="btn btn-primary">Ana Sayfaya Dön</a>
+</div>

@@ -1,11 +1,14 @@
 ﻿using beratoksz.Data;
 using beratoksz.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using System.Threading.Tasks;
 using static PageDiscoveryService;
 
+
+[Authorize(Roles = "Admin")]
 public class AutoDiscoverMiddleware
 {
     private readonly RequestDelegate _next;

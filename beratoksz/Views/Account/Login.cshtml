@@ -1,110 +1,90 @@
-﻿@model beratoksz.Models.LoginViewModel
-@{
+﻿@{
     ViewData["Title"] = "Giriş Yap";
 }
-<!-- Google Fonts -->
-<link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
-<style>
-    body {
-        font-family: 'Poppins', sans-serif;
-        background: #f2f2f2;
-        margin: 0;
-        padding: 0;
-    }
 
-    .login-wrap {
-        width: 100%;
-        max-width: 525px;
-        margin: 50px auto;
-        min-height: 600px;
-        position: relative;
-        box-shadow: 0 12px 15px rgba(0,0,0,0.24), 0 17px 50px rgba(0,0,0,0.19);
-        background: #fff;
-        border-radius: 10px;
-        overflow: hidden;
-    }
+<div class="container d-flex justify-content-center align-items-center min-vh-100">
+    <div class="login-card p-4 shadow-lg">
+        <h2 class="text-center mb-4 fw-bold">Giriş Yap</h2>
 
-    .login-html {
-        padding: 40px 30px;
-    }
+        <div id="errorMessage" class="text-danger text-center mb-3"></div>
 
-        .login-html h2 {
-            font-weight: 600;
-            margin-bottom: 30px;
-            color: #333;
-        }
-
-    .group {
-        margin-bottom: 20px;
-    }
-
-        .group label {
-            font-size: 14px;
-            color: #555;
-            margin-bottom: 5px;
-            display: block;
-        }
-
-        .group .form-control {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-        }
-
-        .group .form-check {
-            margin-top: 10px;
-        }
-
-    .button {
-        display: block;
-        width: 100%;
-        padding: 10px;
-        background: #27ae60;
-        border: none;
-        border-radius: 4px;
-        color: #fff;
-        font-size: 16px;
-        cursor: pointer;
-    }
-
-    .text-danger {
-        font-size: 13px;
-    }
-</style>
-
-
-<h2>@ViewData["Title"]</h2>
-
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Login">
-            <h4>Hesabınızla giriş yapın.</h4>
-            <hr />
-            <div asp-validation-summary="All" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="LoginIdentifier" class="control-label">Email, Kullanıcı Adı veya Telefon Numarası</label>
-                <input asp-for="LoginIdentifier" class="form-control" />
-                <span asp-validation-for="LoginIdentifier" class="text-danger"></span>
+        <form id="loginForm">
+            <div class="mb-3">
+                <label for="LoginIdentifier" class="form-label">Kullanıcı Adı / Email</label>
+                <input type="text" id="LoginIdentifier" class="form-control" required />
             </div>
-            <div class="form-group">
-                <label asp-for="Password" class="control-label">Şifre</label>
-                <input asp-for="Password" class="form-control" />
-                <span asp-validation-for="Password" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <div class="checkbox">
-                    <label>
-                        <input asp-for="RememberMe" /> @Html.DisplayNameFor(m => m.RememberMe)
-                    </label>
+
+            <div class="mb-3 password-wrapper">
+                <label for="Password" class="form-label">Şifre</label>
+                <div class="input-group">
+                    <input type="password" id="Password" class="form-control" required />
+                    <button type="button" class="btn btn-outline-secondary toggle-password"><i class="bx bx-show"></i></button>
                 </div>
             </div>
-            <div class="form-group">
-                <button type="submit" class="btn btn-primary">Giriş Yap</button>
+
+            <div class="form-check mb-3">
+                <input type="checkbox" id="RememberMe" class="form-check-input" />
+                <label for="RememberMe" class="form-check-label">Beni Hatırla</label>
             </div>
+
+            <button type="submit" class="btn btn-primary w-100 py-2 fw-bold">Giriş Yap</button>
         </form>
+
+        <div class="text-center mt-3">
+            <a href="/Account/ForgotPassword" class="text-decoration-none">Şifremi Unuttum?</a>
+            <a href="/Account/Register" class="text-decoration-none">Hesabın yok mu? Kayıt Ol</a>
+        </div>
     </div>
 </div>
 
+<!-- 💡 Stil -->
+<link rel="stylesheet" href="~/css/login.css" />
 
+<!-- 💡 Script -->
+<script>
+    document.querySelector(".toggle-password").addEventListener("click", function () {
+        let passwordInput = document.getElementById("Password");
+        let icon = this.querySelector("i");
+        if (passwordInput.type === "password") {
+            passwordInput.type = "text";
+            icon.classList.replace("bx-show", "bx-hide");
+        } else {
+            passwordInput.type = "password";
+            icon.classList.replace("bx-hide", "bx-show");
+        }
+    });
 
+    document.getElementById("loginForm").addEventListener("submit", function (event) {
+        event.preventDefault();
+        
+        let loginData = {
+            LoginIdentifier: document.getElementById("LoginIdentifier").value,
+            Password: document.getElementById("Password").value,
+            RememberMe: document.getElementById("RememberMe").checked
+        };
+
+        fetch("/api/ApiAccount/login", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(loginData)
+        })
+        .then(response => {
+            if (!response.ok) {
+                return response.json().then(err => { throw new Error(err.message || "Giriş başarısız"); });
+            }
+            return response.json();
+        })
+        .then(data => {
+            return fetch("/api/ApiAccount/check-auth"); // Kullanıcıyı tekrar kontrol et
+        })
+        .then(response => response.json())
+        .then(authData => {
+            if (authData.isAuthenticated) {
+                window.location.href = "/"; // Başarıyla giriş yapınca anasayfaya yönlendir
+            }
+        })
+        .catch(error => {
+            document.getElementById("errorMessage").innerText = error.message;
+        });
+    });
+</script>

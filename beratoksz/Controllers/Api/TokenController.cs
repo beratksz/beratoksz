@@ -12,16 +12,18 @@ using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
 using beratoksz.Data;
+using Microsoft.AspNetCore.Http;
 
 namespace beratoksz.Controllers.Api
 {
     [Route("api/[controller]")]
     [ApiController]
+    
     public class TokenController : ControllerBase
     {
         private readonly UserManager<IdentityUser> _userManager;
         private readonly IConfiguration _configuration;
-        private readonly ApplicationDbContext _context; // Varsayalım ki veritabanı context'iniz bu şekilde
+        private readonly ApplicationDbContext _context;
 
         public TokenController(UserManager<IdentityUser> userManager, IConfiguration configuration, ApplicationDbContext context)
         {
@@ -30,166 +32,153 @@ namespace beratoksz.Controllers.Api
             _context = context;
         }
 
-        [HttpPost]
-        public async Task<IActionResult> Post([FromBody] LoginViewModel model)
+        [HttpPost("login")]
+        public async Task<IActionResult> Login([FromBody] LoginViewModel model)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
-            IdentityUser user = null;
+            IdentityUser user = await GetUserByIdentifier(model.LoginIdentifier);
+            if (user == null || !await _userManager.CheckPasswordAsync(user, model.Password))
+                return Unauthorized("Geçersiz giriş bilgileri.");
 
-            // Kullanıcıyı email, kullanıcı adı veya telefon numarasına göre bulma
-            if (model.LoginIdentifier.Contains("@"))
-            {
-                user = await _userManager.FindByEmailAsync(model.LoginIdentifier);
-            }
-            else if (model.LoginIdentifier.All(char.IsDigit))
-            {
-                user = _userManager.Users.SingleOrDefault(u => u.PhoneNumber == model.LoginIdentifier);
-            }
-            else
-            {
-                user = await _userManager.FindByNameAsync(model.LoginIdentifier);
-            }
+            // JWT ve Refresh Token üret
+            var jwtToken = GenerateJwtToken(user);
+            var refreshToken = GenerateRefreshToken();
 
-            if (user != null && await _userManager.CheckPasswordAsync(user, model.Password))
-            {
-                var authClaims = new List<Claim>
-                {
-                    new Claim(ClaimTypes.Name, user.UserName),
-                    new Claim(ClaimTypes.Email, user.Email), // Email claim ekleniyor
-                    new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
-                };
+            // Refresh token'ı veritabanına kaydet
+            await SaveRefreshToken(user.Id, refreshToken);
 
-                var userRoles = await _userManager.GetRolesAsync(user);
-                foreach (var role in userRoles)
-                {
-                    authClaims.Add(new Claim(ClaimTypes.Role, role));
-                }
+            // JWT'yi ve Refresh Token'ı HttpOnly Cookie olarak ayarla
+            SetTokenCookies(jwtToken, refreshToken);
 
-                var jwtConfig = _configuration.GetSection("JWT");
-                var authSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtConfig["Secret"]));
-
-                var token = new JwtSecurityToken(
-                    issuer: jwtConfig["ValidIssuer"],
-                    audience: jwtConfig["ValidAudience"],
-                    expires: DateTime.Now.AddHours(3),
-                    claims: authClaims,
-                    signingCredentials: new SigningCredentials(authSigningKey, SecurityAlgorithms.HmacSha256)
-                );
-
-                // Refresh token üretimi ve veritabanına kaydı
-                var refreshTokenValue = Guid.NewGuid().ToString();
-                var refreshToken = new RefreshToken
-                {
-                    Token = refreshTokenValue,
-                    Expiration = DateTime.Now.AddDays(7),
-                    IsRevoked = false,
-                    UserId = user.Id
-                };
-
-                _context.RefreshTokens.Add(refreshToken);
-                await _context.SaveChangesAsync();
-
-                return Ok(new
-                {
-                    token = new JwtSecurityTokenHandler().WriteToken(token),
-                    expiration = token.ValidTo,
-                    refreshToken = refreshTokenValue
-                });
-            }
-            return Unauthorized();
+            return Ok(new { message = "Başarıyla giriş yapıldı." });
         }
 
         [HttpPost("refresh")]
-        public async Task<IActionResult> Refresh([FromBody] RefreshRequest request)
+        public async Task<IActionResult> Refresh()
         {
-            // İlk olarak, refresh token'ın veritabanında varlığını ve geçerliliğini kontrol ediyoruz.
-            var storedToken = await _context.RefreshTokens.FirstOrDefaultAsync(t => t.Token == request.RefreshToken);
-            if (storedToken == null || storedToken.Expiration < DateTime.Now || storedToken.IsRevoked)
+            if (!Request.Cookies.TryGetValue("refresh_token", out var refreshTokenValue))
+                return Unauthorized("Refresh token bulunamadı.");
+
+            var storedToken = await _context.RefreshTokens.FirstOrDefaultAsync(t => t.Token == refreshTokenValue);
+            if (storedToken == null || storedToken.Expiration < DateTime.UtcNow || storedToken.IsRevoked)
+                return Unauthorized("Geçersiz veya süresi dolmuş refresh token.");
+
+            var user = await _userManager.FindByIdAsync(storedToken.UserId);
+            if (user == null)
+                return Unauthorized("Kullanıcı bulunamadı.");
+
+            // Eski refresh token'ı iptal et
+            storedToken.IsRevoked = true;
+            _context.RefreshTokens.Update(storedToken);
+            await _context.SaveChangesAsync();
+
+            // Yeni JWT ve Refresh Token üret
+            var newJwtToken = GenerateJwtToken(user);
+            var newRefreshToken = GenerateRefreshToken();
+            await SaveRefreshToken(user.Id, newRefreshToken);
+
+            // Yeni token'ları Cookie olarak ayarla
+            SetTokenCookies(newJwtToken, newRefreshToken);
+
+            return Ok(new { message = "Token yenilendi." });
+        }
+
+        [HttpPost("logout")]
+        public async Task<IActionResult> Logout()
+        {
+            if (!Request.Cookies.TryGetValue("refresh_token", out var refreshTokenValue))
+                return Unauthorized("Çıkış yapacak token bulunamadı.");
+
+            var storedToken = await _context.RefreshTokens.FirstOrDefaultAsync(t => t.Token == refreshTokenValue);
+            if (storedToken != null)
             {
-                return Unauthorized("Invalid refresh token");
-            }
-
-            var tokenHandler = new JwtSecurityTokenHandler();
-            var jwtConfig = _configuration.GetSection("JWT");
-            var key = Encoding.UTF8.GetBytes(jwtConfig["Secret"]);
-
-            try
-            {
-                tokenHandler.ValidateToken(request.AccessToken, new TokenValidationParameters
-                {
-                    ValidateIssuer = true,
-                    ValidateAudience = true,
-                    ValidateLifetime = true,
-                    ValidateIssuerSigningKey = true,
-                    ValidIssuer = jwtConfig["ValidIssuer"],
-                    ValidAudience = jwtConfig["ValidAudience"],
-                    IssuerSigningKey = new SymmetricSecurityKey(key)
-                }, out SecurityToken validatedToken);
-
-                var jwtToken = (JwtSecurityToken)validatedToken;
-                // Email claim'ini okuma
-                var userEmailClaim = jwtToken.Claims.FirstOrDefault(x => x.Type == ClaimTypes.Email);
-                if (userEmailClaim == null)
-                {
-                    return Unauthorized("Email claim missing in access token");
-                }
-                var userEmail = userEmailClaim.Value;
-
-                var user = await _userManager.FindByEmailAsync(userEmail);
-                if (user == null)
-                {
-                    return Unauthorized("User not found");
-                }
-
-                // Mevcut refresh token'ı tek kullanımlık yapmak için iptal ediyoruz.
                 storedToken.IsRevoked = true;
                 _context.RefreshTokens.Update(storedToken);
                 await _context.SaveChangesAsync();
-
-                // Yeni token ve refresh token üretimi
-                var authClaims = new List<Claim>
-                {
-                    new Claim(ClaimTypes.Name, user.UserName),
-                    new Claim(ClaimTypes.Email, user.Email),
-                    new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
-                };
-
-                var authSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtConfig["Secret"]));
-                var newToken = new JwtSecurityToken(
-                    issuer: jwtConfig["ValidIssuer"],
-                    audience: jwtConfig["ValidAudience"],
-                    expires: DateTime.Now.AddHours(3),
-                    claims: authClaims,
-                    signingCredentials: new SigningCredentials(authSigningKey, SecurityAlgorithms.HmacSha256)
-                );
-
-                var newRefreshTokenValue = Guid.NewGuid().ToString();
-                var newRefreshToken = new RefreshToken
-                {
-                    Token = newRefreshTokenValue,
-                    Expiration = DateTime.Now.AddDays(7),
-                    IsRevoked = false,
-                    UserId = user.Id
-                };
-
-                _context.RefreshTokens.Add(newRefreshToken);
-                await _context.SaveChangesAsync();
-
-                return Ok(new
-                {
-                    token = new JwtSecurityTokenHandler().WriteToken(newToken),
-                    expiration = newToken.ValidTo,
-                    refreshToken = newRefreshTokenValue
-                });
             }
-            catch (Exception ex)
-            {
-                // Hata loglama işlemleri ekleyebilirsiniz
-                return Unauthorized("Invalid access token");
-            }
+
+            // Cookie'leri temizle
+            Response.Cookies.Delete("access_token");
+            Response.Cookies.Delete("refresh_token");
+
+            return Ok(new { message = "Başarıyla çıkış yapıldı." });
         }
 
+        // Kullanıcıyı email, username veya telefon ile bulma
+        private async Task<IdentityUser> GetUserByIdentifier(string identifier)
+        {
+            if (identifier.Contains("@"))
+                return await _userManager.FindByEmailAsync(identifier);
+            if (identifier.All(char.IsDigit))
+                return _userManager.Users.SingleOrDefault(u => u.PhoneNumber == identifier);
+            return await _userManager.FindByNameAsync(identifier);
+        }
+
+        // JWT Token üretme fonksiyonu
+        private string GenerateJwtToken(IdentityUser user)
+        {
+            var authClaims = new List<Claim>
+            {
+                new Claim(ClaimTypes.Name, user.UserName),
+                new Claim(ClaimTypes.Email, user.Email),
+                new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
+            };
+
+            var jwtConfig = _configuration.GetSection("JWT");
+            var authSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtConfig["Secret"]));
+
+            var token = new JwtSecurityToken(
+                issuer: jwtConfig["ValidIssuer"],
+                audience: jwtConfig["ValidAudience"],
+                expires: DateTime.UtcNow.AddMinutes(30),
+                claims: authClaims,
+                signingCredentials: new SigningCredentials(authSigningKey, SecurityAlgorithms.HmacSha256)
+            );
+
+            return new JwtSecurityTokenHandler().WriteToken(token);
+        }
+
+        // Refresh Token üretme fonksiyonu
+        private string GenerateRefreshToken()
+        {
+            return Guid.NewGuid().ToString();
+        }
+
+        // Refresh Token'ı veritabanına kaydetme
+        private async Task SaveRefreshToken(string userId, string refreshToken)
+        {
+            var refreshTokenEntity = new RefreshToken
+            {
+                Token = refreshToken,
+                Expiration = DateTime.UtcNow.AddDays(7),
+                IsRevoked = false,
+                UserId = userId
+            };
+
+            _context.RefreshTokens.Add(refreshTokenEntity);
+            await _context.SaveChangesAsync();
+        }
+
+        // Token'ları HttpOnly Cookie olarak saklama
+        private void SetTokenCookies(string jwtToken, string refreshToken)
+        {
+            Response.Cookies.Append("access_token", jwtToken, new CookieOptions
+            {
+                HttpOnly = true,
+                Secure = true,
+                SameSite = SameSiteMode.Strict,
+                Expires = DateTime.UtcNow.AddMinutes(30)
+            });
+
+            Response.Cookies.Append("refresh_token", refreshToken, new CookieOptions
+            {
+                HttpOnly = true,
+                Secure = true,
+                SameSite = SameSiteMode.Strict,
+                Expires = DateTime.UtcNow.AddDays(7)
+            });
+        }
     }
 }

@@ -6,44 +6,34 @@
 <div class="container py-5">
     <div class="card shadow">
         <div class="card-header bg-primary text-white">
-            <h3 class="mb-0">Kullanıcı Düzenle</h3>
+            <h3 class="mb-0"><i class="bx bx-edit"></i> Kullanıcı Düzenle</h3>
         </div>
         <div class="card-body">
             <form asp-action="Edit" asp-controller="UserManagement" asp-area="Admin" method="post">
                 @Html.AntiForgeryToken()
                 <div asp-validation-summary="All" class="text-danger"></div>
 
+                <!-- Email Alanı (Değiştirilemez) -->
+                <input type="hidden" asp-for="Email" />
                 <div class="mb-3">
                     <label asp-for="Email" class="form-label">Email</label>
-                    <input asp-for="Email" type="email" class="form-control" readonly />
-                    <input type="hidden" asp-for="Email" />
+                    <input class="form-control" value="@Model?.Email" disabled />
                 </div>
 
+                <!-- Kullanıcı Adı -->
                 <div class="mb-3">
                     <label asp-for="UserName" class="form-label">Kullanıcı Adı</label>
                     <input asp-for="UserName" class="form-control" />
                     <span asp-validation-for="UserName" class="text-danger"></span>
                 </div>
 
-                <div class="mb-3">
-                    <label asp-for="NormalizedUserName" class="form-label">Normalized Kullanıcı Adı</label>
-                    <input asp-for="NormalizedUserName" class="form-control" readonly />
-                    <input type="hidden" asp-for="NormalizedUserName" />
-                </div>
-
-                <div class="mb-3">
-                    <label asp-for="NormalizedEmail" class="form-label">Normalized Email</label>
-                    <input asp-for="NormalizedEmail" class="form-control" readonly />
-                    <input type="hidden" asp-for="NormalizedEmail" />
-                </div>
-
+                <!-- Telefon ve Onay -->
                 <div class="row">
                     <div class="mb-3 col-md-6">
                         <label asp-for="PhoneNumber" class="form-label">Telefon Numarası</label>
                         <input asp-for="PhoneNumber" class="form-control" />
                         <span asp-validation-for="PhoneNumber" class="text-danger"></span>
                     </div>
-
                     <div class="mb-3 col-md-6">
                         <label asp-for="PhoneNumberConfirmed" class="form-label">Telefon Onaylı</label>
                         <select asp-for="PhoneNumberConfirmed" class="form-select">
@@ -53,6 +43,7 @@
                     </div>
                 </div>
 
+                <!-- Email Onayı & 2FA -->
                 <div class="row">
                     <div class="mb-3 col-md-6">
                         <label asp-for="EmailConfirmed" class="form-label">Email Onaylı</label>
@@ -61,7 +52,6 @@
                             <option value="false">Hayır</option>
                         </select>
                     </div>
-
                     <div class="mb-3 col-md-6">
                         <label asp-for="TwoFactorEnabled" class="form-label">İki Faktörlü Doğrulama</label>
                         <select asp-for="TwoFactorEnabled" class="form-select">
@@ -71,57 +61,45 @@
                     </div>
                 </div>
 
-                <div class="mb-3">
-                    <label asp-for="PasswordHash" class="form-label">Şifre Hash</label>
-                    <input asp-for="PasswordHash" class="form-control" readonly />
-                    <input type="hidden" asp-for="PasswordHash" />
-                </div>
-
-                <div class="mb-3">
-                    <label asp-for="SecurityStamp" class="form-label">Güvenlik Damgası</label>
-                    <input asp-for="SecurityStamp" class="form-control" readonly />
-                    <input type="hidden" asp-for="SecurityStamp" />
-                </div>
-
-                <div class="mb-3">
-                    <label asp-for="ConcurrencyStamp" class="form-label">Eşzamanlılık Damgası</label>
-                    <input asp-for="ConcurrencyStamp" class="form-control" readonly />
-                    <input type="hidden" asp-for="ConcurrencyStamp" />
-                </div>
-
-                <div class="mb-3">
-                    <label asp-for="LockoutEnd" class="form-label">Kilitlenme Bitiş</label>
-                    <input asp-for="LockoutEnd" class="form-control" readonly />
-                    <input type="hidden" asp-for="LockoutEnd" />
-                </div>
-
-                <div class="mb-3">
-                    <label asp-for="LockoutEnabled" class="form-label">Kilitlenme Etkin</label>
-                    <input asp-for="LockoutEnabled" class="form-control" readonly />
-                    <input type="hidden" asp-for="LockoutEnabled" />
-                </div>
-
-                <div class="mb-3">
-                    <label asp-for="AccessFailedCount" class="form-label">Başarısız Giriş Sayısı</label>
-                    <input asp-for="AccessFailedCount" class="form-control" readonly />
-                    <input type="hidden" asp-for="AccessFailedCount" />
-                </div>
-
+                <!-- Rolleri Listeleme -->
                 <div class="mb-3">
                     <label class="form-label">Kullanıcı Rolleri</label>
                     <div class="border rounded p-2">
-                        @foreach (var role in Model.Roles)
+                        @if (Model?.Roles?.Any() == true)
                         {
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="checkbox" name="SelectedRoles" value="@role" @(Model.SelectedRoles.Contains(role) ? "checked" : "") />
-                                <label class="form-check-label">@role</label>
-                            </div>
+                            @foreach (var role in Model.Roles)
+                            {
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" name="SelectedRoles"
+                                           value="@role" @(Model?.SelectedRoles?.Contains(role) == true ? "checked" : "") />
+                                    <label class="form-check-label">@role</label>
+                                </div>
+                            }
+                        }
+                        else
+                        {
+                            <span class="text-muted">Rol atanmadı.</span>
                         }
                     </div>
                 </div>
 
-                <button type="submit" class="btn btn-success">💾 Kaydet</button>
-                <a href="@Url.Action("Index", "UserManagement", new { area = "Admin" })" class="btn btn-outline-secondary">İptal</a>
+                <!-- Sistem Yönetimi Alanları -->
+                <input type="hidden" asp-for="NormalizedUserName" />
+                <input type="hidden" asp-for="NormalizedEmail" />
+                <input type="hidden" asp-for="PasswordHash" />
+                <input type="hidden" asp-for="SecurityStamp" />
+                <input type="hidden" asp-for="ConcurrencyStamp" />
+                <input type="hidden" asp-for="LockoutEnd" />
+                <input type="hidden" asp-for="LockoutEnabled" />
+                <input type="hidden" asp-for="AccessFailedCount" />
+
+                <!-- Butonlar -->
+                <div class="mt-4 d-flex gap-2">
+                    <button type="submit" class="btn btn-success"><i class="bx bx-save"></i> Kaydet</button>
+                    <a href="@Url.Action("Index", "UserManagement", new { area = "Admin" })" class="btn btn-outline-secondary">
+                        <i class="bx bx-arrow-back"></i> İptal
+                    </a>
+                </div>
             </form>
         </div>
     </div>

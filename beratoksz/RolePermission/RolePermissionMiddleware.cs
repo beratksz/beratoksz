@@ -2,6 +2,7 @@
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using System;
+using System.Linq;
 using System.Security.Claims;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -21,18 +22,20 @@ public class RolePermissionMiddleware
 
     public async Task Invoke(HttpContext context)
     {
-        var path = context.Request.Path.ToString().Trim('/').ToLower();
-        var user = context.User;  // 🔥 Burada user'ı tanımla!
+        var path = context.Request.Path.ToString().Trim().ToLower().Replace("//", "/");
+        var user = context.User;
 
+       // var userName = user.Identity?.IsAuthenticated == true && !string.IsNullOrEmpty(user.Identity.Name)
+         //   ? user.Identity.Name
+           // : "Misafir";
 
-        var userRoles = context.User.Claims
+        var userRoles = user.Claims
             .Where(c => c.Type == ClaimTypes.Role)
             .Select(c => c.Value)
             .ToList();
 
         Console.WriteLine($"🟡 [Middleware] Gelen Path: {path}");
         Console.WriteLine($"🟡 [Middleware] Kullanıcı Roller: {string.Join(", ", userRoles)}");
-
 
         while (path.Contains("//"))
         {
@@ -53,89 +56,52 @@ public class RolePermissionMiddleware
             return;
         }
 
-        // 📌 2️⃣ HATA SAYFASI KONTROLÜ (Yönlendirme döngüsünü önlemek için)
-        if (path.StartsWith("/Home/AccessDenied"))
-        {
-            await _next(context);
-            return;
-        }
-
+        // 📌 2️⃣ API yollarını doğrudan işle
         if (path.StartsWith("/api"))
         {
             await _next(context);
             return;
         }
 
-
-        // 📌 3️⃣ Route Endpoint kontrolü
-        var endpoint = context.GetEndpoint();
-        if (endpoint != null)
-        {
-            var allowAnonymous = endpoint.Metadata.GetMetadata<Microsoft.AspNetCore.Authorization.AllowAnonymousAttribute>();
-            if (allowAnonymous != null)
-            {
-                _logger.LogInformation($"🔓 {path} sayfası [AllowAnonymous] ile işaretlenmiş, erişim serbest!");
-                await _next(context);
-                return;
-            }
-
-            var routePattern = endpoint.Metadata.GetMetadata<Microsoft.AspNetCore.Routing.RouteEndpoint>()?.RoutePattern.RawText;
-            if (!string.IsNullOrEmpty(routePattern))
-            {
-                path = "/" + routePattern.Replace("{", "").Replace("}", "").Replace("?", "");
-            }
-        }
-
-        // 📌 4️⃣ Ana sayfa yönlendirmesi
-        if (path == "/" || path == "/index.html" || path == "/index" || path == "/home")
-        {
-            path = "/home/index";
-        }
-
-        // 📌 5️⃣ Admin area yönlendirme
-        if (path.StartsWith("/admin") || path.StartsWith("/user"))
-        {
-            path = $"/{path}";
-        }
-
-        // 📌 6️⃣ TÜRKÇE KARAKTER DÜZELTME
-
-        path = ConvertToAscii(path);
-        Console.WriteLine($"🛑 Yetki Kontrolü: Kullanıcı: {context.User.Identity?.Name}, Path: {path}");
-
-        // 📌 7️⃣ Kullanıcı giriş yapmamışsa login sayfasına yönlendir
+        // 📌 3️⃣ Kullanıcı giriş yapmamışsa login sayfasına yönlendir
         if (!user.Identity.IsAuthenticated)
         {
             _logger.LogWarning($"🔒 Yetkisiz kullanıcı giriş yapmaya çalıştı: {path}");
-            context.Response.Redirect("/Account/Login");
+            // context.Response.Redirect("/Account/Login");
             return;
         }
 
+        // 📌 4️⃣ Türkçe karakterleri ASCII'ye çevir
+        path = ConvertToAscii(path);
 
         using (var scope = _scopeFactory.CreateScope())
         {
             var rolePermissionService = scope.ServiceProvider.GetRequiredService<RolePermissionService>();
 
-            // 📌 8️⃣ Kullanıcının ilgili sayfaya erişim izni olup olmadığını kontrol et
+            // 📌 5️⃣ Kullanıcının yetkisini kontrol et
             var hasAccess = await rolePermissionService.HasAccess(user, path);
 
             if (!hasAccess)
             {
-                _logger.LogWarning($"🚫 Yetkisiz erişim: Kullanıcı {user.Identity?.Name ?? "Anonim"} {path} sayfasına erişmeye çalıştı.");
+            //    _logger.LogWarning($"🚫 Yetkisiz erişim: Kullanıcı {userName} {path} sayfasına erişmeye çalıştı.");
 
-                // **Türkçe karakterleri kaldır ve ASCII formatına çevir**
-                var safePath = ConvertToAscii(path).Replace("//", "/").TrimEnd('/'); // Fazladan slash temizle
-
-                // ✅ **Sadece query parametresini encode et**
+                var safePath = ConvertToAscii(path).Replace("//", "/").TrimEnd('/');
                 var message = Uri.EscapeDataString($"Yetkisiz Erişim: {safePath}");
 
-                // 🌟 **HATASIZ REDIRECT**
-                var redirectUrl = $"/Home/AccessDenied?message={message}";
-                context.Response.Redirect(redirectUrl);
+                // 🚨 Kullanıcı AccessDenied sayfasına erişimi yoksa doğrudan 403 Forbidden dön!
+                if (path.Equals("/accessdenied", StringComparison.OrdinalIgnoreCase))
+                {
+                    context.Response.StatusCode = StatusCodes.Status403Forbidden;
+                    await context.Response.WriteAsync("403 - Yetkisiz Erişim");
+                    return;
+                }
+
+                // 🌟 AccessDenied sayfasına yönlendirme
+                context.Response.Redirect($"/AccessDenied?message={message}");
                 return;
             }
-        }
 
+        }
 
         await _next(context);
     }
@@ -147,7 +113,7 @@ public class RolePermissionMiddleware
             return input;
 
         return input
-            .ToLowerInvariant() // 🔥 Türkçe büyük/küçük harf hatasını önler!
+            .ToLowerInvariant()
             .Replace("ı", "i").Replace("İ", "I")
             .Replace("ş", "s").Replace("Ş", "S")
             .Replace("ç", "c").Replace("Ç", "C")
@@ -155,5 +121,4 @@ public class RolePermissionMiddleware
             .Replace("ö", "o").Replace("Ö", "O")
             .Replace("ü", "u").Replace("Ü", "U");
     }
-
 }

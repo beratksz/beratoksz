@@ -25,14 +25,20 @@ public class ActivityLoggingMiddleware
     {
         var startTime = DateTime.UtcNow;
 
-        await _next(context); // Sonraki middleware'i bekle
+        await _next(context); // Middleware zincirini devam ettir
 
         using (var scope = _scopeFactory.CreateScope())
         {
             var dbContext = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
             var geoIPService = scope.ServiceProvider.GetRequiredService<GeoIPService>();
 
-            var userName = context.User.Identity.IsAuthenticated ? context.User.Identity.Name : "Anonim";
+            // Kullanıcı adını al
+            var userName = context.User?.Identity?.IsAuthenticated == true && !string.IsNullOrEmpty(context.User.Identity.Name)
+     ? context.User.Identity.Name
+     : "Anonim";  // Eğer kullanıcı giriş yapmamışsa varsayılan olarak "Anonim" ata
+
+
+
             var pagePath = context.Request.Path.ToString();
             var ipAddress = context.Connection.RemoteIpAddress?.ToString();
             var userAgent = context.Request.Headers["User-Agent"].ToString();
@@ -66,6 +72,12 @@ public class ActivityLoggingMiddleware
                 }
             }
 
+            // **Boş olan UserName değerine fallback sağla**
+            if (string.IsNullOrWhiteSpace(userName))
+            {
+                userName = "Bilinmeyen Kullanıcı"; // NULL veya boşsa varsayılan değer ata
+            }
+
             var log = new ActivityLog
             {
                 UserName = userName,
@@ -86,4 +98,5 @@ public class ActivityLoggingMiddleware
             await dbContext.SaveChangesAsync();
         }
     }
+
 }

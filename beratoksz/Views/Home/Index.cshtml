@@ -1,53 +1,31 @@
 ﻿@{
     Layout = "_Layout";  // Genel (public) layout
-    var isAuthenticated = User.Identity.IsAuthenticated;
     ViewData["Title"] = "Hoşgeldiniz";
 }
+<script src="~/js/home_index.js"></script>
 
 <div class="container py-5">
-    @if (!isAuthenticated)
-    {
-        <!-- Kullanıcı giriş yapmamışsa: Giriş yap veya kaydol (bu projede sadece admin tarafından ekleme yapılıyor) -->
-        <div class="row justify-content-center">
-            <div class="col-md-6 text-center">
-                <h1 class="display-4">Hoşgeldiniz!</h1>
-                <p class="lead">Sistemimize giriş yaparak özel içeriklere erişebilirsiniz.</p>
-                <a href="/Account/Login" class="btn btn-primary btn-lg">Giriş Yap</a>
+    <div class="row justify-content-center">
+        <div class="col-md-6 text-center">
+            <h1 class="display-4">Hoşgeldiniz!</h1>
+            <p class="lead">Sistemimize giriş yaparak özel içeriklere erişebilirsiniz.</p>
+
+            <div id="guestActions" style="display: block;">
+                <button id="login-btn" class="btn btn-primary btn-lg">Giriş Yap</button>
             </div>
-        </div>
-        <!-- Alternatif olarak, login formu direkt burada da yer alabilir -->
-        @*<div class="row justify-content-center mt-5">
-            <div class="col-md-6">
-                <form asp-controller="Account" asp-action="Login" method="post">
-                    <div class="mb-3">
-                        <label for="Email" class="form-label">Email</label>
-                        <input type="email" class="form-control" id="Email" name="Email" required />
-                    </div>
-                    <div class="mb-3">
-                        <label for="Password" class="form-label">Şifre</label>
-                        <input type="password" class="form-control" id="Password" name="Password" required />
-                    </div>
-                    <div class="form-check mb-3">
-                        <input type="checkbox" class="form-check-input" id="RememberMe" name="RememberMe" />
-                        <label class="form-check-label" for="RememberMe">Beni Hatırla</label>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Giriş Yap</button>
-                </form>
-            </div>
-        </div>*@
-    }
-    else
-    {
-        <!-- Kullanıcı giriş yapmışsa: Kişiye özel içerik göster -->
-        <div class="row">
-            <div class="col-md-12 text-center">
-                <h1 class="display-4">Merhaba, @User.Identity.Name!</h1>
+
+            <div id="userActions" style="display: none;">
+                <h1 class="display-4">Merhaba, <span id="userName"></span>!</h1>
                 <p class="lead">Sistemimize başarılı giriş yaptınız. Panelinize yönlendirilmek için aşağıdaki butona tıklayabilirsiniz.</p>
-                <a asp-area="Admin" asp-controller="Home" asp-action="Index">Admin Paneline Git</a>             
-                <form asp-controller="Account" asp-action="Logout" method="post" class="d-inline">
-                    <button type="submit" class="btn btn-danger btn-lg">Çıkış Yap</button>
-                </form>
+
+                <!-- ✅ Admin Paneline Git -->
+                <a href="/Admin/Home/Index" class="btn btn-primary btn-lg">Admin Paneline Git</a>
+
+                <!-- ✅ Güvenli Çıkış Butonu -->
+                <button id="logout-btn" class="btn btn-danger btn-lg">Çıkış Yap</button>
             </div>
+
         </div>
-    }
+    </div>
 </div>
+

@@ -3,7 +3,7 @@
     public class ActivityLog
     {
         public int Id { get; set; }
-        public string UserName { get; set; }
+        public string? UserName { get; set; }
         public string Page { get; set; }
         public DateTime Timestamp { get; set; }
         public string IPAddress { get; set; } // ✅ Kullanıcının IP adresi

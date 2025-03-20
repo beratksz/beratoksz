@@ -8,7 +8,7 @@
         @Html.AntiForgeryToken()
         <div class="mb-3">
             <label for="roleName" class="form-label">Rol Adı</label>
-            <input id="roleName" class="form-control" placeholder="Rol Adını Girin" required />
+            <input id="roleName" name="roleName" class="form-control" placeholder="Rol Adını Girin" required />
         </div>
         <button type="submit" class="btn btn-primary">Kaydet</button>
         <a href="/Admin/Role" class="btn btn-secondary">İptal</a>
@@ -18,19 +18,28 @@
 <script>
     document.getElementById("createRoleForm").addEventListener("submit", async function (e) {
         e.preventDefault();
+
         let roleName = document.getElementById("roleName").value;
+        let token = document.querySelector('input[name="__RequestVerificationToken"]').value;
+        let submitBtn = document.querySelector('button[type="submit"]');
+        submitBtn.disabled = true; // Çift tıklamayı önleme
 
         let res = await fetch("/api/roles", {
             method: "POST",
-            headers: { "Content-Type": "application/json" },
+            headers: {
+                "Content-Type": "application/json",
+                "RequestVerificationToken": token
+            },
             body: JSON.stringify({ name: roleName })
         });
 
         if (res.ok) {
-            alert("Rol başarıyla eklendi.");
+            alert("✅ Rol başarıyla eklendi.");
             window.location.href = "/Admin/Role";
         } else {
-            alert("Bir hata oluştu.");
+            let errorMessage = await res.text();
+            alert("❌ Hata: " + errorMessage);
+            submitBtn.disabled = false; // Eğer hata olursa butonu tekrar aktif et
         }
     });
 </script>

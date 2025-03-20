@@ -51,6 +51,68 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "beratoksz.Controllers.ApiAccountController",
+    "Method": "CheckAuth",
+    "RelativePath": "api/ApiAccount/check-auth",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "beratoksz.Controllers.ApiAccountController",
+    "Method": "Login",
+    "RelativePath": "api/ApiAccount/login",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "beratoksz.Models.LoginViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "beratoksz.Controllers.ApiAccountController",
+    "Method": "Logout",
+    "RelativePath": "api/ApiAccount/logout",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "beratoksz.Controllers.ApiAccountController",
+    "Method": "Register",
+    "RelativePath": "api/ApiAccount/register",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "beratoksz.Models.RegisterViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "beratoksz.Controllers.ApiAccountController",
+    "Method": "GetUserInfo",
+    "RelativePath": "api/ApiAccount/userinfo",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "beratoksz.Controllers.Api.ExampleController",
     "Method": "Get",
     "RelativePath": "api/Example",
@@ -214,8 +276,8 @@
   },
   {
     "ContainingType": "beratoksz.Controllers.Api.TokenController",
-    "Method": "Post",
-    "RelativePath": "api/Token",
+    "Method": "Login",
+    "RelativePath": "api/Token/login",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -230,15 +292,35 @@
   },
   {
     "ContainingType": "beratoksz.Controllers.Api.TokenController",
+    "Method": "Logout",
+    "RelativePath": "api/Token/logout",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "beratoksz.Controllers.Api.TokenController",
     "Method": "Refresh",
     "RelativePath": "api/Token/refresh",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "beratoksz.Controllers.ErrorController",
+    "Method": "HandleError",
+    "RelativePath": "Error/{statusCode}",
+    "HttpMethod": "",
+    "IsController": true,
+    "Order": 0,
     "Parameters": [
       {
-        "Name": "request",
-        "Type": "beratoksz.Models.RefreshRequest",
+        "Name": "statusCode",
+        "Type": "System.Int32",
         "IsRequired": true
       }
     ],

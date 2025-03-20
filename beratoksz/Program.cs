@@ -64,12 +64,11 @@ builder.Services.AddHostedService<PerformanceMetricsService>();
 
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("AllowSpecificOrigins", builder =>
+    options.AddPolicy("AllowAll", builder =>
     {
-        builder.WithOrigins("https://localhost:7031","http://localhost:5234")  // Buraya izin verilen frontend domainini yaz
+        builder.AllowAnyOrigin()
                .AllowAnyMethod()
-               .AllowAnyHeader()
-               .AllowCredentials();  // Kimlik doðrulama bilgilerini destekle
+               .AllowAnyHeader();
     });
 });
 
@@ -178,7 +177,7 @@ using (var scope = app.Services.CreateScope())
             {
                 RoleName = "Admin",
                 PagePath = page,
-                CanAccess = true // Yeni eklenen sayfalar varsayýlan olarak eriþilemez olur.
+                CanAccess = true
             });
         }
     }
@@ -187,12 +186,18 @@ using (var scope = app.Services.CreateScope())
 
 
 // Production ortamý için hata yönetimi
-if (!app.Environment.IsDevelopment())
+app.UseSwagger();
+app.UseSwaggerUI(c =>
 {
-    app.UseExceptionHandler("/Home/Error");
-    app.UseHsts();
-}
-app.UseCors("AllowSpecificOrigins");
+    c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
+});
+
+
+app.UseExceptionHandler("/Error");
+app.UseStatusCodePagesWithReExecute("/Error/{0}");
+
+
+app.UseCors("AllowAll");
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
@@ -222,10 +227,9 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI(c =>
     {
         c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
-        c.RoutePrefix = string.Empty;
     });
-
 }
+
 
 // Routing: Areas ve default route
 app.MapControllerRoute(
@@ -250,6 +254,8 @@ app.Use(async (context, next) =>
     await next();
 });
 
+/*
+
 app.Use(async (context, next) =>
 {
     var user = context.User;
@@ -259,7 +265,7 @@ app.Use(async (context, next) =>
         // Eðer kullanýcý giriþ yapmamýþsa, varsayýlan anonim rolünü ata
         var claims = new List<Claim>
         {
-            new Claim(ClaimTypes.Role, "Anonymous") // Varsayýlan anonim rol
+            new Claim(ClaimTypes.Role, "Guest") // Varsayýlan anonim rol
         };
         var identity = new ClaimsIdentity(claims, "Custom");
         context.User = new ClaimsPrincipal(identity);
@@ -267,6 +273,8 @@ app.Use(async (context, next) =>
 
     await next();
 });
+
+*/
 
 // Seeding: Admin ve roller oluþturuluyor
 using (var scope = app.Services.CreateScope())

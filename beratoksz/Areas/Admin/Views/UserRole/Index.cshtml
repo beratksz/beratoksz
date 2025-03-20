@@ -14,22 +14,42 @@
         <table class="table table-hover table-bordered">
             <thead class="table-dark">
                 <tr>
-                    <th>ID</th>
+                    <th class="text-center">ID</th>
                     <th>Kullanıcı Adı</th>
                     <th>Roller</th>
-                    <th>İşlemler</th>
+                    <th class="text-center">İşlemler</th>
                 </tr>
             </thead>
             <tbody id="userRoleTableBody">
-                @foreach (var user in Model)
+                @if (Model.Any())
+                {
+                    @foreach (var user in Model)
+                    {
+                        <tr>
+                            <td class="text-center">@user.UserId</td>
+                            <td>@user.UserName</td>
+                            <td class="user-roles">
+                                @if (user.AssignedRoles?.Any() == true)
+                                {
+                                    @string.Join(", ", user.AssignedRoles)
+                                }
+                                else
+                                {
+                                    <span class="text-muted">Rol Yok</span>
+                                }
+                            </td>
+                            <td class="text-center">
+                                <a href="@Url.Action("Manage", "UserRole", new { area = "Admin", userId = user.UserId })" class="btn btn-warning btn-sm w-100">
+                                    <i class="bx bx-edit"></i> Düzenle
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                }
+                else
                 {
                     <tr>
-                        <td>@user.UserId</td>
-                        <td>@user.UserName</td>
-                        <td class="user-roles">@string.Join(", ", user.AssignedRoles)</td>
-                        <td>
-                            <a href="@Url.Action("Manage", "UserRole", new { area = "Admin", userId = user.UserId })" class="btn btn-warning btn-sm">Düzenle</a>
-                        </td>
+                        <td colspan="4" class="text-center text-muted">Kullanıcı bulunamadı.</td>
                     </tr>
                 }
             </tbody>
@@ -38,14 +58,16 @@
 </div>
 
 <script>
-        function filterUserRoles() {
+    function filterUserRoles() {
         let input = document.getElementById("userRoleFilterInput").value.toLowerCase();
         let rows = document.querySelectorAll("#userRoleTableBody tr");
 
         rows.forEach(row => {
-            let userId = row.cells[0].innerText.toLowerCase();   // ID sütunu
+            let userId = row.cells[0].innerText.toLowerCase();  // ID sütunu
             let userName = row.cells[1].innerText.toLowerCase(); // Kullanıcı Adı sütunu
-            let roles = row.querySelector(".user-roles").innerText.toLowerCase(); // Roller sütunu
+            let roleCell = row.querySelector(".user-roles");
+
+            let roles = roleCell ? roleCell.innerText.toLowerCase() : ""; // Null kontrolü
 
             if (userId.includes(input) || userName.includes(input) || roles.includes(input)) {
                 row.style.display = "";
@@ -54,6 +76,4 @@
             }
         });
     }
-
 </script>
-

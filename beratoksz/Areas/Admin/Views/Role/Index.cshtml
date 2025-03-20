@@ -108,39 +108,128 @@
     </div>
 </div>
 
-                <script>
-                        function filterTable() {
+<script>
+    // ✅ Roller tablosunu API'den çekip listeye ekleme
+    async function loadRoles() {
+        let res = await fetch("/api/roles");
+        let roles = await res.json();
+        let tbody = document.getElementById("roleTableBody");
+        tbody.innerHTML = roles.map(role => `
+            <tr>
+                <td>${role.id}</td>
+                <td>${role.name}</td>
+                <td>
+                    <button class="btn btn-warning btn-sm" onclick="editRole('${role.id}', '${role.name}')">Düzenle</button>
+                    <button class="btn btn-danger btn-sm" onclick="deleteRole('${role.id}')">Sil</button>
+                </td>
+            </tr>
+        `).join("");
+    }
+
+    // ✅ Yetkilendirme tablosunu API'den çekip listeye ekleme
+        async function loadPermissions() {
+        let res = await fetch("/api/role-permissions");
+        let permissions = await res.json();
+        let tbody = document.getElementById("rolePermissionTable");
+
+        tbody.innerHTML = permissions.map(p => `
+            <tr data-id="${p.id}">
+                <td class="role-name">${p.roleName}</td>
+                <td class="page-path">${p.pagePath}</td>
+                <td>
+                    <input type="checkbox" ${p.canAccess ? "checked" : ""}
+                           onchange="togglePermission('${p.id}', this.checked)">
+                </td>
+                <td>
+                    <button class="btn btn-danger btn-sm" onclick="deletePermission('${p.id}')">Sil</button>
+                </td>
+            </tr>
+        `).join("");
+    }
+
+        async function togglePermission(id, canAccess) {
+        let row = document.querySelector(`#rolePermissionTable tr[data-id='${id}']`);
+        let roleName = row.querySelector(".role-name").innerText;
+        let pagePath = row.querySelector(".page-path").innerText;
+
+        if (!pagePath) {
+            alert("Sayfa yolu boş bırakılamaz!");
+            loadPermissions();
+            return;
+        }
+
+        let bodyData = JSON.stringify({
+            roleName: roleName,
+            pagePath: pagePath,
+            canAccess: canAccess
+        });
+
+        let response = await fetch(`/api/role-permissions/${id}`, {
+            method: "PUT",
+            headers: { "Content-Type": "application/json" },
+            body: bodyData
+        });
+
+        if (response.ok) {
+            loadPermissions(); // Güncellenmiş listeyi tekrar yükle
+        } else {
+            alert("Yetkilendirme güncellenirken hata oluştu.");
+        }
+    }
+
+
+        async function deletePermission(id) {
+        let confirmDelete = confirm("Bu yetkiyi silmek istediğinize emin misiniz?");
+        if (!confirmDelete) return;
+
+        try {
+            let response = await fetch(`/api/role-permissions/${id}`, { method: "DELETE" });
+
+            if (!response.ok) {
+                let errorText = await response.text();
+                throw new Error(`Silme başarısız: ${errorText}`);
+            }
+
+            alert("Yetki başarıyla silindi.");
+            loadPermissions(); // Güncellenmiş listeyi tekrar yükle
+        } catch (error) {
+            console.error("Yetki silme hatası:", error);
+            alert("Yetki silinirken bir hata oluştu.");
+        }
+    }
+
+
+
+    // ✅ Tablo Filtreleme (Hata giderildi)
+    function filterTable() {
         let input = document.getElementById("filterInput").value.toLowerCase();
         let rows = document.querySelectorAll("#rolePermissionTable tr");
 
         rows.forEach(row => {
-            let role = row.cells[0].innerText.toLowerCase();
-            let page = row.cells[1].innerText.toLowerCase();
+            let cells = row.querySelectorAll("td");
+            let role = cells[0]?.innerText.toLowerCase();
+            let page = cells[1]?.innerText.toLowerCase();
 
-            if (role.includes(input) || page.includes(input)) {
-                row.style.display = "";
-            } else {
-                row.style.display = "none";
-            }
+            row.style.display = (role.includes(input) || page.includes(input)) ? "" : "none";
         });
     }
 
-
-
-        function filterRoles() {
+    function filterRoles() {
         let input = document.getElementById("roleFilterInput").value.toLowerCase();
         let rows = document.querySelectorAll("#roleTableBody tr");
 
         rows.forEach(row => {
-            let roleId = row.cells[0].innerText.toLowerCase();
-            let roleName = row.cells[1].innerText.toLowerCase();
+            let cells = row.querySelectorAll("td");
+            let roleId = cells[0]?.innerText.toLowerCase();
+            let roleName = cells[1]?.innerText.toLowerCase();
 
-            if (roleId.includes(input) || roleName.includes(input)) {
-                row.style.display = "";
-            } else {
-                row.style.display = "none";
-            }
+            row.style.display = (roleId.includes(input) || roleName.includes(input)) ? "" : "none";
         });
     }
 
-                </script>
+    document.addEventListener("DOMContentLoaded", () => {
+        loadRoles();
+        loadPermissions();
+    });
+
+</script>

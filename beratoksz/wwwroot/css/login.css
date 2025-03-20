@@ -1,0 +1,30 @@
+﻿.login-card {
+    width: 100%;
+    max-width: 400px;
+    background: var(--bs-light);
+    border-radius: 8px;
+}
+
+.password-wrapper {
+    position: relative;
+}
+
+.toggle-password {
+    cursor: pointer;
+}
+/* Koyu Tema Desteği */
+@media (prefers-color-scheme: dark) {
+    .login-card {
+        background: #222;
+        color: white;
+    }
+
+    .form-control, .form-check-label {
+        background: #333;
+        color: white;
+    }
+
+        .form-control:focus {
+            background: #444;
+        }
+}

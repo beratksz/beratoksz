@@ -6,10 +6,11 @@
 <div class="container mt-4">
     <h2>Rol Düzenle</h2>
     <form id="editRoleForm">
-        <input type="hidden" id="roleId" value="@Context.Request.Query["id"]" />
+        @Html.AntiForgeryToken()
+        <input type="hidden" id="roleId" value="@roleId" />
         <div class="mb-3">
             <label for="roleName" class="form-label">Rol Adı</label>
-            <input id="roleName" class="form-control" required />
+            <input id="roleName" name="roleName" class="form-control" required />
         </div>
         <button type="submit" class="btn btn-primary">Güncelle</button>
         <a href="/Admin/Role" class="btn btn-secondary">İptal</a>
@@ -17,53 +18,76 @@
 </div>
 
 <script>
-          async function loadRole() {
-            let roleId = document.getElementById("roleId")?.value?.trim();
-
-    if (!roleId) {
-        console.error("Hata: Rol ID bulunamadı!");
-        alert("Rol ID eksik! Sayfayı doğru açtığınızdan emin olun.");
-        return;
-    }
-
+    async function loadRole() {
+        let roleId = document.getElementById("roleId")?.value?.trim();
+        if (!roleId) {
+            console.error("❌ Hata: Rol ID bulunamadı!");
+            alert("⚠ Rol ID eksik! Sayfayı doğru açtığınızdan emin olun.");
+            return;
+        }
 
         try {
             let res = await fetch(`/api/roles/${roleId}`);
             if (!res.ok) {
-                console.error("Hata: API'den geçersiz yanıt geldi", res);
-                alert("Bu ID'ye sahip bir rol bulunamadı!");
+                console.error("❌ Hata: API'den geçersiz yanıt geldi", res);
+                alert("⚠ Bu ID'ye sahip bir rol bulunamadı!");
                 return;
             }
 
             let role = await res.json();
-            console.log("API Yanıtı:", role); // ✅ Debug için kontrol
+            console.log("✅ API Yanıtı:", role);
 
             if (!role || !role.name) {
-                console.error("Hata: Role objesinde isim yok!", role);
-                alert("Rol ismi eksik!");
+                console.error("❌ Hata: Role objesinde isim yok!", role);
+                alert("⚠ Rol ismi eksik!");
                 return;
             }
 
             document.getElementById("roleName").value = role.name;
         } catch (error) {
-            console.error("Rol yükleme hatası:", error);
-            alert("Rol yüklenirken bir hata oluştu.");
+            console.error("❌ Rol yükleme hatası:", error);
+            alert("⚠ Rol yüklenirken bir hata oluştu.");
         }
     }
 
     document.getElementById("editRoleForm").addEventListener("submit", async function (e) {
         e.preventDefault();
+
         let roleId = document.getElementById("roleId").value;
         let roleName = document.getElementById("roleName").value;
+        let token = document.querySelector('input[name="__RequestVerificationToken"]').value;
+        let submitBtn = document.querySelector('button[type="submit"]');
 
-        await fetch(`/api/roles/${roleId}`, {
-            method: "PUT",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ name: roleName })
-        });
+        if (!roleId || !roleName) {
+            alert("⚠ Lütfen geçerli bir rol adı girin.");
+            return;
+        }
 
-        alert("Rol başarıyla güncellendi.");
-        window.location.href = "/Admin/Role";
+        submitBtn.disabled = true; // Çift tıklamayı önleme
+
+        try {
+            let res = await fetch(`/api/roles/${roleId}`, {
+                method: "PUT",
+                headers: {
+                    "Content-Type": "application/json",
+                    "RequestVerificationToken": token
+                },
+                body: JSON.stringify({ name: roleName })
+            });
+
+            if (res.ok) {
+                alert("✅ Rol başarıyla güncellendi.");
+                window.location.href = "/Admin/Role";
+            } else {
+                let errorMessage = await res.text();
+                alert("❌ Güncelleme başarısız: " + errorMessage);
+                submitBtn.disabled = false; // Hata olursa tekrar aktif et
+            }
+        } catch (error) {
+            console.error("❌ Güncelleme hatası:", error);
+            alert("⚠ Rol güncellenirken bir hata oluştu.");
+            submitBtn.disabled = false;
+        }
     });
 
     loadRole();

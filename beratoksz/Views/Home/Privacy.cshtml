@@ -1,6 +1,46 @@
 ﻿@{
-    ViewData["Title"] = "Privacy Policy";
+    ViewData["Title"] = "Gizlilik Politikası";
 }
-<h1>@ViewData["Title"]</h1>
 
-<p>Use this page to detail your site's privacy policy.</p>
+<div class="container py-5">
+    <div class="card shadow">
+        <div class="card-header bg-dark text-white">
+            <h3 class="mb-0">Gizlilik Politikası</h3>
+        </div>
+        <div class="card-body">
+            <p>
+                Bu gizlilik politikası, kullanıcılarımızın verilerinin nasıl toplandığını, kullanıldığını ve korunduğunu açıklar.
+                Web sitemizi kullanarak bu politikayı kabul etmiş sayılırsınız.
+            </p>
+
+            <h5>1. Toplanan Veriler</h5>
+            <ul>
+                <li>Kullanıcı adı, e-posta ve telefon numarası (hesap oluştururken).</li>
+                <li>IP adresi, tarayıcı bilgileri ve sistem logları.</li>
+                <li>Çerezler ve benzeri izleme teknolojileri.</li>
+            </ul>
+
+            <h5>2. Verilerin Kullanımı</h5>
+            <p>
+                Toplanan veriler, sistem güvenliğini sağlamak, hizmet kalitesini artırmak ve kullanıcı deneyimini iyileştirmek için kullanılır.
+            </p>
+
+            <h5>3. Üçüncü Taraflarla Paylaşım</h5>
+            <p>
+                Kişisel verileriniz üçüncü taraflarla paylaşılmaz, ancak yasal zorunluluk durumunda yetkili makamlarla paylaşılabilir.
+            </p>
+
+            <h5>4. Güvenlik</h5>
+            <p>
+                Kullanıcı verileri modern güvenlik önlemleri ile korunmaktadır. Hassas bilgiler şifrelenerek saklanır.
+            </p>
+
+            <h5>5. Çerez Politikası</h5>
+            <p>
+                Web sitemiz, kullanıcı deneyimini geliştirmek için çerezler kullanmaktadır. Çerezleri tarayıcınızın ayarlarından kapatabilirsiniz.
+            </p>
+
+            <p class="mt-4 text-muted"><strong>Son Güncelleme:</strong> @DateTime.Now.ToString("dd MMMM yyyy")</p>
+        </div>
+    </div>
+</div>
