@@ -8,7 +8,6 @@ using System.Threading.Tasks;
 using static PageDiscoveryService;
 
 
-[Authorize(Roles = "Admin")]
 public class AutoDiscoverMiddleware
 {
     private readonly RequestDelegate _next;

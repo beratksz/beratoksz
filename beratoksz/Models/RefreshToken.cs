@@ -10,7 +10,7 @@ namespace beratoksz.Models
         public DateTime Expiration { get; set; }
         public bool IsRevoked { get; set; }
         public string UserId { get; set; }
-        public IdentityUser User { get; set; }
+        public AppUser User { get; set; }
 
     }
     public sealed class RefreshRequest

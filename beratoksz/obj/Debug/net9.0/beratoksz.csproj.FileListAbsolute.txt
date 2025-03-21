@@ -1125,6 +1125,5 @@ C:\Users\berat\source\repos\beratoksz\beratoksz\obj\Debug\net9.0\compressed\tcpg
 C:\Users\berat\source\repos\beratoksz\beratoksz\obj\Debug\net9.0\compressed\vgle2aokzv-bkbrka2yoe.gz
 C:\Users\berat\source\repos\beratoksz\beratoksz\obj\Debug\net9.0\compressed\925xn0q78r-1q4zmb0tvk.gz
 C:\Users\berat-oksuz\source\repos\beratoksz\beratoksz\obj\Debug\net9.0\compressed\tcpggfr4g3-0hyq3qxad5.gz
-C:\Users\berat-oksuz\source\repos\beratoksz\beratoksz\obj\Debug\net9.0\staticwebassets.upToDateCheck.txt
 C:\Users\berat-oksuz\source\repos\beratoksz\beratoksz\obj\Debug\net9.0\compressed\w4agcov9yo-vz9iklblgk.gz
-C:\Users\berat-oksuz\source\repos\beratoksz\beratoksz\obj\Debug\net9.0\compressed\fz3gzduo6p-zsf0jc4ebt.gz
+C:\Users\berat-oksuz\source\repos\beratoksz\beratoksz\obj\Debug\net9.0\compressed\fz3gzduo6p-yfw3yh5seu.gz

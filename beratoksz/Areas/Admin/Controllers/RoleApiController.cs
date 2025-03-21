@@ -10,12 +10,11 @@ namespace beratoksz.Areas.Admin.Controllers
 {
     [Route("api/roles")]
     [ApiController]
-    [Authorize(Roles = "Admin")]
     public class RoleApiController : ControllerBase
     {
-        private readonly RoleManager<IdentityRole> _roleManager;
+        private readonly RoleManager<AppRole> _roleManager;
 
-        public RoleApiController(RoleManager<IdentityRole> roleManager)
+        public RoleApiController(RoleManager<AppRole> roleManager)
         {
             _roleManager = roleManager;
         }
@@ -46,7 +45,7 @@ namespace beratoksz.Areas.Admin.Controllers
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
-            var role = new IdentityRole(model.Name)
+            var role = new AppRole(model.Name)
             {
                 NormalizedName = model.Name.ToUpper()
             };

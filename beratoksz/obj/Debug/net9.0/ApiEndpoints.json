@@ -1,5 +1,93 @@
 [
   {
+    "ContainingType": "beratoksz.Controllers.AccountController",
+    "Method": "CheckAuth",
+    "RelativePath": "api/Account/check-auth",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "beratoksz.Controllers.AccountController",
+    "Method": "Login",
+    "RelativePath": "api/Account/login",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "beratoksz.Models.LoginViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "beratoksz.Controllers.AccountController",
+    "Method": "Logout",
+    "RelativePath": "api/Account/logout",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "beratoksz.Controllers.AccountController",
+    "Method": "Register",
+    "RelativePath": "api/Account/register",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "beratoksz.Models.RegisterViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "beratoksz.Controllers.AccountController",
+    "Method": "GetUserInfo",
+    "RelativePath": "api/Account/userinfo",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "beratoksz.Controllers.AccountController",
+    "Method": "Verify2FA",
+    "RelativePath": "api/Account/verify-2fa",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "beratoksz.Models.Verify2FADto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "beratoksz.Controllers.AccountController",
+    "Method": "WhoAmI",
+    "RelativePath": "api/Account/whoami",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "beratoksz.Areas.Admin.Controllers.SecurityController",
     "Method": "GetRecentActivities",
     "RelativePath": "api/activities/activities",
@@ -44,68 +132,6 @@
     "ContainingType": "beratoksz.Areas.Admin.Controllers.AdminAnalyticsController",
     "Method": "GetTopPages",
     "RelativePath": "api/adminanalytics/top-pages",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "beratoksz.Controllers.ApiAccountController",
-    "Method": "CheckAuth",
-    "RelativePath": "api/ApiAccount/check-auth",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "beratoksz.Controllers.ApiAccountController",
-    "Method": "Login",
-    "RelativePath": "api/ApiAccount/login",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "model",
-        "Type": "beratoksz.Models.LoginViewModel",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "beratoksz.Controllers.ApiAccountController",
-    "Method": "Logout",
-    "RelativePath": "api/ApiAccount/logout",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "beratoksz.Controllers.ApiAccountController",
-    "Method": "Register",
-    "RelativePath": "api/ApiAccount/register",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "model",
-        "Type": "beratoksz.Models.RegisterViewModel",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "beratoksz.Controllers.ApiAccountController",
-    "Method": "GetUserInfo",
-    "RelativePath": "api/ApiAccount/userinfo",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,

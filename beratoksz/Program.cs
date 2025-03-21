@@ -12,6 +12,7 @@ using AspNetCoreRateLimit;
 using beratoksz.Services;
 using beratoksz.Models;
 using System.Security.Claims;
+using Microsoft.AspNetCore.Authorization;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -33,7 +34,7 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 // Identity yapýlandýrmasý
-builder.Services.AddIdentity<IdentityUser, IdentityRole>(options =>
+builder.Services.AddIdentity<AppUser, AppRole>(options =>
 {
     options.Password.RequireDigit = true;
     options.Password.RequireLowercase = true;
@@ -45,12 +46,21 @@ builder.Services.AddIdentity<IdentityUser, IdentityRole>(options =>
 .AddDefaultTokenProviders();
 
 // Custom ClaimsPrincipalFactory (rol claim'lerini eklemek için)
-builder.Services.AddScoped<IUserClaimsPrincipalFactory<IdentityUser>, AdditionalUserClaimsPrincipalFactory>();
+builder.Services.AddScoped<IUserClaimsPrincipalFactory<AppUser>, AdditionalUserClaimsPrincipalFactory>();
 
 builder.Services.AddMemoryCache();
 builder.Services.AddControllersWithViews();
 builder.Services.AddResponseCaching();
 builder.Services.AddHealthChecks();
+
+
+builder.Services.AddDistributedMemoryCache();
+builder.Services.AddSession(options =>
+{
+    options.IdleTimeout = TimeSpan.FromMinutes(5);
+    options.Cookie.HttpOnly = true;
+    options.Cookie.IsEssential = true;
+});
 
 // SignalR servisini ekleyin
 builder.Services.AddSignalR(options =>
@@ -73,14 +83,19 @@ builder.Services.AddCors(options =>
 });
 
 
+builder.Services.AddOptions();
+builder.Services.Configure<IpRateLimitOptions>(builder.Configuration.GetSection("IpRateLimiting"));
+builder.Services.AddInMemoryRateLimiting();
+builder.Services.AddSingleton<IRateLimitConfiguration, RateLimitConfiguration>();
+builder.Services.AddScoped<TwoFactorEmailService>();
+
+
 // Identity cookie ayarlarý
 builder.Services.ConfigureApplicationCookie(options =>
 {
     options.Cookie.HttpOnly = true;
     options.Cookie.SecurePolicy = Microsoft.AspNetCore.Http.CookieSecurePolicy.Always;
     options.Cookie.SameSite = Microsoft.AspNetCore.Http.SameSiteMode.Lax;
-    options.LoginPath = "/Account/Login";
-    options.LogoutPath = "/Account/Logout";
 });
 
 // Authentication ayarlarý – Identity'nin default cookie'si kullanýlýyor.
@@ -92,6 +107,7 @@ builder.Services.AddAuthentication(options =>
 .AddJwtBearer("Jwt", options =>
 {
     var jwtConfig = builder.Configuration.GetSection("JWT");
+    options.TokenValidationParameters.ClockSkew = TimeSpan.Zero;
     options.TokenValidationParameters = new TokenValidationParameters
     {
         ValidateIssuer = true,
@@ -104,18 +120,8 @@ builder.Services.AddAuthentication(options =>
     };
 });
 
-builder.Services.Configure<IpRateLimitOptions>(options =>
-{
-    options.GeneralRules = new List<RateLimitRule>
-    {
-        new RateLimitRule
-        {
-            Endpoint = "*",
-            Limit = 100,
-            Period = "1m" // ? Her IP için 1 dakikada 100 istek sýnýrý
-        }
-    };
-});
+
+
 builder.Services.AddSingleton<IRateLimitConfiguration, RateLimitConfiguration>();
 
 builder.Services.AddSingleton<GeoIPService>();
@@ -184,6 +190,7 @@ using (var scope = app.Services.CreateScope())
     dbContext.SaveChanges();
 }
 
+app.UseIpRateLimiting();
 
 // Production ortamý için hata yönetimi
 app.UseSwagger();
@@ -197,16 +204,16 @@ app.UseExceptionHandler("/Error");
 app.UseStatusCodePagesWithReExecute("/Error/{0}");
 
 
-app.UseCors("AllowAll");
-
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseResponseCaching();
 app.UseRouting();
 app.MapHealthChecks("/health");
-app.UseCors("AllowSpecificOrigins");
+app.UseCors("AllowAll");
 app.UseAuthentication();
 app.UseAuthorization();
+app.UseIpRateLimiting();
+app.UseSession();
 
 // SignalR hub'ý
 app.MapHub<StatusHub>("/statusHub");
@@ -231,13 +238,7 @@ if (app.Environment.IsDevelopment())
 }
 
 
-// Routing: Areas ve default route
-app.MapControllerRoute(
-    name: "areas",
-    pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}");
-app.MapControllerRoute(
-    name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+
 
 app.Use(async (context, next) =>
 {
@@ -254,27 +255,8 @@ app.Use(async (context, next) =>
     await next();
 });
 
-/*
 
-app.Use(async (context, next) =>
-{
-    var user = context.User;
 
-    if (user == null || !user.Identity.IsAuthenticated)
-    {
-        // Eðer kullanýcý giriþ yapmamýþsa, varsayýlan anonim rolünü ata
-        var claims = new List<Claim>
-        {
-            new Claim(ClaimTypes.Role, "Guest") // Varsayýlan anonim rol
-        };
-        var identity = new ClaimsIdentity(claims, "Custom");
-        context.User = new ClaimsPrincipal(identity);
-    }
-
-    await next();
-});
-
-*/
 
 // Seeding: Admin ve roller oluþturuluyor
 using (var scope = app.Services.CreateScope())
@@ -282,5 +264,16 @@ using (var scope = app.Services.CreateScope())
     var services = scope.ServiceProvider;
     await DbInitializer.InitializeAsync(services);
 }
+
+
+
+// Routing: Areas ve default route
+app.MapControllerRoute(
+    name: "areas",
+    pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}");
+app.MapControllerRoute(
+    name: "default",
+    pattern: "{controller=Home}/{action=Index}/{id?}");
+
 
 app.Run();

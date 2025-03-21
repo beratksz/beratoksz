@@ -9,13 +9,12 @@ using beratoksz.Models;
 namespace beratoksz.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    [Authorize(Roles = "Admin")] // Sadece Admin 
     public class UserRoleController : Controller
     {
-        private readonly UserManager<IdentityUser> _userManager;
-        private readonly RoleManager<IdentityRole> _roleManager;
+        private readonly UserManager<AppUser> _userManager;
+        private readonly RoleManager<AppRole> _roleManager;
 
-        public UserRoleController(UserManager<IdentityUser> userManager, RoleManager<IdentityRole> roleManager)
+        public UserRoleController(UserManager<AppUser> userManager, RoleManager<AppRole> roleManager)
         {
             _userManager = userManager;
             _roleManager = roleManager;

@@ -13,6 +13,7 @@ using System.Text;
 using System.Threading.Tasks;
 using beratoksz.Data;
 using Microsoft.AspNetCore.Http;
+using System.Security.Cryptography;
 
 namespace beratoksz.Controllers.Api
 {
@@ -21,11 +22,11 @@ namespace beratoksz.Controllers.Api
     
     public class TokenController : ControllerBase
     {
-        private readonly UserManager<IdentityUser> _userManager;
+        private readonly UserManager<AppUser> _userManager;
         private readonly IConfiguration _configuration;
         private readonly ApplicationDbContext _context;
 
-        public TokenController(UserManager<IdentityUser> userManager, IConfiguration configuration, ApplicationDbContext context)
+        public TokenController(UserManager<AppUser> userManager, IConfiguration configuration, ApplicationDbContext context)
         {
             _userManager = userManager;
             _configuration = configuration;
@@ -38,7 +39,7 @@ namespace beratoksz.Controllers.Api
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
-            IdentityUser user = await GetUserByIdentifier(model.LoginIdentifier);
+            AppUser user = await GetUserByIdentifier(model.LoginIdentifier);
             if (user == null || !await _userManager.CheckPasswordAsync(user, model.Password))
                 return Unauthorized("Geçersiz giriş bilgileri.");
 
@@ -107,7 +108,7 @@ namespace beratoksz.Controllers.Api
         }
 
         // Kullanıcıyı email, username veya telefon ile bulma
-        private async Task<IdentityUser> GetUserByIdentifier(string identifier)
+        private async Task<AppUser> GetUserByIdentifier(string identifier)
         {
             if (identifier.Contains("@"))
                 return await _userManager.FindByEmailAsync(identifier);
@@ -117,34 +118,41 @@ namespace beratoksz.Controllers.Api
         }
 
         // JWT Token üretme fonksiyonu
-        private string GenerateJwtToken(IdentityUser user)
+        private string GenerateJwtToken(AppUser user)
         {
-            var authClaims = new List<Claim>
-            {
-                new Claim(ClaimTypes.Name, user.UserName),
-                new Claim(ClaimTypes.Email, user.Email),
-                new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
-            };
+            var claims = new List<Claim>
+    {
+        new Claim(ClaimTypes.NameIdentifier, user.Id),         // Kullanıcı ID
+        new Claim(ClaimTypes.Name, user.UserName),             // Kullanıcı Adı
+        new Claim(ClaimTypes.Email, user.Email ?? ""),         // Email
+        new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
+    };
 
             var jwtConfig = _configuration.GetSection("JWT");
-            var authSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtConfig["Secret"]));
+            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtConfig["Secret"]));
+            var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
 
             var token = new JwtSecurityToken(
                 issuer: jwtConfig["ValidIssuer"],
                 audience: jwtConfig["ValidAudience"],
                 expires: DateTime.UtcNow.AddMinutes(30),
-                claims: authClaims,
-                signingCredentials: new SigningCredentials(authSigningKey, SecurityAlgorithms.HmacSha256)
+                claims: claims,
+                signingCredentials: creds
             );
 
             return new JwtSecurityTokenHandler().WriteToken(token);
         }
 
+
         // Refresh Token üretme fonksiyonu
         private string GenerateRefreshToken()
         {
-            return Guid.NewGuid().ToString();
+            var randomBytes = new byte[64];
+            using var rng = RandomNumberGenerator.Create();
+            rng.GetBytes(randomBytes);
+            return Convert.ToBase64String(randomBytes);
         }
+
 
         // Refresh Token'ı veritabanına kaydetme
         private async Task SaveRefreshToken(string userId, string refreshToken)

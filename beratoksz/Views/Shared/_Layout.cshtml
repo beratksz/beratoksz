@@ -120,18 +120,18 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
         document.addEventListener("DOMContentLoaded", function () {
-            fetch("/api/ApiAccount/userinfo")
+            fetch("/api/Account/userinfo")
                 .then(response => response.json())
                 .then(data => {
                     let authLinks = document.getElementById("auth-links");
-                    if (data.isAuthenticated) {
+                    if (data.isAuthenticated  && data.username) {
                         authLinks.innerHTML = `
                             <span class="user-name">Hoşgeldin, ${data.username}</span>
                             <button id="logout-btn" class="btn btn-danger btn-sm">Çıkış Yap</button>
                         `;
 
                         document.getElementById("logout-btn").addEventListener("click", function () {
-                            fetch("/api/ApiAccount/logout", {
+                            fetch("/api/Account/logout", {
                                 method: "POST",
                                 credentials: "include" // Çerezleri dahil et
                             })

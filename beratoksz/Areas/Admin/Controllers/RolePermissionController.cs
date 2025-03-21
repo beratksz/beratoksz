@@ -6,7 +6,6 @@ using Microsoft.EntityFrameworkCore;
 
 [Route("api/role-permissions")]
 [ApiController]
-[Authorize(Roles = "Admin")] // Sadece admin erişebilir
 public class RolePermissionController : ControllerBase
 {
     private readonly ApplicationDbContext _dbContext;

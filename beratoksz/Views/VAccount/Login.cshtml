@@ -4,10 +4,11 @@
 
 <div class="container d-flex justify-content-center align-items-center min-vh-100">
     <div class="login-card p-4 shadow-lg">
-        <h2 class="text-center mb-4 fw-bold">Giriş Yap</h2>
+        <h2 class="text-center mb-4 fw-bold" id="formTitle">Giriş Yap</h2>
 
         <div id="errorMessage" class="text-danger text-center mb-3"></div>
 
+        <!-- 🚪 Giriş Formu -->
         <form id="loginForm">
             <div class="mb-3">
                 <label for="LoginIdentifier" class="form-label">Kullanıcı Adı / Email</label>
@@ -30,17 +31,24 @@
             <button type="submit" class="btn btn-primary w-100 py-2 fw-bold">Giriş Yap</button>
         </form>
 
-        <div class="text-center mt-3">
-            <a href="/Account/ForgotPassword" class="text-decoration-none">Şifremi Unuttum?</a>
-            <a href="/Account/Register" class="text-decoration-none">Hesabın yok mu? Kayıt Ol</a>
+        <!-- 🔐 2FA Formu (ilk başta gizli) -->
+        <form id="twoFactorForm" style="display:none;">
+            <div class="mb-3">
+                <label for="twoFactorCode" class="form-label">Doğrulama Kodu</label>
+                <input type="text" id="twoFactorCode" class="form-control" required />
+            </div>
+            <button type="submit" class="btn btn-success w-100 fw-bold">Kodu Doğrula</button>
+        </form>
+
+        <div class="text-center mt-3" id="extraLinks">
+            <a href="/VAccount/ForgotPassword" class="text-decoration-none">Şifremi Unuttum?</a>
+            <a href="/VAccount/Register" class="text-decoration-none">Hesabın yok mu? Kayıt Ol</a>
         </div>
     </div>
 </div>
 
-<!-- 💡 Stil -->
 <link rel="stylesheet" href="~/css/login.css" />
 
-<!-- 💡 Script -->
 <script>
     document.querySelector(".toggle-password").addEventListener("click", function () {
         let passwordInput = document.getElementById("Password");
@@ -56,35 +64,54 @@
 
     document.getElementById("loginForm").addEventListener("submit", function (event) {
         event.preventDefault();
-        
         let loginData = {
             LoginIdentifier: document.getElementById("LoginIdentifier").value,
             Password: document.getElementById("Password").value,
             RememberMe: document.getElementById("RememberMe").checked
         };
 
-        fetch("/api/ApiAccount/login", {
+        fetch("/api/Account/login", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(loginData)
         })
-        .then(response => {
-            if (!response.ok) {
-                return response.json().then(err => { throw new Error(err.message || "Giriş başarısız"); });
-            }
-            return response.json();
-        })
+        .then(response => response.json())
         .then(data => {
-            return fetch("/api/ApiAccount/check-auth"); // Kullanıcıyı tekrar kontrol et
+            if (data.requires2FA) {
+                document.getElementById("loginForm").style.display = "none";
+                document.getElementById("twoFactorForm").style.display = "block";
+                document.getElementById("formTitle").innerText = "Doğrulama Kodu";
+                document.getElementById("errorMessage").innerText = "";
+                document.getElementById("extraLinks").style.display = "none";
+            } else if (data.redirectUrl) {
+                window.location.href = data.redirectUrl;
+            } else {
+                document.getElementById("errorMessage").innerText = data.message || "Giriş başarısız.";
+            }
+        })
+        .catch(err => {
+            document.getElementById("errorMessage").innerText = err.message;
+        });
+    });
+
+    document.getElementById("twoFactorForm").addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        fetch("/api/Account/verify-2fa", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ code: document.getElementById("twoFactorCode").value })
         })
         .then(response => response.json())
-        .then(authData => {
-            if (authData.isAuthenticated) {
-                window.location.href = "/"; // Başarıyla giriş yapınca anasayfaya yönlendir
+        .then(data => {
+            if (data.success) {
+                window.location.href = data.redirectUrl || "/";
+            } else {
+                document.getElementById("errorMessage").innerText = data.message || "Kod hatalı.";
             }
         })
-        .catch(error => {
-            document.getElementById("errorMessage").innerText = error.message;
+        .catch(err => {
+            document.getElementById("errorMessage").innerText = err.message;
         });
     });
 </script>

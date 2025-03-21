@@ -4,7 +4,6 @@ using System.Collections.Generic;
 
 [Route("api/pages")]
 [ApiController]
-[Authorize(Roles = "Admin")]
 public class PageApiController : ControllerBase
 {
     private readonly PageDiscoveryService _pageDiscoveryService;

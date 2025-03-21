@@ -5,7 +5,6 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace beratoksz.Controllers
 {
-    [AllowAnonymous]
     public class ErrorController : Controller
     {
         [Route("Error/{statusCode}")]

@@ -8,12 +8,11 @@ using beratoksz.Models;
 namespace beratoksz.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    [Authorize(Roles = "Admin")] // Sadece Admin rolündeki kullanıcılar erişebilir
     public class RoleController : Controller
     {
-        private readonly RoleManager<IdentityRole> _roleManager;
+        private readonly RoleManager<AppRole> _roleManager;
 
-        public RoleController(RoleManager<IdentityRole> roleManager)
+        public RoleController(RoleManager<AppRole> roleManager)
         {
             _roleManager = roleManager;
         }

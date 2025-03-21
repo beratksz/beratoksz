@@ -6,7 +6,6 @@ namespace beratoksz.Controllers.Api
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize] // Bu attribute sayesinde, geçerli bir JWT token gerektirecek
     public class ExampleController : ControllerBase
     {
         [HttpGet]

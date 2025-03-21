@@ -10,7 +10,6 @@ using System.Linq;
 namespace beratoksz.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    [Authorize(Roles = "Admin")]
     [ApiController]
     [Route("api/adminanalytics")]
     public class AdminAnalyticsController : ControllerBase

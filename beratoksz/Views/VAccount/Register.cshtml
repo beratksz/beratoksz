@@ -85,7 +85,7 @@
             return;
         }
 
-        fetch("/api/ApiAccount/register", {
+        fetch("/api/Account/register", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(registerData)
@@ -97,7 +97,7 @@
             return response.json();
         })
         .then(data => {
-            return fetch("/api/ApiAccount/check-auth");
+            return fetch("/api/Account/check-auth");
         })
         .then(response => response.json())
         .then(authData => {

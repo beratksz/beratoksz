@@ -9,13 +9,12 @@ using System;
 namespace beratoksz.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    [Authorize(Roles = "Admin")]
     public class UserManagementController : Controller
     {
-        private readonly UserManager<IdentityUser> _userManager;
-        private readonly RoleManager<IdentityRole> _roleManager;
+        private readonly UserManager<AppUser> _userManager;
+        private readonly RoleManager<AppRole> _roleManager;
 
-        public UserManagementController(UserManager<IdentityUser> userManager, RoleManager<IdentityRole> roleManager)
+        public UserManagementController(UserManager<AppUser> userManager, RoleManager<AppRole> roleManager)
         {
             _userManager = userManager;
             _roleManager = roleManager;
@@ -87,7 +86,7 @@ namespace beratoksz.Areas.Admin.Controllers
             try
             {
                 Console.WriteLine("User oluşturuluyor: " + model.Email);
-                var user = new IdentityUser
+                var user = new AppUser
                 {
                     UserName = model.UserName,
                     Email = model.Email,

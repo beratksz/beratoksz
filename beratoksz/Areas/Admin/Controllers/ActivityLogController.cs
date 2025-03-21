@@ -9,7 +9,6 @@ using System.Linq;
 namespace beratoksz.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    [Authorize(Roles = "Admin")]
     [ApiController]
     [Route("api/activitylog")]
     public class ActivityLogController : ControllerBase

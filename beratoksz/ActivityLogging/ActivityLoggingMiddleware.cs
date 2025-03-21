@@ -35,7 +35,7 @@ public class ActivityLoggingMiddleware
             // Kullanıcı adını al
             var userName = context.User?.Identity?.IsAuthenticated == true && !string.IsNullOrEmpty(context.User.Identity.Name)
      ? context.User.Identity.Name
-     : "Anonim";  // Eğer kullanıcı giriş yapmamışsa varsayılan olarak "Anonim" ata
+     : "Guest";  // Eğer kullanıcı giriş yapmamışsa varsayılan olarak "Anonim" ata
 
 
 

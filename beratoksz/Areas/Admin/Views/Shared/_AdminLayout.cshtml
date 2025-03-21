@@ -1,10 +1,10 @@
 ﻿@using Microsoft.AspNetCore.Identity
-@inject UserManager<IdentityUser> UserManager
+@inject UserManager<AppUser> UserManager
 
 @{
     var currentHour = DateTime.Now.Hour;
     var user = await UserManager.GetUserAsync(User);
-    var userName = user != null ? user.UserName : "Misafir";
+    var userName = user != null ? user.UserName : "Guest";
     var greetingMessage = currentHour < 12 ? "Günaydın" : currentHour < 18 ? "İyi Günler" : "İyi Akşamlar";
     greetingMessage += $", {userName}";
     ViewData["Title"] ??= "Admin Paneli";
@@ -137,7 +137,7 @@
             logoutButton.click(function () {
                 console.log("🔴 Çıkış işlemi başlatılıyor...");
 
-                fetch("/api/ApiAccount/logout", {
+                fetch("/api/Account/logout", {
                     method: "POST",
                     credentials: "include" // Çerezleri silmek için
                 }).then(() => {

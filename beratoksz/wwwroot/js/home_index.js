@@ -11,7 +11,7 @@
         loginBtns.forEach(btn => {
             btn.addEventListener("click", function () {
                 console.log("🔵 Giriş butonuna basıldı. Yönlendirme başlıyor...");
-                window.location.href = "/Account/Login"; // Login sayfasına yönlendir
+                window.location.href = "/VAccount/Login"; // Login sayfasına yönlendir
             });
         });
     } else {
@@ -19,12 +19,12 @@
     }
 
     // ✅ Kullanıcı bilgilerini çek ve butonları düzenle
-    fetch("/api/ApiAccount/check-auth")
+    fetch("/api/Account/check-auth")
         .then(response => response.json())
         .then(data => {
             console.log("🟢 Auth kontrol sonucu:", data);
 
-            if (data.isAuthenticated) {
+            if (data.isAuthenticated && data.userName) {
                 console.log("✅ Kullanıcı giriş yapmış.");
                 document.getElementById("userActions").style.display = "block";
                 document.getElementById("guestActions").style.display = "none";
@@ -42,7 +42,7 @@
         logoutBtns.forEach(btn => {
             btn.addEventListener("click", function () {
                 console.log("🔴 Çıkış butonuna basıldı...");
-                fetch("/api/ApiAccount/logout", {
+                fetch("/api/Account/logout", {
                     method: "POST",
                     credentials: "include"
                 })

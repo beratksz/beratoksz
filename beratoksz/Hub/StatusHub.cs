@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 
 namespace beratoksz.Hubs
 {
-    [AllowAnonymous]
     public class StatusHub : Hub
     {
         private readonly ILogger<StatusHub> _logger;

@@ -1,7 +1,9 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using beratoksz.Models;
+using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using System;
+using System.Globalization;
 using System.Linq;
 using System.Security.Claims;
 using System.Text.RegularExpressions;
@@ -25,14 +27,19 @@ public class RolePermissionMiddleware
         var path = context.Request.Path.ToString().Trim().ToLower().Replace("//", "/");
         var user = context.User;
 
-       // var userName = user.Identity?.IsAuthenticated == true && !string.IsNullOrEmpty(user.Identity.Name)
-         //   ? user.Identity.Name
-           // : "Misafir";
+        
+        
+        var userName = user.Identity?.IsAuthenticated == true && !string.IsNullOrEmpty(user.Identity.Name)
+             ? user.Identity.Name
+             : AppRoleName.Guest;
+
+
 
         var userRoles = user.Claims
             .Where(c => c.Type == ClaimTypes.Role)
             .Select(c => c.Value)
             .ToList();
+        
 
         Console.WriteLine($"🟡 [Middleware] Gelen Path: {path}");
         Console.WriteLine($"🟡 [Middleware] Kullanıcı Roller: {string.Join(", ", userRoles)}");
@@ -56,20 +63,16 @@ public class RolePermissionMiddleware
             return;
         }
 
-        // 📌 2️⃣ API yollarını doğrudan işle
-        if (path.StartsWith("/api"))
-        {
-            await _next(context);
-            return;
-        }
-
         // 📌 3️⃣ Kullanıcı giriş yapmamışsa login sayfasına yönlendir
+        /*
         if (!user.Identity.IsAuthenticated)
         {
             _logger.LogWarning($"🔒 Yetkisiz kullanıcı giriş yapmaya çalıştı: {path}");
-            // context.Response.Redirect("/Account/Login");
+            context.Response.Redirect("/VAccount/Login");
             return;
         }
+        */
+
 
         // 📌 4️⃣ Türkçe karakterleri ASCII'ye çevir
         path = ConvertToAscii(path);
@@ -83,9 +86,16 @@ public class RolePermissionMiddleware
 
             if (!hasAccess)
             {
-            //    _logger.LogWarning($"🚫 Yetkisiz erişim: Kullanıcı {userName} {path} sayfasına erişmeye çalıştı.");
+
+            // _logger.LogWarning($"🚫 Yetkisiz erişim: Kullanıcı {userName} {path} sayfasına erişmeye çalıştı.");
 
                 var safePath = ConvertToAscii(path).Replace("//", "/").TrimEnd('/');
+
+                if (string.IsNullOrWhiteSpace(path))
+                {
+                    path = "/"; // fallback olarak kök dizin
+                }
+
                 var message = Uri.EscapeDataString($"Yetkisiz Erişim: {safePath}");
 
                 // 🚨 Kullanıcı AccessDenied sayfasına erişimi yoksa doğrudan 403 Forbidden dön!
@@ -113,7 +123,7 @@ public class RolePermissionMiddleware
             return input;
 
         return input
-            .ToLowerInvariant()
+            .ToLower(new CultureInfo("en-US"))
             .Replace("ı", "i").Replace("İ", "I")
             .Replace("ş", "s").Replace("Ş", "S")
             .Replace("ç", "c").Replace("Ç", "C")

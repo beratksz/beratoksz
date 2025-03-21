@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using beratoksz.Models;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Threading.Tasks;
@@ -11,16 +12,16 @@ namespace beratoksz.Data
         {
             using (var scope = serviceProvider.CreateScope())
             {
-                var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
-                var userManager = scope.ServiceProvider.GetRequiredService<UserManager<IdentityUser>>();
+                var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<AppRole>>();
+                var userManager = scope.ServiceProvider.GetRequiredService<UserManager<AppUser>>();
 
                 // Roller tanımlanıyor: Admin ve User (sonradan eklenebilir yapı)
-                string[] roles = new string[] { "Admin", "User" };
+                string[] roles = new string[] { "Admin", "Guest" , "User" };
                 foreach (var role in roles)
                 {
                     if (!await roleManager.RoleExistsAsync(role))
                     {
-                        await roleManager.CreateAsync(new IdentityRole(role));
+                        await roleManager.CreateAsync(new AppRole(role));
                     }
                 }
 
@@ -31,7 +32,7 @@ namespace beratoksz.Data
 
                 if (adminUser == null)
                 {
-                    adminUser = new IdentityUser
+                    adminUser = new AppUser
                     {
                         UserName = adminEmail,
                         Email = adminEmail,
