@@ -10,6 +10,11 @@
             <label for="roleName" class="form-label">Rol Adı</label>
             <input id="roleName" name="roleName" class="form-control" placeholder="Rol Adını Girin" required />
         </div>
+        <div class="mb-3">
+            <label for="Aciklama" class="form-label">Rol Açıklaması</label>
+            <input id="Aciklama" name="Aciklama" class="form-control" placeholder="Rol Açıklaması Girin" required />
+        </div>
+
         <button type="submit" class="btn btn-primary">Kaydet</button>
         <a href="/Admin/Role" class="btn btn-secondary">İptal</a>
     </form>
@@ -20,6 +25,7 @@
         e.preventDefault();
 
         let roleName = document.getElementById("roleName").value;
+        let roleName = document.getElementById("Aciklama").value;
         let token = document.querySelector('input[name="__RequestVerificationToken"]').value;
         let submitBtn = document.querySelector('button[type="submit"]');
         submitBtn.disabled = true; // Çift tıklamayı önleme
@@ -30,12 +36,13 @@
                 "Content-Type": "application/json",
                 "RequestVerificationToken": token
             },
-            body: JSON.stringify({ name: roleName })
+            body: JSON.stringify({ name: roleName,Aciklama: Aciklama })
+
         });
 
         if (res.ok) {
             alert("✅ Rol başarıyla eklendi.");
-            window.location.href = "/Admin/Role";
+            window.location.href = "/Admin/Role/Index";
         } else {
             let errorMessage = await res.text();
             alert("❌ Hata: " + errorMessage);

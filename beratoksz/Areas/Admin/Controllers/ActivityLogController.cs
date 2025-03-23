@@ -8,9 +8,8 @@ using System.Linq;
 
 namespace beratoksz.Areas.Admin.Controllers
 {
-    [Area("Admin")]
     [ApiController]
-    [Route("api/activitylog")]
+    [Route("api/[controller]")]
     public class ActivityLogController : ControllerBase
     {
         private readonly IServiceScopeFactory _scopeFactory;

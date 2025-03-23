@@ -74,7 +74,7 @@ namespace beratoksz.Controllers
             if (!result.Succeeded)
                 return BadRequest(result.Errors);
 
-            await _userManager.AddToRoleAsync(user, "Guest");
+            await _userManager.AddToRoleAsync(user, "User");
 
             var token = GenerateJwtToken(user);
             var refreshToken = Guid.NewGuid().ToString(); // refreshToken oluşturulmalı

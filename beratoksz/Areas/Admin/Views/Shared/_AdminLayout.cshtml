@@ -67,14 +67,50 @@
 
     <!-- ✅ Sidebar -->
     <nav class="sidebar py-3">
-        <a href="@Url.Action("Index", "Home", new { area = "Admin" })"><i class='bx bxs-dashboard'></i> Dashboard</a>
-        <a href="@Url.Action("Index", "UserManagement", new { area = "Admin" })"><i class='bx bxs-user-detail'></i> Kullanıcı Yönetimi</a>
-        <a href="@Url.Action("Index", "Role", new { area = "Admin" })"><i class='bx bx-shield'></i> Rol Yönetimi</a>
-        <a href="@Url.Action("Index", "UserRole", new { area = "Admin" })"><i class='bx bx-id-card'></i> Kullanıcı Rol Yönetimi</a>
-        <a href="@Url.Action("Index", "Settings", new { area = "Admin" })"><i class='bx bx-cog'></i> Ayarlar</a>
-        <a href="@Url.Action("Index", "Dashboard", new { area = "Admin" })"><i class='bx bx-line-chart'></i> Raporlar</a>
-        <a href="@Url.Action("Index", "Support", new { area = "Admin" })"><i class='bx bx-help-circle'></i> Destek</a>
+        <auth-visible asp-area="Admin" asp-controller="Home" asp-action="Index">
+            <a asp-area="Admin" asp-controller="Home" asp-action="Index">
+                <i class='bx bxs-dashboard'></i> Dashboard
+            </a>
+        </auth-visible>
+
+        <auth-visible asp-area="Admin" asp-controller="UserManagement" asp-action="Index">
+            <a asp-area="Admin" asp-controller="UserManagement" asp-action="Index">
+                <i class='bx bxs-user-detail'></i> Kullanıcı Yönetimi
+            </a>
+        </auth-visible>
+
+        <auth-visible asp-area="Admin" asp-controller="Role" asp-action="Index">
+            <a asp-area="Admin" asp-controller="Role" asp-action="Index">
+                <i class='bx bx-shield'></i> Rol Yönetimi
+            </a>
+        </auth-visible>
+
+        <auth-visible asp-area="Admin" asp-controller="UserRole" asp-action="Index">
+            <a asp-area="Admin" asp-controller="UserRole" asp-action="Index">
+                <i class='bx bx-id-card'></i> Kullanıcı Rol Yönetimi
+            </a>
+        </auth-visible>
+
+        <auth-visible asp-area="Admin" asp-controller="Settings" asp-action="Index">
+            <a asp-area="Admin" asp-controller="Settings" asp-action="Index">
+                <i class='bx bx-cog'></i> Ayarlar
+            </a>
+        </auth-visible>
+
+        <auth-visible asp-area="Admin" asp-controller="Dashboard" asp-action="Index">
+            <a asp-area="Admin" asp-controller="Dashboard" asp-action="Index">
+                <i class='bx bx-line-chart'></i> Raporlar
+            </a>
+        </auth-visible>
+
+        <auth-visible asp-area="Admin" asp-controller="Support" asp-action="Index">
+            <a asp-area="Admin" asp-controller="Support" asp-action="Index">
+                <i class='bx bx-help-circle'></i> Destek
+            </a>
+        </auth-visible>
     </nav>
+
+
 
     <div class="sidebar-overlay"></div>
 
@@ -148,7 +184,7 @@
                     document.cookie = "RefreshToken=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
 
                     // Sayfayı giriş sayfasına yönlendir
-                    window.location.href = "/Account/Login";
+                    window.location.href = "/VAccount/Login";
                 }).catch(err => console.error("❌ Çıkış işlemi başarısız:", err));
             });
         });

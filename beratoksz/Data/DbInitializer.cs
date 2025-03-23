@@ -21,7 +21,14 @@ namespace beratoksz.Data
                 {
                     if (!await roleManager.RoleExistsAsync(role))
                     {
-                        await roleManager.CreateAsync(new AppRole(role));
+                        var appRole = new AppRole
+                        {
+                            Name = role,
+                            OlusturulmaTarihi = DateTime.UtcNow,
+                            SistemRoluMu = true,
+                            Aciklama = "Sistem için oluşturulan rol"
+                        };
+                        await roleManager.CreateAsync(appRole);
                     }
                 }
 

@@ -9,5 +9,8 @@ namespace beratoksz.Models
         [Required(ErrorMessage = "Rol adı gereklidir.")]
         [Display(Name = "Rol Adı")]
         public string Name { get; set; }
+
+        public string Aciklama { get; set; }
+
     }
 }

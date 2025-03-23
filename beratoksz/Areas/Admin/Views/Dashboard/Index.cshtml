@@ -247,7 +247,7 @@
         // 🟢 Hesap Güvenliği Loglarını Güncelle
         async function loadUserSecurityActivities() {
             try {
-                const response = await fetch('/api/activities/activities');
+                const response = await fetch('/api/security/activities');
                 if (!response.ok) throw new Error("API hatası!");
 
                 const activities = await response.json();

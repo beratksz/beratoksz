@@ -1,6 +1,6 @@
 ﻿// ✅ Yetkilendirme listesi getir ve tabloya ekle
 async function fetchPermissions() {
-    let response = await fetch("/api/role-permissions");
+    let response = await fetch("/api/rolepermission");
     let data = await response.json();
     let tableBody = document.getElementById("rolePermissionTable");
     tableBody.innerHTML = "";
@@ -32,7 +32,7 @@ async function fetchPermissions() {
             let payload = { roleName, pagePath, canAccess };
 
             try {
-                await fetch(`/api/role-permissions/${id}`, {
+                await fetch(`/api/rolepermission/${id}`, {
                     method: "PUT",
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify(payload)
@@ -49,7 +49,7 @@ async function fetchPermissions() {
             let id = this.getAttribute("data-id");
 
             if (confirm("Bu yetkiyi silmek istediğinize emin misiniz?")) {
-                await fetch(`/api/role-permissions/${id}`, { method: "DELETE" });
+                await fetch(`/api/rolepermission/${id}`, { method: "DELETE" });
                 fetchPermissions();
             }
         });
@@ -69,12 +69,12 @@ async function fetchRolesAndPages() {
     let pageSelect = document.getElementById("pagePathSelect");
 
     // Rolleri getir
-    let roleRes = await fetch("/api/roles");
+    let roleRes = await fetch("/api/roleapi");
     let roles = await roleRes.json();
     roleSelect.innerHTML = roles.map(role => `<option value="${role.name}">${role.name}</option>`).join("");
 
     // Sayfaları getir
-    let pageRes = await fetch("/api/pages");
+    let pageRes = await fetch("/api/pageapi");
     let pages = await pageRes.json();
     pageSelect.innerHTML = pages.map(page => `<option value="${page}">${page}</option>`).join("");
 }
@@ -93,7 +93,7 @@ async function addPermission() {
     let payload = { roleName, pagePath, canAccess };
 
     try {
-        let response = await fetch("/api/role-permissions", {
+        let response = await fetch("/api/rolepermission", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(payload)

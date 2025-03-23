@@ -8,6 +8,9 @@ using System.Linq;
 using System.Security.Claims;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using beratoksz.Extension;
+using Microsoft.AspNetCore.Identity;
+using beratoksz.Data;
 
 public class RolePermissionMiddleware
 {
@@ -24,99 +27,68 @@ public class RolePermissionMiddleware
 
     public async Task Invoke(HttpContext context)
     {
-        var path = context.Request.Path.ToString().Trim().ToLower().Replace("//", "/");
+        var rawPath = context.Request.Path;
+        var path = NormalizePath(rawPath);
         var user = context.User;
+        var userName = user.Identity?.Name ?? AppRoleName.Guest;
 
-        
-        
-        var userName = user.Identity?.IsAuthenticated == true && !string.IsNullOrEmpty(user.Identity.Name)
-             ? user.Identity.Name
-             : AppRoleName.Guest;
+        using var scope = _scopeFactory.CreateScope();
+        var userManager = scope.ServiceProvider.GetRequiredService<UserManager<AppUser>>();
+        var userRoles = await user.GetUserRolesOrGuestAsync(userManager);
 
+        _logger.LogInformation("[RolePermission Middleware] Gelen Path: {Path}", path);
+        _logger.LogInformation("[RolePermission Middleware] Kullanıcı: {User} | Roller: {Roles}", userName, string.Join(", ", userRoles));
 
-
-        var userRoles = user.Claims
-            .Where(c => c.Type == ClaimTypes.Role)
-            .Select(c => c.Value)
-            .ToList();
-        
-
-        Console.WriteLine($"🟡 [Middleware] Gelen Path: {path}");
-        Console.WriteLine($"🟡 [Middleware] Kullanıcı Roller: {string.Join(", ", userRoles)}");
-
-        while (path.Contains("//"))
-        {
-            path = path.Replace("//", "/");
-        }
-
-        if (path.EndsWith("/"))
-        {
-            path = path.TrimEnd('/');
-        }
-
-        _logger.LogInformation($"✅ Güncellenmiş URL: {path}");
-
-        // 📌 1️⃣ Statik dosyaları filtrele
+        // Statik dosyaları es geç
         if (Regex.IsMatch(path, @"\.(js|css|png|jpg|jpeg|gif|ico|svg|woff|woff2|ttf|map|txt|xml|json|webp)$"))
         {
             await _next(context);
             return;
         }
 
-        // 📌 3️⃣ Kullanıcı giriş yapmamışsa login sayfasına yönlendir
-        /*
-        if (!user.Identity.IsAuthenticated)
-        {
-            _logger.LogWarning($"🔒 Yetkisiz kullanıcı giriş yapmaya çalıştı: {path}");
-            context.Response.Redirect("/VAccount/Login");
-            return;
-        }
-        */
-
-
-        // 📌 4️⃣ Türkçe karakterleri ASCII'ye çevir
+        // Türkçe karakterleri ASCII'ye çevir
         path = ConvertToAscii(path);
 
-        using (var scope = _scopeFactory.CreateScope())
+        // Eğer path sonunda /index yoksa ama veritabanında /index’li hali varsa otomatik tamamla
+        var db = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+        if (!path.EndsWith("/index") && db.RolePermissions.Any(x => x.PagePath == path + "/index"))
         {
-            var rolePermissionService = scope.ServiceProvider.GetRequiredService<RolePermissionService>();
+            path += "/index";
+            _logger.LogInformation("[RolePermission Middleware] Path /index ile tamamlandı: {Path}", path);
+        }
 
-            // 📌 5️⃣ Kullanıcının yetkisini kontrol et
-            var hasAccess = await rolePermissionService.HasAccess(user, path);
+        var rolePermissionService = scope.ServiceProvider.GetRequiredService<RolePermissionService>();
+        var hasAccess = await rolePermissionService.HasAccess(user, path);
 
-            if (!hasAccess)
+        if (!hasAccess)
+        {
+            var message = Uri.EscapeDataString($"Yetkisiz Erişim: {path}");
+
+            if (path.StartsWith("/accessdenied", StringComparison.OrdinalIgnoreCase))
             {
-
-            // _logger.LogWarning($"🚫 Yetkisiz erişim: Kullanıcı {userName} {path} sayfasına erişmeye çalıştı.");
-
-                var safePath = ConvertToAscii(path).Replace("//", "/").TrimEnd('/');
-
-                if (string.IsNullOrWhiteSpace(path))
-                {
-                    path = "/"; // fallback olarak kök dizin
-                }
-
-                var message = Uri.EscapeDataString($"Yetkisiz Erişim: {safePath}");
-
-                // 🚨 Kullanıcı AccessDenied sayfasına erişimi yoksa doğrudan 403 Forbidden dön!
-                if (path.Equals("/accessdenied", StringComparison.OrdinalIgnoreCase))
-                {
-                    context.Response.StatusCode = StatusCodes.Status403Forbidden;
-                    await context.Response.WriteAsync("403 - Yetkisiz Erişim");
-                    return;
-                }
-
-                // 🌟 AccessDenied sayfasına yönlendirme
-                context.Response.Redirect($"/AccessDenied?message={message}");
+                context.Response.StatusCode = StatusCodes.Status403Forbidden;
+                await context.Response.WriteAsync("403 - Yetkisiz Erişim");
                 return;
             }
 
+            context.Response.Redirect($"/AccessDenied?message={message}");
+            return;
         }
 
         await _next(context);
     }
 
-    // 📌 TÜRKÇE KARAKTERLERİ ASCII'YE DÖNÜŞTÜR
+
+    private static string NormalizePath(string path)
+    {
+        path = path.Trim().ToLowerInvariant();
+
+        while (path.Contains("//"))
+            path = path.Replace("//", "/");
+
+        return path;
+    }
+
     public static string ConvertToAscii(string input)
     {
         if (string.IsNullOrEmpty(input))

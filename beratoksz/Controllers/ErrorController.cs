@@ -5,9 +5,10 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace beratoksz.Controllers
 {
+    [AllowAnonymous]
     public class ErrorController : Controller
     {
-        [Route("Error/{statusCode}")]
+        [HttpGet("Error/{statusCode}")]
         public IActionResult HandleError(int statusCode)
         {
             switch (statusCode)
@@ -20,5 +21,6 @@ namespace beratoksz.Controllers
                     return View("Error");
             }
         }
+
     }
 }

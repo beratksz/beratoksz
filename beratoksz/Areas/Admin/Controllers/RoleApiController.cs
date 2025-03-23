@@ -8,7 +8,7 @@ using beratoksz.Models;
 
 namespace beratoksz.Areas.Admin.Controllers
 {
-    [Route("api/roles")]
+    [Route("api/[controller]")]
     [ApiController]
     public class RoleApiController : ControllerBase
     {
@@ -23,7 +23,7 @@ namespace beratoksz.Areas.Admin.Controllers
         [HttpGet]
         public IActionResult GetRoles()
         {
-            var roles = _roleManager.Roles.Select(r => new { r.Id, r.Name }).ToList();
+            var roles = _roleManager.Roles.Select(r => new { r.Id, r.Name, r.Aciklama }).ToList();
             return Ok(roles);
         }
 
@@ -35,7 +35,7 @@ namespace beratoksz.Areas.Admin.Controllers
             if (role == null)
                 return NotFound();
 
-            return Ok(new { role.Id, role.Name });
+            return Ok(new { role.Id, role.Name, role.Aciklama });
         }
 
         // ✅ POST: api/roles (Yeni rol ekle)
@@ -45,14 +45,17 @@ namespace beratoksz.Areas.Admin.Controllers
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
-            var role = new AppRole(model.Name)
+            var role = new AppRole
             {
+                Name = model.Name,
+                Aciklama = model.Aciklama,
+                OlusturulmaTarihi = DateTime.Now,
                 NormalizedName = model.Name.ToUpper()
             };
 
             var result = await _roleManager.CreateAsync(role);
             if (result.Succeeded)
-                return CreatedAtAction(nameof(GetRole), new { id = role.Id }, new { role.Id, role.Name });
+                return CreatedAtAction(nameof(GetRole), new { id = role.Id }, new { role.Id, role.Name, role.Aciklama});
 
             return BadRequest(result.Errors);
         }
@@ -69,6 +72,7 @@ namespace beratoksz.Areas.Admin.Controllers
                 return NotFound();
 
             role.Name = model.Name;
+            role.Aciklama = model.Aciklama;
             role.NormalizedName = model.Name.ToUpper();
 
             var result = await _roleManager.UpdateAsync(role);

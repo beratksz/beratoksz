@@ -4,19 +4,20 @@ async function fetchRoles() {
     tableBody.innerHTML = "<tr><td colspan='3' class='text-center'>Yükleniyor...</td></tr>";
 
     try {
-        let response = await fetch("/api/roles");
+        let response = await fetch("/api/roleapi");
         let roles = await response.json();
         tableBody.innerHTML = "";
 
         roles.forEach(role => {
             let row = `<tr>
-                <td>${role.id}</td>
-                <td>${role.name}</td>
-                <td>
-                    <button class="btn btn-warning btn-sm" onclick="showEditRoleModal('${role.id}', '${role.name}')">Düzenle</button>
-                    <button class="btn btn-danger btn-sm" onclick="deleteRole('${role.id}')">Sil</button>
-                </td>
-            </tr>`;
+                              <td>${role.id}</td>
+                              <td>${role.name}</td>
+                              <td>${role.Aciklama}</td>
+                              <td>
+                                  <button class="btn btn-warning btn-sm" onclick="showEditRoleModal('${role.id}', '${role.name}', '${role.Aciklama}')">Düzenle</button>
+                                  <button class="btn btn-danger btn-sm" onclick="deleteRole('${role.id}')">Sil</button>
+                              </td>
+                        </tr>`;
             tableBody.innerHTML += row;
         });
     } catch (error) {
@@ -28,14 +29,16 @@ async function fetchRoles() {
 function showAddRoleModal() {
     document.getElementById("roleId").value = "";
     document.getElementById("roleName").value = "";
+    document.getElementById("Aciklama").value = "";
     let modal = new bootstrap.Modal(document.getElementById("roleModal"));
     modal.show();
 }
 
 // ✅ Düzenleme modalını aç
-function showEditRoleModal(id, name) {
+function showEditRoleModal(id, name, aciklama) {
     document.getElementById("roleId").value = id;
     document.getElementById("roleName").value = name;
+    document.getElementById("Aciklama").value = Aciklama;
     let modal = new bootstrap.Modal(document.getElementById("roleModal"));
     modal.show();
 }
@@ -44,10 +47,13 @@ function showEditRoleModal(id, name) {
 async function saveRole() {
     let roleId = document.getElementById("roleId").value;
     let roleName = document.getElementById("roleName").value;
+    let Aciklama = document.getElementById("Aciklama").value;
 
-    let payload = { name: roleName };
+
+
+    let payload = { name: roleName, Aciklama: aciklama };
     let method = roleId ? "PUT" : "POST";
-    let url = roleId ? `/api/roles/${roleId}` : "/api/roles";
+    let url = roleId ? `/api/roleapi/${roleId}` : "/api/roleapi";
 
     try {
         let response = await fetch(url, {
@@ -73,7 +79,7 @@ async function deleteRole(id) {
     if (!confirm("Bu rolü silmek istediğinize emin misiniz?")) return;
 
     try {
-        let response = await fetch(`/api/roles/${id}`, { method: "DELETE" });
+        let response = await fetch(`/api/roleapi/${id}`, { method: "DELETE" });
 
         if (response.ok) {
             alert("Rol başarıyla silindi!");

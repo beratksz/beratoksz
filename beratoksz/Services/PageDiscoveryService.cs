@@ -1,12 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Controllers;
 using Microsoft.AspNetCore.Mvc.Infrastructure;
-using Microsoft.AspNetCore.Mvc.Routing;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Reflection;
 using System.Text.RegularExpressions;
-
 
 public class PageDiscoveryService
 {
@@ -19,83 +18,60 @@ public class PageDiscoveryService
 
     public List<string> GetAllPages()
     {
-        var pages = new List<string>();
+        var pages = new HashSet<string>();
 
-        var controllers = Assembly.GetExecutingAssembly()
-            .GetTypes()
-            .Where(type => (typeof(Controller).IsAssignableFrom(type) || typeof(ControllerBase).IsAssignableFrom(type))
-                            && !type.IsAbstract);
+        var actionDescriptors = _actionProvider.ActionDescriptors.Items;
 
-        foreach (var controller in controllers)
+        foreach (var action in actionDescriptors)
         {
-            var controllerName = controller.Name.Replace("Controller", "");
-            var areaAttr = controller.GetCustomAttribute<AreaAttribute>();
-            var controllerRouteAttr = controller.GetCustomAttribute<RouteAttribute>();
-            var baseRoute = controllerRouteAttr?.Template ?? "";
-
-            foreach (var method in controller.GetMethods(BindingFlags.Instance | BindingFlags.Public | BindingFlags.DeclaredOnly))
+            if (action is ControllerActionDescriptor descriptor)
             {
-                var httpMethodAttributes = method.GetCustomAttributes<HttpMethodAttribute>(inherit: true);
-                var actionName = method.Name;
+                var area = descriptor.RouteValues.ContainsKey("area") ? descriptor.RouteValues["area"] : null;
+                var controller = descriptor.ControllerName;
+                var actionName = descriptor.ActionName;
 
-                if (!httpMethodAttributes.Any())
-                {
-                    // Eğer HTTP attribute yoksa varsayılan route kabul edilir (e.g. MVC: /controller/action)
-                    string defaultPath = $"/{controllerName}/{actionName}";
-                    if (areaAttr != null)
-                        defaultPath = $"/{areaAttr.RouteValue}/{controllerName}/{actionName}";
+                var template = descriptor.AttributeRouteInfo?.Template;
+                string path = !string.IsNullOrWhiteSpace(template)
+                    ? "/" + template
+                    : $"/{controller}/{actionName}";
 
-                    pages.Add(defaultPath.ToLowerInvariant());
-                    continue;
-                }
+                if (area != null)
+                    path = $"/{area}{path}";
 
-                foreach (var httpAttr in httpMethodAttributes)
-                {
-                    string template = httpAttr.Template ?? "";
-
-                    string fullPath = baseRoute;
-
-                    if (!string.IsNullOrEmpty(template))
-                    {
-                        if (!string.IsNullOrEmpty(baseRoute))
-                            fullPath += "/" + template;
-                        else
-                            fullPath = template;
-                    }
-
-                    fullPath = fullPath
-                        .Replace("[controller]", controllerName)
-                        .Replace("[action]", actionName);
-
-                    if (!fullPath.StartsWith("/"))
-                        fullPath = "/" + fullPath;
-
-                    if (areaAttr != null)
-                        fullPath = $"/{areaAttr.RouteValue}".TrimEnd('/') + fullPath;
-
-                    pages.Add(fullPath.ToLowerInvariant());
-                }
+                path = UrlNormalizer.Normalize(path);
+                pages.Add(path);
             }
         }
 
-        return pages.Distinct().ToList();
+        return pages.ToList();
     }
-
-
-
 
     public static class UrlNormalizer
-{
-    public static string Normalize(string url)
     {
-        if (string.IsNullOrEmpty(url)) return url;
+        public static string Normalize(string url)
+        {
+            if (string.IsNullOrWhiteSpace(url)) return "/";
 
-        // ID'leri, GUID'leri ve sayısal değerleri tespit edip yerine * koy
-        url = Regex.Replace(url, @"\/[0-9a-fA-F\-]{8,}", "/*");  // GUID'leri yakala
-        url = Regex.Replace(url, @"\/\d+", "/*");  // Sayıları yakala
+            // Türkçe karakter düzeltmesi – önce yap
+            url = url
+                .Replace("ı", "i").Replace("İ", "I")
+                .Replace("ş", "s").Replace("Ş", "S")
+                .Replace("ç", "c").Replace("Ç", "C")
+                .Replace("ğ", "g").Replace("Ğ", "G")
+                .Replace("ö", "o").Replace("Ö", "O")
+                .Replace("ü", "u").Replace("Ü", "U");
 
-        return url.ToLower().TrimEnd('/');
+            // Lowercase (en-US)
+            url = url.ToLower(new CultureInfo("en-US"));
+
+            // Sayısal ID & GUID maskeleri
+            url = Regex.Replace(url, @"\/[0-9a-fA-F\-]{8,}", "/*"); // GUID
+            url = Regex.Replace(url, @"\/\d+", "/*");              // Sayı
+
+            // // düzelt ve trailing slash temizle
+            url = url.Replace("//", "/").TrimEnd('/');
+
+            return url;
+        }
     }
-}
-
 }

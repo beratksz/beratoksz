@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 
-[Route("api/pages")]
+[Route("api/[controller]")]
 [ApiController]
 public class PageApiController : ControllerBase
 {

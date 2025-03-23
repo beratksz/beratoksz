@@ -8,11 +8,6 @@ namespace beratoksz.Models
         public string Aciklama { get; set; } // Admin ne iş yapar?
         public DateTime OlusturulmaTarihi { get; set; }
         public bool SistemRoluMu { get; set; } = false; // Silinemez gibi
-
-        public AppRole(string roleName) : base(roleName)
-        {
-            OlusturulmaTarihi = DateTime.UtcNow;
-        }
         public AppRole() : base()
         {
         }

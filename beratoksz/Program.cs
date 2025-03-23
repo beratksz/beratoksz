@@ -1,39 +1,39 @@
 using beratoksz.Data;
 using beratoksz.PerformanceMetrics;
 using beratoksz.Hubs;
+using beratoksz.Services;
+using beratoksz.Models;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
-using Serilog;
-using System.Text;
-using beratoksz;
-using AspNetCoreRateLimit;
-using beratoksz.Services;
-using beratoksz.Models;
-using System.Security.Claims;
 using Microsoft.AspNetCore.Authorization;
+using Serilog;
+using AspNetCoreRateLimit;
+using System.Text;
+using System.Security.Claims;
+using beratoksz;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// ?? Serilog Konfigürasyonu
 Log.Logger = new LoggerConfiguration()
-    .WriteTo.Console()  // Terminale yazdýr
-    .WriteTo.File("Logs/app-log-.txt", rollingInterval: RollingInterval.Day) // ?? Günlük log dosyasý oluþtur
+    .WriteTo.Console()
+    .WriteTo.File("Logs/app-log-.txt", rollingInterval: RollingInterval.Day)
     .CreateLogger();
 
-builder.Host.UseSerilog();
+builder.Host.UseSerilog((context, services, config) =>
+{
+    config.ReadFrom.Configuration(context.Configuration)
+          .ReadFrom.Services(services)
+          .Enrich.FromLogContext();
+});
 
-// Production loglama için Serilog
-builder.Host.UseSerilog((context, services, configuration) =>
-    configuration.ReadFrom.Configuration(context.Configuration)
-                 .ReadFrom.Services(services)
-                 .Enrich.FromLogContext());
-
-// SQL Server baðlantýsý
+// ?? Veritabaný
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-// Identity yapýlandýrmasý
+// ?? Identity
 builder.Services.AddIdentity<AppUser, AppRole>(options =>
 {
     options.Password.RequireDigit = true;
@@ -45,15 +45,62 @@ builder.Services.AddIdentity<AppUser, AppRole>(options =>
 .AddEntityFrameworkStores<ApplicationDbContext>()
 .AddDefaultTokenProviders();
 
-// Custom ClaimsPrincipalFactory (rol claim'lerini eklemek için)
+builder.Services.ConfigureApplicationCookie(options =>
+{
+    options.Cookie.HttpOnly = true;
+    options.Cookie.SecurePolicy = CookieSecurePolicy.Always;
+    options.Cookie.SameSite = SameSiteMode.Lax;
+});
+
 builder.Services.AddScoped<IUserClaimsPrincipalFactory<AppUser>, AdditionalUserClaimsPrincipalFactory>();
+builder.Services.AddScoped<RolePermissionService>();
+builder.Services.AddScoped<PageDiscoveryService>();
+builder.Services.AddScoped<TwoFactorEmailService>();
+builder.Services.AddScoped<UserSecurityService>();
 
+// ?? Rate Limiting
+builder.Services.AddOptions();
+builder.Services.Configure<IpRateLimitOptions>(builder.Configuration.GetSection("IpRateLimiting"));
+builder.Services.AddInMemoryRateLimiting();
+builder.Services.AddSingleton<IRateLimitConfiguration, RateLimitConfiguration>();
+
+// ?? GeoIP
+builder.Services.AddSingleton<GeoIPService>();
+
+// ?? SignalR
+builder.Services.AddSignalR(options =>
+{
+    options.KeepAliveInterval = TimeSpan.FromSeconds(15);
+    options.ClientTimeoutInterval = TimeSpan.FromSeconds(30);
+});
+
+// ?? Performans servisi
+builder.Services.AddHostedService<PerformanceMetricsService>();
+
+// ?? JWT
+builder.Services.AddAuthentication(options =>
+{
+    options.DefaultAuthenticateScheme = IdentityConstants.ApplicationScheme;
+    options.DefaultChallengeScheme = IdentityConstants.ApplicationScheme;
+})
+.AddJwtBearer("Jwt", options =>
+{
+    var jwt = builder.Configuration.GetSection("JWT");
+    options.TokenValidationParameters = new TokenValidationParameters
+    {
+        ValidateIssuer = true,
+        ValidateAudience = true,
+        ValidateLifetime = true,
+        ValidateIssuerSigningKey = true,
+        ValidIssuer = jwt["ValidIssuer"],
+        ValidAudience = jwt["ValidAudience"],
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwt["Secret"])),
+        ClockSkew = TimeSpan.Zero
+    };
+});
+
+// ?? Diðer servisler
 builder.Services.AddMemoryCache();
-builder.Services.AddControllersWithViews();
-builder.Services.AddResponseCaching();
-builder.Services.AddHealthChecks();
-
-
 builder.Services.AddDistributedMemoryCache();
 builder.Services.AddSession(options =>
 {
@@ -62,91 +109,28 @@ builder.Services.AddSession(options =>
     options.Cookie.IsEssential = true;
 });
 
-// SignalR servisini ekleyin
-builder.Services.AddSignalR(options =>
-{
-    options.KeepAliveInterval = TimeSpan.FromSeconds(15); // ? Baðlantý kontrol süresi
-    options.ClientTimeoutInterval = TimeSpan.FromSeconds(30); // ? Client baðlantýsý düþtüðünde timeout süresi
-});
-
-// Background service: Performans metriklerini toplayan servisi ekleyin
-builder.Services.AddHostedService<PerformanceMetricsService>();
-
+builder.Services.AddControllersWithViews();
+builder.Services.AddResponseCaching();
+builder.Services.AddHealthChecks();
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("AllowAll", builder =>
-    {
-        builder.AllowAnyOrigin()
-               .AllowAnyMethod()
-               .AllowAnyHeader();
-    });
+    options.AddPolicy("AllowAll", policy =>
+        policy.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
 });
 
-
-builder.Services.AddOptions();
-builder.Services.Configure<IpRateLimitOptions>(builder.Configuration.GetSection("IpRateLimiting"));
-builder.Services.AddInMemoryRateLimiting();
-builder.Services.AddSingleton<IRateLimitConfiguration, RateLimitConfiguration>();
-builder.Services.AddScoped<TwoFactorEmailService>();
-
-
-// Identity cookie ayarlarý
-builder.Services.ConfigureApplicationCookie(options =>
-{
-    options.Cookie.HttpOnly = true;
-    options.Cookie.SecurePolicy = Microsoft.AspNetCore.Http.CookieSecurePolicy.Always;
-    options.Cookie.SameSite = Microsoft.AspNetCore.Http.SameSiteMode.Lax;
-});
-
-// Authentication ayarlarý – Identity'nin default cookie'si kullanýlýyor.
-builder.Services.AddAuthentication(options =>
-{
-    options.DefaultAuthenticateScheme = IdentityConstants.ApplicationScheme;
-    options.DefaultChallengeScheme = IdentityConstants.ApplicationScheme;
-})
-.AddJwtBearer("Jwt", options =>
-{
-    var jwtConfig = builder.Configuration.GetSection("JWT");
-    options.TokenValidationParameters.ClockSkew = TimeSpan.Zero;
-    options.TokenValidationParameters = new TokenValidationParameters
-    {
-        ValidateIssuer = true,
-        ValidateAudience = true,
-        ValidateLifetime = true,
-        ValidateIssuerSigningKey = true,
-        ValidIssuer = jwtConfig["ValidIssuer"],
-        ValidAudience = jwtConfig["ValidAudience"],
-        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtConfig["Secret"]))
-    };
-});
-
-
-
-builder.Services.AddSingleton<IRateLimitConfiguration, RateLimitConfiguration>();
-
-builder.Services.AddSingleton<GeoIPService>();
-
-builder.Services.AddScoped<UserSecurityService>();
-
-builder.Services.AddScoped<RolePermissionService>();
-
-builder.Services.AddScoped<PageDiscoveryService>();
-
-
-// Swagger (API dokümantasyonu)
+// ?? Swagger
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen(options =>
+builder.Services.AddSwaggerGen(c =>
 {
-    options.AddSecurityDefinition("Bearer", new Microsoft.OpenApi.Models.OpenApiSecurityScheme
+    c.AddSecurityDefinition("Bearer", new Microsoft.OpenApi.Models.OpenApiSecurityScheme
     {
-        Description = "JWT Authorization header using the Bearer scheme. Örneðin: \"Bearer {token}\"",
+        Description = "JWT Authorization header using the Bearer scheme. Örn: 'Bearer {token}'",
         Name = "Authorization",
         In = Microsoft.OpenApi.Models.ParameterLocation.Header,
         Type = Microsoft.OpenApi.Models.SecuritySchemeType.ApiKey,
         Scheme = "Bearer"
     });
-    options.AddSecurityRequirement(new Microsoft.OpenApi.Models.OpenApiSecurityRequirement()
-    {
+    c.AddSecurityRequirement(new Microsoft.OpenApi.Models.OpenApiSecurityRequirement {
         {
             new Microsoft.OpenApi.Models.OpenApiSecurityScheme
             {
@@ -157,123 +141,79 @@ builder.Services.AddSwaggerGen(options =>
                 },
                 Scheme = "oauth2",
                 Name = "Bearer",
-                In = Microsoft.OpenApi.Models.ParameterLocation.Header,
-            },
-            new List<string>()
+                In = Microsoft.OpenApi.Models.ParameterLocation.Header
+            }, new List<string>()
         }
     });
 });
 
 var app = builder.Build();
 
-using (var scope = app.Services.CreateScope())
-{
-    var scopedProvider = scope.ServiceProvider;
-    var pageDiscoveryService = scopedProvider.GetRequiredService<PageDiscoveryService>();
-    var dbContext = scopedProvider.GetRequiredService<ApplicationDbContext>();
-
-    var existingPages = dbContext.RolePermissions.Select(r => r.PagePath).Distinct().ToList();
-    var allPages = pageDiscoveryService.GetAllPages().Distinct();
-
-    foreach (var page in allPages)
-    {
-        if (!existingPages.Any(p => p.Equals(page, StringComparison.OrdinalIgnoreCase)))
-        {
-            dbContext.RolePermissions.Add(new RolePermission
-            {
-                RoleName = "Admin",
-                PagePath = page,
-                CanAccess = true
-            });
-        }
-    }
-    dbContext.SaveChanges();
-}
-
-app.UseIpRateLimiting();
-
-// Production ortamý için hata yönetimi
+// ?? Middleware Pipeline
 app.UseSwagger();
-app.UseSwaggerUI(c =>
-{
-    c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
-});
-
+app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1"));
 
 app.UseExceptionHandler("/Error");
 app.UseStatusCodePagesWithReExecute("/Error/{0}");
-
-
 app.UseHttpsRedirection();
 app.UseStaticFiles();
-app.UseResponseCaching();
+
+app.Use(async (context, next) =>
+{
+    var path = context.Request.Path.ToString().ToLower();
+    if (path == "/" || path == "/home")
+    {
+        Console.WriteLine($"?? PATH DÜZELTÝLDÝ: {path} ? /Home/Index");
+        context.Request.Path = "/Home/Index";
+    }
+    await next();
+});
+
 app.UseRouting();
-app.MapHealthChecks("/health");
+app.UseResponseCaching();
 app.UseCors("AllowAll");
 app.UseAuthentication();
 app.UseAuthorization();
 app.UseIpRateLimiting();
 app.UseSession();
 
-// SignalR hub'ý
-app.MapHub<StatusHub>("/statusHub");
-
-// Performans metrikleri middleware
 app.UseMiddleware<PerformanceMetricsMiddleware>();
 app.UseMiddleware<ActivityLoggingMiddleware>();
 app.UseMiddleware<RolePermissionMiddleware>();
 app.UseMiddleware<AutoDiscoverMiddleware>();
 
+app.MapHub<StatusHub>("/statusHub");
 
-
-
-// Swagger middleware'leri
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI(c =>
-    {
-        c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
-    });
-}
-
-
-
-
-app.Use(async (context, next) =>
-{
-    var path = context.Request.Path.ToString().ToLower();
-
-    // ?? ROOT URL NORMALÝZASYONU
-    if (path == "/" || path == "/index.html" || path == "/Home" || path == "/home")
-    {
-        Console.WriteLine($"?? PATH DÜZELTÝLDÝ: {path} ? /Home/Index");
-        path = "/Home/Index"; // ?? Ana sayfayý /Home/Index olarak yönlendir
-        context.Request.Path = path;
-    }
-
-    await next();
-});
-
-
-
-
-// Seeding: Admin ve roller oluþturuluyor
+// ?? Veritabaný Seeding (Admin ve roller)
 using (var scope = app.Services.CreateScope())
 {
     var services = scope.ServiceProvider;
     await DbInitializer.InitializeAsync(services);
 }
 
+// ?? Route Discovery ve Otomatik Yetkilendirme
+using (var scope = app.Services.CreateScope())
+{
+    var provider = scope.ServiceProvider;
+    var db = provider.GetRequiredService<ApplicationDbContext>();
+    var pageDiscovery = provider.GetRequiredService<PageDiscoveryService>();
+    var seeder = new RolePermissionSeeder(db);
 
+    var discoveredEndpoints = pageDiscovery.GetAllPages();
+    discoveredEndpoints.AddRange(HubRoutes.All); // Hub yollarýný da dahil et
 
-// Routing: Areas ve default route
+    seeder.SeedPermissions(discoveredEndpoints);
+}
+
+// ?? Endpoint mapping
 app.MapControllerRoute(
     name: "areas",
     pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}");
+
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
+app.MapHealthChecks("/health");
 
 app.Run();

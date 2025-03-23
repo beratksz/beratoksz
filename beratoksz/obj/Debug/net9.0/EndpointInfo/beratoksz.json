@@ -5,7 +5,148 @@
     "version": "1.0"
   },
   "paths": {
-    "/api/activitylog": {
+    "/api/Account/whoami": {
+      "get": {
+        "tags": [
+          "Account"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Account/register": {
+      "post": {
+        "tags": [
+          "Account"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RegisterViewModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RegisterViewModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/RegisterViewModel"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Account/login": {
+      "post": {
+        "tags": [
+          "Account"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginViewModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginViewModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginViewModel"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Account/verify-2fa": {
+      "post": {
+        "tags": [
+          "Account"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Verify2FADto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Verify2FADto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Verify2FADto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Account/logout": {
+      "post": {
+        "tags": [
+          "Account"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Account/userinfo": {
+      "get": {
+        "tags": [
+          "Account"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Account/check-auth": {
+      "get": {
+        "tags": [
+          "Account"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/ActivityLog": {
       "get": {
         "tags": [
           "ActivityLog"
@@ -37,7 +178,7 @@
         }
       }
     },
-    "/api/adminanalytics/top-pages": {
+    "/api/AdminAnalytics/top-pages": {
       "get": {
         "tags": [
           "AdminAnalytics"
@@ -49,10 +190,33 @@
         }
       }
     },
-    "/api/adminanalytics/browsers": {
+    "/api/AdminAnalytics/browsers": {
       "get": {
         "tags": [
           "AdminAnalytics"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/Error/{statusCode}": {
+      "get": {
+        "tags": [
+          "Error"
+        ],
+        "parameters": [
+          {
+            "name": "statusCode",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
         ],
         "responses": {
           "200": {
@@ -73,7 +237,7 @@
         }
       }
     },
-    "/api/pages": {
+    "/api/PageApi": {
       "get": {
         "tags": [
           "PageApi"
@@ -85,7 +249,7 @@
         }
       }
     },
-    "/api/roles": {
+    "/api/RoleApi": {
       "get": {
         "tags": [
           "RoleApi"
@@ -126,7 +290,7 @@
         }
       }
     },
-    "/api/roles/{id}": {
+    "/api/RoleApi/{id}": {
       "get": {
         "tags": [
           "RoleApi"
@@ -207,7 +371,7 @@
         }
       }
     },
-    "/api/role-permissions": {
+    "/api/RolePermission": {
       "get": {
         "tags": [
           "RolePermission"
@@ -248,7 +412,7 @@
         }
       }
     },
-    "/api/role-permissions/{id}": {
+    "/api/RolePermission/{id}": {
       "put": {
         "tags": [
           "RolePermission"
@@ -311,7 +475,7 @@
         }
       }
     },
-    "/api/activities/activities": {
+    "/api/Security/activities": {
       "get": {
         "tags": [
           "Security"
@@ -323,7 +487,7 @@
         }
       }
     },
-    "/api/Token": {
+    "/api/Token/login": {
       "post": {
         "tags": [
           "Token"
@@ -359,25 +523,18 @@
         "tags": [
           "Token"
         ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/RefreshRequest"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/RefreshRequest"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/RefreshRequest"
-              }
-            }
+        "responses": {
+          "200": {
+            "description": "OK"
           }
-        },
+        }
+      }
+    },
+    "/api/Token/logout": {
+      "post": {
+        "tags": [
+          "Token"
+        ],
         "responses": {
           "200": {
             "description": "OK"
@@ -410,20 +567,39 @@
         },
         "additionalProperties": false
       },
-      "RefreshRequest": {
+      "RegisterViewModel": {
         "required": [
-          "accessToken",
-          "refreshToken"
+          "confirmPassword",
+          "email",
+          "password",
+          "phoneNumber",
+          "userName"
         ],
         "type": "object",
         "properties": {
-          "refreshToken": {
-            "type": "string",
-            "nullable": true
+          "userName": {
+            "minLength": 1,
+            "type": "string"
           },
-          "accessToken": {
+          "email": {
+            "minLength": 1,
             "type": "string",
-            "nullable": true
+            "format": "email"
+          },
+          "phoneNumber": {
+            "minLength": 1,
+            "type": "string",
+            "format": "tel"
+          },
+          "password": {
+            "minLength": 1,
+            "type": "string",
+            "format": "password"
+          },
+          "confirmPassword": {
+            "minLength": 1,
+            "type": "string",
+            "format": "password"
           }
         },
         "additionalProperties": false
@@ -467,6 +643,20 @@
           "name": {
             "minLength": 1,
             "type": "string"
+          },
+          "aciklama": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Verify2FADto": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string",
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -475,7 +665,7 @@
     "securitySchemes": {
       "Bearer": {
         "type": "apiKey",
-        "description": "JWT Authorization header using the Bearer scheme. Örneğin: \"Bearer {token}\"",
+        "description": "JWT Authorization header using the Bearer scheme. Örn: 'Bearer {token}'",
         "name": "Authorization",
         "in": "header"
       }

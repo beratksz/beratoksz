@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
-[Route("api/role-permissions")]
+[Route("api/[controller]")]
 [ApiController]
 public class RolePermissionController : ControllerBase
 {

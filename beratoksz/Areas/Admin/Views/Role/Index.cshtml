@@ -24,6 +24,7 @@
                 <tr>
                     <th>ID</th>
                     <th>Rol Adı</th>
+                    <th>Açıklama</th>
                     <th>İşlemler</th>
                 </tr>
             </thead>
@@ -45,6 +46,9 @@
                 <input type="hidden" id="roleId">
                 <label for="roleName">Rol Adı:</label>
                 <input type="text" id="roleName" class="form-control" required />
+
+                <label for="Aciklama">Rol Açıklaması:</label>
+                <input type="text" id="Aciklama" class="form-control" required />
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">İptal</button>
@@ -111,7 +115,7 @@
 <script>
     // ✅ Roller tablosunu API'den çekip listeye ekleme
     async function loadRoles() {
-        let res = await fetch("/api/roles");
+        let res = await fetch("/api/roleapi");
         let roles = await res.json();
         let tbody = document.getElementById("roleTableBody");
         tbody.innerHTML = roles.map(role => `
@@ -128,7 +132,7 @@
 
     // ✅ Yetkilendirme tablosunu API'den çekip listeye ekleme
         async function loadPermissions() {
-        let res = await fetch("/api/role-permissions");
+        let res = await fetch("/api/rolepermission");
         let permissions = await res.json();
         let tbody = document.getElementById("rolePermissionTable");
 
@@ -164,7 +168,7 @@
             canAccess: canAccess
         });
 
-        let response = await fetch(`/api/role-permissions/${id}`, {
+        let response = await fetch(`/api/rolepermission/${id}`, {
             method: "PUT",
             headers: { "Content-Type": "application/json" },
             body: bodyData
@@ -183,7 +187,7 @@
         if (!confirmDelete) return;
 
         try {
-            let response = await fetch(`/api/role-permissions/${id}`, { method: "DELETE" });
+            let response = await fetch(`/api/rolepermission/${id}`, { method: "DELETE" });
 
             if (!response.ok) {
                 let errorText = await response.text();

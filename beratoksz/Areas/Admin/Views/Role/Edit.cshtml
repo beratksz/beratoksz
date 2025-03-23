@@ -12,6 +12,10 @@
             <label for="roleName" class="form-label">Rol Adı</label>
             <input id="roleName" name="roleName" class="form-control" required />
         </div>
+        <div class="mb-3">
+            <label for="Aciklama" class="form-label">Rol Açıklaması</label>
+            <input id="Aciklama" name="Aciklama" class="form-control" required />
+        </div>
         <button type="submit" class="btn btn-primary">Güncelle</button>
         <a href="/Admin/Role" class="btn btn-secondary">İptal</a>
     </form>
@@ -55,11 +59,16 @@
 
         let roleId = document.getElementById("roleId").value;
         let roleName = document.getElementById("roleName").value;
+        let Aciklama = document.getElementById("Aciklama").value;
         let token = document.querySelector('input[name="__RequestVerificationToken"]').value;
         let submitBtn = document.querySelector('button[type="submit"]');
 
         if (!roleId || !roleName) {
             alert("⚠ Lütfen geçerli bir rol adı girin.");
+            return;
+        }
+         if (!Aciklama) {
+            alert("⚠ Lütfen geçerli bir rol Açıklaması girin.");
             return;
         }
 
@@ -72,12 +81,12 @@
                     "Content-Type": "application/json",
                     "RequestVerificationToken": token
                 },
-                body: JSON.stringify({ name: roleName })
+                body: JSON.stringify({ name: roleName, Aciklama:Aciklama })
             });
 
             if (res.ok) {
                 alert("✅ Rol başarıyla güncellendi.");
-                window.location.href = "/Admin/Role";
+                window.location.href = "/Admin/Role/Index";
             } else {
                 let errorMessage = await res.text();
                 alert("❌ Güncelleme başarısız: " + errorMessage);

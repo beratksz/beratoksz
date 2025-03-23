@@ -9,9 +9,8 @@ using System.Linq;
 
 namespace beratoksz.Areas.Admin.Controllers
 {
-    [Area("Admin")]
     [ApiController]
-    [Route("api/adminanalytics")]
+    [Route("api/[controller]")]
     public class AdminAnalyticsController : ControllerBase
     {
         private readonly ApplicationDbContext _dbContext;

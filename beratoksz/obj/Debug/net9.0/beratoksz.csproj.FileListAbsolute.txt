@@ -540,7 +540,6 @@ C:\Users\berat\source\repos\beratoksz\beratoksz\obj\Debug\net9.0\refint\beratoks
 C:\Users\berat\source\repos\beratoksz\beratoksz\obj\Debug\net9.0\beratoksz.pdb
 C:\Users\berat\source\repos\beratoksz\beratoksz\obj\Debug\net9.0\beratoksz.genruntimeconfig.cache
 C:\Users\berat\source\repos\beratoksz\beratoksz\obj\Debug\net9.0\ref\beratoksz.dll
-C:\Users\berat\source\repos\beratoksz\beratoksz\obj\Debug\net9.0\staticwebassets.upToDateCheck.txt
 C:\Users\berat\source\repos\beratoksz\beratoksz\bin\Debug\net9.0\Microsoft.AspNetCore.JsonPatch.dll
 C:\Users\berat\source\repos\beratoksz\beratoksz\bin\Debug\net9.0\Microsoft.AspNetCore.Mvc.Razor.Extensions.dll
 C:\Users\berat\source\repos\beratoksz\beratoksz\bin\Debug\net9.0\Microsoft.AspNetCore.Razor.Language.dll
@@ -1121,9 +1120,12 @@ C:\Users\berat\source\repos\beratoksz\beratoksz\bin\Debug\net9.0\Serilog.Sinks.F
 C:\Users\berat\source\repos\beratoksz\beratoksz\bin\Debug\net9.0\StackExchange.Redis.dll
 C:\Users\berat\source\repos\beratoksz\beratoksz\bin\Debug\net9.0\UAParser.dll
 C:\Users\berat\source\repos\beratoksz\beratoksz\obj\Debug\net9.0\compressed\naifeof7to-g4pqupspci.gz
-C:\Users\berat\source\repos\beratoksz\beratoksz\obj\Debug\net9.0\compressed\tcpggfr4g3-s5myexr0s2.gz
-C:\Users\berat\source\repos\beratoksz\beratoksz\obj\Debug\net9.0\compressed\vgle2aokzv-bkbrka2yoe.gz
-C:\Users\berat\source\repos\beratoksz\beratoksz\obj\Debug\net9.0\compressed\925xn0q78r-1q4zmb0tvk.gz
 C:\Users\berat-oksuz\source\repos\beratoksz\beratoksz\obj\Debug\net9.0\compressed\tcpggfr4g3-0hyq3qxad5.gz
 C:\Users\berat-oksuz\source\repos\beratoksz\beratoksz\obj\Debug\net9.0\compressed\w4agcov9yo-vz9iklblgk.gz
 C:\Users\berat-oksuz\source\repos\beratoksz\beratoksz\obj\Debug\net9.0\compressed\fz3gzduo6p-yfw3yh5seu.gz
+C:\Users\berat\source\repos\beratoksz\beratoksz\obj\Debug\net9.0\compressed\tcpggfr4g3-0hyq3qxad5.gz
+C:\Users\berat\source\repos\beratoksz\beratoksz\obj\Debug\net9.0\compressed\w4agcov9yo-vz9iklblgk.gz
+C:\Users\berat\source\repos\beratoksz\beratoksz\obj\Debug\net9.0\compressed\fz3gzduo6p-yfw3yh5seu.gz
+C:\Users\berat\source\repos\beratoksz\beratoksz\obj\Debug\net9.0\staticwebassets.upToDateCheck.txt
+C:\Users\berat\source\repos\beratoksz\beratoksz\obj\Debug\net9.0\compressed\vgle2aokzv-pbxc0t1sss.gz
+C:\Users\berat\source\repos\beratoksz\beratoksz\obj\Debug\net9.0\compressed\925xn0q78r-wtnwgwg98y.gz
