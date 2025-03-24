@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -19,7 +20,7 @@ namespace beratoksz.Areas.Admin.Controllers
             _roleManager = roleManager;
         }
 
-        // ✅ GET: api/roles (Tüm rolleri getir)
+        // GET: api/roles (Tüm rolleri getir)
         [HttpGet]
         public IActionResult GetRoles()
         {
@@ -27,7 +28,7 @@ namespace beratoksz.Areas.Admin.Controllers
             return Ok(roles);
         }
 
-        // ✅ GET: api/roles/{id} (Belirtilen rolü getir)
+        // GET: api/roles/{id} (Belirtilen rolü getir)
         [HttpGet("{id}")]
         public async Task<IActionResult> GetRole(string id)
         {
@@ -38,7 +39,7 @@ namespace beratoksz.Areas.Admin.Controllers
             return Ok(new { role.Id, role.Name, role.Aciklama });
         }
 
-        // ✅ POST: api/roles (Yeni rol ekle)
+        // POST: api/roles (Yeni rol ekle)
         [HttpPost]
         public async Task<IActionResult> CreateRole([FromBody] RoleViewModel model)
         {
@@ -55,12 +56,12 @@ namespace beratoksz.Areas.Admin.Controllers
 
             var result = await _roleManager.CreateAsync(role);
             if (result.Succeeded)
-                return CreatedAtAction(nameof(GetRole), new { id = role.Id }, new { role.Id, role.Name, role.Aciklama});
+                return CreatedAtAction(nameof(GetRole), new { id = role.Id }, new { role.Id, role.Name, role.Aciklama });
 
             return BadRequest(result.Errors);
         }
 
-        // ✅ PUT: api/roles/{id} (Rol güncelleme)
+        // PUT: api/roles/{id} (Rol güncelleme)
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateRole(string id, [FromBody] RoleViewModel model)
         {
@@ -82,7 +83,7 @@ namespace beratoksz.Areas.Admin.Controllers
             return BadRequest(result.Errors);
         }
 
-        // ✅ DELETE: api/roles/{id} (Rol silme)
+        // DELETE: api/roles/{id} (Rol silme)
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteRole(string id)
         {

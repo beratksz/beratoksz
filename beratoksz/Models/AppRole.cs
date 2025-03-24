@@ -5,11 +5,10 @@ namespace beratoksz.Models
 {
     public class AppRole : IdentityRole
     {
-        public string Aciklama { get; set; } // Admin ne iş yapar?
+        public string Aciklama { get; set; }
         public DateTime OlusturulmaTarihi { get; set; }
-        public bool SistemRoluMu { get; set; } = false; // Silinemez gibi
-        public AppRole() : base()
-        {
-        }
+        public bool SistemRoluMu { get; set; } = false;
+
+        public AppRole() : base() { }
     }
 }

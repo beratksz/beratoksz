@@ -71,7 +71,7 @@ public class RolePermissionMiddleware
                 return;
             }
 
-            context.Response.Redirect($"/AccessDenied?message={message}");
+            context.Response.Redirect($"/Home/AccessDenied?message={message}");
             return;
         }
 

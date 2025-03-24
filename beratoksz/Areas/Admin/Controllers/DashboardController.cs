@@ -12,5 +12,11 @@ namespace beratoksz.Areas.Admin.Controllers
             // Gerekirse başlangıç verilerini ViewBag ya da ViewModel üzerinden aktarabilirsiniz.
             return View();
         }
+
+        public IActionResult Dashboard()
+        {
+            // Gerekirse başlangıç verilerini ViewBag ya da ViewModel üzerinden aktarabilirsiniz.
+            return View();
+        }
     }
 }

@@ -27,19 +27,21 @@ namespace beratoksz.Controllers
         private readonly IConfiguration _configuration;
         private readonly SignInManager<AppUser> _signInManager;
         private readonly TwoFactorEmailService _twoFactorEmailService;
+        private readonly UserSecurityService _userSecurityService;
 
         public AccountController(UserManager<AppUser> userManager,
                             SignInManager<AppUser> signInManager,
                             IConfiguration configuration,
-                            ApplicationDbContext context,   
-                            TwoFactorEmailService twoFactorEmailService) 
+                            ApplicationDbContext context,
+                            TwoFactorEmailService twoFactorEmailService,
+                            UserSecurityService userSecurityService)
 
         {
             _userManager = userManager;
             _configuration = configuration;
             _signInManager = signInManager;
             _twoFactorEmailService = twoFactorEmailService;
-
+            _userSecurityService = userSecurityService; // Bu satır eksikti, eklendi
         }
 
         [HttpGet("whoami")]
@@ -94,7 +96,15 @@ namespace beratoksz.Controllers
                        await _userManager.FindByNameAsync(model.LoginIdentifier);
 
             if (user == null || !(await _userManager.CheckPasswordAsync(user, model.Password)))
+            {
+                if (user != null)
+                {
+                    await _userSecurityService.LogActivity(user.Id, "FailedLogin", HttpContext.Connection.RemoteIpAddress.ToString(), HttpContext.Request.Headers["User-Agent"].ToString(), false);
+                }
                 return Unauthorized(new { message = "Geçersiz giriş bilgileri" });
+            }
+
+
 
             // Kullanıcının 2FA aktif mi?
             if (await _userManager.GetTwoFactorEnabledAsync(user))
@@ -109,6 +119,7 @@ namespace beratoksz.Controllers
                 // E-posta gönder
                 await _twoFactorEmailService.SendCodeAsync(user.Email, code);
 
+                await _userSecurityService.LogActivity(user.Id, "2FARequested", HttpContext.Connection.RemoteIpAddress.ToString(), HttpContext.Request.Headers["User-Agent"].ToString(), true);
                 return Ok(new { requires2FA = true, message = "Doğrulama kodu e-posta ile gönderildi." });
             }
 
@@ -122,6 +133,7 @@ namespace beratoksz.Controllers
             // Cookie olarak set et
             SetAuthCookies(token, refreshToken);
 
+            await _userSecurityService.LogActivity(user.Id, "Login", HttpContext.Connection.RemoteIpAddress.ToString(), HttpContext.Request.Headers["User-Agent"].ToString(), true);
             return Ok(new { message = "Giriş başarılı!", redirectUrl = "/" });
         }
 

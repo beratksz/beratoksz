@@ -44,7 +44,7 @@
                     </tr>
                 </thead>
                 <tbody id="userTableBody">
-                    @if (Model.Any())
+                    @if (Model != null && Model.Any())
                     {
                         @foreach (var user in Model)
                         {
@@ -95,24 +95,23 @@
     </div>
 </div>
 
-
 <script>
     function filterUsers() {
-        let input = document.getElementById("userFilterInput").value.toLowerCase();
-        let rows = document.querySelectorAll("#userTableBody tr");
+        const input = document.getElementById("userFilterInput").value.toLowerCase();
+        const rows = document.getElementById("userTableBody").getElementsByTagName("tr");
 
-        rows.forEach(row => {
-            let userId = row.cells[0].innerText.toLowerCase();  // ID sütunu
-            let email = row.cells[1].innerText.toLowerCase();   // Email sütunu
-            let roleCell = row.querySelector(".user-roles");
+        for (const row of rows) {
+            const userId = row.cells[0].innerText.toLowerCase();  // ID sütunu
+            const email = row.cells[1].innerText.toLowerCase();   // Email sütunu
+            const roleCell = row.querySelector(".user-roles");
 
-            let roles = roleCell ? roleCell.innerText.toLowerCase() : ""; // Null kontrolü
+            const roles = roleCell ? roleCell.innerText.toLowerCase() : ""; // Null kontrolü
 
             if (userId.includes(input) || email.includes(input) || roles.includes(input)) {
                 row.style.display = "";
             } else {
                 row.style.display = "none";
             }
-        });
+        }
     }
 </script>

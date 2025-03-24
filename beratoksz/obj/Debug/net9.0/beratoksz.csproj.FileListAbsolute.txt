@@ -1105,8 +1105,6 @@ C:\Users\berat-oksuz\source\repos\beratoksz\beratoksz\obj\Debug\net9.0\refint\be
 C:\Users\berat-oksuz\source\repos\beratoksz\beratoksz\obj\Debug\net9.0\beratoksz.pdb
 C:\Users\berat-oksuz\source\repos\beratoksz\beratoksz\obj\Debug\net9.0\beratoksz.genruntimeconfig.cache
 C:\Users\berat-oksuz\source\repos\beratoksz\beratoksz\obj\Debug\net9.0\ref\beratoksz.dll
-C:\Users\berat-oksuz\source\repos\beratoksz\beratoksz\obj\Debug\net9.0\compressed\vgle2aokzv-bkbrka2yoe.gz
-C:\Users\berat-oksuz\source\repos\beratoksz\beratoksz\obj\Debug\net9.0\compressed\925xn0q78r-1q4zmb0tvk.gz
 C:\Users\berat\source\repos\beratoksz\beratoksz\bin\Debug\net9.0\AspNetCoreRateLimit.dll
 C:\Users\berat\source\repos\beratoksz\beratoksz\bin\Debug\net9.0\MaxMind.Db.dll
 C:\Users\berat\source\repos\beratoksz\beratoksz\bin\Debug\net9.0\MaxMind.GeoIP2.dll
@@ -1129,3 +1127,4 @@ C:\Users\berat\source\repos\beratoksz\beratoksz\obj\Debug\net9.0\compressed\fz3g
 C:\Users\berat\source\repos\beratoksz\beratoksz\obj\Debug\net9.0\staticwebassets.upToDateCheck.txt
 C:\Users\berat\source\repos\beratoksz\beratoksz\obj\Debug\net9.0\compressed\vgle2aokzv-pbxc0t1sss.gz
 C:\Users\berat\source\repos\beratoksz\beratoksz\obj\Debug\net9.0\compressed\925xn0q78r-wtnwgwg98y.gz
+C:\Users\berat-oksuz\source\repos\beratoksz\beratoksz\obj\Debug\net9.0\staticwebassets.upToDateCheck.txt

@@ -23,7 +23,7 @@
                 <!-- Kullanıcı Adı -->
                 <div class="mb-3">
                     <label asp-for="UserName" class="form-label">Kullanıcı Adı</label>
-                    <input asp-for="UserName" class="form-control" />
+                    <input asp-for="UserName" class="form-control" required />
                     <span asp-validation-for="UserName" class="text-danger"></span>
                 </div>
 
@@ -31,15 +31,16 @@
                 <div class="row">
                     <div class="mb-3 col-md-6">
                         <label asp-for="PhoneNumber" class="form-label">Telefon Numarası</label>
-                        <input asp-for="PhoneNumber" class="form-control" />
+                        <input asp-for="PhoneNumber" class="form-control" required />
                         <span asp-validation-for="PhoneNumber" class="text-danger"></span>
                     </div>
                     <div class="mb-3 col-md-6">
                         <label asp-for="PhoneNumberConfirmed" class="form-label">Telefon Onaylı</label>
-                        <select asp-for="PhoneNumberConfirmed" class="form-select">
+                        <select asp-for="PhoneNumberConfirmed" class="form-select" required>
                             <option value="true">Evet</option>
                             <option value="false">Hayır</option>
                         </select>
+                        <span asp-validation-for="PhoneNumberConfirmed" class="text-danger"></span>
                     </div>
                 </div>
 
@@ -47,17 +48,19 @@
                 <div class="row">
                     <div class="mb-3 col-md-6">
                         <label asp-for="EmailConfirmed" class="form-label">Email Onaylı</label>
-                        <select asp-for="EmailConfirmed" class="form-select">
+                        <select asp-for="EmailConfirmed" class="form-select" required>
                             <option value="true">Evet</option>
                             <option value="false">Hayır</option>
                         </select>
+                        <span asp-validation-for="EmailConfirmed" class="text-danger"></span>
                     </div>
                     <div class="mb-3 col-md-6">
                         <label asp-for="TwoFactorEnabled" class="form-label">İki Faktörlü Doğrulama</label>
-                        <select asp-for="TwoFactorEnabled" class="form-select">
+                        <select asp-for="TwoFactorEnabled" class="form-select" required>
                             <option value="true">Evet</option>
                             <option value="false">Hayır</option>
                         </select>
+                        <span asp-validation-for="TwoFactorEnabled" class="text-danger"></span>
                     </div>
                 </div>
 

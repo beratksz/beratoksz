@@ -54,6 +54,7 @@ builder.Services.ConfigureApplicationCookie(options =>
 
 builder.Services.AddScoped<IUserClaimsPrincipalFactory<AppUser>, AdditionalUserClaimsPrincipalFactory>();
 builder.Services.AddScoped<RolePermissionService>();
+builder.Services.AddHttpContextAccessor();
 builder.Services.AddScoped<PageDiscoveryService>();
 builder.Services.AddScoped<TwoFactorEmailService>();
 builder.Services.AddScoped<UserSecurityService>();

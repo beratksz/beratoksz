@@ -15,11 +15,9 @@ public class AuthVisibleTagHelper : TagHelper
     private readonly IHttpContextAccessor _httpContextAccessor;
     private readonly IServiceScopeFactory _scopeFactory;
 
-    public AuthVisibleTagHelper(IHttpContextAccessor httpContextAccessor, IServiceScopeFactory scopeFactory)
-    {
-        _httpContextAccessor = httpContextAccessor;
-        _scopeFactory = scopeFactory;
-    }
+    public AuthVisibleTagHelper(IHttpContextAccessor httpContextAccessor, IServiceScopeFactory scopeFactory) =>
+    (_httpContextAccessor, _scopeFactory) = (httpContextAccessor, scopeFactory);
+
 
     [ViewContext]
     [HtmlAttributeNotBound]

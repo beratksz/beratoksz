@@ -14,32 +14,32 @@
             {
                 <dl class="row">
                     <dt class="col-md-3">ID</dt>
-                    <dd class="col-md-9">@Model?.Id</dd>
+                    <dd class="col-md-9">@Model.Id</dd>
 
                     <dt class="col-md-3">Email</dt>
-                    <dd class="col-md-9">@Model?.Email</dd>
+                    <dd class="col-md-9">@Model.Email</dd>
 
                     <dt class="col-md-3">Kullanıcı Adı</dt>
-                    <dd class="col-md-9">@Model?.UserName</dd>
+                    <dd class="col-md-9">@Model.UserName</dd>
 
                     <dt class="col-md-3">Telefon Numarası</dt>
-                    <dd class="col-md-9">@Model?.PhoneNumber ?? "Belirtilmemiş"</dd>
+                    <dd class="col-md-9">@Model.PhoneNumber ?? "Belirtilmemiş"</dd>
 
                     <dt class="col-md-3">Telefon Onaylı</dt>
-                    <dd class="col-md-9">@(Model?.PhoneNumberConfirmed == true ? "Evet ✅" : "Hayır ❌")</dd>
+                    <dd class="col-md-9">@(Model.PhoneNumberConfirmed ? "Evet ✅" : "Hayır ❌")</dd>
 
                     <dt class="col-md-3">Email Onaylı</dt>
-                    <dd class="col-md-9">@(Model?.EmailConfirmed == true ? "Evet ✅" : "Hayır ❌")</dd>
+                    <dd class="col-md-9">@(Model.EmailConfirmed ? "Evet ✅" : "Hayır ❌")</dd>
 
                     <dt class="col-md-3">İki Faktörlü Doğrulama</dt>
-                    <dd class="col-md-9">@(Model?.TwoFactorEnabled == true ? "Evet 🔒" : "Hayır")</dd>
+                    <dd class="col-md-9">@(Model.TwoFactorEnabled ? "Evet 🔒" : "Hayır")</dd>
 
                     <dt class="col-md-3">Başarısız Giriş Sayısı</dt>
-                    <dd class="col-md-9">@Model?.AccessFailedCount</dd>
+                    <dd class="col-md-9">@Model.AccessFailedCount</dd>
 
                     <dt class="col-md-3">Roller</dt>
                     <dd class="col-md-9">
-                        @if (Model?.Roles?.Any() == true)
+                        @if (Model.Roles?.Any() == true)
                         {
                             @foreach (var role in Model.Roles)
                             {
@@ -56,7 +56,7 @@
                     <dd class="col-md-9">@Model.CreatedAt.ToString("dd.MM.yyyy HH:mm")</dd>
 
                     <dt class="col-md-3">Kilitlenme Durumu</dt>
-                    <dd class="col-md-9">@(Model?.LockoutEnabled == true ? "Etkin 🛑" : "Devre Dışı ✅")</dd>
+                    <dd class="col-md-9">@(Model.LockoutEnabled ? "Etkin 🛑" : "Devre Dışı ✅")</dd>
 
                     <dt class="col-md-3">Kilitlenme Bitiş Tarihi</dt>
                     <dd class="col-md-9">@(Model.LockoutEnd.HasValue ? Model.LockoutEnd.Value.ToString("dd.MM.yyyy HH:mm") : "Yok")</dd>
@@ -64,7 +64,7 @@
 
                 <!-- Butonlar -->
                 <div class="mt-4 d-flex gap-2">
-                    <a href="@Url.Action("Edit", "UserManagement", new { area = "Admin", id = Model?.Id })" class="btn btn-warning">
+                    <a href="@Url.Action("Edit", "UserManagement", new { area = "Admin", id = Model.Id })" class="btn btn-warning">
                         <i class="bx bx-edit"></i> Düzenle
                     </a>
                     <a href="@Url.Action("Index", "UserManagement", new { area = "Admin" })" class="btn btn-outline-secondary">

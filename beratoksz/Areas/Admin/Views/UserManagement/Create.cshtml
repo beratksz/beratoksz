@@ -40,7 +40,7 @@
                 <!-- ✅ Şifre -->
                 <div class="mb-3">
                     <label asp-for="Password" class="form-label">Şifre</label>
-                    <input asp-for="Password" type="password" class="form-control" placeholder="Güçlü bir şifre belirleyin" />
+                    <input asp-for="Password" type="password" class="form-control" placeholder="Güçlü bir şifre belirleyin" required />
                     <span asp-validation-for="Password" class="text-danger"></span>
                 </div>
 
@@ -70,7 +70,6 @@
                 </div>
 
                 <!-- ✅ Roller -->
-                <!-- ✅ Roller -->
                 <div class="mb-3">
                     <label class="form-label">Roller</label>
                     <div class="border rounded p-2">
@@ -90,8 +89,8 @@
                             <p class="text-muted">Henüz rol eklenmemiş.</p>
                         }
                     </div>
+                    <span asp-validation-for="SelectedRoles" class="text-danger"></span>
                 </div>
-
 
                 <!-- ✅ Butonlar -->
                 <div class="d-flex justify-content-between">

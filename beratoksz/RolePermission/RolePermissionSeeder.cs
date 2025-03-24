@@ -24,13 +24,17 @@ public class RolePermissionSeeder
             UrlNormalizer.Normalize("/VAccount/Register"),
             UrlNormalizer.Normalize("/VAccount/ForgetPassword"),
             UrlNormalizer.Normalize("/VAccount/2FA"),
-            UrlNormalizer.Normalize("/Error"),
+            UrlNormalizer.Normalize("/Home/Error"),
             UrlNormalizer.Normalize("/NotFound"),
-            UrlNormalizer.Normalize("/AccessDenied"),
+            UrlNormalizer.Normalize("/Home/AccessDenied"),
+            UrlNormalizer.Normalize("/Home/Error/*"),
+            UrlNormalizer.Normalize("/NotFound/*"),
+            UrlNormalizer.Normalize("/Home/AccessDenied/*"),
             UrlNormalizer.Normalize("/api/account/check-auth"),
             UrlNormalizer.Normalize("/api/account/userinfo"),
             UrlNormalizer.Normalize("/api/account/register"),
-            UrlNormalizer.Normalize("/api/account/login")
+            UrlNormalizer.Normalize("/api/account/login"),
+            UrlNormalizer.Normalize("/api/security/activities")
         };
 
         var defaultUserPaths = new List<string>
@@ -43,9 +47,12 @@ public class RolePermissionSeeder
             UrlNormalizer.Normalize("/VAccount/Register"),
             UrlNormalizer.Normalize("/VAccount/ForgetPassword"),
             UrlNormalizer.Normalize("/VAccount/2FA"),
-            UrlNormalizer.Normalize("/Error"),
+            UrlNormalizer.Normalize("/Home/Error"),
             UrlNormalizer.Normalize("/NotFound"),
-            UrlNormalizer.Normalize("/AccessDenied"),
+            UrlNormalizer.Normalize("/Home/AccessDenied"),
+            UrlNormalizer.Normalize("/Home/Error/*"),
+            UrlNormalizer.Normalize("/NotFound/*"),
+            UrlNormalizer.Normalize("/Home/AccessDenied/*"),
             UrlNormalizer.Normalize("/api/account/check-auth"),
             UrlNormalizer.Normalize("/api/account/userinfo"),
             UrlNormalizer.Normalize("/api/account/register"),
@@ -53,8 +60,18 @@ public class RolePermissionSeeder
             UrlNormalizer.Normalize("/api/account/logout"),
             UrlNormalizer.Normalize("/api/account/refresh-token"),
             UrlNormalizer.Normalize("/api/account/change-password"),
-            UrlNormalizer.Normalize("/api/account/update-profile")
+            UrlNormalizer.Normalize("/api/account/update-profile"),
+            UrlNormalizer.Normalize("/api/security/activities")
+        };
 
+        var defaultAdminPaths = new List<string>
+        {
+            UrlNormalizer.Normalize("/Home/Error"),
+            UrlNormalizer.Normalize("/NotFound"),
+            UrlNormalizer.Normalize("/Home/AccessDenied"),
+            UrlNormalizer.Normalize("/Home/Error/*"),
+            UrlNormalizer.Normalize("/NotFound/*"),
+            UrlNormalizer.Normalize("/Home/AccessDenied/*"),
         };
 
         foreach (var endpoint in allEndpoints.Distinct())
@@ -74,6 +91,18 @@ public class RolePermissionSeeder
                     CanAccess = true
                 });
                 Console.WriteLine($"✅ [Admin] {normalizedPath}");
+            }
+
+            if (defaultAdminPaths.Contains(normalizedPath) &&
+                !_dbContext.RolePermissions.Any(rp => rp.PagePath == normalizedPath && rp.RoleName == "Admin"))
+            {
+                _dbContext.RolePermissions.Add(new RolePermission
+                {
+                    RoleName = "Admin",
+                    PagePath = normalizedPath,
+                    CanAccess = true
+                });
+                Console.WriteLine($"👥 [Admin] {normalizedPath}");
             }
 
             // Guest için

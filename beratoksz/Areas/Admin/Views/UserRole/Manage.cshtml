@@ -52,4 +52,16 @@
             <a href="@Url.Action("Index", "UserRole", new { area = "Admin" })" class="btn btn-secondary">İptal</a>
         </div>
     </form>
+
+    @if (!ViewData.ModelState.IsValid)
+    {
+        <div class="alert alert-danger mt-4">
+            <ul>
+                @foreach (var error in ViewData.ModelState.Values.SelectMany(v => v.Errors))
+                {
+                    <li>@error.ErrorMessage</li>
+                }
+            </ul>
+        </div>
+    }
 </div>

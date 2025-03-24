@@ -54,6 +54,7 @@
                 font-weight: bold;
             }
 
+
         /* Kullanıcı Alanı */
         .auth-links {
             display: flex;
@@ -87,25 +88,30 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ms-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="/">Anasayfa</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/Home/About">Hakkımızda</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/Home/Contact">İletişim</a>
-                        </li>
-                        <li class="nav-item">
-                            <div class="auth-links" id="auth-links">
-                                <button id="login-btn" class="btn btn-outline-light btn-sm">Giriş Yap</button>
-                            </div>
-                        </li>
+                        <auth-visible asp-area="" asp-controller="Home" asp-action="Index">
+                            <li class="nav-item">
+                                <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Anasayfa</a>
+                            </li>
+                        </auth-visible>
+                        <auth-visible asp-area="" asp-controller="Home" asp-action="About">
+                            <li class="nav-item">
+                                <a class="nav-link" asp-area="" asp-controller="Home" asp-action="About">Hakkımızda</a>
+                            </li>
+                        </auth-visible>
+                        <auth-visible asp-area="" asp-controller="Home" asp-action="Contact">
+                            <li class="nav-item">
+                                <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Contact">İletişim</a>
+                            </li>
+                        </auth-visible>
                     </ul>
+                    <div id="auth-links" class="auth-links"></div>
+
                 </div>
             </div>
         </nav>
     </header>
+
+    <!-- ✅ Kullanıcı Alanı -->
 
     <!-- ✅ Ana İçerik Alanı -->
     <main role="main" class="container">

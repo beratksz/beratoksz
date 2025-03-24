@@ -31,7 +31,7 @@
         }
 
         try {
-            let res = await fetch(`/api/roles/${roleId}`);
+            let res = await fetch(`/api/roleapi/${roleId}`);
             if (!res.ok) {
                 console.error("❌ Hata: API'den geçersiz yanıt geldi", res);
                 alert("⚠ Bu ID'ye sahip bir rol bulunamadı!");
@@ -48,6 +48,7 @@
             }
 
             document.getElementById("roleName").value = role.name;
+            document.getElementById("Aciklama").value = role.aciklama; // Açıklama alanını doldur
         } catch (error) {
             console.error("❌ Rol yükleme hatası:", error);
             alert("⚠ Rol yüklenirken bir hata oluştu.");
@@ -75,7 +76,7 @@
         submitBtn.disabled = true; // Çift tıklamayı önleme
 
         try {
-            let res = await fetch(`/api/roles/${roleId}`, {
+            let res = await fetch(`/api/roleapi/${roleId}`, {
                 method: "PUT",
                 headers: {
                     "Content-Type": "application/json",

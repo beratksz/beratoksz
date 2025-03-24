@@ -632,6 +632,7 @@
       },
       "RoleViewModel": {
         "required": [
+          "aciklama",
           "name"
         ],
         "type": "object",
@@ -645,8 +646,8 @@
             "type": "string"
           },
           "aciklama": {
-            "type": "string",
-            "nullable": true
+            "minLength": 1,
+            "type": "string"
           }
         },
         "additionalProperties": false

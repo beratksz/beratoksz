@@ -5,8 +5,6 @@
     ViewData["Title"] = "Rol Yönetimi";
 }
 
-<script src="/js/roles.js"></script>
-<script src="/js/permissions.js"></script>
 
 <div class="container-fluid mt-4">
     <h1 class="mb-4">Rol Yönetimi</h1>
@@ -33,8 +31,7 @@
     </div>
 </div>
 
-
-<!-- ✅ Yeni Rol Ekle Modal -->
+<!-- Yeni Rol Ekle Modal -->
 <div id="roleModal" class="modal fade" tabindex="-1">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -46,9 +43,8 @@
                 <input type="hidden" id="roleId">
                 <label for="roleName">Rol Adı:</label>
                 <input type="text" id="roleName" class="form-control" required />
-
-                <label for="Aciklama">Rol Açıklaması:</label>
-                <input type="text" id="Aciklama" class="form-control" required />
+                <label for="roleAciklama">Rol Açıklaması:</label>
+                <input type="text" id="roleAciklama" class="form-control" required />
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">İptal</button>
@@ -58,7 +54,7 @@
     </div>
 </div>
 
-<!-- ✅ Yetkilendirme Yönetimi -->
+<!-- Rol Yetkilendirme Yönetimi -->
 <div class="container-fluid mt-4">
     <h1 class="mb-4">Rol Yetkilendirme Yönetimi</h1>
 
@@ -82,8 +78,7 @@
     </div>
 </div>
 
-
-<!-- ✅ Yeni Yetki Ekle Modal -->
+<!-- Yeni Yetki Ekle Modal -->
 <div id="addPermissionModal" class="modal fade" tabindex="-1">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -113,45 +108,134 @@
 </div>
 
 <script>
-    // ✅ Roller tablosunu API'den çekip listeye ekleme
+    // API'den rolleri çek ve tabloya yerleştir
     async function loadRoles() {
-        let res = await fetch("/api/roleapi");
-        let roles = await res.json();
-        let tbody = document.getElementById("roleTableBody");
-        tbody.innerHTML = roles.map(role => `
-            <tr>
-                <td>${role.id}</td>
-                <td>${role.name}</td>
-                <td>
-                    <button class="btn btn-warning btn-sm" onclick="editRole('${role.id}', '${role.name}')">Düzenle</button>
-                    <button class="btn btn-danger btn-sm" onclick="deleteRole('${role.id}')">Sil</button>
-                </td>
-            </tr>
-        `).join("");
+        try {
+            let res = await fetch("/api/roleapi");
+            let roles = await res.json();
+            let tbody = document.getElementById("roleTableBody");
+            tbody.innerHTML = roles.map(role => `
+                <tr>
+                    <td>${role.id}</td>
+                    <td>${role.name}</td>
+                    <td>${role.aciklama}</td>
+                    <td>
+                        <button class="btn btn-warning btn-sm" onclick="editRole('${role.id}', '${role.name}', '${role.aciklama}')">Düzenle</button>
+                        <button class="btn btn-danger btn-sm" onclick="deleteRole('${role.id}')">Sil</button>
+                    </td>
+                </tr>
+            `).join("");
+        } catch (error) {
+            console.error("Roller yüklenirken hata oluştu:", error);
+        }
     }
 
-    // ✅ Yetkilendirme tablosunu API'den çekip listeye ekleme
-        async function loadPermissions() {
-        let res = await fetch("/api/rolepermission");
-        let permissions = await res.json();
-        let tbody = document.getElementById("rolePermissionTable");
+    // API'den yetkilendirmeleri çek ve tabloya yerleştir
+    async function loadPermissions() {
+        try {
+            let res = await fetch("/api/rolepermission");
+            let permissions = await res.json();
+            let tbody = document.getElementById("rolePermissionTable");
 
-        tbody.innerHTML = permissions.map(p => `
-            <tr data-id="${p.id}">
-                <td class="role-name">${p.roleName}</td>
-                <td class="page-path">${p.pagePath}</td>
-                <td>
-                    <input type="checkbox" ${p.canAccess ? "checked" : ""}
-                           onchange="togglePermission('${p.id}', this.checked)">
-                </td>
-                <td>
-                    <button class="btn btn-danger btn-sm" onclick="deletePermission('${p.id}')">Sil</button>
-                </td>
-            </tr>
-        `).join("");
+            tbody.innerHTML = permissions.map(p => `
+                <tr data-id="${p.id}">
+                    <td class="role-name">${p.roleName}</td>
+                    <td class="page-path">${p.pagePath}</td>
+                    <td>
+                        <input type="checkbox" ${p.canAccess ? "checked" : ""}
+                               onchange="togglePermission('${p.id}', this.checked)">
+                    </td>
+                    <td>
+                        <button class="btn btn-danger btn-sm" onclick="deletePermission('${p.id}')">Sil</button>
+                    </td>
+                </tr>
+            `).join("");
+        } catch (error) {
+            console.error("Yetkilendirme yüklenirken hata oluştu:", error);
+        }
     }
 
-        async function togglePermission(id, canAccess) {
+    // Filtreleme fonksiyonları
+    function filterTable() {
+        let input = document.getElementById("filterInput").value.toLowerCase();
+        let rows = document.querySelectorAll("#rolePermissionTable tr");
+
+        rows.forEach(row => {
+            let cells = row.querySelectorAll("td");
+            let role = cells[0]?.innerText.toLowerCase();
+            let page = cells[1]?.innerText.toLowerCase();
+            row.style.display = (role.includes(input) || page.includes(input)) ? "" : "none";
+        });
+    }
+
+    function filterRoles() {
+        let input = document.getElementById("roleFilterInput").value.toLowerCase();
+        let rows = document.querySelectorAll("#roleTableBody tr");
+
+        rows.forEach(row => {
+            let cells = row.querySelectorAll("td");
+            let roleId = cells[0]?.innerText.toLowerCase();
+            let roleName = cells[1]?.innerText.toLowerCase();
+            row.style.display = (roleId.includes(input) || roleName.includes(input)) ? "" : "none";
+        });
+    }
+
+    // Modal işlemleri
+    function showAddRoleModal() {
+        document.getElementById("roleId").value = "";
+        document.getElementById("roleName").value = "";
+        document.getElementById("roleAciklama").value = "";
+        new bootstrap.Modal(document.getElementById("roleModal")).show();
+    }
+
+    function editRole(id, name, Aciklama) {
+        document.getElementById("roleId").value = id;
+        document.getElementById("roleName").value = name;
+        document.getElementById("roleAciklama").value = Aciklama;
+        new bootstrap.Modal(document.getElementById("roleModal")).show();
+    }
+
+    async function saveRole() {
+        let id = document.getElementById("roleId").value;
+        let name = document.getElementById("roleName").value;
+        let Aciklama = document.getElementById("roleAciklama").value;
+
+        let payload = { name: name, Aciklama: Aciklama };
+        let method = id ? "PUT" : "POST";
+        let url = id ? `/api/roleapi/${id}` : "/api/roleapi";
+
+        try {
+            let response = await fetch(url, {
+                method: method,
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(payload)
+            });
+
+            if (response.ok) {
+                loadRoles();
+                bootstrap.Modal.getInstance(document.getElementById("roleModal")).hide();
+            } else {
+                alert("Rol kaydedilirken hata oluştu.");
+            }
+        } catch (error) {
+            console.error("Rol kaydetme hatası:", error);
+        }
+    }
+
+    async function deleteRole(id) {
+        if (!confirm("Bu rolü silmek istediğinize emin misiniz?")) return;
+        try {
+            let response = await fetch(`/api/roleapi/${id}`, { method: "DELETE" });
+            if (response.ok) {
+                loadRoles();
+            }
+        } catch (error) {
+            console.error("Silme hatası:", error);
+        }
+    }
+
+    // Yetkilendirme işlemleri
+    async function togglePermission(id, canAccess) {
         let row = document.querySelector(`#rolePermissionTable tr[data-id='${id}']`);
         let roleName = row.querySelector(".role-name").innerText;
         let pagePath = row.querySelector(".page-path").innerText;
@@ -168,72 +252,42 @@
             canAccess: canAccess
         });
 
-        let response = await fetch(`/api/rolepermission/${id}`, {
-            method: "PUT",
-            headers: { "Content-Type": "application/json" },
-            body: bodyData
-        });
-
-        if (response.ok) {
-            loadPermissions(); // Güncellenmiş listeyi tekrar yükle
-        } else {
-            alert("Yetkilendirme güncellenirken hata oluştu.");
+        try {
+            let response = await fetch(`/api/rolepermission/${id}`, {
+                method: "PUT",
+                headers: { "Content-Type": "application/json" },
+                body: bodyData
+            });
+            if (response.ok) {
+                loadPermissions();
+            } else {
+                alert("Yetkilendirme güncellenirken hata oluştu.");
+            }
+        } catch (error) {
+            console.error("Yetkilendirme güncelleme hatası:", error);
         }
     }
 
-
-        async function deletePermission(id) {
-        let confirmDelete = confirm("Bu yetkiyi silmek istediğinize emin misiniz?");
-        if (!confirmDelete) return;
-
+    async function deletePermission(id) {
+        if (!confirm("Bu yetkiyi silmek istediğinize emin misiniz?")) return;
         try {
             let response = await fetch(`/api/rolepermission/${id}`, { method: "DELETE" });
-
-            if (!response.ok) {
+            if (response.ok) {
+                alert("Yetki başarıyla silindi.");
+                loadPermissions();
+            } else {
                 let errorText = await response.text();
                 throw new Error(`Silme başarısız: ${errorText}`);
             }
-
-            alert("Yetki başarıyla silindi.");
-            loadPermissions(); // Güncellenmiş listeyi tekrar yükle
         } catch (error) {
             console.error("Yetki silme hatası:", error);
             alert("Yetki silinirken bir hata oluştu.");
         }
     }
 
-
-
-    // ✅ Tablo Filtreleme (Hata giderildi)
-    function filterTable() {
-        let input = document.getElementById("filterInput").value.toLowerCase();
-        let rows = document.querySelectorAll("#rolePermissionTable tr");
-
-        rows.forEach(row => {
-            let cells = row.querySelectorAll("td");
-            let role = cells[0]?.innerText.toLowerCase();
-            let page = cells[1]?.innerText.toLowerCase();
-
-            row.style.display = (role.includes(input) || page.includes(input)) ? "" : "none";
-        });
-    }
-
-    function filterRoles() {
-        let input = document.getElementById("roleFilterInput").value.toLowerCase();
-        let rows = document.querySelectorAll("#roleTableBody tr");
-
-        rows.forEach(row => {
-            let cells = row.querySelectorAll("td");
-            let roleId = cells[0]?.innerText.toLowerCase();
-            let roleName = cells[1]?.innerText.toLowerCase();
-
-            row.style.display = (roleId.includes(input) || roleName.includes(input)) ? "" : "none";
-        });
-    }
-
+    // Sayfa yüklendiğinde rolleri ve yetkilendirmeleri yükle
     document.addEventListener("DOMContentLoaded", () => {
         loadRoles();
         loadPermissions();
     });
-
 </script>

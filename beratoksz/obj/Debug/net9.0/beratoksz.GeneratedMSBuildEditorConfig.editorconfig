@@ -17,121 +17,121 @@ build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = beratoksz
 build_property.RootNamespace = beratoksz
-build_property.ProjectDir = C:\Users\berat\source\repos\beratoksz\beratoksz\
+build_property.ProjectDir = C:\Users\berat-oksuz\source\repos\beratoksz\beratoksz\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 9.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\berat\source\repos\beratoksz\beratoksz
+build_property.MSBuildProjectDirectory = C:\Users\berat-oksuz\source\repos\beratoksz\beratoksz
 build_property._RazorSourceGeneratorDebug = 
 build_property.EffectiveAnalysisLevelStyle = 9.0
 build_property.EnableCodeStyleSeverity = 
 
-[C:/Users/berat/source/repos/beratoksz/beratoksz/Areas/Admin/Views/Dashboard/Index.cshtml]
+[C:/Users/berat-oksuz/source/repos/beratoksz/beratoksz/Areas/Admin/Views/Dashboard/Dashboard.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcRGFzaGJvYXJkXERhc2hib2FyZC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/berat-oksuz/source/repos/beratoksz/beratoksz/Areas/Admin/Views/Dashboard/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcRGFzaGJvYXJkXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/berat/source/repos/beratoksz/beratoksz/Areas/Admin/Views/Home/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/berat/source/repos/beratoksz/beratoksz/Areas/Admin/Views/Role/Create.cshtml]
+[C:/Users/berat-oksuz/source/repos/beratoksz/beratoksz/Areas/Admin/Views/Role/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUm9sZVxDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/berat/source/repos/beratoksz/beratoksz/Areas/Admin/Views/Role/Edit.cshtml]
+[C:/Users/berat-oksuz/source/repos/beratoksz/beratoksz/Areas/Admin/Views/Role/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUm9sZVxFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/berat/source/repos/beratoksz/beratoksz/Areas/Admin/Views/Role/Index.cshtml]
+[C:/Users/berat-oksuz/source/repos/beratoksz/beratoksz/Areas/Admin/Views/Role/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUm9sZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/berat/source/repos/beratoksz/beratoksz/Areas/Admin/Views/Shared/_AdminLayout.cshtml]
+[C:/Users/berat-oksuz/source/repos/beratoksz/beratoksz/Areas/Admin/Views/Shared/_AdminLayout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2hhcmVkXF9BZG1pbkxheW91dC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/berat/source/repos/beratoksz/beratoksz/Areas/Admin/Views/UserManagement/Create.cshtml]
+[C:/Users/berat-oksuz/source/repos/beratoksz/beratoksz/Areas/Admin/Views/UserManagement/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcVXNlck1hbmFnZW1lbnRcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/berat/source/repos/beratoksz/beratoksz/Areas/Admin/Views/UserManagement/Details.cshtml]
+[C:/Users/berat-oksuz/source/repos/beratoksz/beratoksz/Areas/Admin/Views/UserManagement/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcVXNlck1hbmFnZW1lbnRcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/berat/source/repos/beratoksz/beratoksz/Areas/Admin/Views/UserManagement/Edit.cshtml]
+[C:/Users/berat-oksuz/source/repos/beratoksz/beratoksz/Areas/Admin/Views/UserManagement/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcVXNlck1hbmFnZW1lbnRcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/berat/source/repos/beratoksz/beratoksz/Areas/Admin/Views/UserManagement/Index.cshtml]
+[C:/Users/berat-oksuz/source/repos/beratoksz/beratoksz/Areas/Admin/Views/UserManagement/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcVXNlck1hbmFnZW1lbnRcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/berat/source/repos/beratoksz/beratoksz/Areas/Admin/Views/UserRole/Index.cshtml]
+[C:/Users/berat-oksuz/source/repos/beratoksz/beratoksz/Areas/Admin/Views/UserRole/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcVXNlclJvbGVcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/berat/source/repos/beratoksz/beratoksz/Areas/Admin/Views/UserRole/Manage.cshtml]
+[C:/Users/berat-oksuz/source/repos/beratoksz/beratoksz/Areas/Admin/Views/UserRole/Manage.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcVXNlclJvbGVcTWFuYWdlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/berat/source/repos/beratoksz/beratoksz/Areas/Admin/Views/_ViewImports.cshtml]
+[C:/Users/berat-oksuz/source/repos/beratoksz/beratoksz/Areas/Admin/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/berat/source/repos/beratoksz/beratoksz/Areas/Admin/Views/_ViewStart.cshtml]
+[C:/Users/berat-oksuz/source/repos/beratoksz/beratoksz/Areas/Admin/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/berat/source/repos/beratoksz/beratoksz/Views/Home/About.cshtml]
+[C:/Users/berat-oksuz/source/repos/beratoksz/beratoksz/Views/Home/About.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxBYm91dC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/berat/source/repos/beratoksz/beratoksz/Views/Home/Contact.cshtml]
+[C:/Users/berat-oksuz/source/repos/beratoksz/beratoksz/Views/Home/Contact.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxDb250YWN0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/berat/source/repos/beratoksz/beratoksz/Views/Home/Index.cshtml]
+[C:/Users/berat-oksuz/source/repos/beratoksz/beratoksz/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/berat/source/repos/beratoksz/beratoksz/Views/Home/Privacy.cshtml]
+[C:/Users/berat-oksuz/source/repos/beratoksz/beratoksz/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/berat/source/repos/beratoksz/beratoksz/Views/Shared/AccessDenied.cshtml]
+[C:/Users/berat-oksuz/source/repos/beratoksz/beratoksz/Views/Shared/AccessDenied.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEFjY2Vzc0RlbmllZC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/berat/source/repos/beratoksz/beratoksz/Views/Shared/Error.cshtml]
+[C:/Users/berat-oksuz/source/repos/beratoksz/beratoksz/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/berat/source/repos/beratoksz/beratoksz/Views/Shared/NotFound.cshtml]
+[C:/Users/berat-oksuz/source/repos/beratoksz/beratoksz/Views/Shared/NotFound.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXE5vdEZvdW5kLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/berat/source/repos/beratoksz/beratoksz/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/berat-oksuz/source/repos/beratoksz/beratoksz/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/berat/source/repos/beratoksz/beratoksz/Views/VAccount/Login.cshtml]
+[C:/Users/berat-oksuz/source/repos/beratoksz/beratoksz/Views/VAccount/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVkFjY291bnRcTG9naW4uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/berat/source/repos/beratoksz/beratoksz/Views/VAccount/Register.cshtml]
+[C:/Users/berat-oksuz/source/repos/beratoksz/beratoksz/Views/VAccount/Register.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVkFjY291bnRcUmVnaXN0ZXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/berat/source/repos/beratoksz/beratoksz/Views/_ViewImports.cshtml]
+[C:/Users/berat-oksuz/source/repos/beratoksz/beratoksz/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/berat/source/repos/beratoksz/beratoksz/Views/_ViewStart.cshtml]
+[C:/Users/berat-oksuz/source/repos/beratoksz/beratoksz/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/berat/source/repos/beratoksz/beratoksz/Views/Shared/_Layout.cshtml]
+[C:/Users/berat-oksuz/source/repos/beratoksz/beratoksz/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-v3k8sqt8jw
