@@ -54,21 +54,6 @@
 
 <!-- 💡 Script -->
 <script>
-    // Şifreyi göster/gizle butonları
-    document.querySelectorAll(".toggle-password").forEach(button => {
-        button.addEventListener("click", function () {
-            let passwordInput = this.parentNode.querySelector("input");
-            let icon = this.querySelector("i");
-            if (passwordInput.type === "password") {
-                passwordInput.type = "text";
-                icon.classList.replace("bx-show", "bx-hide");
-            } else {
-                passwordInput.type = "password";
-                icon.classList.replace("bx-hide", "bx-show");
-            }
-        });
-    });
-
     document.getElementById("registerForm").addEventListener("submit", function (event) {
         event.preventDefault();
 
@@ -97,16 +82,32 @@
             return response.json();
         })
         .then(data => {
-            return fetch("/api/Account/check-auth");
-        })
-        .then(response => response.json())
-        .then(authData => {
-            if (authData.isAuthenticated) {
-                window.location.href = "/"; // Kayıt başarılı, anasayfaya yönlendir
-            }
+            // Kayıt başarılıysa, email doğrulaması gönderildi mesajını göster
+            document.getElementById("registerErrorMessage").style.color = "green";
+            document.getElementById("registerErrorMessage").innerText = data.message || "Kayıt başarılı, lütfen emailinizi kontrol ediniz.";
+            // 3 saniye sonra login sayfasına yönlendir
+            setTimeout(function() {
+                window.location.href = "/VAccount/Login";
+            }, 3000);
         })
         .catch(error => {
+            document.getElementById("registerErrorMessage").style.color = "red";
             document.getElementById("registerErrorMessage").innerText = error.message;
+        });
+    });
+
+    // Şifreyi göster/gizle butonları
+    document.querySelectorAll(".toggle-password").forEach(button => {
+        button.addEventListener("click", function () {
+            let passwordInput = this.parentNode.querySelector("input");
+            let icon = this.querySelector("i");
+            if (passwordInput.type === "password") {
+                passwordInput.type = "text";
+                icon.classList.replace("bx-show", "bx-hide");
+            } else {
+                passwordInput.type = "password";
+                icon.classList.replace("bx-hide", "bx-show");
+            }
         });
     });
 </script>

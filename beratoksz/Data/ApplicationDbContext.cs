@@ -31,6 +31,8 @@ namespace beratoksz.Data
         public DbSet<ActivityLog> ActivityLogs { get; set; }
         public DbSet<UserSecurityActivity> UserSecurityActivities { get; set; }
         public DbSet<RolePermission> RolePermissions { get; set; }
+        public DbSet<SiteSettings> SiteSettings { get; set; }
+
 
     }
 }

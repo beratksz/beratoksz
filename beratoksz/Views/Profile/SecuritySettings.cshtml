@@ -1,0 +1,22 @@
+﻿@model beratoksz.Models.AppUser
+@{
+    ViewData["Title"] = "Güvenlik Ayarları";
+}
+<h2>Güvenlik Ayarları</h2>
+
+@if (TempData["Message"] != null)
+{
+    <div class="alert alert-success">@TempData["Message"]</div>
+}
+@if (TempData["Error"] != null)
+{
+    <div class="alert alert-danger">@TempData["Error"]</div>
+}
+
+<form asp-action="UpdateTwoFactor" method="post">
+    <div class="form-check">
+        <input class="form-check-input" type="checkbox" name="enable" value="true" @(Model.TwoFactorEnabled ? "checked" : "") />
+        <label class="form-check-label">İki Faktörlü Kimlik Doğrulamasını Etkinleştir</label>
+    </div>
+    <button type="submit" class="btn btn-primary mt-3">Güncelle</button>
+</form>

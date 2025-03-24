@@ -58,6 +58,8 @@ builder.Services.AddHttpContextAccessor();
 builder.Services.AddScoped<PageDiscoveryService>();
 builder.Services.AddScoped<TwoFactorEmailService>();
 builder.Services.AddScoped<UserSecurityService>();
+builder.Services.AddScoped<EmailConfirmationService>();
+builder.Services.AddScoped<SettingsService>();
 
 // ?? Rate Limiting
 builder.Services.AddOptions();
