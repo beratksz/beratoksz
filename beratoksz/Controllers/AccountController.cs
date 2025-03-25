@@ -16,6 +16,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using beratoksz.Services;
+using System.Net;
 
 namespace beratoksz.Controllers
 {
@@ -91,7 +92,7 @@ namespace beratoksz.Controllers
 
             // Email doğrulaması için token üret
             var emailToken = await _userManager.GenerateEmailConfirmationTokenAsync(user);
-            var confirmationLink = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, token = emailToken }, Request.Scheme);
+            var confirmationLink = Url.Action("ConfirmEmail", "VAccount", new { userId = user.Id, token = emailToken }, Request.Scheme);
 
             try
             {
@@ -104,23 +105,39 @@ namespace beratoksz.Controllers
                 // İsteğe bağlı: hata mesajı dönmek veya devam etmek
             }
 
-            return Ok(new { message = "Kayıt başarılı. Lütfen emailinizi kontrol ederek doğrulama işlemini tamamlayın!" });
+            return Ok(new { message = "Kayıt başarılı. Lütfen emailinizi kontrol edin.", redirectUrl = "/VAccount/EmailConfirmationSent" });
+
         }
 
         [HttpGet("confirm-email")]
         public async Task<IActionResult> ConfirmEmail(string userId, string token)
         {
             if (string.IsNullOrEmpty(userId) || string.IsNullOrEmpty(token))
-                return BadRequest("Eksik parametreler.");
+                return BadRequest(new { success = false, message = "Doğrulama linki hatalı veya eksik." });
 
             var user = await _userManager.FindByIdAsync(userId);
             if (user == null)
-                return BadRequest("Kullanıcı bulunamadı.");
+                return BadRequest(new { success = false, message = "Kullanıcı bulunamadı." });
+
+            if (user.EmailConfirmed)
+                return BadRequest(new { success = false, message = "Email zaten doğrulanmış." });
 
             var result = await _userManager.ConfirmEmailAsync(user, token);
             if (result.Succeeded)
-                return Ok("Email doğrulaması başarılı! Artık giriş yapabilirsiniz.");
-            return BadRequest("Email doğrulaması başarısız.");
+                return Ok(new { success = true, message = "Email adresin başarıyla doğrulandı." });
+
+            return BadRequest(new { success = false, message = "Email doğrulama başarısız oldu veya link geçerliliğini yitirmiş." });
+        }
+
+
+        [HttpGet("GetEmailByUserId")]
+        public async Task<IActionResult> GetEmailByUserId(string userId)
+        {
+            var user = await _userManager.FindByIdAsync(userId);
+            if (user == null)
+                return NotFound(new { email = "" });
+
+            return Ok(new { email = user.Email });
         }
 
         [HttpPost("login")]
@@ -188,8 +205,9 @@ namespace beratoksz.Controllers
             if (user.EmailConfirmed)
                 return BadRequest(new { message = "Email zaten doğrulanmış." });
 
-            var emailToken = await _userManager.GenerateEmailConfirmationTokenAsync(user);
-            var confirmationLink = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, token = emailToken }, Request.Scheme);
+            var token = await _userManager.GenerateEmailConfirmationTokenAsync(user);
+            var safeToken = WebUtility.UrlEncode(token); // ✅ SADECE BURADA ENCODE
+            var confirmationLink = Url.Action("ConfirmEmail", "VAccount", new { userId = user.Id, token = safeToken }, Request.Scheme);
 
             try
             {
@@ -235,6 +253,28 @@ namespace beratoksz.Controllers
             HttpContext.Session.Remove("2FA_ExpireTime");
 
             return Ok(new { success = true, message = "2FA doğrulandı!", redirectUrl = "/" });
+        }
+
+        [HttpPost("resend-2fa-code")]
+        public async Task<IActionResult> ResendTwoFactorCode([FromBody] Resend2FADto dto)
+        {
+            var user = await _userManager.FindByEmailAsync(dto.LoginIdentifier)
+                       ?? await _userManager.FindByNameAsync(dto.LoginIdentifier);
+
+            if (user == null) return NotFound(new { message = "Kullanıcı bulunamadı." });
+
+            var code = new Random().Next(100000, 999999).ToString();
+            HttpContext.Session.SetString("2FACode", code);
+            HttpContext.Session.SetString("2FAUserId", user.Id);
+            HttpContext.Session.SetString("2FA_ExpireTime", DateTime.UtcNow.AddMinutes(5).ToString());
+
+            await _twoFactorEmailService.SendCodeAsync(user.Email, code);
+            return Ok(new { message = "Yeni doğrulama kodu gönderildi." });
+        }
+
+        public class Resend2FADto
+        {
+            public string LoginIdentifier { get; set; }
         }
 
 

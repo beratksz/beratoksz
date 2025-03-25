@@ -48,6 +48,22 @@
   },
   {
     "ContainingType": "beratoksz.Controllers.AccountController",
+    "Method": "GetEmailByUserId",
+    "RelativePath": "api/Account/GetEmailByUserId",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "beratoksz.Controllers.AccountController",
     "Method": "Login",
     "RelativePath": "api/Account/login",
     "HttpMethod": "POST",
@@ -83,6 +99,22 @@
       {
         "Name": "model",
         "Type": "beratoksz.Models.RegisterViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "beratoksz.Controllers.AccountController",
+    "Method": "ResendTwoFactorCode",
+    "RelativePath": "api/Account/resend-2fa-code",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "beratoksz.Controllers.AccountController\u002BResend2FADto",
         "IsRequired": true
       }
     ],
@@ -393,6 +425,27 @@
     "IsController": true,
     "Order": 0,
     "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "beratoksz.Controllers.VAccountController",
+    "Method": "ConfirmEmail",
+    "RelativePath": "email-confirmation",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "token",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
     "ReturnTypes": []
   },
   {

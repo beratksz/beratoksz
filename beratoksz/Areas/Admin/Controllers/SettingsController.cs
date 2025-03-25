@@ -37,6 +37,7 @@ namespace beratoksz.Areas.Admin.Controllers
                     EmailFromName = "",
                     EmailVerificationTemplate = "<p>Lütfen emailinizi doğrulamak için <a href='{LINK}'>buraya tıklayın</a>.</p>",
                     TwoFactorEmailTemplate = "<p>Doğrulama kodunuz: {CODE}</p>",
+                    PasswordResetEmailTemplate = "<p>Doğrulama kodunuz: {LINK}</p>",
                     IsActive = false
                 };
                 await _settingsService.CreateSettingsAsync(defaultSettings);

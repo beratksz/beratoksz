@@ -1,0 +1,65 @@
+﻿@{
+    ViewData["Title"] = "Email Doğrulama Sonucu";
+    var success = ViewBag.Success as bool? ?? false;
+    var message = ViewBag.Message as string ?? "";
+}
+
+<div class="container d-flex justify-content-center align-items-center min-vh-100">
+    <div class="result-card shadow-lg p-4 text-center">
+        <div id="resultAnimation" style="height: 200px;"></div>
+
+        <h2 class="fw-bold my-3">
+            @(success ? "Email Doğrulandı!" : "Doğrulama Başarısız!")
+        </h2>
+        <p class="mb-4">@message</p>
+
+        @if (success)
+        {
+            <a href="/VAccount/Login" class="btn btn-primary">Giriş Yap</a>
+        }
+        else
+        {
+            <button id="resendEmailBtn" class="btn btn-warning">Tekrar Gönder</button>
+        }
+    </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.7.6/lottie.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<script>
+    lottie.loadAnimation({
+        container: document.getElementById('resultAnimation'),
+        renderer: 'svg',
+        loop: false,
+        autoplay: true,
+        path: success
+            ? 'https://lottie.host/8c202737-28bd-45ef-b293-63b8b96aa04d/QVGBIRWhvs.json'
+            : 'https://lottie.host/610315b7-595d-40b4-9608-2a55085cdbda/T73v6L8w0l.json'
+    });
+
+    document.getElementById("resendEmailBtn")?.addEventListener("click", () => {
+        fetch("/api/Account/resend-confirmation", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ email: '@ViewBag.Email' })
+        })
+        .then(res => res.json())
+        .then(data => {
+            Swal.fire("Gönderildi!", data.message, "success");
+        })
+        .catch(() => Swal.fire("Hata!", "Email tekrar gönderilemedi.", "error"));
+    });
+</script>
+
+<style>
+    body {
+        background: linear-gradient(135deg, #fff3e0, #ffe0b2);
+    }
+
+    .result-card {
+        max-width: 500px;
+        border-radius: 15px;
+        background: #ffffff;
+    }
+</style>

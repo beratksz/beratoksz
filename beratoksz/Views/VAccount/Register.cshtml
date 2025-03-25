@@ -3,44 +3,40 @@
 }
 
 <div class="container d-flex justify-content-center align-items-center min-vh-100">
-    <div class="register-card p-4 shadow-lg">
-        <h2 class="text-center mb-4 fw-bold">Kayıt Ol</h2>
-
-        <div id="registerErrorMessage" class="text-danger text-center mb-3"></div>
+    <div class="register-card shadow-lg p-4 rounded-3">
+        <h2 class="text-center mb-4 fw-bold">Hesap Oluştur</h2>
 
         <form id="registerForm">
             <div class="mb-3">
-                <label for="UserName" class="form-label">Kullanıcı Adı</label>
+                <label class="form-label">Kullanıcı Adı</label>
                 <input type="text" id="UserName" class="form-control" required minlength="3" />
             </div>
 
             <div class="mb-3">
-                <label for="Email" class="form-label">Email</label>
+                <label class="form-label">Email</label>
                 <input type="email" id="Email" class="form-control" required />
             </div>
 
             <div class="mb-3">
-                <label for="PhoneNumber" class="form-label">Telefon Numarası</label>
+                <label class="form-label">Telefon Numarası</label>
                 <input type="tel" id="PhoneNumber" class="form-control" required pattern="^05\d{9}$" placeholder="05XX XXX XX XX" />
             </div>
 
-            <div class="mb-3">
-                <label for="Password" class="form-label">Şifre</label>
-                <div class="input-group">
-                    <input type="password" id="Password" class="form-control" required minlength="6" />
-                    <button type="button" class="btn btn-outline-secondary toggle-password"><i class="bx bx-show"></i></button>
-                </div>
+            <div class="mb-3 position-relative">
+                <label class="form-label">Şifre</label>
+                <input type="password" id="Password" class="form-control" required minlength="6" />
+                <span id="passwordStrength" class="form-text"></span>
             </div>
 
-            <div class="mb-3">
-                <label for="ConfirmPassword" class="form-label">Şifreyi Onayla</label>
-                <div class="input-group">
-                    <input type="password" id="ConfirmPassword" class="form-control" required />
-                    <button type="button" class="btn btn-outline-secondary toggle-password"><i class="bx bx-show"></i></button>
-                </div>
+            <div class="mb-4">
+                <label class="form-label">Şifreyi Onayla</label>
+                <input type="password" id="ConfirmPassword" class="form-control" required />
             </div>
 
-            <button type="submit" class="btn btn-success w-100 py-2 fw-bold">Hesap Oluştur</button>
+            <button type="submit" id="registerBtn" class="btn btn-success w-100 py-2 fw-bold">
+                <span id="registerBtnText">Hesap Oluştur</span>
+                <span id="registerSpinner" class="spinner-border spinner-border-sm ms-2" style="display:none;"></span>
+            </button>
         </form>
 
         <div class="text-center mt-3">
@@ -49,65 +45,91 @@
     </div>
 </div>
 
-<!-- 💡 Stil -->
-<link rel="stylesheet" href="~/css/login.css" />
+<!-- Lottie Animasyonları ve SweetAlert2 CDN -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.7.6/lottie.min.js"></script>
 
-<!-- 💡 Script -->
 <script>
-    document.getElementById("registerForm").addEventListener("submit", function (event) {
+    const form = document.getElementById("registerForm");
+    const registerBtn = document.getElementById("registerBtn");
+    const spinner = document.getElementById("registerSpinner");
+    const btnText = document.getElementById("registerBtnText");
+    const passwordInput = document.getElementById("Password");
+    const passwordStrength = document.getElementById("passwordStrength");
+
+    // Şifre kriterlerini kontrol et
+    passwordInput.addEventListener("input", () => {
+        const pwd = passwordInput.value;
+        if (pwd.length >= 8 && /\d/.test(pwd) && /[a-zA-Z]/.test(pwd)) {
+            passwordStrength.innerHTML = "<span class='text-success'>Güçlü şifre</span>";
+        } else {
+            passwordStrength.innerHTML = "<span class='text-danger'>En az 8 karakter, harf ve rakam gerekli</span>";
+        }
+    });
+
+    form.addEventListener("submit", function(event) {
         event.preventDefault();
 
-        let registerData = {
+        let password = passwordInput.value.trim();
+        let confirmPassword = document.getElementById("ConfirmPassword").value.trim();
+
+        if(password !== confirmPassword){
+            Swal.fire({ icon: 'error', title: 'Oops...', text: 'Şifreler eşleşmiyor!' });
+            return;
+        }
+
+        // Buton animasyon başlat
+        spinner.style.display = "inline-block";
+        btnText.textContent = "Kayıt Olunuyor...";
+
+        const registerData = {
             UserName: document.getElementById("UserName").value.trim(),
             Email: document.getElementById("Email").value.trim(),
             PhoneNumber: document.getElementById("PhoneNumber").value.trim(),
-            Password: document.getElementById("Password").value.trim(),
-            ConfirmPassword: document.getElementById("ConfirmPassword").value.trim()
+            Password: password,
+            ConfirmPassword: confirmPassword
         };
-
-        if (registerData.Password !== registerData.ConfirmPassword) {
-            document.getElementById("registerErrorMessage").innerText = "Şifreler eşleşmiyor!";
-            return;
-        }
 
         fetch("/api/Account/register", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(registerData)
         })
-        .then(response => {
-            if (!response.ok) {
-                return response.json().then(err => { throw new Error(err.message || "Kayıt başarısız"); });
-            }
-            return response.json();
-        })
+        .then(response => response.json().then(data => {
+            if (!response.ok) throw new Error(data.message || "Kayıt başarısız.");
+            return data;
+        }))
         .then(data => {
-            // Kayıt başarılıysa, email doğrulaması gönderildi mesajını göster
-            document.getElementById("registerErrorMessage").style.color = "green";
-            document.getElementById("registerErrorMessage").innerText = data.message || "Kayıt başarılı, lütfen emailinizi kontrol ediniz.";
-            // 3 saniye sonra login sayfasına yönlendir
-            setTimeout(function() {
+            Swal.fire({
+                icon: 'success',
+                title: 'Başarılı!',
+                text: data.message || 'Kayıt başarılı! E-postanızı kontrol edin.',
+                timer: 3000,
+                showConfirmButton: false
+            });
+
+            setTimeout(() => {
                 window.location.href = "/VAccount/Login";
             }, 3000);
         })
         .catch(error => {
-            document.getElementById("registerErrorMessage").style.color = "red";
-            document.getElementById("registerErrorMessage").innerText = error.message;
-        });
-    });
-
-    // Şifreyi göster/gizle butonları
-    document.querySelectorAll(".toggle-password").forEach(button => {
-        button.addEventListener("click", function () {
-            let passwordInput = this.parentNode.querySelector("input");
-            let icon = this.querySelector("i");
-            if (passwordInput.type === "password") {
-                passwordInput.type = "text";
-                icon.classList.replace("bx-show", "bx-hide");
-            } else {
-                passwordInput.type = "password";
-                icon.classList.replace("bx-hide", "bx-show");
-            }
+            Swal.fire({ icon: 'error', title: 'Hata!', text: error.message });
+        })
+        .finally(() => {
+            spinner.style.display = "none";
+            btnText.textContent = "Hesap Oluştur";
         });
     });
 </script>
+
+<style>
+    body {
+        background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+    }
+
+    .register-card {
+        width: 100%;
+        max-width: 400px;
+        background-color: #fff;
+    }
+</style>

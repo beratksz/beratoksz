@@ -17,7 +17,7 @@
             <option value="">-- Yeni Kayıt --</option>
             @foreach (var s in Model.SettingsList)
             {
-                <option value="@s.Id" @(s.Id == Model.CurrentSettings.Id ? "selected" : "")>
+                <option value="@s.Id" selected="@(s.Id == Model.CurrentSettings.Id)">
                     @($"ID: {s.Id} | EmailVerif: {s.EnableEmailVerification} | 2FA: {s.EnableTwoFactorAuthentication}")
                 </option>
             }

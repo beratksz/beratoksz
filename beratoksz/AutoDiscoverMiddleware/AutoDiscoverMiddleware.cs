@@ -29,6 +29,13 @@ public class AutoDiscoverMiddleware
             return;
         }
 
+        var isStaticFile = Regex.IsMatch(path, @"\.(html|css|js|png|ico|jpg|jpeg|json|map|woff2?|ttf|svg)$", RegexOptions.IgnoreCase);
+        if (isStaticFile)
+        {
+            await _next(context);
+            return;
+        }
+
 
         if (Regex.IsMatch(path, @"^/(error|accessdenied|swagger|favicon)", RegexOptions.IgnoreCase))
         {

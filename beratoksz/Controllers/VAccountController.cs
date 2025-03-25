@@ -1,41 +1,53 @@
-﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 
 namespace beratoksz.Controllers
 {
     public class VAccountController : Controller
     {
-        [HttpGet("reset-password")]
-        public IActionResult ResetPassword(string userId, string token)
-        {
-            // URL'den gelen userId ve token bilgilerini view'e taşıyoruz.
-            ViewBag.UserId = userId;
-            ViewBag.Token = token;
-            return View();
-        }
-
-        [HttpGet]
-        public IActionResult ForgotPassword()
-        {
-            return View();
-        }
-
-        [HttpGet]
         public IActionResult Login()
         {
             return View();
         }
 
-        [HttpGet]
+        public IActionResult Logout()
+        {
+            return RedirectToAction("Login");
+        }
+
         public IActionResult Register()
         {
             return View();
         }
 
-        [HttpGet]
-        public IActionResult Logout()
+        public IActionResult ForgotPassword()
         {
-            return RedirectToAction("Login");
+            return View();
+        }
+
+        [HttpGet("reset-password")]
+        public IActionResult ResetPassword(string userId, string token)
+        {
+            ViewBag.UserId = userId;
+            ViewBag.Token = token;
+            return View();
+        }
+
+        public IActionResult EmailConfirmationSent()
+        {
+            return View();
+        }
+
+        public IActionResult EmailSentPassword()
+        {
+            return View();
+        }
+
+        [HttpGet("email-confirmation")]
+        public IActionResult ConfirmEmail(string userId, string token)
+        {
+            ViewBag.UserId = userId;
+            ViewBag.Token = token;
+            return View();
         }
     }
 }
