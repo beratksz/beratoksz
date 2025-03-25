@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
@@ -91,9 +91,9 @@ namespace beratoksz.Controllers
             _logger.LogInformation("User registered: {UserId}, Email: {Email}", user.Id, user.Email);
 
             // Email doğrulaması için token üret
-            var emailToken = await _userManager.GenerateEmailConfirmationTokenAsync(user);
-            var confirmationLink = Url.Action("ConfirmEmail", "VAccount", new { userId = user.Id, token = emailToken }, Request.Scheme);
-
+var emailToken = await _userManager.GenerateEmailConfirmationTokenAsync(user);
+var safeToken = WebUtility.UrlEncode(emailToken); // using System.Net;
+var confirmationLink = Url.Action("ConfirmEmail", "VAccount", new { userId = user.Id, token = safeToken }, Request.Scheme);
             try
             {
                 await _emailConfirmationService.SendConfirmationEmailAsync(user.Email, confirmationLink);
