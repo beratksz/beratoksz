@@ -1,0 +1,15 @@
+C:\Users\berat-oksuz\source\repos\beratoksz\smpt_test\bin\Debug\net8.0\smpt_test.exe
+C:\Users\berat-oksuz\source\repos\beratoksz\smpt_test\bin\Debug\net8.0\smpt_test.deps.json
+C:\Users\berat-oksuz\source\repos\beratoksz\smpt_test\bin\Debug\net8.0\smpt_test.runtimeconfig.json
+C:\Users\berat-oksuz\source\repos\beratoksz\smpt_test\bin\Debug\net8.0\smpt_test.dll
+C:\Users\berat-oksuz\source\repos\beratoksz\smpt_test\bin\Debug\net8.0\smpt_test.pdb
+C:\Users\berat-oksuz\source\repos\beratoksz\smpt_test\obj\Debug\net8.0\smpt_test.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\berat-oksuz\source\repos\beratoksz\smpt_test\obj\Debug\net8.0\smpt_test.AssemblyInfoInputs.cache
+C:\Users\berat-oksuz\source\repos\beratoksz\smpt_test\obj\Debug\net8.0\smpt_test.AssemblyInfo.cs
+C:\Users\berat-oksuz\source\repos\beratoksz\smpt_test\obj\Debug\net8.0\smpt_test.csproj.CoreCompileInputs.cache
+C:\Users\berat-oksuz\source\repos\beratoksz\smpt_test\obj\Debug\net8.0\smpt_test.sourcelink.json
+C:\Users\berat-oksuz\source\repos\beratoksz\smpt_test\obj\Debug\net8.0\smpt_test.dll
+C:\Users\berat-oksuz\source\repos\beratoksz\smpt_test\obj\Debug\net8.0\refint\smpt_test.dll
+C:\Users\berat-oksuz\source\repos\beratoksz\smpt_test\obj\Debug\net8.0\smpt_test.pdb
+C:\Users\berat-oksuz\source\repos\beratoksz\smpt_test\obj\Debug\net8.0\smpt_test.genruntimeconfig.cache
+C:\Users\berat-oksuz\source\repos\beratoksz\smpt_test\obj\Debug\net8.0\ref\smpt_test.dll

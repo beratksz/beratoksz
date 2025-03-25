@@ -2,6 +2,7 @@
 @{
     ViewData["Title"] = "Site Ayarları";
 }
+
 <h2>Site Ayarları</h2>
 
 @if (TempData["SuccessMessage"] != null)
@@ -16,12 +17,11 @@
             <option value="">-- Yeni Kayıt --</option>
             @foreach (var s in Model.SettingsList)
             {
-                <option value="@s.Id" selected="@(s.Id == Model.CurrentSettings.Id ? "selected" : null)">
-                    @("ID: " + s.Id + " | EmailVerif: " + s.EnableEmailVerification + " | 2FA: " + s.EnableTwoFactorAuthentication)
+                <option value="@s.Id" @(s.Id == Model.CurrentSettings.Id ? "selected" : "")>
+                    @($"ID: {s.Id} | EmailVerif: {s.EnableEmailVerification} | 2FA: {s.EnableTwoFactorAuthentication}")
                 </option>
             }
         </select>
-
     </div>
 </div>
 
@@ -29,54 +29,67 @@
 
 <form asp-action="Save" method="post">
     <input type="hidden" asp-for="CurrentSettings.Id" />
+
     <div class="form-check">
         <input asp-for="CurrentSettings.EnableEmailVerification" class="form-check-input" type="checkbox" />
         <label asp-for="CurrentSettings.EnableEmailVerification" class="form-check-label">E-posta Doğrulamasını Etkinleştir</label>
     </div>
+
     <div class="form-check">
         <input asp-for="CurrentSettings.EnableTwoFactorAuthentication" class="form-check-input" type="checkbox" />
         <label asp-for="CurrentSettings.EnableTwoFactorAuthentication" class="form-check-label">İki Faktörlü Kimlik Doğrulamayı Etkinleştir</label>
     </div>
-    <!-- Yeni: Aktif ayar kaydını belirlemek için checkbox -->
-    <div class="form-check">
-        <input asp-for="CurrentSettings.IsActive" class="form-check-input" type="checkbox" />
-        <label asp-for="CurrentSettings.IsActive" class="form-check-label">Bu Ayar Kaydını Aktifleştir</label>
-    </div>
+
     <hr />
+
     <div class="form-group">
         <label asp-for="CurrentSettings.SmtpHost"></label>
-        <input asp-for="CurrentSettings.SmtpHost" class="form-control" />
+        <input asp-for="CurrentSettings.SmtpHost" class="form-control" required />
     </div>
+
     <div class="form-group">
         <label asp-for="CurrentSettings.SmtpPort"></label>
-        <input asp-for="CurrentSettings.SmtpPort" class="form-control" type="number" />
+        <input asp-for="CurrentSettings.SmtpPort" class="form-control" type="number" required />
     </div>
+
     <div class="form-group">
         <label asp-for="CurrentSettings.SmtpUsername"></label>
-        <input asp-for="CurrentSettings.SmtpUsername" class="form-control" />
+        <input asp-for="CurrentSettings.SmtpUsername" class="form-control" required />
     </div>
+
     <div class="form-group">
         <label asp-for="CurrentSettings.SmtpPassword"></label>
-        <input asp-for="CurrentSettings.SmtpPassword" class="form-control" type="password" />
+        <input asp-for="CurrentSettings.SmtpPassword" class="form-control" type="password" required />
     </div>
+
     <div class="form-group">
         <label asp-for="CurrentSettings.EmailFromAddress"></label>
-        <input asp-for="CurrentSettings.EmailFromAddress" class="form-control" />
+        <input asp-for="CurrentSettings.EmailFromAddress" class="form-control" required />
     </div>
+
     <div class="form-group">
         <label asp-for="CurrentSettings.EmailFromName"></label>
-        <input asp-for="CurrentSettings.EmailFromName" class="form-control" />
+        <input asp-for="CurrentSettings.EmailFromName" class="form-control" required />
     </div>
+
     <div class="form-group">
         <label asp-for="CurrentSettings.EmailVerificationTemplate"></label>
-        <textarea asp-for="CurrentSettings.EmailVerificationTemplate" class="form-control" rows="5"></textarea>
+        <textarea asp-for="CurrentSettings.EmailVerificationTemplate" class="form-control" rows="5" required></textarea>
     </div>
+
     <div class="form-group">
         <label asp-for="CurrentSettings.TwoFactorEmailTemplate"></label>
-        <textarea asp-for="CurrentSettings.TwoFactorEmailTemplate" class="form-control" rows="5"></textarea>
+        <textarea asp-for="CurrentSettings.TwoFactorEmailTemplate" class="form-control" rows="5" required></textarea>
     </div>
+
+    <div class="form-group">
+        <label asp-for="CurrentSettings.PasswordResetEmailTemplate"></label>
+        <textarea asp-for="CurrentSettings.PasswordResetEmailTemplate" class="form-control" rows="5" required></textarea>
+    </div>
+
     <button type="submit" class="btn btn-primary mt-3">Kaydet</button>
-    @if(Model.CurrentSettings.Id > 0)
+
+    @if (Model.CurrentSettings.Id > 0)
     {
         <button type="button" class="btn btn-success mt-3" onclick="activateSettings(@Model.CurrentSettings.Id)">Aktifleştir</button>
         <button type="button" class="btn btn-danger mt-3" onclick="deleteSettings(@Model.CurrentSettings.Id)">Sil</button>
@@ -89,27 +102,31 @@
             var id = document.getElementById("settingsSelect").value;
             window.location.href = '@Url.Action("Index", "Settings", new { area = "Admin" })' + (id ? '?id=' + id : '');
         }
-        function activateSettings(id) {
-            var form = document.createElement("form");
-            form.method = "post";
-            form.action = '@Url.Action("Activate", "Settings", new { area = "Admin" })';
-            
-            var input = document.createElement("input");
-            input.type = "hidden";
-            input.name = "id";
-            input.value = id;
-            form.appendChild(input);
 
-            var antiForgery = document.querySelector('input[name="__RequestVerificationToken"]');
-            if(antiForgery) {
-                var token = document.createElement("input");
-                token.type = "hidden";
-                token.name = "__RequestVerificationToken";
-                token.value = antiForgery.value;
-                form.appendChild(token);
+        function activateSettings(id) {
+            if (confirm("Bu ayarı aktifleştirmek istediğinize emin misiniz?")) {
+                var form = document.createElement("form");
+                form.method = "post";
+                form.action = '@Url.Action("Activate", "Settings", new { area = "Admin" })';
+
+                var input = document.createElement("input");
+                input.type = "hidden";
+                input.name = "id";
+                input.value = id;
+                form.appendChild(input);
+
+                var antiForgery = document.querySelector('input[name="__RequestVerificationToken"]');
+                if (antiForgery) {
+                    var token = document.createElement("input");
+                    token.type = "hidden";
+                    token.name = "__RequestVerificationToken";
+                    token.value = antiForgery.value;
+                    form.appendChild(token);
+                }
+
+                document.body.appendChild(form);
+                form.submit();
             }
-            document.body.appendChild(form);
-            form.submit();
         }
 
         function deleteSettings(id) {
@@ -125,13 +142,14 @@
                 form.appendChild(input);
 
                 var antiForgery = document.querySelector('input[name="__RequestVerificationToken"]');
-                if(antiForgery) {
+                if (antiForgery) {
                     var token = document.createElement("input");
                     token.type = "hidden";
                     token.name = "__RequestVerificationToken";
                     token.value = antiForgery.value;
                     form.appendChild(token);
                 }
+
                 document.body.appendChild(form);
                 form.submit();
             }

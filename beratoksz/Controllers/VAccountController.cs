@@ -5,6 +5,21 @@ namespace beratoksz.Controllers
 {
     public class VAccountController : Controller
     {
+        [HttpGet("reset-password")]
+        public IActionResult ResetPassword(string userId, string token)
+        {
+            // URL'den gelen userId ve token bilgilerini view'e taşıyoruz.
+            ViewBag.UserId = userId;
+            ViewBag.Token = token;
+            return View();
+        }
+
+        [HttpGet]
+        public IActionResult ForgotPassword()
+        {
+            return View();
+        }
+
         [HttpGet]
         public IActionResult Login()
         {

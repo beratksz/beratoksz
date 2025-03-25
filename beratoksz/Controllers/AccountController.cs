@@ -31,6 +31,7 @@ namespace beratoksz.Controllers
         private readonly SettingsService _settingsService;
         private readonly EmailConfirmationService _emailConfirmationService;
         private readonly ILogger<AccountController> _logger;
+        private readonly PasswordResetEmailService _passwordResetEmailService;
 
         public AccountController(UserManager<AppUser> userManager,
                                  SignInManager<AppUser> signInManager,
@@ -40,7 +41,8 @@ namespace beratoksz.Controllers
                                  UserSecurityService userSecurityService,
                                  SettingsService settingsService,
                                  EmailConfirmationService emailConfirmationService,
-                                 ILogger<AccountController> logger)
+                                 ILogger<AccountController> logger,
+                                 PasswordResetEmailService passwordResetEmailService)
         {
             _userManager = userManager;
             _configuration = configuration;
@@ -50,6 +52,7 @@ namespace beratoksz.Controllers
             _settingsService = settingsService;
             _emailConfirmationService = emailConfirmationService;
             _logger = logger;
+            _passwordResetEmailService = passwordResetEmailService;
         }
 
         [HttpPost("register")]
@@ -172,6 +175,36 @@ namespace beratoksz.Controllers
             return Ok(new { message = "Giriş başarılı!", redirectUrl = "/" });
         }
 
+        [HttpPost("resend-confirmation")]
+        public async Task<IActionResult> ResendConfirmation([FromBody] ResendConfirmationDto model)
+        {
+            if (string.IsNullOrWhiteSpace(model.Email))
+                return BadRequest(new { message = "Email gerekli." });
+
+            var user = await _userManager.FindByEmailAsync(model.Email);
+            if (user == null)
+                return NotFound(new { message = "Kullanıcı bulunamadı." });
+
+            if (user.EmailConfirmed)
+                return BadRequest(new { message = "Email zaten doğrulanmış." });
+
+            var emailToken = await _userManager.GenerateEmailConfirmationTokenAsync(user);
+            var confirmationLink = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, token = emailToken }, Request.Scheme);
+
+            try
+            {
+                await _emailConfirmationService.SendConfirmationEmailAsync(user.Email, confirmationLink);
+                _logger.LogInformation("Resend confirmation email sent to {Email}", user.Email);
+                return Ok(new { message = "Doğrulama emaili tekrar gönderildi. Lütfen emailinizi kontrol edin." });
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Failed to resend confirmation email to {Email}", user.Email);
+                return StatusCode(500, new { message = "Email gönderilemedi." });
+            }
+        }
+
+
         [HttpPost("verify-2fa")]
         public async Task<IActionResult> Verify2FA([FromBody] Verify2FADto dto)
         {
@@ -205,6 +238,62 @@ namespace beratoksz.Controllers
         }
 
 
+        [HttpPost("forgot-password")]
+        public async Task<IActionResult> ForgotPassword([FromBody] ForgotPasswordDto model)
+        {
+            if (string.IsNullOrWhiteSpace(model.Email))
+                return BadRequest(new { message = "Email gerekli." });
+
+            var user = await _userManager.FindByEmailAsync(model.Email);
+            if (user == null)
+                return NotFound(new { message = "Kullanıcı bulunamadı." });
+
+            var resetToken = await _userManager.GeneratePasswordResetTokenAsync(user);
+            var resetLink = Url.Action("ResetPassword", "VAccount", new { userId = user.Id, token = resetToken }, Request.Scheme);
+
+            try
+            {
+                await _passwordResetEmailService.SendPasswordResetEmailAsync(user.Email, resetLink);
+                _logger.LogInformation("Password reset email sent to {Email}", user.Email);
+                return Ok(new { message = "Şifre sıfırlama emaili gönderildi. Lütfen emailinizi kontrol edin." });
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Failed to send password reset email to {Email}", user.Email);
+                return StatusCode(500, new { message = "Email gönderilemedi." });
+            }
+        }
+
+
+
+
+
+        [HttpPost("reset-password")]
+        public async Task<IActionResult> ResetPassword([FromBody] ResetPasswordDto model)
+        {
+
+
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            var user = await _userManager.FindByIdAsync(model.UserId);
+            if (user == null)
+                return NotFound(new { message = "Kullanıcı bulunamadı." });
+
+            var result = await _userManager.ResetPasswordAsync(user, model.Token, model.NewPassword);
+            if (result.Succeeded)
+            {
+                _logger.LogInformation("Password reset successful for {Email}", user.Email);
+                return Ok(new { message = "Şifre sıfırlama başarılı. Artık yeni şifrenizle giriş yapabilirsiniz." });
+            }
+            else
+            {
+                var errors = string.Join(", ", result.Errors.Select(e => e.Description));
+                _logger.LogError("Password reset failed for {Email}: {Errors}", user.Email, errors);
+                return BadRequest(new { message = "Şifre sıfırlama başarısız.", errors });
+            }
+
+        }
 
 
         [HttpPost("logout")]

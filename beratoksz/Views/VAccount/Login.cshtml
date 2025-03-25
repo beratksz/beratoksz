@@ -40,9 +40,15 @@
             <button type="submit" class="btn btn-success w-100 fw-bold">Kodu Doğrula</button>
         </form>
 
+        <!-- Ekstra Linkler -->
         <div class="text-center mt-3" id="extraLinks">
             <a href="/VAccount/ForgotPassword" class="text-decoration-none">Şifremi Unuttum?</a>
             <a href="/VAccount/Register" class="text-decoration-none">Hesabın yok mu? Kayıt Ol</a>
+        </div>
+
+        <!-- Emaili Tekrar Gönder Linki (başlangıçta gizli) -->
+        <div class="text-center mt-2" id="resendLink" style="display:none;">
+            <a href="/VAccount/ResendConfirmation" class="text-decoration-none">Emaili Tekrar Gönder</a>
         </div>
     </div>
 </div>
@@ -50,6 +56,7 @@
 <link rel="stylesheet" href="~/css/login.css" />
 
 <script>
+    // Şifreyi göster/gizle butonları
     document.querySelector(".toggle-password").addEventListener("click", function () {
         let passwordInput = document.getElementById("Password");
         let icon = this.querySelector("i");
@@ -87,6 +94,13 @@
                 window.location.href = data.redirectUrl;
             } else {
                 document.getElementById("errorMessage").innerText = data.message || "Giriş başarısız.";
+
+                // Eğer email doğrulaması yapılmamış hatası varsa, resend linkini göster.
+                if (data.message && data.message.toLowerCase().includes("email doğrulaması yapılmamış")) {
+                    document.getElementById("resendLink").style.display = "block";
+                } else {
+                    document.getElementById("resendLink").style.display = "none";
+                }
             }
         })
         .catch(err => {

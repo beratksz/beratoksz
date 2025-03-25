@@ -32,6 +32,22 @@
   },
   {
     "ContainingType": "beratoksz.Controllers.AccountController",
+    "Method": "ForgotPassword",
+    "RelativePath": "api/Account/forgot-password",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "beratoksz.Models.ForgotPasswordDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "beratoksz.Controllers.AccountController",
     "Method": "Login",
     "RelativePath": "api/Account/login",
     "HttpMethod": "POST",
@@ -67,6 +83,38 @@
       {
         "Name": "model",
         "Type": "beratoksz.Models.RegisterViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "beratoksz.Controllers.AccountController",
+    "Method": "ResendConfirmation",
+    "RelativePath": "api/Account/resend-confirmation",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "beratoksz.Models.ResendConfirmationDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "beratoksz.Controllers.AccountController",
+    "Method": "ResetPassword",
+    "RelativePath": "api/Account/reset-password",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "beratoksz.Models.ResetPasswordDto",
         "IsRequired": true
       }
     ],
@@ -359,6 +407,27 @@
         "Name": "statusCode",
         "Type": "System.Int32",
         "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "beratoksz.Controllers.VAccountController",
+    "Method": "ResetPassword",
+    "RelativePath": "reset-password",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "token",
+        "Type": "System.String",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []

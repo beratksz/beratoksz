@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "smpt_test": {
+      "commandName": "Project"
+    },
+    "Container (Dockerfile)": {
+      "commandName": "Docker"
+    }
+  }
+}

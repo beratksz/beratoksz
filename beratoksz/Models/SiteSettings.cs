@@ -13,6 +13,7 @@
         public string EmailFromName { get; set; }
         public string EmailVerificationTemplate { get; set; }
         public string TwoFactorEmailTemplate { get; set; }
+        public string PasswordResetEmailTemplate { get; set; }
         public bool IsActive { get; set; }  // Hangi kayıt aktif?
     }
 }

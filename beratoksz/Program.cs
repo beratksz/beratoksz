@@ -60,6 +60,7 @@ builder.Services.AddScoped<TwoFactorEmailService>();
 builder.Services.AddScoped<UserSecurityService>();
 builder.Services.AddScoped<EmailConfirmationService>();
 builder.Services.AddScoped<SettingsService>();
+builder.Services.AddScoped<PasswordResetEmailService>();
 
 // ?? Rate Limiting
 builder.Services.AddOptions();

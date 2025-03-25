@@ -43,11 +43,15 @@ public class AutoDiscoverMiddleware
         bool exists = dbContext.RolePermissions.Any(rp => rp.PagePath == path);
         if (!exists)
         {
+            /*
             var isStatic = Regex.IsMatch(path, @"\.(html|css|js|png|ico|jpg|jpeg|json|map|woff2?)$", RegexOptions.IgnoreCase);
             var fileExists = File.Exists(Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", path.TrimStart('/')));
             var label = isStatic ? "📦 Statik dosya" : "🚀 Yeni API/sayfa";
 
             _logger.LogWarning($"{label} keşfedildi ve eklendi: {path}");
+            */
+
+            _logger.LogWarning($"🚀 Yeni API/sayfa keşfedildi ve eklendi: {path}");
 
             dbContext.RolePermissions.Add(new RolePermission
             {

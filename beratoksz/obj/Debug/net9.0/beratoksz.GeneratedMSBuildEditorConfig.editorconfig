@@ -124,12 +124,20 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/berat-oksuz/source/repos/beratoksz/beratoksz/Views/VAccount/ForgotPassword.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVkFjY291bnRcRm9yZ290UGFzc3dvcmQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/berat-oksuz/source/repos/beratoksz/beratoksz/Views/VAccount/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVkFjY291bnRcTG9naW4uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/berat-oksuz/source/repos/beratoksz/beratoksz/Views/VAccount/Register.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVkFjY291bnRcUmVnaXN0ZXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/berat-oksuz/source/repos/beratoksz/beratoksz/Views/VAccount/ResetPassword.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVkFjY291bnRcUmVzZXRQYXNzd29yZC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/berat-oksuz/source/repos/beratoksz/beratoksz/Views/_ViewImports.cshtml]

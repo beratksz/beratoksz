@@ -1,6 +1,8 @@
 ﻿using System.Linq;
 using beratoksz.Data;
 using beratoksz.Models;
+using Microsoft.SqlServer.Server;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 using static PageDiscoveryService;
 
 public class RolePermissionSeeder
@@ -22,8 +24,16 @@ public class RolePermissionSeeder
             UrlNormalizer.Normalize("/Privacy"),
             UrlNormalizer.Normalize("/VAccount/Login"),
             UrlNormalizer.Normalize("/VAccount/Register"),
-            UrlNormalizer.Normalize("/VAccount/ForgetPassword"),
-            UrlNormalizer.Normalize("/VAccount/2FA"),
+            UrlNormalizer.Normalize("/VAccount/ForgotPassword"),
+            UrlNormalizer.Normalize("/VAccount/ResetPassword"),
+            UrlNormalizer.Normalize("/api/account/confirm-email"),
+            UrlNormalizer.Normalize("/api/account/verify-2fa"),
+            UrlNormalizer.Normalize("/profile/securitysettings"),
+            UrlNormalizer.Normalize("/profile/updatetwofactor"),
+            UrlNormalizer.Normalize("/api/account/resend-confirmation"),
+            UrlNormalizer.Normalize("/api/account/forgot-password"),
+            UrlNormalizer.Normalize("/api/account/reset-password"),
+            UrlNormalizer.Normalize("/reset-password"),
             UrlNormalizer.Normalize("/Home/Error"),
             UrlNormalizer.Normalize("/NotFound"),
             UrlNormalizer.Normalize("/Home/AccessDenied"),
@@ -45,8 +55,16 @@ public class RolePermissionSeeder
             UrlNormalizer.Normalize("/Privacy"),
             UrlNormalizer.Normalize("/VAccount/Login"),
             UrlNormalizer.Normalize("/VAccount/Register"),
-            UrlNormalizer.Normalize("/VAccount/ForgetPassword"),
-            UrlNormalizer.Normalize("/VAccount/2FA"),
+            UrlNormalizer.Normalize("/VAccount/ForgotPassword"),
+            UrlNormalizer.Normalize("/VAccount/ResetPassword"),
+            UrlNormalizer.Normalize("/api/account/confirm-email"),
+            UrlNormalizer.Normalize("/api/account/verify-2fa"),
+            UrlNormalizer.Normalize("/profile/securitysettings"),
+            UrlNormalizer.Normalize("/profile/updatetwofactor"),
+            UrlNormalizer.Normalize("/api/account/resend-confirmation"),
+            UrlNormalizer.Normalize("/api/account/forgot-password"),
+            UrlNormalizer.Normalize("/api/account/reset-password"),
+            UrlNormalizer.Normalize("/reset-password"),
             UrlNormalizer.Normalize("/Home/Error"),
             UrlNormalizer.Normalize("/NotFound"),
             UrlNormalizer.Normalize("/Home/AccessDenied"),
@@ -59,8 +77,6 @@ public class RolePermissionSeeder
             UrlNormalizer.Normalize("/api/account/login"),
             UrlNormalizer.Normalize("/api/account/logout"),
             UrlNormalizer.Normalize("/api/account/refresh-token"),
-            UrlNormalizer.Normalize("/api/account/change-password"),
-            UrlNormalizer.Normalize("/api/account/update-profile"),
             UrlNormalizer.Normalize("/api/security/activities")
         };
 
