@@ -1,168 +1,179 @@
 ﻿@{
     ViewData["Title"] = "Giriş Yap";
+    Layout = null; // Tam sayfa bağımsız giriş ekranı.
 }
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewData["Title"]</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Bootstrap ve modern.css dahil -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/css/modern.css" rel="stylesheet" />
+    <!-- SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!-- Lottie Web -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.7.6/lottie.min.js"></script>
+    <style>
+        body {
+            background-color: #ffffff; /* Düz beyaz arka plan */
+        }
 
-<div class="container d-flex justify-content-center align-items-center min-vh-100">
-    <div class="login-card p-4 shadow-lg text-center">
-        <div id="loginAnimation" style="height: 150px;"></div>
+        .login-card {
+            width: 100%;
+            max-width: 450px;
+            border-radius: 15px;
+            background-color: #ffffff;
+            padding: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container d-flex justify-content-center align-items-center min-vh-100">
+        <div class="login-card shadow-lg text-center">
+            <!-- Lottie Animasyon Konteyneri -->
+            <div id="loginAnimation" style="height: 150px;"></div>
 
-        <h2 class="fw-bold my-3" id="formTitle">Giriş Yap</h2>
-        <div id="errorMessage" class="text-danger mb-3"></div>
+            <h2 class="fw-bold my-3" id="formTitle">Giriş Yap</h2>
+            <div id="errorMessage" class="text-danger mb-3"></div>
 
-        <!-- Giriş Formu -->
-        <form id="loginForm">
-            <input type="text" id="LoginIdentifier" class="form-control mb-3" placeholder="Kullanıcı Adı veya Email" required />
-            <input type="password" id="Password" class="form-control mb-3" placeholder="Şifre" required />
-            <div class="form-check text-start mb-3">
-                <input type="checkbox" id="RememberMe" class="form-check-input" />
-                <label for="RememberMe" class="form-check-label">Beni Hatırla</label>
+            <!-- Giriş Formu -->
+            <form id="loginForm">
+                <input type="text" id="LoginIdentifier" class="form-control mb-3" placeholder="Kullanıcı Adı veya Email" required />
+                <input type="password" id="Password" class="form-control mb-3" placeholder="Şifre" required />
+                <div class="form-check text-start mb-3">
+                    <input type="checkbox" id="RememberMe" class="form-check-input" />
+                    <label for="RememberMe" class="form-check-label">Beni Hatırla</label>
+                </div>
+                <button type="submit" id="loginBtn" class="btn btn-primary w-100">Giriş Yap</button>
+            </form>
+
+            <!-- 2FA Formu (Başlangıçta gizli) -->
+            <form id="twoFactorForm" style="display:none;">
+                <input type="text" id="twoFactorCode" class="form-control mb-3" placeholder="Doğrulama Kodu" required />
+                <button type="submit" class="btn btn-success w-100">Kodu Doğrula</button>
+                <button type="button" id="resend2FA" class="btn btn-link mt-2">Kodu Tekrar Gönder</button>
+            </form>
+
+            <!-- Ekstra Linkler -->
+            <div id="extraLinks" class="mt-3">
+                <a href="/VAccount/ForgotPassword">Şifremi Unuttum?</a><br>
+                <a href="/VAccount/Register">Hesabın yok mu? Kayıt Ol</a>
             </div>
-            <button type="submit" id="loginBtn" class="btn btn-primary w-100">Giriş Yap</button>
-        </form>
-
-        <!-- 2FA Formu (Başlangıçta gizli) -->
-        <form id="twoFactorForm" style="display:none;">
-            <input type="text" id="twoFactorCode" class="form-control mb-3" placeholder="Doğrulama Kodu" required />
-            <button type="submit" class="btn btn-success w-100">Kodu Doğrula</button>
-            <button type="button" id="resend2FA" class="btn btn-link mt-2">Kodu Tekrar Gönder</button>
-        </form>
-
-        <!-- Ekstra Linkler -->
-        <div id="extraLinks" class="mt-3">
-            <a href="/VAccount/ForgotPassword">Şifremi Unuttum?</a><br>
-            <a href="/VAccount/Register">Hesabın yok mu? Kayıt Ol</a>
         </div>
     </div>
-</div>
 
-<!-- Kütüphaneler -->
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.7.6/lottie.min.js"></script>
+    <script>
+        // Lottie animasyonunu başlat (Yeni, güvenilir link kullanıldı)
+        lottie.loadAnimation({
+            container: document.getElementById('loginAnimation'),
+            renderer: 'svg',
+            loop: true,
+            autoplay: true,
+            path: 'https://assets2.lottiefiles.com/packages/lf20_p8bfn5to.json'
+        });
 
-<script>
-    // Animasyon Yükle
-    lottie.loadAnimation({
-        container: document.getElementById('loginAnimation'),
-        renderer: 'svg',
-        loop: true,
-        autoplay: true,
-        path: 'https://lottie.host/74e4f7e5-0a87-4d93-b8ba-870d6ec3aa8b/OZ71eJ9Opk.json'
-    });
+        document.getElementById("loginForm").addEventListener("submit", function (event) {
+            event.preventDefault();
+            const loginBtn = document.getElementById("loginBtn");
+            loginBtn.disabled = true;
+            loginBtn.innerHTML = 'Giriş Yapılıyor...';
 
-    document.getElementById("loginForm").addEventListener("submit", function (event) {
-        event.preventDefault();
+            const loginIdentifier = document.getElementById("LoginIdentifier").value;
 
-        const loginBtn = document.getElementById("loginBtn");
-        loginBtn.disabled = true;
-        loginBtn.innerHTML = 'Giriş Yapılıyor...';
-
-        const loginIdentifier = document.getElementById("LoginIdentifier").value;
-
-        fetch("/api/Account/login", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-                LoginIdentifier: loginIdentifier,
-                Password: document.getElementById("Password").value,
-                RememberMe: document.getElementById("RememberMe").checked
+            fetch("/api/Account/login", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    LoginIdentifier: loginIdentifier,
+                    Password: document.getElementById("Password").value,
+                    RememberMe: document.getElementById("RememberMe").checked
+                })
             })
-        })
-        .then(res => res.json())
-        .then(data => {
-            if (data.requires2FA) {
-                document.getElementById("loginForm").style.display = "none";
-                document.getElementById("twoFactorForm").style.display = "block";
-                document.getElementById("formTitle").innerText = "🔑 Doğrulama Kodu";
-                document.getElementById("extraLinks").style.display = "none";
-            } else if (data.redirectUrl) {
-                window.location.href = data.redirectUrl;
-            } else {
-                if (data.message && data.message.toLowerCase().includes("email doğrulaması yapılmamış")) {
-                    Swal.fire({
-                        title: 'Email doğrulaması yapılmamış!',
-                        text: 'Doğrulama emaili tekrar gönderilsin mi?',
-                        icon: 'warning',
-                        showCancelButton: true,
-                        confirmButtonText: 'Evet, gönder!',
-                        cancelButtonText: 'Hayır'
-                    }).then((result) => {
-                        if (result.isConfirmed) {
-                            fetch("/api/Account/resend-confirmation", {
-                                method: "POST",
-                                headers: { "Content-Type": "application/json" },
-                                body: JSON.stringify({ email: loginIdentifier })
-                            })
-                            .then(res => res.json())
-                            .then(resData => {
-                                Swal.fire('Gönderildi!', resData.message, 'success');
-                            })
-                            .catch(() => {
-                                Swal.fire('Hata!', 'Doğrulama emaili gönderilemedi.', 'error');
-                            });
-                        }
-                    });
+            .then(res => res.json())
+            .then(data => {
+                if (data.requires2FA) {
+                    document.getElementById("loginForm").style.display = "none";
+                    document.getElementById("twoFactorForm").style.display = "block";
+                    document.getElementById("formTitle").innerText = "Doğrulama Kodu";
+                    document.getElementById("extraLinks").style.display = "none";
+                } else if (data.redirectUrl) {
+                    window.location.href = data.redirectUrl;
                 } else {
-                    Swal.fire('Hata!', data.message || 'Giriş başarısız.', 'error');
+                    if (data.message && data.message.toLowerCase().includes("email doğrulaması yapılmamış")) {
+                        Swal.fire({
+                            title: 'Email doğrulaması yapılmamış!',
+                            text: 'Doğrulama emaili tekrar gönderilsin mi?',
+                            icon: 'warning',
+                            showCancelButton: true,
+                            confirmButtonText: 'Evet, gönder!',
+                            cancelButtonText: 'Hayır'
+                        }).then((result) => {
+                            if (result.isConfirmed) {
+                                fetch("/api/Account/resend-confirmation", {
+                                    method: "POST",
+                                    headers: { "Content-Type": "application/json" },
+                                    body: JSON.stringify({ email: loginIdentifier })
+                                })
+                                .then(res => res.json())
+                                .then(resData => {
+                                    Swal.fire('Gönderildi!', resData.message, 'success');
+                                })
+                                .catch(() => {
+                                    Swal.fire('Hata!', 'Doğrulama emaili gönderilemedi.', 'error');
+                                });
+                            }
+                        });
+                    } else {
+                        Swal.fire('Hata!', data.message || 'Giriş başarısız.', 'error');
+                    }
+                    loginBtn.disabled = false;
+                    loginBtn.innerHTML = 'Giriş Yap';
                 }
-
+            })
+            .catch(() => {
+                Swal.fire('Hata!', 'Bir hata oluştu.', 'error');
                 loginBtn.disabled = false;
                 loginBtn.innerHTML = 'Giriş Yap';
-            }
-        })
-        .catch(() => {
-            Swal.fire('Hata!', 'Bir hata oluştu.', 'error');
-            loginBtn.disabled = false;
-            loginBtn.innerHTML = 'Giriş Yap';
+            });
         });
-    });
 
-
-    document.getElementById("twoFactorForm").addEventListener("submit", function (event) {
-        event.preventDefault();
-
-        fetch("/api/Account/verify-2fa", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ code: document.getElementById("twoFactorCode").value })
-        })
-        .then(res => res.json())
-        .then(data => {
-            if (data.success) {
-                window.location.href = data.redirectUrl || "/";
-            } else {
-                Swal.fire('Hata!', data.message || 'Kod hatalı.', 'error');
-            }
-        })
-        .catch(() => {
-            Swal.fire('Hata!', 'Bir hata oluştu.', 'error');
+        document.getElementById("twoFactorForm").addEventListener("submit", function (event) {
+            event.preventDefault();
+            fetch("/api/Account/verify-2fa", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ code: document.getElementById("twoFactorCode").value })
+            })
+            .then(res => res.json())
+            .then(data => {
+                if (data.success) {
+                    window.location.href = data.redirectUrl || "/";
+                } else {
+                    Swal.fire('Hata!', data.message || 'Kod hatalı.', 'error');
+                }
+            })
+            .catch(() => {
+                Swal.fire('Hata!', 'Bir hata oluştu.', 'error');
+            });
         });
-    });
 
-    // Kodu tekrar gönderme işlemi
-    document.getElementById("resend2FA").addEventListener("click", function () {
-        fetch("/api/Account/resend-2fa-code", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ loginIdentifier: document.getElementById("LoginIdentifier").value })
-        })
-        .then(res => res.json())
-        .then(data => {
-            Swal.fire('Gönderildi!', data.message, 'success');
-        })
-        .catch(() => {
-            Swal.fire('Hata!', 'Kod tekrar gönderilemedi.', 'error');
+        // Kodu tekrar gönderme işlemi
+        document.getElementById("resend2FA").addEventListener("click", function () {
+            fetch("/api/Account/resend-2fa-code", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ loginIdentifier: document.getElementById("LoginIdentifier").value })
+            })
+            .then(res => res.json())
+            .then(data => {
+                Swal.fire('Gönderildi!', data.message, 'success');
+            })
+            .catch(() => {
+                Swal.fire('Hata!', 'Kod tekrar gönderilemedi.', 'error');
+            });
         });
-    });
-</script>
-
-<style>
-    body {
-        background: linear-gradient(135deg, #e0f7fa, #80deea);
-    }
-
-    .login-card {
-        width: 100%;
-        max-width: 450px;
-        border-radius: 15px;
-    }
-</style>
+    </script>
+</body>
+</html>

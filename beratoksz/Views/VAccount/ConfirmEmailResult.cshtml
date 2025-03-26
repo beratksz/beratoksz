@@ -1,65 +1,81 @@
 ﻿@{
     ViewData["Title"] = "Email Doğrulama Sonucu";
+    Layout = null; // Tam bağımsız sayfa
     var success = ViewBag.Success as bool? ?? false;
     var message = ViewBag.Message as string ?? "";
+    var email = ViewBag.Email as string ?? "";
 }
-
-<div class="container d-flex justify-content-center align-items-center min-vh-100">
-    <div class="result-card shadow-lg p-4 text-center">
-        <div id="resultAnimation" style="height: 200px;"></div>
-
-        <h2 class="fw-bold my-3">
-            @(success ? "Email Doğrulandı!" : "Doğrulama Başarısız!")
-        </h2>
-        <p class="mb-4">@message</p>
-
-        @if (success)
-        {
-            <a href="/VAccount/Login" class="btn btn-primary">Giriş Yap</a>
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewData["Title"]</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Bootstrap ve global modern.css dahil -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/css/modern.css" rel="stylesheet" />
+    <!-- Lottie ve SweetAlert2 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.7.6/lottie.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <style>
+        body {
+            background: linear-gradient(135deg, #fff3e0, #ffe0b2);
         }
-        else
-        {
-            <button id="resendEmailBtn" class="btn btn-warning">Tekrar Gönder</button>
+
+        .result-card {
+            max-width: 500px;
+            border-radius: 15px;
+            background: #ffffff;
+            padding: 2rem;
         }
+    </style>
+</head>
+<body>
+    <div class="container d-flex justify-content-center align-items-center min-vh-100">
+        <div class="result-card shadow-lg text-center">
+            <div id="resultAnimation" style="height: 200px;"></div>
+            <h2 class="fw-bold my-3">
+                @(success ? "Email Doğrulandı!" : "Doğrulama Başarısız!")
+            </h2>
+            <p class="mb-4">@message</p>
+            @if (success)
+            {
+                <a href="/VAccount/Login" class="btn btn-primary">Giriş Yap</a>
+            }
+            else
+            {
+                <button id="resendEmailBtn" class="btn btn-warning">Tekrar Gönder</button>
+            }
+        </div>
     </div>
-</div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.7.6/lottie.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        // Server'dan gelen 'success' değerini JS değişkenine aktaralım.
+        var success = @success.ToString().ToLower(); // true veya false (boolean)
 
-<script>
-    lottie.loadAnimation({
-        container: document.getElementById('resultAnimation'),
-        renderer: 'svg',
-        loop: false,
-        autoplay: true,
-        path: success
-            ? 'https://lottie.host/8c202737-28bd-45ef-b293-63b8b96aa04d/QVGBIRWhvs.json'
-            : 'https://lottie.host/610315b7-595d-40b4-9608-2a55085cdbda/T73v6L8w0l.json'
-    });
-
-    document.getElementById("resendEmailBtn")?.addEventListener("click", () => {
-        fetch("/api/Account/resend-confirmation", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ email: '@ViewBag.Email' })
-        })
-        .then(res => res.json())
-        .then(data => {
-            Swal.fire("Gönderildi!", data.message, "success");
-        })
-        .catch(() => Swal.fire("Hata!", "Email tekrar gönderilemedi.", "error"));
-    });
-</script>
-
-<style>
-    body {
-        background: linear-gradient(135deg, #fff3e0, #ffe0b2);
-    }
-
-    .result-card {
-        max-width: 500px;
-        border-radius: 15px;
-        background: #ffffff;
-    }
-</style>
+        // Lottie animasyonunu yükleyelim.
+        lottie.loadAnimation({
+            container: document.getElementById('resultAnimation'),
+            renderer: 'svg',
+            loop: false,
+            autoplay: true,
+            path: success
+            ? 'https://assets.lottiefiles.com/packages/lf20_p8bfn5to.json'
+            : 'https://assets.lottiefiles.com/packages/lf20_wov9c1.json'
+        });
+        // Tekrar gönder butonuna event listener ekle
+        document.getElementById("resendEmailBtn")?.addEventListener("click", function () {
+            fetch("/api/Account/resend-confirmation", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ email: '@email' })
+            })
+            .then(res => res.json())
+            .then(data => {
+                Swal.fire("Gönderildi!", data.message, "success");
+            })
+            .catch(() => Swal.fire("Hata!", "Email tekrar gönderilemedi.", "error"));
+        });
+    </script>
+</body>
+</html>

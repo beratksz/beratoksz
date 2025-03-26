@@ -2,32 +2,106 @@
     Layout = "_Layout";  // Genel (public) layout
     ViewData["Title"] = "Hoşgeldiniz";
 }
-<script src="~/js/home_index.js"></script>
 
 <div class="container py-5">
     <div class="row justify-content-center">
-        <div class="col-md-6 text-center">
+        <div class="col-md-8 text-center">
             <h1 class="display-4">Hoşgeldiniz!</h1>
             <p class="lead">Sistemimize giriş yaparak özel içeriklere erişebilirsiniz.</p>
 
-            <div id="guestActions" style="display: block;">
+            <!-- Guest için gösterilecek alan -->
+            <div id="guestActions">
                 <button id="login-btn" class="btn btn-primary btn-lg">Giriş Yap</button>
             </div>
 
+            <!-- Kullanıcı için gösterilecek alan -->
             <div id="userActions" style="display: none;">
                 <h1 class="display-4">Merhaba, <span id="userName"></span>!</h1>
-                <p class="lead">Sistemimize başarılı giriş yaptınız. Panelinize yönlendirilmek için aşağıdaki butona tıklayabilirsiniz.</p>
+                <p class="lead">Başarılı giriş yaptınız. İşlemlerinize devam etmek için aşağıdaki butona tıklayınız.</p>
 
-                <!-- ✅ Admin Paneline Git -->
-                <auth-visible asp-area="Admin" asp-controller="Dashboard" asp-action="Index">
-                    <a class="btn btn-primary btn-lg" asp-area="Admin" asp-controller="Dashboard" asp-action="Index">Admin Paneline Git</a>
-                </auth-visible>
+                <!-- Admin Yetkisine Sahip Kullanıcılar için -->
+                <div id="adminPanelLink" style="display: none;">
+                    <a class="btn btn-warning btn-lg" href="/Admin/Dashboard/Index">Admin Paneline Git</a>
+                </div>
 
-                <!-- ✅ Güvenli Çıkış Butonu -->
-                <button id="logout-btn" class="btn btn-danger btn-lg">Çıkış Yap</button>
+                <!-- Normal kullanıcılar için -->
+                <div id="userPanelLink" style="display: none;">
+                    <a class="btn btn-success btn-lg" href="/User/Dashboard/Index">Kullanıcı Paneline Git</a>
+                </div>
+
+                <button id="logout-btn" class="btn btn-danger btn-lg mt-3">Çıkış Yap</button>
             </div>
-
         </div>
     </div>
 </div>
 
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        console.log("🚀 DOM Yüklendi!");
+
+        // Giriş butonunu etkinleştir
+        var loginBtn = document.getElementById("login-btn");
+        if (loginBtn) {
+            loginBtn.addEventListener("click", function () {
+                console.log("🔵 Giriş butonuna basıldı. Yönlendirme başlıyor...");
+                window.location.href = "/VAccount/Login";
+            });
+        } else {
+            console.error("❌ Giriş butonu bulunamadı!");
+        }
+
+        // Kullanıcı yetkilendirme kontrolü
+        fetch("/api/Account/check-auth")
+            .then(function(response) { return response.json(); })
+            .then(function(data) {
+                console.log("🟢 Auth kontrol sonucu:", data);
+                if (data.isAuthenticated && data.userName) {
+                    // Giriş yapılmışsa
+                    document.getElementById("userActions").style.display = "block";
+                    document.getElementById("guestActions").style.display = "none";
+                    document.getElementById("userName").innerText = data.userName;
+
+                    // Kullanıcının yetkisine göre panel seçimi
+                if(data.roles && data.roles.includes("Admin")) {
+
+                        document.getElementById("adminPanelLink").style.display = "block";
+                    } else {
+                        document.getElementById("userPanelLink").style.display = "block";
+                    }
+                } else {
+                    // Giriş yapılmamışsa
+                    document.getElementById("guestActions").style.display = "block";
+                    document.getElementById("userActions").style.display = "none";
+                }
+            })
+            .catch(function(err) {
+                console.error("❌ Auth kontrolü başarısız:", err);
+                document.getElementById("guestActions").style.display = "block";
+                document.getElementById("userActions").style.display = "none";
+            });
+
+        // Çıkış butonunu etkinleştir
+        var logoutBtn = document.getElementById("logout-btn");
+        if (logoutBtn) {
+            logoutBtn.addEventListener("click", function () {
+                console.log("🔴 Çıkış butonuna basıldı...");
+                fetch("/api/Account/logout", {
+                    method: "POST",
+                    credentials: "include"
+                })
+                .then(function() {
+                    // Çıkış sonrası kimlik doğrulama çerezlerini temizle
+                    document.cookie = "AuthToken=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+                    document.cookie = "RefreshToken=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+                    console.log("✅ Çıkış başarılı! Anasayfaya yönlendiriliyor...");
+                    window.location.href = "/";
+                })
+                .catch(function(err) {
+                    console.error("❌ Logout failed:", err);
+                });
+            });
+        } else {
+            console.error("❌ Çıkış butonu bulunamadı!");
+        }
+    });
+</script>

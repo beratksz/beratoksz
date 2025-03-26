@@ -17,6 +17,8 @@ namespace beratoksz.Controllers
                     return View("AccessDenied");
                 case 404:
                     return View("NotFound");
+                case 429:
+                    return View("TooManyRequests");
                 default:
                     return View("Error");
             }

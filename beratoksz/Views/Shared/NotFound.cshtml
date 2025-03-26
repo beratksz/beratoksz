@@ -1,11 +1,37 @@
 ﻿@{
     ViewData["Title"] = "Sayfa Bulunamadı";
-    Layout = "_Layout";
-    @using Microsoft.AspNetCore.Authorization
-    @attribute [AllowAnonymous]
+    Layout = null; // Tam bağımsız, layout kullanılmıyor.
 }
-<div class="container text-center py-5">
-    <h1 class="text-warning">🔍 404 - Sayfa Bulunamadı</h1>
-    <p class="lead">Aradığınız sayfa bulunamadı veya kaldırılmış olabilir.</p>
-    <a href="/" class="btn btn-primary">Ana Sayfaya Dön</a>
-</div>
+@using Microsoft.AspNetCore.Authorization
+@attribute [AllowAnonymous]
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewData["Title"]</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Bootstrap ve global modern.css dahil -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/css/modern.css" rel="stylesheet" />
+    <!-- Lottie Player kütüphanesi -->
+    <script src="https://unpkg.com/%40lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+</head>
+<body>
+    <div class="d-flex justify-content-center align-items-center vh-100">
+        <div class="text-center p-4">
+            <!-- 404 Hatası için dikkat çekici Lottie Animasyonu -->
+            <lottie-player src="https://assets9.lottiefiles.com/packages/lf20_WpDLK7.json"
+                           background="transparent"
+                           speed="1"
+                           style="height: 300px;"
+                           loop
+                           autoplay>
+            </lottie-player>
+            <h1 class="display-4 text-warning mt-4">404 - Sayfa Bulunamadı</h1>
+            <p class="lead">Aradığınız sayfa bulunamadı veya kaldırılmış olabilir.</p>
+            <a href="/" class="btn btn-primary mt-3">Ana Sayfaya Dön</a>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,81 @@
+﻿/* modern.css */
+
+/* Genel Yapılandırma */
+/* Sistem Rengi: Light ve Dark Mode */
+body {
+    background-color: #ffffff; /* Light mode varsayılanı */
+}
+
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: #212529; /* Dark mode için */
+    }
+}
+body {
+    background-color: #ffffff; /* Hafif gri arka plan */
+    color: #212529;
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+}
+
+/* Link Stilleri */
+a {
+    color: #0d6efd;
+    transition: color 0.3s ease;
+}
+
+    a:hover {
+        color: #0a58ca;
+    }
+
+/* Container Ayarlamaları */
+.container {
+    padding: 1rem;
+}
+
+/* Navbar Stil Düzenlemeleri */
+.navbar {
+    padding: 0.5rem 1rem;
+    background-color: #ffffff;
+    border-bottom: 1px solid #eaeaea;
+}
+
+.navbar-brand {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.nav-link {
+    margin-right: 1rem;
+    font-size: 1rem;
+}
+
+/* Dropdown Menü Özelleştirmeleri */
+.dropdown-menu {
+    border: none;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+}
+
+.dropdown-item:hover {
+    background-color: #f1f1f1;
+}
+
+/* Footer Stilleri */
+footer {
+    background-color: #343a40;
+    color: #ffffff;
+    text-align: center;
+    padding: 1rem 0;
+}
+
+/* İsteğe Bağlı: Dark Mode için Örnek */
+.dark-mode {
+    background-color: #212529;
+    color: #eaeaea;
+}
+
+    .dark-mode a {
+        color: #66b0ff;
+    }

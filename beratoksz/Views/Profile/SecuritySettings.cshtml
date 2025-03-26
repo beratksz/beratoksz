@@ -2,21 +2,35 @@
 @{
     ViewData["Title"] = "Güvenlik Ayarları";
 }
-<h2>Güvenlik Ayarları</h2>
 
-@if (TempData["Message"] != null)
-{
-    <div class="alert alert-success">@TempData["Message"]</div>
-}
-@if (TempData["Error"] != null)
-{
-    <div class="alert alert-danger">@TempData["Error"]</div>
-}
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8 col-lg-6">
+            <div class="card shadow-sm border-0">
+                <div class="card-header bg-primary text-white">
+                    <h3 class="mb-0">Güvenlik Ayarları</h3>
+                </div>
+                <div class="card-body">
+                    @if (TempData["Message"] != null)
+                    {
+                        <div class="alert alert-success">@TempData["Message"]</div>
+                    }
+                    @if (TempData["Error"] != null)
+                    {
+                        <div class="alert alert-danger">@TempData["Error"]</div>
+                    }
 
-<form asp-action="UpdateTwoFactor" method="post">
-    <div class="form-check">
-        <input class="form-check-input" type="checkbox" name="enable" value="true" @(Model.TwoFactorEnabled ? "checked" : "") />
-        <label class="form-check-label">İki Faktörlü Kimlik Doğrulamasını Etkinleştir</label>
+                    <form asp-action="UpdateTwoFactor" method="post">
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" name="enable" id="twoFactorSwitch" value="true" @(Model.TwoFactorEnabled ? "checked" : "") />
+                            <label class="form-check-label" for="twoFactorSwitch">
+                                İki Faktörlü Kimlik Doğrulamasını Etkinleştir
+                            </label>
+                        </div>
+                        <button type="submit" class="btn btn-primary mt-3 w-100">Güncelle</button>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
-    <button type="submit" class="btn btn-primary mt-3">Güncelle</button>
-</form>
+</div>

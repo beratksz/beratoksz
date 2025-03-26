@@ -25,6 +25,10 @@
       "PackagePath": "staticwebassets\\css\\login.css"
     },
     {
+      "Id": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\wwwroot\\css\\modern.css",
+      "PackagePath": "staticwebassets\\css\\modern.css"
+    },
+    {
       "Id": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },
@@ -35,6 +39,10 @@
     {
       "Id": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\wwwroot\\js\\home_index.js",
       "PackagePath": "staticwebassets\\js\\home_index.js"
+    },
+    {
+      "Id": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\wwwroot\\js\\modern.js",
+      "PackagePath": "staticwebassets\\js\\modern.js"
     },
     {
       "Id": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\wwwroot\\lib\\bootstrap\\LICENSE",
@@ -263,6 +271,26 @@
     {
       "Id": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
+    },
+    {
+      "Id": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\wwwroot\\lottiefiles\\check-mail.json",
+      "PackagePath": "staticwebassets\\lottiefiles\\check-mail.json"
+    },
+    {
+      "Id": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\wwwroot\\lottiefiles\\failed.json",
+      "PackagePath": "staticwebassets\\lottiefiles\\failed.json"
+    },
+    {
+      "Id": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\wwwroot\\lottiefiles\\forgot-password.json",
+      "PackagePath": "staticwebassets\\lottiefiles\\forgot-password.json"
+    },
+    {
+      "Id": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\wwwroot\\lottiefiles\\login.json",
+      "PackagePath": "staticwebassets\\lottiefiles\\login.json"
+    },
+    {
+      "Id": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\wwwroot\\lottiefiles\\success.json",
+      "PackagePath": "staticwebassets\\lottiefiles\\success.json"
     },
     {
       "Id": "obj\\Debug\\net9.0\\staticwebassets\\msbuild.beratoksz.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",

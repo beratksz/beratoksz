@@ -55,7 +55,7 @@ builder.Services.ConfigureApplicationCookie(options =>
 builder.Services.AddScoped<IUserClaimsPrincipalFactory<AppUser>, AdditionalUserClaimsPrincipalFactory>();
 builder.Services.AddScoped<RolePermissionService>();
 builder.Services.AddHttpContextAccessor();
-// builder.Services.AddScoped<PageDiscoveryService>();
+builder.Services.AddScoped<PageDiscoveryService>();
 builder.Services.AddScoped<TwoFactorEmailService>();
 builder.Services.AddScoped<UserSecurityService>();
 builder.Services.AddScoped<EmailConfirmationService>();
@@ -194,7 +194,7 @@ app.UseSession();
 app.UseMiddleware<PerformanceMetricsMiddleware>();
 app.UseMiddleware<ActivityLoggingMiddleware>();
 app.UseMiddleware<RolePermissionMiddleware>();
-// app.UseMiddleware<AutoDiscoverMiddleware>();
+app.UseMiddleware<AutoDiscoverMiddleware>();
 
 app.MapHub<StatusHub>("/statusHub");
 
@@ -207,7 +207,7 @@ using (var scope = app.Services.CreateScope())
 
 // ?? Route Discovery ve Otomatik Yetkilendirme
 
-/*
+
 using (var scope = app.Services.CreateScope())
 {
     var provider = scope.ServiceProvider;
@@ -220,7 +220,7 @@ using (var scope = app.Services.CreateScope())
 
     seeder.SeedPermissions(discoveredEndpoints);
 }
-*/
+
 
 // ?? Endpoint mapping
 app.MapControllerRoute(

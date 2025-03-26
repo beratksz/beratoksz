@@ -57,6 +57,7 @@ namespace beratoksz.Controllers
         }
 
         [HttpPost("register")]
+        [Throttle(300)]
         public async Task<IActionResult> Register([FromBody] RegisterViewModel model)
         {
             if (!ModelState.IsValid)
@@ -91,9 +92,9 @@ namespace beratoksz.Controllers
             _logger.LogInformation("User registered: {UserId}, Email: {Email}", user.Id, user.Email);
 
             // Email doğrulaması için token üret
-var emailToken = await _userManager.GenerateEmailConfirmationTokenAsync(user);
-var safeToken = WebUtility.UrlEncode(emailToken); // using System.Net;
-var confirmationLink = Url.Action("ConfirmEmail", "VAccount", new { userId = user.Id, token = safeToken }, Request.Scheme);
+                var emailToken = await _userManager.GenerateEmailConfirmationTokenAsync(user);
+                var safeToken = WebUtility.UrlEncode(emailToken); // using System.Net;
+                var confirmationLink = Url.Action("ConfirmEmail", "VAccount", new { userId = user.Id, token = safeToken }, Request.Scheme);
             try
             {
                 await _emailConfirmationService.SendConfirmationEmailAsync(user.Email, confirmationLink);
@@ -110,6 +111,7 @@ var confirmationLink = Url.Action("ConfirmEmail", "VAccount", new { userId = use
         }
 
         [HttpGet("confirm-email")]
+        [Throttle(300)]
         public async Task<IActionResult> ConfirmEmail(string userId, string token)
         {
             if (string.IsNullOrEmpty(userId) || string.IsNullOrEmpty(token))
@@ -193,6 +195,7 @@ var confirmationLink = Url.Action("ConfirmEmail", "VAccount", new { userId = use
         }
 
         [HttpPost("resend-confirmation")]
+        [Throttle(300)]
         public async Task<IActionResult> ResendConfirmation([FromBody] ResendConfirmationDto model)
         {
             if (string.IsNullOrWhiteSpace(model.Email))
@@ -224,6 +227,7 @@ var confirmationLink = Url.Action("ConfirmEmail", "VAccount", new { userId = use
 
 
         [HttpPost("verify-2fa")]
+        [Throttle(300)]
         public async Task<IActionResult> Verify2FA([FromBody] Verify2FADto dto)
         {
             var code = HttpContext.Session.GetString("2FACode");
@@ -256,6 +260,7 @@ var confirmationLink = Url.Action("ConfirmEmail", "VAccount", new { userId = use
         }
 
         [HttpPost("resend-2fa-code")]
+        [Throttle(300)]
         public async Task<IActionResult> ResendTwoFactorCode([FromBody] Resend2FADto dto)
         {
             var user = await _userManager.FindByEmailAsync(dto.LoginIdentifier)
@@ -279,6 +284,7 @@ var confirmationLink = Url.Action("ConfirmEmail", "VAccount", new { userId = use
 
 
         [HttpPost("forgot-password")]
+        [Throttle(300)]
         public async Task<IActionResult> ForgotPassword([FromBody] ForgotPasswordDto model)
         {
             if (string.IsNullOrWhiteSpace(model.Email))
@@ -304,11 +310,8 @@ var confirmationLink = Url.Action("ConfirmEmail", "VAccount", new { userId = use
             }
         }
 
-
-
-
-
         [HttpPost("reset-password")]
+        [Throttle(300)]
         public async Task<IActionResult> ResetPassword([FromBody] ResetPasswordDto model)
         {
 
@@ -377,14 +380,17 @@ var confirmationLink = Url.Action("ConfirmEmail", "VAccount", new { userId = use
 
 
         [HttpGet("check-auth")]
-        public IActionResult CheckAuth()
+        public async Task<IActionResult> CheckAuth()
         {
             if (User.Identity.IsAuthenticated)
             {
-                return Ok(new { isAuthenticated = true, userName = User.Identity.Name });
+                var user = await _userManager.GetUserAsync(User);
+                var roles = await _userManager.GetRolesAsync(user);
+                return Ok(new { isAuthenticated = true, userName = User.Identity.Name, roles });
             }
             return Ok(new { isAuthenticated = false });
         }
+
 
 
         private void SetAuthCookies(string token, string refreshToken)

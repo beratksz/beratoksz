@@ -3,20 +3,8 @@
   "WorkspaceRootPath": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{7138BA50-D8E2-404D-9C96-32D2CF7CF7C2}|beratoksz\\beratoksz.csproj|c:\\users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\views\\vaccount\\confirmemail.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{7138BA50-D8E2-404D-9C96-32D2CF7CF7C2}|beratoksz\\beratoksz.csproj|solutionrelative:beratoksz\\views\\vaccount\\confirmemail.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7138BA50-D8E2-404D-9C96-32D2CF7CF7C2}|beratoksz\\beratoksz.csproj|c:\\users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\controllers\\vaccountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7138BA50-D8E2-404D-9C96-32D2CF7CF7C2}|beratoksz\\beratoksz.csproj|solutionrelative:beratoksz\\controllers\\vaccountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7138BA50-D8E2-404D-9C96-32D2CF7CF7C2}|beratoksz\\beratoksz.csproj|c:\\users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7138BA50-D8E2-404D-9C96-32D2CF7CF7C2}|beratoksz\\beratoksz.csproj|solutionrelative:beratoksz\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7138BA50-D8E2-404D-9C96-32D2CF7CF7C2}|beratoksz\\beratoksz.csproj|c:\\users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\views\\vaccount\\resetpassword.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{7138BA50-D8E2-404D-9C96-32D2CF7CF7C2}|beratoksz\\beratoksz.csproj|solutionrelative:beratoksz\\views\\vaccount\\resetpassword.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{7138BA50-D8E2-404D-9C96-32D2CF7CF7C2}|beratoksz\\beratoksz.csproj|c:\\users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\views\\vaccount\\forgotpassword.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{7138BA50-D8E2-404D-9C96-32D2CF7CF7C2}|beratoksz\\beratoksz.csproj|solutionrelative:beratoksz\\views\\vaccount\\forgotpassword.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,7 +14,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
@@ -38,54 +26,15 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "ResetPassword.cshtml",
-              "DocumentMoniker": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\Views\\VAccount\\ResetPassword.cshtml",
-              "RelativeDocumentMoniker": "beratoksz\\Views\\VAccount\\ResetPassword.cshtml",
-              "ToolTip": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\Views\\VAccount\\ResetPassword.cshtml",
-              "RelativeToolTip": "beratoksz\\Views\\VAccount\\ResetPassword.cshtml",
-              "ViewState": "AgIAADMAAAAAAAAAAAAAAE0AAAAZAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-03-25T13:08:09.21Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "ConfirmEmail.cshtml",
-              "DocumentMoniker": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\Views\\VAccount\\ConfirmEmail.cshtml",
-              "RelativeDocumentMoniker": "beratoksz\\Views\\VAccount\\ConfirmEmail.cshtml",
-              "ToolTip": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\Views\\VAccount\\ConfirmEmail.cshtml*",
-              "RelativeToolTip": "beratoksz\\Views\\VAccount\\ConfirmEmail.cshtml*",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAACYAAAAmAAAAAAAAAA==",
+              "Title": "ForgotPassword.cshtml",
+              "DocumentMoniker": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\Views\\VAccount\\ForgotPassword.cshtml",
+              "RelativeDocumentMoniker": "beratoksz\\Views\\VAccount\\ForgotPassword.cshtml",
+              "ToolTip": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\Views\\VAccount\\ForgotPassword.cshtml",
+              "RelativeToolTip": "beratoksz\\Views\\VAccount\\ForgotPassword.cshtml",
+              "ViewState": "AgIAABUAAAAAAAAAAAAAACEAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-03-25T12:52:43.47Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "AccountController.cs",
-              "DocumentMoniker": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\Controllers\\AccountController.cs",
-              "RelativeDocumentMoniker": "beratoksz\\Controllers\\AccountController.cs",
-              "ToolTip": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\Controllers\\AccountController.cs*",
-              "RelativeToolTip": "beratoksz\\Controllers\\AccountController.cs*",
-              "ViewState": "AgIAAMMAAAAAAAAAAAA9wNIAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-25T12:48:58.881Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "VAccountController.cs",
-              "DocumentMoniker": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\Controllers\\VAccountController.cs",
-              "RelativeDocumentMoniker": "beratoksz\\Controllers\\VAccountController.cs",
-              "ToolTip": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\Controllers\\VAccountController.cs",
-              "RelativeToolTip": "beratoksz\\Controllers\\VAccountController.cs",
-              "ViewState": "AgIAABYAAAAAAAAAAAAkwCsAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-25T12:48:25.211Z",
+              "WhenOpened": "2025-03-26T13:04:35.407Z",
               "EditorCaption": ""
             }
           ]
