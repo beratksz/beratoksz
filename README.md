@@ -14,15 +14,15 @@ sms doğrulaması için çalışmalar yapılacak
 
 ***mail doğrulaması için resend yaparken kullanıcı ve id placeholder kullanılmış sadece mail olması gerek k.adına izin verilmemesi gerekli
 
-hakkında kısmı için çalışalacak
+***hakkında kısmı için çalışalacak
 
-gizlilik politikası için çalışılacak
+***gizlilik politikası için çalışılacak
 
-siteye girerken çerez kullanımı için uyarı verecek
+***siteye girerken çerez kullanımı için uyarı verecek
 
-anasayfa genelleştirelecek admin panel için link buton olmayacak (/admin ile gidilecek eğer giriş yapmış olan adminse zaten erişim sağlacak)
+***anasayfa genelleştirelecek admin panel için link buton olmayacak (/admin ile gidilecek eğer giriş yapmış olan adminse zaten erişim sağlacak)
 
-geoip çalışmıyor gibi gelen veriler sabit ve değersiz geliyor düzeltilecek
+***geoip çalışmıyor gibi gelen veriler sabit ve değersiz geliyor düzeltilecek
 
 ***belirli bir sayıda başarısız girişimde kullanıcı step step engellenecek ve cooldown'a girecek 
 
