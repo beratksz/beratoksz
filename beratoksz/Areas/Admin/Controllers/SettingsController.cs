@@ -56,12 +56,13 @@ namespace beratoksz.Areas.Admin.Controllers
             }
             else
             {
-                // Varsayılan olarak, ilk kaydı seçelim
-                model.CurrentSettings = allSettings.FirstOrDefault();
+                // Varsayılan olarak, yeni bir kayıt oluştur
+                model.CurrentSettings = new SiteSettings();
             }
 
             return View(model);
         }
+
 
 
         [HttpPost]

@@ -5,6 +5,18 @@
 
 <h2>Site Ayarları</h2>
 
+<style>
+    .active-setting {
+        font-weight: bold;
+        color: green;
+    }
+
+    .inactive-setting {
+        color: red;
+    }
+</style>
+
+
 @if (TempData["SuccessMessage"] != null)
 {
     <div class="alert alert-success">@TempData["SuccessMessage"]</div>
@@ -17,9 +29,11 @@
             <option value="">-- Yeni Kayıt --</option>
             @foreach (var s in Model.SettingsList)
             {
-                <option value="@s.Id" selected="@(s.Id == Model.CurrentSettings.Id)">
-                    @($"ID: {s.Id} | EmailVerif: {s.EnableEmailVerification} | 2FA: {s.EnableTwoFactorAuthentication}")
+                <option value="@s.Id" selected="@(s.Id == Model.CurrentSettings.Id)" class="@(s.IsActive ? "active-setting" : "inactive-setting")">
+                    @($"ID: {s.Id} | EmailVerif: {s.EnableEmailVerification} | 2FA: {s.EnableTwoFactorAuthentication} | Aktif: {(s.IsActive ? "Evet" : "Hayır")}")
                 </option>
+
+
             }
         </select>
     </div>
@@ -99,9 +113,9 @@
 @section Scripts {
     <script>
         function onSettingsSelectChange() {
-            var id = document.getElementById("settingsSelect").value;
-            window.location.href = '@Url.Action("Index", "Settings", new { area = "Admin" })' + (id ? '?id=' + id : '');
-        }
+             var id = document.getElementById("settingsSelect").value;
+             window.location.href = '@Url.Action("Index", "Settings", new { area = "Admin" })' + (id ? '?id=' + id : '');
+         }
 
         function activateSettings(id) {
             if (confirm("Bu ayarı aktifleştirmek istediğinize emin misiniz?")) {

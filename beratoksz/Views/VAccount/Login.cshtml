@@ -54,6 +54,7 @@
                 <input type="text" id="twoFactorCode" class="form-control mb-3" placeholder="Doğrulama Kodu" required />
                 <button type="submit" class="btn btn-success w-100">Kodu Doğrula</button>
                 <button type="button" id="resend2FA" class="btn btn-link mt-2">Kodu Tekrar Gönder</button>
+                <div id="countdown" class="mt-2"></div> <!-- Geri sayım göstergesi -->
             </form>
 
             <!-- Ekstra Linkler -->
@@ -71,7 +72,7 @@
             renderer: 'svg',
             loop: true,
             autoplay: true,
-            path: 'https://assets2.lottiefiles.com/packages/lf20_p8bfn5to.json'
+            path: '/lottie/login.json'
         });
 
         document.getElementById("loginForm").addEventListener("submit", function (event) {
@@ -98,6 +99,7 @@
                     document.getElementById("twoFactorForm").style.display = "block";
                     document.getElementById("formTitle").innerText = "Doğrulama Kodu";
                     document.getElementById("extraLinks").style.display = "none";
+                    startCountdown(300); // 5 dakika (300 saniye) geri sayımı başlat
                 } else if (data.redirectUrl) {
                     window.location.href = data.redirectUrl;
                 } else {
@@ -169,11 +171,38 @@
             .then(res => res.json())
             .then(data => {
                 Swal.fire('Gönderildi!', data.message, 'success');
+                startCountdown(300); // Geri sayımı sıfırla ve yeniden başlat
             })
             .catch(() => {
                 Swal.fire('Hata!', 'Kod tekrar gönderilemedi.', 'error');
             });
         });
+
+        let countdownInterval;
+
+        function startCountdown(duration) {
+            let timer = duration, minutes, seconds;
+            const countdownElement = document.getElementById('countdown');
+
+            if (countdownInterval) {
+                clearInterval(countdownInterval);
+            }
+
+            countdownInterval = setInterval(() => {
+                minutes = parseInt(timer / 60, 10);
+                seconds = parseInt(timer % 60, 10);
+
+                minutes = minutes < 10 ? "0" + minutes : minutes;
+                seconds = seconds < 10 ? "0" + seconds : seconds;
+
+                countdownElement.textContent = `Kalan süre: ${minutes}:${seconds}`;
+
+                if (--timer < 0) {
+                    clearInterval(countdownInterval);
+                    countdownElement.textContent = "Süre doldu!";
+                }
+            }, 1000);
+        }
     </script>
 </body>
 </html>

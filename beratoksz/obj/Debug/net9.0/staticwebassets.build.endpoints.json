@@ -19753,8 +19753,8 @@
       ]
     },
     {
-      "Route": "lottiefiles/check-mail.json",
-      "AssetFile": "lottiefiles/check-mail.json.gz",
+      "Route": "lottie/check-mail.json",
+      "AssetFile": "lottie/check-mail.json.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
@@ -19808,8 +19808,8 @@
       ]
     },
     {
-      "Route": "lottiefiles/check-mail.json",
-      "AssetFile": "lottiefiles/check-mail.json",
+      "Route": "lottie/check-mail.json",
+      "AssetFile": "lottie/check-mail.json",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -19845,8 +19845,8 @@
       ]
     },
     {
-      "Route": "lottiefiles/check-mail.json.gz",
-      "AssetFile": "lottiefiles/check-mail.json.gz",
+      "Route": "lottie/check-mail.json.gz",
+      "AssetFile": "lottie/check-mail.json.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -19890,8 +19890,8 @@
       ]
     },
     {
-      "Route": "lottiefiles/check-mail.k8oqb9v8mj.json",
-      "AssetFile": "lottiefiles/check-mail.json.gz",
+      "Route": "lottie/check-mail.k8oqb9v8mj.json",
+      "AssetFile": "lottie/check-mail.json.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
@@ -19948,13 +19948,13 @@
         },
         {
           "Name": "label",
-          "Value": "lottiefiles/check-mail.json"
+          "Value": "lottie/check-mail.json"
         }
       ]
     },
     {
-      "Route": "lottiefiles/check-mail.k8oqb9v8mj.json",
-      "AssetFile": "lottiefiles/check-mail.json",
+      "Route": "lottie/check-mail.k8oqb9v8mj.json",
+      "AssetFile": "lottie/check-mail.json",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -19993,13 +19993,13 @@
         },
         {
           "Name": "label",
-          "Value": "lottiefiles/check-mail.json"
+          "Value": "lottie/check-mail.json"
         }
       ]
     },
     {
-      "Route": "lottiefiles/check-mail.k8oqb9v8mj.json.gz",
-      "AssetFile": "lottiefiles/check-mail.json.gz",
+      "Route": "lottie/check-mail.k8oqb9v8mj.json.gz",
+      "AssetFile": "lottie/check-mail.json.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -20046,13 +20046,13 @@
         },
         {
           "Name": "label",
-          "Value": "lottiefiles/check-mail.json.gz"
+          "Value": "lottie/check-mail.json.gz"
         }
       ]
     },
     {
-      "Route": "lottiefiles/failed.json",
-      "AssetFile": "lottiefiles/failed.json.gz",
+      "Route": "lottie/failed.json",
+      "AssetFile": "lottie/failed.json.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
@@ -20106,8 +20106,8 @@
       ]
     },
     {
-      "Route": "lottiefiles/failed.json",
-      "AssetFile": "lottiefiles/failed.json",
+      "Route": "lottie/failed.json",
+      "AssetFile": "lottie/failed.json",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -20143,8 +20143,8 @@
       ]
     },
     {
-      "Route": "lottiefiles/failed.json.gz",
-      "AssetFile": "lottiefiles/failed.json.gz",
+      "Route": "lottie/failed.json.gz",
+      "AssetFile": "lottie/failed.json.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -20188,8 +20188,8 @@
       ]
     },
     {
-      "Route": "lottiefiles/failed.sj94tkszxq.json",
-      "AssetFile": "lottiefiles/failed.json.gz",
+      "Route": "lottie/failed.sj94tkszxq.json",
+      "AssetFile": "lottie/failed.json.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
@@ -20246,13 +20246,13 @@
         },
         {
           "Name": "label",
-          "Value": "lottiefiles/failed.json"
+          "Value": "lottie/failed.json"
         }
       ]
     },
     {
-      "Route": "lottiefiles/failed.sj94tkszxq.json",
-      "AssetFile": "lottiefiles/failed.json",
+      "Route": "lottie/failed.sj94tkszxq.json",
+      "AssetFile": "lottie/failed.json",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -20291,13 +20291,13 @@
         },
         {
           "Name": "label",
-          "Value": "lottiefiles/failed.json"
+          "Value": "lottie/failed.json"
         }
       ]
     },
     {
-      "Route": "lottiefiles/failed.sj94tkszxq.json.gz",
-      "AssetFile": "lottiefiles/failed.json.gz",
+      "Route": "lottie/failed.sj94tkszxq.json.gz",
+      "AssetFile": "lottie/failed.json.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -20344,13 +20344,13 @@
         },
         {
           "Name": "label",
-          "Value": "lottiefiles/failed.json.gz"
+          "Value": "lottie/failed.json.gz"
         }
       ]
     },
     {
-      "Route": "lottiefiles/forgot-password.json",
-      "AssetFile": "lottiefiles/forgot-password.json.gz",
+      "Route": "lottie/forgot-password.json",
+      "AssetFile": "lottie/forgot-password.json.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
@@ -20404,8 +20404,8 @@
       ]
     },
     {
-      "Route": "lottiefiles/forgot-password.json",
-      "AssetFile": "lottiefiles/forgot-password.json",
+      "Route": "lottie/forgot-password.json",
+      "AssetFile": "lottie/forgot-password.json",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -20441,8 +20441,8 @@
       ]
     },
     {
-      "Route": "lottiefiles/forgot-password.json.gz",
-      "AssetFile": "lottiefiles/forgot-password.json.gz",
+      "Route": "lottie/forgot-password.json.gz",
+      "AssetFile": "lottie/forgot-password.json.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -20486,8 +20486,8 @@
       ]
     },
     {
-      "Route": "lottiefiles/forgot-password.x7bkcg34p0.json",
-      "AssetFile": "lottiefiles/forgot-password.json.gz",
+      "Route": "lottie/forgot-password.x7bkcg34p0.json",
+      "AssetFile": "lottie/forgot-password.json.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
@@ -20544,13 +20544,13 @@
         },
         {
           "Name": "label",
-          "Value": "lottiefiles/forgot-password.json"
+          "Value": "lottie/forgot-password.json"
         }
       ]
     },
     {
-      "Route": "lottiefiles/forgot-password.x7bkcg34p0.json",
-      "AssetFile": "lottiefiles/forgot-password.json",
+      "Route": "lottie/forgot-password.x7bkcg34p0.json",
+      "AssetFile": "lottie/forgot-password.json",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -20589,13 +20589,13 @@
         },
         {
           "Name": "label",
-          "Value": "lottiefiles/forgot-password.json"
+          "Value": "lottie/forgot-password.json"
         }
       ]
     },
     {
-      "Route": "lottiefiles/forgot-password.x7bkcg34p0.json.gz",
-      "AssetFile": "lottiefiles/forgot-password.json.gz",
+      "Route": "lottie/forgot-password.x7bkcg34p0.json.gz",
+      "AssetFile": "lottie/forgot-password.json.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -20642,13 +20642,13 @@
         },
         {
           "Name": "label",
-          "Value": "lottiefiles/forgot-password.json.gz"
+          "Value": "lottie/forgot-password.json.gz"
         }
       ]
     },
     {
-      "Route": "lottiefiles/login.3kjdigtr90.json",
-      "AssetFile": "lottiefiles/login.json.gz",
+      "Route": "lottie/login.3kjdigtr90.json",
+      "AssetFile": "lottie/login.json.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
@@ -20705,13 +20705,13 @@
         },
         {
           "Name": "label",
-          "Value": "lottiefiles/login.json"
+          "Value": "lottie/login.json"
         }
       ]
     },
     {
-      "Route": "lottiefiles/login.3kjdigtr90.json",
-      "AssetFile": "lottiefiles/login.json",
+      "Route": "lottie/login.3kjdigtr90.json",
+      "AssetFile": "lottie/login.json",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -20750,13 +20750,13 @@
         },
         {
           "Name": "label",
-          "Value": "lottiefiles/login.json"
+          "Value": "lottie/login.json"
         }
       ]
     },
     {
-      "Route": "lottiefiles/login.3kjdigtr90.json.gz",
-      "AssetFile": "lottiefiles/login.json.gz",
+      "Route": "lottie/login.3kjdigtr90.json.gz",
+      "AssetFile": "lottie/login.json.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -20803,13 +20803,13 @@
         },
         {
           "Name": "label",
-          "Value": "lottiefiles/login.json.gz"
+          "Value": "lottie/login.json.gz"
         }
       ]
     },
     {
-      "Route": "lottiefiles/login.json",
-      "AssetFile": "lottiefiles/login.json.gz",
+      "Route": "lottie/login.json",
+      "AssetFile": "lottie/login.json.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
@@ -20863,8 +20863,8 @@
       ]
     },
     {
-      "Route": "lottiefiles/login.json",
-      "AssetFile": "lottiefiles/login.json",
+      "Route": "lottie/login.json",
+      "AssetFile": "lottie/login.json",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -20900,8 +20900,8 @@
       ]
     },
     {
-      "Route": "lottiefiles/login.json.gz",
-      "AssetFile": "lottiefiles/login.json.gz",
+      "Route": "lottie/login.json.gz",
+      "AssetFile": "lottie/login.json.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -20945,8 +20945,306 @@
       ]
     },
     {
-      "Route": "lottiefiles/success.json",
-      "AssetFile": "lottiefiles/success.json.gz",
+      "Route": "lottie/reset-password.cge7zmq9wt.json",
+      "AssetFile": "lottie/reset-password.json.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.000531067446"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1882"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/json"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"3GlIRv+eULq62Qjufq5zxwwetTiyQStfY3SO9UAkUfg=\""
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"FMDDid1pLUbS9kmYMBgBVqhV75Kq5gjpP7dpVxfaRjo=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 27 Mar 2025 08:31:07 GMT"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "cge7zmq9wt"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-FMDDid1pLUbS9kmYMBgBVqhV75Kq5gjpP7dpVxfaRjo="
+        },
+        {
+          "Name": "label",
+          "Value": "lottie/reset-password.json"
+        }
+      ]
+    },
+    {
+      "Route": "lottie/reset-password.cge7zmq9wt.json",
+      "AssetFile": "lottie/reset-password.json",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "11444"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/json"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"FMDDid1pLUbS9kmYMBgBVqhV75Kq5gjpP7dpVxfaRjo=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 27 Mar 2025 08:31:07 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "cge7zmq9wt"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-FMDDid1pLUbS9kmYMBgBVqhV75Kq5gjpP7dpVxfaRjo="
+        },
+        {
+          "Name": "label",
+          "Value": "lottie/reset-password.json"
+        }
+      ]
+    },
+    {
+      "Route": "lottie/reset-password.cge7zmq9wt.json.gz",
+      "AssetFile": "lottie/reset-password.json.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1882"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/json"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"3GlIRv+eULq62Qjufq5zxwwetTiyQStfY3SO9UAkUfg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 27 Mar 2025 08:31:07 GMT"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "cge7zmq9wt"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-3GlIRv+eULq62Qjufq5zxwwetTiyQStfY3SO9UAkUfg="
+        },
+        {
+          "Name": "label",
+          "Value": "lottie/reset-password.json.gz"
+        }
+      ]
+    },
+    {
+      "Route": "lottie/reset-password.json",
+      "AssetFile": "lottie/reset-password.json.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.000531067446"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1882"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/json"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"3GlIRv+eULq62Qjufq5zxwwetTiyQStfY3SO9UAkUfg=\""
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"FMDDid1pLUbS9kmYMBgBVqhV75Kq5gjpP7dpVxfaRjo=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 27 Mar 2025 08:31:07 GMT"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-FMDDid1pLUbS9kmYMBgBVqhV75Kq5gjpP7dpVxfaRjo="
+        }
+      ]
+    },
+    {
+      "Route": "lottie/reset-password.json",
+      "AssetFile": "lottie/reset-password.json",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "11444"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/json"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"FMDDid1pLUbS9kmYMBgBVqhV75Kq5gjpP7dpVxfaRjo=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 27 Mar 2025 08:31:07 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-FMDDid1pLUbS9kmYMBgBVqhV75Kq5gjpP7dpVxfaRjo="
+        }
+      ]
+    },
+    {
+      "Route": "lottie/reset-password.json.gz",
+      "AssetFile": "lottie/reset-password.json.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1882"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/json"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"3GlIRv+eULq62Qjufq5zxwwetTiyQStfY3SO9UAkUfg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 27 Mar 2025 08:31:07 GMT"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-3GlIRv+eULq62Qjufq5zxwwetTiyQStfY3SO9UAkUfg="
+        }
+      ]
+    },
+    {
+      "Route": "lottie/success.json",
+      "AssetFile": "lottie/success.json.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
@@ -21000,8 +21298,8 @@
       ]
     },
     {
-      "Route": "lottiefiles/success.json",
-      "AssetFile": "lottiefiles/success.json",
+      "Route": "lottie/success.json",
+      "AssetFile": "lottie/success.json",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -21037,8 +21335,8 @@
       ]
     },
     {
-      "Route": "lottiefiles/success.json.gz",
-      "AssetFile": "lottiefiles/success.json.gz",
+      "Route": "lottie/success.json.gz",
+      "AssetFile": "lottie/success.json.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -21082,8 +21380,8 @@
       ]
     },
     {
-      "Route": "lottiefiles/success.odmpys998m.json",
-      "AssetFile": "lottiefiles/success.json.gz",
+      "Route": "lottie/success.odmpys998m.json",
+      "AssetFile": "lottie/success.json.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
@@ -21140,13 +21438,13 @@
         },
         {
           "Name": "label",
-          "Value": "lottiefiles/success.json"
+          "Value": "lottie/success.json"
         }
       ]
     },
     {
-      "Route": "lottiefiles/success.odmpys998m.json",
-      "AssetFile": "lottiefiles/success.json",
+      "Route": "lottie/success.odmpys998m.json",
+      "AssetFile": "lottie/success.json",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -21185,13 +21483,13 @@
         },
         {
           "Name": "label",
-          "Value": "lottiefiles/success.json"
+          "Value": "lottie/success.json"
         }
       ]
     },
     {
-      "Route": "lottiefiles/success.odmpys998m.json.gz",
-      "AssetFile": "lottiefiles/success.json.gz",
+      "Route": "lottie/success.odmpys998m.json.gz",
+      "AssetFile": "lottie/success.json.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -21238,7 +21536,7 @@
         },
         {
           "Name": "label",
-          "Value": "lottiefiles/success.json.gz"
+          "Value": "lottie/success.json.gz"
         }
       ]
     }

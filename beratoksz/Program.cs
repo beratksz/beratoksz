@@ -13,6 +13,7 @@ using AspNetCoreRateLimit;
 using System.Text;
 using System.Security.Claims;
 using beratoksz;
+using Microsoft.AspNetCore.HttpOverrides;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -182,6 +183,18 @@ app.Use(async (context, next) =>
     }
     await next();
 });
+
+
+var forwardedHeaderOptions = new ForwardedHeadersOptions
+{
+    ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto
+};
+forwardedHeaderOptions.KnownNetworks.Clear(); // Varsayýlan güvenlik kontrollerini kaldýrabilirsiniz
+forwardedHeaderOptions.KnownProxies.Clear();
+
+app.UseForwardedHeaders(forwardedHeaderOptions);
+
+
 
 app.UseRouting();
 app.UseResponseCaching();

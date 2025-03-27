@@ -828,64 +828,76 @@
       <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-hjIBkvmgxQXbNXK3B9YQ3t06RwLuQSQzC/dpvuB/lMk="}]]]></EndpointProperties>
       <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"1117"},{"Name":"Content-Type","Value":"text/plain"},{"Name":"ETag","Value":"\u0022hjIBkvmgxQXbNXK3B9YQ3t06RwLuQSQzC/dpvuB/lMk=\u0022"},{"Name":"Last-Modified","Value":"Thu, 13 Mar 2025 09:14:55 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
-    <StaticWebAssetEndpoint Include="_content/beratoksz/lottiefiles/check-mail.json">
-      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\lottiefiles\check-mail.json'))</AssetFile>
+    <StaticWebAssetEndpoint Include="_content/beratoksz/lottie/check-mail.json">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\lottie\check-mail.json'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
       <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-zGN8tP8XxpHT\u002Bih9vYWnP69jORSp4TRiFf/io1pveqY="}]]]></EndpointProperties>
       <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"21663"},{"Name":"Content-Type","Value":"application/json"},{"Name":"ETag","Value":"\u0022zGN8tP8XxpHT\u002Bih9vYWnP69jORSp4TRiFf/io1pveqY=\u0022"},{"Name":"Last-Modified","Value":"Wed, 26 Mar 2025 13:13:00 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
-    <StaticWebAssetEndpoint Include="_content/beratoksz/lottiefiles/check-mail.k8oqb9v8mj.json">
-      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\lottiefiles\check-mail.json'))</AssetFile>
+    <StaticWebAssetEndpoint Include="_content/beratoksz/lottie/check-mail.k8oqb9v8mj.json">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\lottie\check-mail.json'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"k8oqb9v8mj"},{"Name":"integrity","Value":"sha256-zGN8tP8XxpHT\u002Bih9vYWnP69jORSp4TRiFf/io1pveqY="},{"Name":"label","Value":"_content/beratoksz/lottiefiles/check-mail.json"}]]]></EndpointProperties>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"k8oqb9v8mj"},{"Name":"integrity","Value":"sha256-zGN8tP8XxpHT\u002Bih9vYWnP69jORSp4TRiFf/io1pveqY="},{"Name":"label","Value":"_content/beratoksz/lottie/check-mail.json"}]]]></EndpointProperties>
       <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"21663"},{"Name":"Content-Type","Value":"application/json"},{"Name":"ETag","Value":"\u0022zGN8tP8XxpHT\u002Bih9vYWnP69jORSp4TRiFf/io1pveqY=\u0022"},{"Name":"Last-Modified","Value":"Wed, 26 Mar 2025 13:13:00 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
-    <StaticWebAssetEndpoint Include="_content/beratoksz/lottiefiles/failed.json">
-      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\lottiefiles\failed.json'))</AssetFile>
+    <StaticWebAssetEndpoint Include="_content/beratoksz/lottie/failed.json">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\lottie\failed.json'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
       <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-qGk/wMrrgNLg8y3ZbOUqRrJcwqNqbLnulcAP837Pefs="}]]]></EndpointProperties>
       <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"4158"},{"Name":"Content-Type","Value":"application/json"},{"Name":"ETag","Value":"\u0022qGk/wMrrgNLg8y3ZbOUqRrJcwqNqbLnulcAP837Pefs=\u0022"},{"Name":"Last-Modified","Value":"Wed, 26 Mar 2025 13:21:24 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
-    <StaticWebAssetEndpoint Include="_content/beratoksz/lottiefiles/failed.sj94tkszxq.json">
-      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\lottiefiles\failed.json'))</AssetFile>
+    <StaticWebAssetEndpoint Include="_content/beratoksz/lottie/failed.sj94tkszxq.json">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\lottie\failed.json'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"sj94tkszxq"},{"Name":"integrity","Value":"sha256-qGk/wMrrgNLg8y3ZbOUqRrJcwqNqbLnulcAP837Pefs="},{"Name":"label","Value":"_content/beratoksz/lottiefiles/failed.json"}]]]></EndpointProperties>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"sj94tkszxq"},{"Name":"integrity","Value":"sha256-qGk/wMrrgNLg8y3ZbOUqRrJcwqNqbLnulcAP837Pefs="},{"Name":"label","Value":"_content/beratoksz/lottie/failed.json"}]]]></EndpointProperties>
       <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"4158"},{"Name":"Content-Type","Value":"application/json"},{"Name":"ETag","Value":"\u0022qGk/wMrrgNLg8y3ZbOUqRrJcwqNqbLnulcAP837Pefs=\u0022"},{"Name":"Last-Modified","Value":"Wed, 26 Mar 2025 13:21:24 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
-    <StaticWebAssetEndpoint Include="_content/beratoksz/lottiefiles/forgot-password.json">
-      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\lottiefiles\forgot-password.json'))</AssetFile>
+    <StaticWebAssetEndpoint Include="_content/beratoksz/lottie/forgot-password.json">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\lottie\forgot-password.json'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
       <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-zXFbxeKqFcMV2eXOejUSWkgOdeOzhSDXB1xGq9Djev8="}]]]></EndpointProperties>
       <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"57469"},{"Name":"Content-Type","Value":"application/json"},{"Name":"ETag","Value":"\u0022zXFbxeKqFcMV2eXOejUSWkgOdeOzhSDXB1xGq9Djev8=\u0022"},{"Name":"Last-Modified","Value":"Wed, 26 Mar 2025 13:11:19 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
-    <StaticWebAssetEndpoint Include="_content/beratoksz/lottiefiles/forgot-password.x7bkcg34p0.json">
-      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\lottiefiles\forgot-password.json'))</AssetFile>
+    <StaticWebAssetEndpoint Include="_content/beratoksz/lottie/forgot-password.x7bkcg34p0.json">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\lottie\forgot-password.json'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"x7bkcg34p0"},{"Name":"integrity","Value":"sha256-zXFbxeKqFcMV2eXOejUSWkgOdeOzhSDXB1xGq9Djev8="},{"Name":"label","Value":"_content/beratoksz/lottiefiles/forgot-password.json"}]]]></EndpointProperties>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"x7bkcg34p0"},{"Name":"integrity","Value":"sha256-zXFbxeKqFcMV2eXOejUSWkgOdeOzhSDXB1xGq9Djev8="},{"Name":"label","Value":"_content/beratoksz/lottie/forgot-password.json"}]]]></EndpointProperties>
       <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"57469"},{"Name":"Content-Type","Value":"application/json"},{"Name":"ETag","Value":"\u0022zXFbxeKqFcMV2eXOejUSWkgOdeOzhSDXB1xGq9Djev8=\u0022"},{"Name":"Last-Modified","Value":"Wed, 26 Mar 2025 13:11:19 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
-    <StaticWebAssetEndpoint Include="_content/beratoksz/lottiefiles/login.3kjdigtr90.json">
-      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\lottiefiles\login.json'))</AssetFile>
+    <StaticWebAssetEndpoint Include="_content/beratoksz/lottie/login.3kjdigtr90.json">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\lottie\login.json'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"3kjdigtr90"},{"Name":"integrity","Value":"sha256-vTngMYRLYY3tPCYZJ\u002B7F69gJx4aLg9R9HPAu8CvPWNY="},{"Name":"label","Value":"_content/beratoksz/lottiefiles/login.json"}]]]></EndpointProperties>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"3kjdigtr90"},{"Name":"integrity","Value":"sha256-vTngMYRLYY3tPCYZJ\u002B7F69gJx4aLg9R9HPAu8CvPWNY="},{"Name":"label","Value":"_content/beratoksz/lottie/login.json"}]]]></EndpointProperties>
       <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"636559"},{"Name":"Content-Type","Value":"application/json"},{"Name":"ETag","Value":"\u0022vTngMYRLYY3tPCYZJ\u002B7F69gJx4aLg9R9HPAu8CvPWNY=\u0022"},{"Name":"Last-Modified","Value":"Wed, 26 Mar 2025 13:14:17 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
-    <StaticWebAssetEndpoint Include="_content/beratoksz/lottiefiles/login.json">
-      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\lottiefiles\login.json'))</AssetFile>
+    <StaticWebAssetEndpoint Include="_content/beratoksz/lottie/login.json">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\lottie\login.json'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
       <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-vTngMYRLYY3tPCYZJ\u002B7F69gJx4aLg9R9HPAu8CvPWNY="}]]]></EndpointProperties>
       <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"636559"},{"Name":"Content-Type","Value":"application/json"},{"Name":"ETag","Value":"\u0022vTngMYRLYY3tPCYZJ\u002B7F69gJx4aLg9R9HPAu8CvPWNY=\u0022"},{"Name":"Last-Modified","Value":"Wed, 26 Mar 2025 13:14:17 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
-    <StaticWebAssetEndpoint Include="_content/beratoksz/lottiefiles/success.json">
-      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\lottiefiles\success.json'))</AssetFile>
+    <StaticWebAssetEndpoint Include="_content/beratoksz/lottie/reset-password.cge7zmq9wt.json">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\lottie\reset-password.json'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"cge7zmq9wt"},{"Name":"integrity","Value":"sha256-FMDDid1pLUbS9kmYMBgBVqhV75Kq5gjpP7dpVxfaRjo="},{"Name":"label","Value":"_content/beratoksz/lottie/reset-password.json"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"11444"},{"Name":"Content-Type","Value":"application/json"},{"Name":"ETag","Value":"\u0022FMDDid1pLUbS9kmYMBgBVqhV75Kq5gjpP7dpVxfaRjo=\u0022"},{"Name":"Last-Modified","Value":"Thu, 27 Mar 2025 08:31:07 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/beratoksz/lottie/reset-password.json">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\lottie\reset-password.json'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-FMDDid1pLUbS9kmYMBgBVqhV75Kq5gjpP7dpVxfaRjo="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"11444"},{"Name":"Content-Type","Value":"application/json"},{"Name":"ETag","Value":"\u0022FMDDid1pLUbS9kmYMBgBVqhV75Kq5gjpP7dpVxfaRjo=\u0022"},{"Name":"Last-Modified","Value":"Thu, 27 Mar 2025 08:31:07 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/beratoksz/lottie/success.json">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\lottie\success.json'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
       <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-dKD0slE0VACC7lxm\u002BPTualz8JTesCW5myETw6hLZiUA="}]]]></EndpointProperties>
       <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"2063"},{"Name":"Content-Type","Value":"application/json"},{"Name":"ETag","Value":"\u0022dKD0slE0VACC7lxm\u002BPTualz8JTesCW5myETw6hLZiUA=\u0022"},{"Name":"Last-Modified","Value":"Wed, 26 Mar 2025 13:20:42 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
-    <StaticWebAssetEndpoint Include="_content/beratoksz/lottiefiles/success.odmpys998m.json">
-      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\lottiefiles\success.json'))</AssetFile>
+    <StaticWebAssetEndpoint Include="_content/beratoksz/lottie/success.odmpys998m.json">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\lottie\success.json'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"odmpys998m"},{"Name":"integrity","Value":"sha256-dKD0slE0VACC7lxm\u002BPTualz8JTesCW5myETw6hLZiUA="},{"Name":"label","Value":"_content/beratoksz/lottiefiles/success.json"}]]]></EndpointProperties>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"odmpys998m"},{"Name":"integrity","Value":"sha256-dKD0slE0VACC7lxm\u002BPTualz8JTesCW5myETw6hLZiUA="},{"Name":"label","Value":"_content/beratoksz/lottie/success.json"}]]]></EndpointProperties>
       <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"2063"},{"Name":"Content-Type","Value":"application/json"},{"Name":"ETag","Value":"\u0022dKD0slE0VACC7lxm\u002BPTualz8JTesCW5myETw6hLZiUA=\u0022"},{"Name":"Last-Modified","Value":"Wed, 26 Mar 2025 13:20:42 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
   </ItemGroup>

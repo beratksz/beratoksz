@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "inOHPV9cBAw7VjbonrdLEgRLUtcm3OEhFO0eb+xz4iE=",
+  "Hash": "YUfVjRDcbhNlT3kb6bRNxug/coD9sxU8p2OFFPR8bRw=",
   "Source": "beratoksz",
   "BasePath": "_content/beratoksz",
   "Mode": "Default",
@@ -16,27 +16,6 @@
     }
   ],
   "Assets": [
-    {
-      "Identity": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\obj\\Debug\\net9.0\\compressed\\090wqbzc1k-x7bkcg34p0.gz",
-      "SourceId": "beratoksz",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\obj\\Debug\\net9.0\\compressed\\",
-      "BasePath": "_content/beratoksz",
-      "RelativePath": "lottiefiles/forgot-password#[.{fingerprint=x7bkcg34p0}]?.json.gz",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Alternative",
-      "AssetMergeBehavior": "",
-      "AssetMergeSource": "",
-      "RelatedAsset": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\wwwroot\\lottiefiles\\forgot-password.json",
-      "AssetTraitName": "Content-Encoding",
-      "AssetTraitValue": "gzip",
-      "Fingerprint": "rabi6q9w2h",
-      "Integrity": "sweROd1zyZMmlLan7Mnr6IYE6xUwJNbcsYObQEFyX7s=",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\wwwroot\\lottiefiles\\forgot-password.json"
-    },
     {
       "Identity": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\obj\\Debug\\net9.0\\compressed\\1ye7o5aym8-st1cbwfwo5.gz",
       "SourceId": "beratoksz",
@@ -80,27 +59,6 @@
       "OriginalItemSpec": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js"
     },
     {
-      "Identity": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\obj\\Debug\\net9.0\\compressed\\3iih7snaa7-odmpys998m.gz",
-      "SourceId": "beratoksz",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\obj\\Debug\\net9.0\\compressed\\",
-      "BasePath": "_content/beratoksz",
-      "RelativePath": "lottiefiles/success#[.{fingerprint=odmpys998m}]?.json.gz",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Alternative",
-      "AssetMergeBehavior": "",
-      "AssetMergeSource": "",
-      "RelatedAsset": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\wwwroot\\lottiefiles\\success.json",
-      "AssetTraitName": "Content-Encoding",
-      "AssetTraitValue": "gzip",
-      "Fingerprint": "e35q693xmr",
-      "Integrity": "tmlu4V2fzqP9DLfoXjlXnPIQjhgalEXzkug+fyxQ88c=",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\wwwroot\\lottiefiles\\success.json"
-    },
-    {
       "Identity": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\obj\\Debug\\net9.0\\compressed\\3swwikiipj-mpyigms19s.gz",
       "SourceId": "beratoksz",
       "SourceType": "Discovered",
@@ -120,6 +78,27 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css"
+    },
+    {
+      "Identity": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\obj\\Debug\\net9.0\\compressed\\48znbmi98x-odmpys998m.gz",
+      "SourceId": "beratoksz",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\obj\\Debug\\net9.0\\compressed\\",
+      "BasePath": "_content/beratoksz",
+      "RelativePath": "lottie/success#[.{fingerprint=odmpys998m}]?.json.gz",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\wwwroot\\lottie\\success.json",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "Fingerprint": "e35q693xmr",
+      "Integrity": "tmlu4V2fzqP9DLfoXjlXnPIQjhgalEXzkug+fyxQ88c=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\wwwroot\\lottie\\success.json"
     },
     {
       "Identity": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\obj\\Debug\\net9.0\\compressed\\4nc24g10tq-kbynt5jhd9.gz",
@@ -500,6 +479,27 @@
       "OriginalItemSpec": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css"
     },
     {
+      "Identity": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\obj\\Debug\\net9.0\\compressed\\ao7btaswdf-k8oqb9v8mj.gz",
+      "SourceId": "beratoksz",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\obj\\Debug\\net9.0\\compressed\\",
+      "BasePath": "_content/beratoksz",
+      "RelativePath": "lottie/check-mail#[.{fingerprint=k8oqb9v8mj}]?.json.gz",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\wwwroot\\lottie\\check-mail.json",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "Fingerprint": "z945987g9l",
+      "Integrity": "GSLmc22WE1aPq+4lHtiKBSnE6dV/xFnjvONliS1X9k8=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\wwwroot\\lottie\\check-mail.json"
+    },
+    {
       "Identity": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\obj\\Debug\\net9.0\\compressed\\ci08l0yv6o-u33ctipx7g.gz",
       "SourceId": "beratoksz",
       "SourceType": "Discovered",
@@ -521,6 +521,48 @@
       "OriginalItemSpec": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map"
     },
     {
+      "Identity": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\obj\\Debug\\net9.0\\compressed\\d7cj4irbxg-x7bkcg34p0.gz",
+      "SourceId": "beratoksz",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\obj\\Debug\\net9.0\\compressed\\",
+      "BasePath": "_content/beratoksz",
+      "RelativePath": "lottie/forgot-password#[.{fingerprint=x7bkcg34p0}]?.json.gz",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\wwwroot\\lottie\\forgot-password.json",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "Fingerprint": "rabi6q9w2h",
+      "Integrity": "sweROd1zyZMmlLan7Mnr6IYE6xUwJNbcsYObQEFyX7s=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\wwwroot\\lottie\\forgot-password.json"
+    },
+    {
+      "Identity": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\obj\\Debug\\net9.0\\compressed\\dmjbkwtgeg-cge7zmq9wt.gz",
+      "SourceId": "beratoksz",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\obj\\Debug\\net9.0\\compressed\\",
+      "BasePath": "_content/beratoksz",
+      "RelativePath": "lottie/reset-password#[.{fingerprint=cge7zmq9wt}]?.json.gz",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\wwwroot\\lottie\\reset-password.json",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "Fingerprint": "ghrco6h23a",
+      "Integrity": "3GlIRv+eULq62Qjufq5zxwwetTiyQStfY3SO9UAkUfg=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\wwwroot\\lottie\\reset-password.json"
+    },
+    {
       "Identity": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\obj\\Debug\\net9.0\\compressed\\eg2yqiug1z-zwph15dxgs.gz",
       "SourceId": "beratoksz",
       "SourceType": "Discovered",
@@ -540,27 +582,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js"
-    },
-    {
-      "Identity": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\obj\\Debug\\net9.0\\compressed\\f323g2onqk-k8oqb9v8mj.gz",
-      "SourceId": "beratoksz",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\obj\\Debug\\net9.0\\compressed\\",
-      "BasePath": "_content/beratoksz",
-      "RelativePath": "lottiefiles/check-mail#[.{fingerprint=k8oqb9v8mj}]?.json.gz",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Alternative",
-      "AssetMergeBehavior": "",
-      "AssetMergeSource": "",
-      "RelatedAsset": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\wwwroot\\lottiefiles\\check-mail.json",
-      "AssetTraitName": "Content-Encoding",
-      "AssetTraitValue": "gzip",
-      "Fingerprint": "z945987g9l",
-      "Integrity": "GSLmc22WE1aPq+4lHtiKBSnE6dV/xFnjvONliS1X9k8=",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\wwwroot\\lottiefiles\\check-mail.json"
     },
     {
       "Identity": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\obj\\Debug\\net9.0\\compressed\\f3dvjwtfmt-c2tiyv64ts.gz",
@@ -710,6 +731,27 @@
       "OriginalItemSpec": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js"
     },
     {
+      "Identity": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\obj\\Debug\\net9.0\\compressed\\hy880z1vth-3kjdigtr90.gz",
+      "SourceId": "beratoksz",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\obj\\Debug\\net9.0\\compressed\\",
+      "BasePath": "_content/beratoksz",
+      "RelativePath": "lottie/login#[.{fingerprint=3kjdigtr90}]?.json.gz",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\wwwroot\\lottie\\login.json",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "Fingerprint": "lkoinyrdb0",
+      "Integrity": "G4SQHr6X7G3ytdQ48a761q2p80erVt7vCusZOBie2Ac=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\wwwroot\\lottie\\login.json"
+    },
+    {
       "Identity": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\obj\\Debug\\net9.0\\compressed\\hzs7pmk9vo-2q4vfeazbq.gz",
       "SourceId": "beratoksz",
       "SourceType": "Discovered",
@@ -771,27 +813,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css"
-    },
-    {
-      "Identity": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\obj\\Debug\\net9.0\\compressed\\j97dad5o74-3kjdigtr90.gz",
-      "SourceId": "beratoksz",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\obj\\Debug\\net9.0\\compressed\\",
-      "BasePath": "_content/beratoksz",
-      "RelativePath": "lottiefiles/login#[.{fingerprint=3kjdigtr90}]?.json.gz",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Alternative",
-      "AssetMergeBehavior": "",
-      "AssetMergeSource": "",
-      "RelatedAsset": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\wwwroot\\lottiefiles\\login.json",
-      "AssetTraitName": "Content-Encoding",
-      "AssetTraitValue": "gzip",
-      "Fingerprint": "lkoinyrdb0",
-      "Integrity": "G4SQHr6X7G3ytdQ48a761q2p80erVt7vCusZOBie2Ac=",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\wwwroot\\lottiefiles\\login.json"
     },
     {
       "Identity": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\obj\\Debug\\net9.0\\compressed\\jku04vg664-56d2bn4wt9.gz",
@@ -876,6 +897,27 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map"
+    },
+    {
+      "Identity": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\obj\\Debug\\net9.0\\compressed\\l4wmj6275z-sj94tkszxq.gz",
+      "SourceId": "beratoksz",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\obj\\Debug\\net9.0\\compressed\\",
+      "BasePath": "_content/beratoksz",
+      "RelativePath": "lottie/failed#[.{fingerprint=sj94tkszxq}]?.json.gz",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\wwwroot\\lottie\\failed.json",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "Fingerprint": "qaqydz5z99",
+      "Integrity": "omJV9P/YzsIzHfV5KMZHo54EFNQnnnhQbiayEPbzrpY=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\wwwroot\\lottie\\failed.json"
     },
     {
       "Identity": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\obj\\Debug\\net9.0\\compressed\\lcwyt2j6my-o371a8zbv2.gz",
@@ -1359,27 +1401,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map"
-    },
-    {
-      "Identity": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\obj\\Debug\\net9.0\\compressed\\uuopi78giy-sj94tkszxq.gz",
-      "SourceId": "beratoksz",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\obj\\Debug\\net9.0\\compressed\\",
-      "BasePath": "_content/beratoksz",
-      "RelativePath": "lottiefiles/failed#[.{fingerprint=sj94tkszxq}]?.json.gz",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Alternative",
-      "AssetMergeBehavior": "",
-      "AssetMergeSource": "",
-      "RelatedAsset": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\wwwroot\\lottiefiles\\failed.json",
-      "AssetTraitName": "Content-Encoding",
-      "AssetTraitValue": "gzip",
-      "Fingerprint": "qaqydz5z99",
-      "Integrity": "omJV9P/YzsIzHfV5KMZHo54EFNQnnnhQbiayEPbzrpY=",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\wwwroot\\lottiefiles\\failed.json"
     },
     {
       "Identity": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\obj\\Debug\\net9.0\\compressed\\w4agcov9yo-vz9iklblgk.gz",
@@ -2957,12 +2978,12 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
     },
     {
-      "Identity": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\wwwroot\\lottiefiles\\check-mail.json",
+      "Identity": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\wwwroot\\lottie\\check-mail.json",
       "SourceId": "beratoksz",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\wwwroot\\",
       "BasePath": "_content/beratoksz",
-      "RelativePath": "lottiefiles/check-mail#[.{fingerprint}]?.json",
+      "RelativePath": "lottie/check-mail#[.{fingerprint}]?.json",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -2975,15 +2996,15 @@
       "Integrity": "zGN8tP8XxpHT+ih9vYWnP69jORSp4TRiFf/io1pveqY=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lottiefiles\\check-mail.json"
+      "OriginalItemSpec": "wwwroot\\lottie\\check-mail.json"
     },
     {
-      "Identity": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\wwwroot\\lottiefiles\\failed.json",
+      "Identity": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\wwwroot\\lottie\\failed.json",
       "SourceId": "beratoksz",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\wwwroot\\",
       "BasePath": "_content/beratoksz",
-      "RelativePath": "lottiefiles/failed#[.{fingerprint}]?.json",
+      "RelativePath": "lottie/failed#[.{fingerprint}]?.json",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -2996,15 +3017,15 @@
       "Integrity": "qGk/wMrrgNLg8y3ZbOUqRrJcwqNqbLnulcAP837Pefs=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lottiefiles\\failed.json"
+      "OriginalItemSpec": "wwwroot\\lottie\\failed.json"
     },
     {
-      "Identity": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\wwwroot\\lottiefiles\\forgot-password.json",
+      "Identity": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\wwwroot\\lottie\\forgot-password.json",
       "SourceId": "beratoksz",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\wwwroot\\",
       "BasePath": "_content/beratoksz",
-      "RelativePath": "lottiefiles/forgot-password#[.{fingerprint}]?.json",
+      "RelativePath": "lottie/forgot-password#[.{fingerprint}]?.json",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -3017,15 +3038,15 @@
       "Integrity": "zXFbxeKqFcMV2eXOejUSWkgOdeOzhSDXB1xGq9Djev8=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lottiefiles\\forgot-password.json"
+      "OriginalItemSpec": "wwwroot\\lottie\\forgot-password.json"
     },
     {
-      "Identity": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\wwwroot\\lottiefiles\\login.json",
+      "Identity": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\wwwroot\\lottie\\login.json",
       "SourceId": "beratoksz",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\wwwroot\\",
       "BasePath": "_content/beratoksz",
-      "RelativePath": "lottiefiles/login#[.{fingerprint}]?.json",
+      "RelativePath": "lottie/login#[.{fingerprint}]?.json",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -3038,15 +3059,36 @@
       "Integrity": "vTngMYRLYY3tPCYZJ+7F69gJx4aLg9R9HPAu8CvPWNY=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lottiefiles\\login.json"
+      "OriginalItemSpec": "wwwroot\\lottie\\login.json"
     },
     {
-      "Identity": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\wwwroot\\lottiefiles\\success.json",
+      "Identity": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\wwwroot\\lottie\\reset-password.json",
       "SourceId": "beratoksz",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\wwwroot\\",
       "BasePath": "_content/beratoksz",
-      "RelativePath": "lottiefiles/success#[.{fingerprint}]?.json",
+      "RelativePath": "lottie/reset-password#[.{fingerprint}]?.json",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "cge7zmq9wt",
+      "Integrity": "FMDDid1pLUbS9kmYMBgBVqhV75Kq5gjpP7dpVxfaRjo=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\lottie\\reset-password.json"
+    },
+    {
+      "Identity": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\wwwroot\\lottie\\success.json",
+      "SourceId": "beratoksz",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\wwwroot\\",
+      "BasePath": "_content/beratoksz",
+      "RelativePath": "lottie/success#[.{fingerprint}]?.json",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -3059,7 +3101,7 @@
       "Integrity": "dKD0slE0VACC7lxm+PTualz8JTesCW5myETw6hLZiUA=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lottiefiles\\success.json"
+      "OriginalItemSpec": "wwwroot\\lottie\\success.json"
     }
   ],
   "Endpoints": [
@@ -23112,8 +23154,8 @@
       ]
     },
     {
-      "Route": "lottiefiles/check-mail.json",
-      "AssetFile": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\obj\\Debug\\net9.0\\compressed\\f323g2onqk-k8oqb9v8mj.gz",
+      "Route": "lottie/check-mail.json",
+      "AssetFile": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\obj\\Debug\\net9.0\\compressed\\ao7btaswdf-k8oqb9v8mj.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
@@ -23167,8 +23209,8 @@
       ]
     },
     {
-      "Route": "lottiefiles/check-mail.json",
-      "AssetFile": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\wwwroot\\lottiefiles\\check-mail.json",
+      "Route": "lottie/check-mail.json",
+      "AssetFile": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\wwwroot\\lottie\\check-mail.json",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -23204,8 +23246,8 @@
       ]
     },
     {
-      "Route": "lottiefiles/check-mail.json.gz",
-      "AssetFile": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\obj\\Debug\\net9.0\\compressed\\f323g2onqk-k8oqb9v8mj.gz",
+      "Route": "lottie/check-mail.json.gz",
+      "AssetFile": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\obj\\Debug\\net9.0\\compressed\\ao7btaswdf-k8oqb9v8mj.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -23249,8 +23291,8 @@
       ]
     },
     {
-      "Route": "lottiefiles/check-mail.k8oqb9v8mj.json",
-      "AssetFile": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\obj\\Debug\\net9.0\\compressed\\f323g2onqk-k8oqb9v8mj.gz",
+      "Route": "lottie/check-mail.k8oqb9v8mj.json",
+      "AssetFile": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\obj\\Debug\\net9.0\\compressed\\ao7btaswdf-k8oqb9v8mj.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
@@ -23303,7 +23345,7 @@
         },
         {
           "Name": "label",
-          "Value": "lottiefiles/check-mail.json"
+          "Value": "lottie/check-mail.json"
         },
         {
           "Name": "integrity",
@@ -23312,8 +23354,8 @@
       ]
     },
     {
-      "Route": "lottiefiles/check-mail.k8oqb9v8mj.json",
-      "AssetFile": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\wwwroot\\lottiefiles\\check-mail.json",
+      "Route": "lottie/check-mail.k8oqb9v8mj.json",
+      "AssetFile": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\wwwroot\\lottie\\check-mail.json",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -23348,7 +23390,7 @@
         },
         {
           "Name": "label",
-          "Value": "lottiefiles/check-mail.json"
+          "Value": "lottie/check-mail.json"
         },
         {
           "Name": "integrity",
@@ -23357,8 +23399,8 @@
       ]
     },
     {
-      "Route": "lottiefiles/check-mail.k8oqb9v8mj.json.gz",
-      "AssetFile": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\obj\\Debug\\net9.0\\compressed\\f323g2onqk-k8oqb9v8mj.gz",
+      "Route": "lottie/check-mail.k8oqb9v8mj.json.gz",
+      "AssetFile": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\obj\\Debug\\net9.0\\compressed\\ao7btaswdf-k8oqb9v8mj.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -23401,7 +23443,7 @@
         },
         {
           "Name": "label",
-          "Value": "lottiefiles/check-mail.json.gz"
+          "Value": "lottie/check-mail.json.gz"
         },
         {
           "Name": "integrity",
@@ -23410,8 +23452,8 @@
       ]
     },
     {
-      "Route": "lottiefiles/failed.json",
-      "AssetFile": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\obj\\Debug\\net9.0\\compressed\\uuopi78giy-sj94tkszxq.gz",
+      "Route": "lottie/failed.json",
+      "AssetFile": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\obj\\Debug\\net9.0\\compressed\\l4wmj6275z-sj94tkszxq.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
@@ -23465,8 +23507,8 @@
       ]
     },
     {
-      "Route": "lottiefiles/failed.json",
-      "AssetFile": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\wwwroot\\lottiefiles\\failed.json",
+      "Route": "lottie/failed.json",
+      "AssetFile": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\wwwroot\\lottie\\failed.json",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -23502,8 +23544,8 @@
       ]
     },
     {
-      "Route": "lottiefiles/failed.json.gz",
-      "AssetFile": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\obj\\Debug\\net9.0\\compressed\\uuopi78giy-sj94tkszxq.gz",
+      "Route": "lottie/failed.json.gz",
+      "AssetFile": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\obj\\Debug\\net9.0\\compressed\\l4wmj6275z-sj94tkszxq.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -23547,8 +23589,8 @@
       ]
     },
     {
-      "Route": "lottiefiles/failed.sj94tkszxq.json",
-      "AssetFile": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\obj\\Debug\\net9.0\\compressed\\uuopi78giy-sj94tkszxq.gz",
+      "Route": "lottie/failed.sj94tkszxq.json",
+      "AssetFile": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\obj\\Debug\\net9.0\\compressed\\l4wmj6275z-sj94tkszxq.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
@@ -23601,7 +23643,7 @@
         },
         {
           "Name": "label",
-          "Value": "lottiefiles/failed.json"
+          "Value": "lottie/failed.json"
         },
         {
           "Name": "integrity",
@@ -23610,8 +23652,8 @@
       ]
     },
     {
-      "Route": "lottiefiles/failed.sj94tkszxq.json",
-      "AssetFile": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\wwwroot\\lottiefiles\\failed.json",
+      "Route": "lottie/failed.sj94tkszxq.json",
+      "AssetFile": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\wwwroot\\lottie\\failed.json",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -23646,7 +23688,7 @@
         },
         {
           "Name": "label",
-          "Value": "lottiefiles/failed.json"
+          "Value": "lottie/failed.json"
         },
         {
           "Name": "integrity",
@@ -23655,8 +23697,8 @@
       ]
     },
     {
-      "Route": "lottiefiles/failed.sj94tkszxq.json.gz",
-      "AssetFile": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\obj\\Debug\\net9.0\\compressed\\uuopi78giy-sj94tkszxq.gz",
+      "Route": "lottie/failed.sj94tkszxq.json.gz",
+      "AssetFile": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\obj\\Debug\\net9.0\\compressed\\l4wmj6275z-sj94tkszxq.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -23699,7 +23741,7 @@
         },
         {
           "Name": "label",
-          "Value": "lottiefiles/failed.json.gz"
+          "Value": "lottie/failed.json.gz"
         },
         {
           "Name": "integrity",
@@ -23708,8 +23750,8 @@
       ]
     },
     {
-      "Route": "lottiefiles/forgot-password.json",
-      "AssetFile": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\obj\\Debug\\net9.0\\compressed\\090wqbzc1k-x7bkcg34p0.gz",
+      "Route": "lottie/forgot-password.json",
+      "AssetFile": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\obj\\Debug\\net9.0\\compressed\\d7cj4irbxg-x7bkcg34p0.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
@@ -23763,8 +23805,8 @@
       ]
     },
     {
-      "Route": "lottiefiles/forgot-password.json",
-      "AssetFile": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\wwwroot\\lottiefiles\\forgot-password.json",
+      "Route": "lottie/forgot-password.json",
+      "AssetFile": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\wwwroot\\lottie\\forgot-password.json",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -23800,8 +23842,8 @@
       ]
     },
     {
-      "Route": "lottiefiles/forgot-password.json.gz",
-      "AssetFile": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\obj\\Debug\\net9.0\\compressed\\090wqbzc1k-x7bkcg34p0.gz",
+      "Route": "lottie/forgot-password.json.gz",
+      "AssetFile": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\obj\\Debug\\net9.0\\compressed\\d7cj4irbxg-x7bkcg34p0.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -23845,8 +23887,8 @@
       ]
     },
     {
-      "Route": "lottiefiles/forgot-password.x7bkcg34p0.json",
-      "AssetFile": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\obj\\Debug\\net9.0\\compressed\\090wqbzc1k-x7bkcg34p0.gz",
+      "Route": "lottie/forgot-password.x7bkcg34p0.json",
+      "AssetFile": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\obj\\Debug\\net9.0\\compressed\\d7cj4irbxg-x7bkcg34p0.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
@@ -23899,7 +23941,7 @@
         },
         {
           "Name": "label",
-          "Value": "lottiefiles/forgot-password.json"
+          "Value": "lottie/forgot-password.json"
         },
         {
           "Name": "integrity",
@@ -23908,8 +23950,8 @@
       ]
     },
     {
-      "Route": "lottiefiles/forgot-password.x7bkcg34p0.json",
-      "AssetFile": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\wwwroot\\lottiefiles\\forgot-password.json",
+      "Route": "lottie/forgot-password.x7bkcg34p0.json",
+      "AssetFile": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\wwwroot\\lottie\\forgot-password.json",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -23944,7 +23986,7 @@
         },
         {
           "Name": "label",
-          "Value": "lottiefiles/forgot-password.json"
+          "Value": "lottie/forgot-password.json"
         },
         {
           "Name": "integrity",
@@ -23953,8 +23995,8 @@
       ]
     },
     {
-      "Route": "lottiefiles/forgot-password.x7bkcg34p0.json.gz",
-      "AssetFile": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\obj\\Debug\\net9.0\\compressed\\090wqbzc1k-x7bkcg34p0.gz",
+      "Route": "lottie/forgot-password.x7bkcg34p0.json.gz",
+      "AssetFile": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\obj\\Debug\\net9.0\\compressed\\d7cj4irbxg-x7bkcg34p0.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -23997,7 +24039,7 @@
         },
         {
           "Name": "label",
-          "Value": "lottiefiles/forgot-password.json.gz"
+          "Value": "lottie/forgot-password.json.gz"
         },
         {
           "Name": "integrity",
@@ -24006,8 +24048,8 @@
       ]
     },
     {
-      "Route": "lottiefiles/login.3kjdigtr90.json",
-      "AssetFile": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\obj\\Debug\\net9.0\\compressed\\j97dad5o74-3kjdigtr90.gz",
+      "Route": "lottie/login.3kjdigtr90.json",
+      "AssetFile": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\obj\\Debug\\net9.0\\compressed\\hy880z1vth-3kjdigtr90.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
@@ -24060,7 +24102,7 @@
         },
         {
           "Name": "label",
-          "Value": "lottiefiles/login.json"
+          "Value": "lottie/login.json"
         },
         {
           "Name": "integrity",
@@ -24069,8 +24111,8 @@
       ]
     },
     {
-      "Route": "lottiefiles/login.3kjdigtr90.json",
-      "AssetFile": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\wwwroot\\lottiefiles\\login.json",
+      "Route": "lottie/login.3kjdigtr90.json",
+      "AssetFile": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\wwwroot\\lottie\\login.json",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -24105,7 +24147,7 @@
         },
         {
           "Name": "label",
-          "Value": "lottiefiles/login.json"
+          "Value": "lottie/login.json"
         },
         {
           "Name": "integrity",
@@ -24114,8 +24156,8 @@
       ]
     },
     {
-      "Route": "lottiefiles/login.3kjdigtr90.json.gz",
-      "AssetFile": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\obj\\Debug\\net9.0\\compressed\\j97dad5o74-3kjdigtr90.gz",
+      "Route": "lottie/login.3kjdigtr90.json.gz",
+      "AssetFile": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\obj\\Debug\\net9.0\\compressed\\hy880z1vth-3kjdigtr90.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -24158,7 +24200,7 @@
         },
         {
           "Name": "label",
-          "Value": "lottiefiles/login.json.gz"
+          "Value": "lottie/login.json.gz"
         },
         {
           "Name": "integrity",
@@ -24167,8 +24209,8 @@
       ]
     },
     {
-      "Route": "lottiefiles/login.json",
-      "AssetFile": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\obj\\Debug\\net9.0\\compressed\\j97dad5o74-3kjdigtr90.gz",
+      "Route": "lottie/login.json",
+      "AssetFile": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\obj\\Debug\\net9.0\\compressed\\hy880z1vth-3kjdigtr90.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
@@ -24222,8 +24264,8 @@
       ]
     },
     {
-      "Route": "lottiefiles/login.json",
-      "AssetFile": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\wwwroot\\lottiefiles\\login.json",
+      "Route": "lottie/login.json",
+      "AssetFile": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\wwwroot\\lottie\\login.json",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -24259,8 +24301,8 @@
       ]
     },
     {
-      "Route": "lottiefiles/login.json.gz",
-      "AssetFile": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\obj\\Debug\\net9.0\\compressed\\j97dad5o74-3kjdigtr90.gz",
+      "Route": "lottie/login.json.gz",
+      "AssetFile": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\obj\\Debug\\net9.0\\compressed\\hy880z1vth-3kjdigtr90.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -24304,8 +24346,306 @@
       ]
     },
     {
-      "Route": "lottiefiles/success.json",
-      "AssetFile": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\obj\\Debug\\net9.0\\compressed\\3iih7snaa7-odmpys998m.gz",
+      "Route": "lottie/reset-password.cge7zmq9wt.json",
+      "AssetFile": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\obj\\Debug\\net9.0\\compressed\\dmjbkwtgeg-cge7zmq9wt.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.000531067446"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1882"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"3GlIRv+eULq62Qjufq5zxwwetTiyQStfY3SO9UAkUfg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 27 Mar 2025 08:31:07 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/json"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"FMDDid1pLUbS9kmYMBgBVqhV75Kq5gjpP7dpVxfaRjo=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "cge7zmq9wt"
+        },
+        {
+          "Name": "label",
+          "Value": "lottie/reset-password.json"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-FMDDid1pLUbS9kmYMBgBVqhV75Kq5gjpP7dpVxfaRjo="
+        }
+      ]
+    },
+    {
+      "Route": "lottie/reset-password.cge7zmq9wt.json",
+      "AssetFile": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\wwwroot\\lottie\\reset-password.json",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "11444"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/json"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"FMDDid1pLUbS9kmYMBgBVqhV75Kq5gjpP7dpVxfaRjo=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 27 Mar 2025 08:31:07 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "cge7zmq9wt"
+        },
+        {
+          "Name": "label",
+          "Value": "lottie/reset-password.json"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-FMDDid1pLUbS9kmYMBgBVqhV75Kq5gjpP7dpVxfaRjo="
+        }
+      ]
+    },
+    {
+      "Route": "lottie/reset-password.cge7zmq9wt.json.gz",
+      "AssetFile": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\obj\\Debug\\net9.0\\compressed\\dmjbkwtgeg-cge7zmq9wt.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1882"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/json"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"3GlIRv+eULq62Qjufq5zxwwetTiyQStfY3SO9UAkUfg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 27 Mar 2025 08:31:07 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "cge7zmq9wt"
+        },
+        {
+          "Name": "label",
+          "Value": "lottie/reset-password.json.gz"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-3GlIRv+eULq62Qjufq5zxwwetTiyQStfY3SO9UAkUfg="
+        }
+      ]
+    },
+    {
+      "Route": "lottie/reset-password.json",
+      "AssetFile": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\obj\\Debug\\net9.0\\compressed\\dmjbkwtgeg-cge7zmq9wt.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.000531067446"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1882"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"3GlIRv+eULq62Qjufq5zxwwetTiyQStfY3SO9UAkUfg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 27 Mar 2025 08:31:07 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/json"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"FMDDid1pLUbS9kmYMBgBVqhV75Kq5gjpP7dpVxfaRjo=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-FMDDid1pLUbS9kmYMBgBVqhV75Kq5gjpP7dpVxfaRjo="
+        }
+      ]
+    },
+    {
+      "Route": "lottie/reset-password.json",
+      "AssetFile": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\wwwroot\\lottie\\reset-password.json",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "11444"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/json"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"FMDDid1pLUbS9kmYMBgBVqhV75Kq5gjpP7dpVxfaRjo=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 27 Mar 2025 08:31:07 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-FMDDid1pLUbS9kmYMBgBVqhV75Kq5gjpP7dpVxfaRjo="
+        }
+      ]
+    },
+    {
+      "Route": "lottie/reset-password.json.gz",
+      "AssetFile": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\obj\\Debug\\net9.0\\compressed\\dmjbkwtgeg-cge7zmq9wt.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1882"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/json"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"3GlIRv+eULq62Qjufq5zxwwetTiyQStfY3SO9UAkUfg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 27 Mar 2025 08:31:07 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-3GlIRv+eULq62Qjufq5zxwwetTiyQStfY3SO9UAkUfg="
+        }
+      ]
+    },
+    {
+      "Route": "lottie/success.json",
+      "AssetFile": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\obj\\Debug\\net9.0\\compressed\\48znbmi98x-odmpys998m.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
@@ -24359,8 +24699,8 @@
       ]
     },
     {
-      "Route": "lottiefiles/success.json",
-      "AssetFile": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\wwwroot\\lottiefiles\\success.json",
+      "Route": "lottie/success.json",
+      "AssetFile": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\wwwroot\\lottie\\success.json",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -24396,8 +24736,8 @@
       ]
     },
     {
-      "Route": "lottiefiles/success.json.gz",
-      "AssetFile": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\obj\\Debug\\net9.0\\compressed\\3iih7snaa7-odmpys998m.gz",
+      "Route": "lottie/success.json.gz",
+      "AssetFile": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\obj\\Debug\\net9.0\\compressed\\48znbmi98x-odmpys998m.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -24441,8 +24781,8 @@
       ]
     },
     {
-      "Route": "lottiefiles/success.odmpys998m.json",
-      "AssetFile": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\obj\\Debug\\net9.0\\compressed\\3iih7snaa7-odmpys998m.gz",
+      "Route": "lottie/success.odmpys998m.json",
+      "AssetFile": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\obj\\Debug\\net9.0\\compressed\\48znbmi98x-odmpys998m.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
@@ -24495,7 +24835,7 @@
         },
         {
           "Name": "label",
-          "Value": "lottiefiles/success.json"
+          "Value": "lottie/success.json"
         },
         {
           "Name": "integrity",
@@ -24504,8 +24844,8 @@
       ]
     },
     {
-      "Route": "lottiefiles/success.odmpys998m.json",
-      "AssetFile": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\wwwroot\\lottiefiles\\success.json",
+      "Route": "lottie/success.odmpys998m.json",
+      "AssetFile": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\wwwroot\\lottie\\success.json",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -24540,7 +24880,7 @@
         },
         {
           "Name": "label",
-          "Value": "lottiefiles/success.json"
+          "Value": "lottie/success.json"
         },
         {
           "Name": "integrity",
@@ -24549,8 +24889,8 @@
       ]
     },
     {
-      "Route": "lottiefiles/success.odmpys998m.json.gz",
-      "AssetFile": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\obj\\Debug\\net9.0\\compressed\\3iih7snaa7-odmpys998m.gz",
+      "Route": "lottie/success.odmpys998m.json.gz",
+      "AssetFile": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\obj\\Debug\\net9.0\\compressed\\48znbmi98x-odmpys998m.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -24593,7 +24933,7 @@
         },
         {
           "Name": "label",
-          "Value": "lottiefiles/success.json.gz"
+          "Value": "lottie/success.json.gz"
         },
         {
           "Name": "integrity",

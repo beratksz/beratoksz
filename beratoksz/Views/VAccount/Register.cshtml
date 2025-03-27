@@ -84,7 +84,7 @@
         </div>
     </div>
 
-    <script>
+   <script>
         const form = document.getElementById("registerForm");
         const registerBtn = document.getElementById("registerBtn");
         const spinner = document.getElementById("registerSpinner");
@@ -93,20 +93,52 @@
         const passwordStrengthBar = document.getElementById("passwordStrengthBar");
         const passwordFeedback = document.getElementById("passwordFeedback");
 
-        // Fonksiyon: Şifre Güç Puanı Hesaplama
+        // Kullanıcı adı doğrulama fonksiyonu
+        function validateUserName(userName) {
+            const errors = [];
+            if (userName.length < 3) {
+                errors.push("Kullanıcı adı en az 3 karakter olmalıdır.");
+            }
+            if (/\s/.test(userName)) {
+                errors.push("Kullanıcı adı boşluk içeremez.");
+            }
+            if (/[çÇğĞıİöÖşŞüÜ]/.test(userName)) {
+                errors.push("Kullanıcı adı Türkçe karakter içeremez.");
+            }
+            return errors;
+        }
+
+        // Şifre doğrulama fonksiyonu
+        function validatePassword(password) {
+            const errors = [];
+            if (password.length < 6) {
+                errors.push("Şifre en az 6 karakter olmalıdır.");
+            }
+            if (!/[A-Z]/.test(password)) {
+                errors.push("Şifre en az bir büyük harf içermelidir.");
+            }
+            if (!/[a-z]/.test(password)) {
+                errors.push("Şifre en az bir küçük harf içermelidir.");
+            }
+            if (!/\d/.test(password)) {
+                errors.push("Şifre en az bir rakam içermelidir.");
+            }
+            if (!/[!%40#$%^&*(),.?":{}|<>]/.test(password)) {
+                errors.push("Şifre en az bir özel karakter içermelidir.");
+            }
+            return errors;
+        }
+
+        // Şifre Güç Puanı Hesaplama
         function calculatePasswordStrength(pwd) {
             let strength = 0;
-            // Uzunluk kontrolü: 8 karakterden az zayıf
             if (pwd.length >= 8) strength += 1;
-            // Rakam kontrolü
             if (/\d/.test(pwd)) strength += 1;
-            // Harf kontrolü (hem küçük hem büyük)
             if (/[a-z]/.test(pwd) && /[A-Z]/.test(pwd)) {
                 strength += 1;
             } else if (/[a-zA-Z]/.test(pwd)) {
                 strength += 0.5;
             }
-            // Özel karakter kontrolü
             if (/[!%40#$%^&*(),.?":{}|<>]/.test(pwd)) strength += 1;
             return strength;
         }
@@ -115,7 +147,6 @@
         passwordInput.addEventListener("input", () => {
             const pwd = passwordInput.value;
             const strength = calculatePasswordStrength(pwd);
-            // Maksimum puan 4.5'e yaklaştırabiliriz
             const percentage = Math.min((strength / 4.5) * 100, 100);
             passwordStrengthBar.style.width = percentage + "%";
 
@@ -138,20 +169,33 @@
         form.addEventListener("submit", function(event) {
             event.preventDefault();
 
-            let password = passwordInput.value.trim();
-            let confirmPassword = document.getElementById("ConfirmPassword").value.trim();
+            const userName = document.getElementById("UserName").value.trim();
+            const password = passwordInput.value.trim();
+            const confirmPassword = document.getElementById("ConfirmPassword").value.trim();
 
-            if(password !== confirmPassword){
+            const userNameErrors = validateUserName(userName);
+            const passwordErrors = validatePassword(password);
+
+            if (userNameErrors.length > 0) {
+                Swal.fire({ icon: 'error', title: 'Hata!', html: userNameErrors.join('<br>') });
+                return;
+            }
+
+            if (passwordErrors.length > 0) {
+                Swal.fire({ icon: 'error', title: 'Hata!', html: passwordErrors.join('<br>') });
+                return;
+            }
+
+            if (password !== confirmPassword) {
                 Swal.fire({ icon: 'error', title: 'Oops...', text: 'Şifreler eşleşmiyor!' });
                 return;
             }
 
-            // Buton animasyonu başlat
             spinner.style.display = "inline-block";
             btnText.textContent = "Kayıt Olunuyor...";
 
             const registerData = {
-                UserName: document.getElementById("UserName").value.trim(),
+                UserName: userName,
                 Email: document.getElementById("Email").value.trim(),
                 PhoneNumber: document.getElementById("PhoneNumber").value.trim(),
                 Password: password,
@@ -163,14 +207,14 @@
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(registerData)
             })
-        .then(response => response.json().then(data => {
-            if (!response.ok) {
-                if (data.code === "DuplicateUserName") {
-                    throw new Error("Kullanıcı adı zaten kayıtlı.");
+            .then(response => response.json().then(data => {
+                if (!response.ok) {
+                    if (data.code === "DuplicateUserName") {
+                        throw new Error("Kullanıcı adı zaten kayıtlı.");
+                    }
+                    throw new Error(data.description || "Kayıt başarısız.");
                 }
-                throw new Error(data.description || "Kayıt başarısız.");
-            }
-            return data;
+                return data;
             }))
             .then(data => {
                 Swal.fire({
@@ -193,5 +237,6 @@
             });
         });
     </script>
+
 </body>
 </html>
