@@ -30,10 +30,20 @@ public class RolePermissionController : ControllerBase
         if (string.IsNullOrEmpty(permission.PagePath) || string.IsNullOrEmpty(permission.RoleName))
             return BadRequest("Rol adı ve sayfa yolu boş olamaz.");
 
-        _dbContext.RolePermissions.Add(permission);
-        await _dbContext.SaveChangesAsync();
-        return Ok(new { message = "İzin başarıyla eklendi." });
+        try
+        {
+            _dbContext.RolePermissions.Add(permission);
+            await _dbContext.SaveChangesAsync();
+            return Ok(new { message = "İzin başarıyla eklendi." });
+        }
+        catch (Exception ex)
+        {
+            // Hata loglama mekanizmanız varsa burada loglayabilirsiniz:
+            // _logger.LogError(ex, "Yetki eklenirken hata oluştu.");
+            return StatusCode(500, "Bir hata oluştu. Lütfen tekrar deneyiniz.");
+        }
     }
+
 
     // 📌 Var olan yetkiyi güncelle
     [HttpPut("{id}")]

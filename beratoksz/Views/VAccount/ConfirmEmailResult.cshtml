@@ -19,7 +19,7 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <style>
         body {
-            background: linear-gradient(135deg, #fff3e0, #ffe0b2);
+            background-color: #ffffff; /* Düz beyaz arka plan */
         }
 
         .result-card {
@@ -63,8 +63,13 @@
             ? '/lottie/success.json'
             : '/lottie/failed.json'
         });
+
         // Tekrar gönder butonuna event listener ekle
         document.getElementById("resendEmailBtn")?.addEventListener("click", function () {
+            const resendEmailBtn = document.getElementById("resendEmailBtn");
+            resendEmailBtn.disabled = true;
+            resendEmailBtn.textContent = "Gönderiliyor...";
+
             fetch("/api/Account/resend-confirmation", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
@@ -74,7 +79,13 @@
             .then(data => {
                 Swal.fire("Gönderildi!", data.message, "success");
             })
-            .catch(() => Swal.fire("Hata!", "Email tekrar gönderilemedi.", "error"));
+            .catch(() => {
+                Swal.fire("Hata!", "Email tekrar gönderilemedi.", "error");
+            })
+            .finally(() => {
+                resendEmailBtn.disabled = false;
+                resendEmailBtn.textContent = "Tekrar Gönder";
+            });
         });
     </script>
 </body>

@@ -2,45 +2,95 @@
     ViewData["Title"] = "Gizlilik Politikası";
 }
 
-<section class="container py-5">
-    <div class="row justify-content-center">
-        <div class="col-lg-8">
-            <div class="card shadow-sm border-0">
-                <div class="card-header bg-primary text-white py-3">
-                    <h2 class="mb-0">Gizlilik Politikası</h2>
-                </div>
-                <div class="card-body">
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .policy-header {
+            background: linear-gradient(135deg, #007bff, #00d1b2);
+            color: #fff;
+            padding: 3rem 1rem;
+            text-align: center;
+        }
+        .policy-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        .policy-header p {
+            font-size: 1.125rem;
+        }
+        .policy-content {
+            background-color: #fff;
+            padding: 2rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 0.125rem 0.25rem rgba(0,0,0,0.075);
+        }
+        .policy-section h4 {
+            margin-top: 1.5rem;
+            border-bottom: 2px solid #007bff;
+            padding-bottom: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <header class="policy-header">
+        <div class="container">
+            <h1>@ViewData["Title"]</h1>
+            <p>Kullanıcı verilerinizin korunması bizim önceliğimizdir.</p>
+        </div>
+    </header>
+    <main class="container my-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="policy-content">
                     <p>
                         Bu gizlilik politikası, kullanıcılarımızın verilerinin nasıl toplandığını, kullanıldığını ve korunduğunu açıklar.
                         Web sitemizi kullanarak bu politikayı kabul etmiş sayılırsınız.
                     </p>
 
-                    <h4 class="mt-4">1. Toplanan Veriler</h4>
-                    <ul>
-                        <li>Kullanıcı adı, e-posta ve telefon numarası (hesap oluştururken).</li>
-                        <li>IP adresi, tarayıcı bilgileri ve sistem logları.</li>
-                        <li>Çerezler ve benzeri izleme teknolojileri.</li>
-                    </ul>
+                    <div class="policy-section">
+                        <h4>1. Toplanan Veriler</h4>
+                        <ul>
+                            <li>Kullanıcı adı, e-posta ve telefon numarası (hesap oluştururken).</li>
+                            <li>IP adresi, tarayıcı bilgileri ve sistem logları.</li>
+                            <li>Çerezler ve benzeri izleme teknolojileri.</li>
+                        </ul>
+                    </div>
 
-                    <h4 class="mt-4">2. Verilerin Kullanımı</h4>
-                    <p>
-                        Toplanan veriler, sistem güvenliğini sağlamak, hizmet kalitesini artırmak ve kullanıcı deneyimini iyileştirmek için kullanılır.
-                    </p>
+                    <div class="policy-section">
+                        <h4>2. Verilerin Kullanımı</h4>
+                        <p>
+                            Toplanan veriler, sistem güvenliğini sağlamak, hizmet kalitesini artırmak ve kullanıcı deneyimini iyileştirmek için kullanılır.
+                        </p>
+                    </div>
 
-                    <h4 class="mt-4">3. Üçüncü Taraflarla Paylaşım</h4>
-                    <p>
-                        Kişisel verileriniz üçüncü taraflarla paylaşılmaz, ancak yasal zorunluluk durumunda yetkili makamlarla paylaşılabilir.
-                    </p>
+                    <div class="policy-section">
+                        <h4>3. Üçüncü Taraflarla Paylaşım</h4>
+                        <p>
+                            Kişisel verileriniz üçüncü taraflarla paylaşılmaz, ancak yasal zorunluluk durumunda yetkili makamlarla paylaşılabilir.
+                        </p>
+                    </div>
 
-                    <h4 class="mt-4">4. Güvenlik</h4>
-                    <p>
-                        Kullanıcı verileri modern güvenlik önlemleri ile korunmaktadır. Hassas bilgiler şifrelenerek saklanır.
-                    </p>
+                    <div class="policy-section">
+                        <h4>4. Güvenlik</h4>
+                        <p>
+                            Kullanıcı verileri modern güvenlik önlemleri ile korunmaktadır. Hassas bilgiler şifrelenerek saklanır.
+                        </p>
+                    </div>
 
-                    <h4 class="mt-4">5. Çerez Politikası</h4>
-                    <p>
-                        Web sitemiz, kullanıcı deneyimini geliştirmek için çerezler kullanmaktadır. Çerezleri tarayıcınızın ayarlarından kapatabilirsiniz.
-                    </p>
+                    <div class="policy-section">
+                        <h4>5. Çerez Politikası</h4>
+                        <p>
+                            Web sitemiz, kullanıcı deneyimini geliştirmek için çerezler kullanmaktadır. Çerezleri tarayıcınızın ayarlarından kapatabilirsiniz.
+                        </p>
+                    </div>
 
                     <div class="text-end mt-4">
                         <small class="text-muted">
@@ -50,5 +100,8 @@
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

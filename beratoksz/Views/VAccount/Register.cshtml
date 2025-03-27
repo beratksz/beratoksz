@@ -12,6 +12,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
     <link href="~/css/modern.css" rel="stylesheet" />
     <!-- SweetAlert2 ve Lottie (gerekiyorsa) -->
+	<script src="~/js/Register.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.7.6/lottie.min.js"></script>
     <style>
@@ -37,14 +38,14 @@
                 <div class="mb-3">
                     <label class="form-label">Kullanıcı Adı</label>
                     <input type="text" id="UserName" class="form-control" required minlength="3" />
-                    <div class="form-text">En az 3 karakter, harf ve rakam içerebilir.</div>
+                    <div id="userNameFeedback" class="form-text text-danger"></div>
                 </div>
 
                 <!-- Email -->
                 <div class="mb-3">
                     <label class="form-label">Email</label>
                     <input type="email" id="Email" class="form-control" required />
-                    <div class="form-text">Geçerli bir email adresi girin (ör. ornek@mail.com).</div>
+                    <div id="emailFeedback" class="form-text text-danger"></div>
                 </div>
 
                 <!-- Telefon Numarası -->
@@ -70,6 +71,7 @@
                 <div class="mb-4">
                     <label class="form-label">Şifreyi Onayla</label>
                     <input type="password" id="ConfirmPassword" class="form-control" required />
+                    <div id="confirmPasswordFeedback" class="form-text text-danger"></div>
                 </div>
 
                 <button type="submit" id="registerBtn" class="btn btn-success w-100 py-2 fw-bold">
@@ -83,160 +85,5 @@
             </div>
         </div>
     </div>
-
-   <script>
-        const form = document.getElementById("registerForm");
-        const registerBtn = document.getElementById("registerBtn");
-        const spinner = document.getElementById("registerSpinner");
-        const btnText = document.getElementById("registerBtnText");
-        const passwordInput = document.getElementById("Password");
-        const passwordStrengthBar = document.getElementById("passwordStrengthBar");
-        const passwordFeedback = document.getElementById("passwordFeedback");
-
-        // Kullanıcı adı doğrulama fonksiyonu
-        function validateUserName(userName) {
-            const errors = [];
-            if (userName.length < 3) {
-                errors.push("Kullanıcı adı en az 3 karakter olmalıdır.");
-            }
-            if (/\s/.test(userName)) {
-                errors.push("Kullanıcı adı boşluk içeremez.");
-            }
-            if (/[çÇğĞıİöÖşŞüÜ]/.test(userName)) {
-                errors.push("Kullanıcı adı Türkçe karakter içeremez.");
-            }
-            return errors;
-        }
-
-        // Şifre doğrulama fonksiyonu
-        function validatePassword(password) {
-            const errors = [];
-            if (password.length < 6) {
-                errors.push("Şifre en az 6 karakter olmalıdır.");
-            }
-            if (!/[A-Z]/.test(password)) {
-                errors.push("Şifre en az bir büyük harf içermelidir.");
-            }
-            if (!/[a-z]/.test(password)) {
-                errors.push("Şifre en az bir küçük harf içermelidir.");
-            }
-            if (!/\d/.test(password)) {
-                errors.push("Şifre en az bir rakam içermelidir.");
-            }
-            if (!/[!%40#$%^&*(),.?":{}|<>]/.test(password)) {
-                errors.push("Şifre en az bir özel karakter içermelidir.");
-            }
-            return errors;
-        }
-
-        // Şifre Güç Puanı Hesaplama
-        function calculatePasswordStrength(pwd) {
-            let strength = 0;
-            if (pwd.length >= 8) strength += 1;
-            if (/\d/.test(pwd)) strength += 1;
-            if (/[a-z]/.test(pwd) && /[A-Z]/.test(pwd)) {
-                strength += 1;
-            } else if (/[a-zA-Z]/.test(pwd)) {
-                strength += 0.5;
-            }
-            if (/[!%40#$%^&*(),.?":{}|<>]/.test(pwd)) strength += 1;
-            return strength;
-        }
-
-        // Şifre girişine bağlı olarak progress bar güncellemesi
-        passwordInput.addEventListener("input", () => {
-            const pwd = passwordInput.value;
-            const strength = calculatePasswordStrength(pwd);
-            const percentage = Math.min((strength / 4.5) * 100, 100);
-            passwordStrengthBar.style.width = percentage + "%";
-
-            let feedback = "";
-            let barClass = "bg-danger";
-            if (percentage < 40) {
-                feedback = "Zayıf şifre";
-                barClass = "bg-danger";
-            } else if (percentage < 70) {
-                feedback = "Orta seviye şifre";
-                barClass = "bg-warning";
-            } else {
-                feedback = "Güçlü şifre";
-                barClass = "bg-success";
-            }
-            passwordStrengthBar.className = "progress-bar " + barClass;
-            passwordFeedback.innerHTML = feedback;
-        });
-
-        form.addEventListener("submit", function(event) {
-            event.preventDefault();
-
-            const userName = document.getElementById("UserName").value.trim();
-            const password = passwordInput.value.trim();
-            const confirmPassword = document.getElementById("ConfirmPassword").value.trim();
-
-            const userNameErrors = validateUserName(userName);
-            const passwordErrors = validatePassword(password);
-
-            if (userNameErrors.length > 0) {
-                Swal.fire({ icon: 'error', title: 'Hata!', html: userNameErrors.join('<br>') });
-                return;
-            }
-
-            if (passwordErrors.length > 0) {
-                Swal.fire({ icon: 'error', title: 'Hata!', html: passwordErrors.join('<br>') });
-                return;
-            }
-
-            if (password !== confirmPassword) {
-                Swal.fire({ icon: 'error', title: 'Oops...', text: 'Şifreler eşleşmiyor!' });
-                return;
-            }
-
-            spinner.style.display = "inline-block";
-            btnText.textContent = "Kayıt Olunuyor...";
-
-            const registerData = {
-                UserName: userName,
-                Email: document.getElementById("Email").value.trim(),
-                PhoneNumber: document.getElementById("PhoneNumber").value.trim(),
-                Password: password,
-                ConfirmPassword: confirmPassword
-            };
-
-            fetch("/api/Account/register", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(registerData)
-            })
-            .then(response => response.json().then(data => {
-                if (!response.ok) {
-                    if (data.code === "DuplicateUserName") {
-                        throw new Error("Kullanıcı adı zaten kayıtlı.");
-                    }
-                    throw new Error(data.description || "Kayıt başarısız.");
-                }
-                return data;
-            }))
-            .then(data => {
-                Swal.fire({
-                    icon: 'success',
-                    title: 'Başarılı!',
-                    text: data.message || 'Kayıt başarılı! E-postanızı kontrol edin.',
-                    timer: 3000,
-                    showConfirmButton: false
-                });
-                setTimeout(() => {
-                    window.location.href = "/VAccount/Login";
-                }, 3000);
-            })
-            .catch(error => {
-                Swal.fire({ icon: 'error', title: 'Hata!', text: error.message });
-            })
-            .finally(() => {
-                spinner.style.display = "none";
-                btnText.textContent = "Hesap Oluştur";
-            });
-        });
-    </script>
-
 </body>
 </html>

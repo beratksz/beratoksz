@@ -1120,7 +1120,6 @@ C:\Users\berat\source\repos\beratoksz\beratoksz\bin\Debug\net9.0\UAParser.dll
 C:\Users\berat\source\repos\beratoksz\beratoksz\obj\Debug\net9.0\compressed\naifeof7to-g4pqupspci.gz
 C:\Users\berat-oksuz\source\repos\beratoksz\beratoksz\obj\Debug\net9.0\compressed\tcpggfr4g3-0hyq3qxad5.gz
 C:\Users\berat-oksuz\source\repos\beratoksz\beratoksz\obj\Debug\net9.0\compressed\w4agcov9yo-vz9iklblgk.gz
-C:\Users\berat-oksuz\source\repos\beratoksz\beratoksz\obj\Debug\net9.0\compressed\fz3gzduo6p-yfw3yh5seu.gz
 C:\Users\berat\source\repos\beratoksz\beratoksz\obj\Debug\net9.0\compressed\tcpggfr4g3-0hyq3qxad5.gz
 C:\Users\berat\source\repos\beratoksz\beratoksz\obj\Debug\net9.0\compressed\w4agcov9yo-vz9iklblgk.gz
 C:\Users\berat\source\repos\beratoksz\beratoksz\obj\Debug\net9.0\compressed\fz3gzduo6p-yfw3yh5seu.gz
@@ -1136,3 +1135,5 @@ C:\Users\berat-oksuz\source\repos\beratoksz\beratoksz\obj\Debug\net9.0\compresse
 C:\Users\berat-oksuz\source\repos\beratoksz\beratoksz\obj\Debug\net9.0\compressed\hy880z1vth-3kjdigtr90.gz
 C:\Users\berat-oksuz\source\repos\beratoksz\beratoksz\obj\Debug\net9.0\compressed\dmjbkwtgeg-cge7zmq9wt.gz
 C:\Users\berat-oksuz\source\repos\beratoksz\beratoksz\obj\Debug\net9.0\compressed\48znbmi98x-odmpys998m.gz
+C:\Users\berat-oksuz\source\repos\beratoksz\beratoksz\obj\Debug\net9.0\compressed\okf6jr67t9-kbzgur4ats.gz
+C:\Users\berat-oksuz\source\repos\beratoksz\beratoksz\obj\Debug\net9.0\compressed\p5ucyloq1q-92yek0m0xy.gz

@@ -805,26 +805,31 @@
         "type": "object",
         "properties": {
           "userName": {
-            "minLength": 1,
+            "maxLength": 50,
+            "minLength": 0,
             "type": "string"
           },
           "email": {
-            "minLength": 1,
+            "maxLength": 50,
+            "minLength": 0,
             "type": "string",
             "format": "email"
           },
           "phoneNumber": {
-            "minLength": 1,
+            "maxLength": 15,
+            "minLength": 0,
             "type": "string",
             "format": "tel"
           },
           "password": {
-            "minLength": 1,
+            "maxLength": 50,
+            "minLength": 0,
             "type": "string",
             "format": "password"
           },
           "confirmPassword": {
-            "minLength": 1,
+            "maxLength": 50,
+            "minLength": 0,
             "type": "string",
             "format": "password"
           }

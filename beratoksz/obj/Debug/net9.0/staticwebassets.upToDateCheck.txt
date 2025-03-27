@@ -28,7 +28,6 @@ C:\Users\berat-oksuz\source\repos\beratoksz\beratoksz\wwwroot\css\site.css
 C:\Users\berat-oksuz\source\repos\beratoksz\beratoksz\wwwroot\lib\bootstrap\dist\css\bootstrap.rtl.min.css
 C:\Users\berat-oksuz\source\repos\beratoksz\beratoksz\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.min.css.map
 C:\Users\berat-oksuz\source\repos\beratoksz\beratoksz\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.rtl.min.css
-C:\Users\berat-oksuz\source\repos\beratoksz\beratoksz\wwwroot\js\home_index.js
 C:\Users\berat-oksuz\source\repos\beratoksz\beratoksz\wwwroot\lib\jquery-validation\dist\jquery.validate.min.js
 C:\Users\berat-oksuz\source\repos\beratoksz\beratoksz\wwwroot\lib\bootstrap\dist\js\bootstrap.esm.min.js
 C:\Users\berat-oksuz\source\repos\beratoksz\beratoksz\wwwroot\lottie\login.json
@@ -46,8 +45,10 @@ C:\Users\berat-oksuz\source\repos\beratoksz\beratoksz\wwwroot\lib\jquery-validat
 C:\Users\berat-oksuz\source\repos\beratoksz\beratoksz\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.rtl.min.css
 C:\Users\berat-oksuz\source\repos\beratoksz\beratoksz\wwwroot\lib\bootstrap\dist\css\bootstrap.min.css.map
 C:\Users\berat-oksuz\source\repos\beratoksz\beratoksz\wwwroot\lib\jquery-validation\dist\jquery.validate.js
+C:\Users\berat-oksuz\source\repos\beratoksz\beratoksz\wwwroot\js\Register.js
 C:\Users\berat-oksuz\source\repos\beratoksz\beratoksz\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.min.css
 C:\Users\berat-oksuz\source\repos\beratoksz\beratoksz\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.css.map
+C:\Users\berat-oksuz\source\repos\beratoksz\beratoksz\wwwroot\js\ResetPassword.js
 C:\Users\berat-oksuz\source\repos\beratoksz\beratoksz\wwwroot\lib\jquery\dist\jquery.js
 C:\Users\berat-oksuz\source\repos\beratoksz\beratoksz\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.rtl.min.css.map
 C:\Users\berat-oksuz\source\repos\beratoksz\beratoksz\wwwroot\lib\jquery\dist\jquery.min.js
@@ -76,8 +77,9 @@ wwwroot\css\site.css
 wwwroot\favicon.ico
 wwwroot\GeoLite2-City.mmdb
 C:\Users\berat-oksuz\source\repos\beratoksz\beratoksz\wwwroot\GeoLite2-City.mmdb
-wwwroot\js\home_index.js
 wwwroot\js\modern.js
+wwwroot\js\Register.js
+wwwroot\js\ResetPassword.js
 wwwroot\lib\bootstrap\dist\css\bootstrap.css
 wwwroot\lib\bootstrap\dist\css\bootstrap.css.map
 wwwroot\lib\bootstrap\dist\css\bootstrap.min.css

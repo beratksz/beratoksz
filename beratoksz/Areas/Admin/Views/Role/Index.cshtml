@@ -284,6 +284,72 @@
             alert("Yetki silinirken bir hata oluştu.");
         }
     }
+        function showAddPermissionModal() {
+        // Rol listesini doldur
+        fetch("/api/roleapi")
+            .then(response => response.json())
+            .then(roles => {
+                const roleSelect = document.getElementById("roleNameSelect");
+                roleSelect.innerHTML = roles.map(role => `<option value="${role.name}">${role.name}</option>`).join("");
+            })
+            .catch(error => console.error("Roller yüklenirken hata oluştu:", error));
+
+        // Sayfa listesini doldur (eğer varsa, API endpoint'in varsa)
+       fetch("/api/pageapi")
+    .then(response => response.json())
+    .then(pages => {
+        console.log("Received pages:", pages);
+        const pageSelect = document.getElementById("pagePathSelect");
+        // Eğer pages dizisi sadece stringlerden oluşuyorsa:
+        pageSelect.innerHTML = pages.map(page => `<option value="${page}">${page}</option>`).join("");
+    })
+    .catch(error => {
+        console.warn("Sayfa bilgisi gelmiyor, sabit değerlerle devam edilebilir.", error);
+        // Eğer API'den veri gelmezse, sabit değerlerle devam edebilirsin:
+        document.getElementById("pagePathSelect").innerHTML = `
+            <option value="/home/index">/home/index</option>
+            <option value="/admin/dashboard">/admin/dashboard</option>
+        `;
+    });
+
+
+        // Modalı aç
+        new bootstrap.Modal(document.getElementById("addPermissionModal")).show();
+    }
+
+        async function addPermission() {
+        // Modal içerisindeki select elemanlarından verileri çek
+        const roleSelect = document.getElementById("roleNameSelect");
+        const pageSelect = document.getElementById("pagePathSelect");
+        const canAccessSelect = document.getElementById("canAccessSelect");
+        const roleName = roleSelect.value;
+        const pagePath = pageSelect.value;
+        const canAccess = canAccessSelect.value === "true";
+
+        // Payload hazırla
+        const payload = { roleName, pagePath, canAccess };
+
+        try {
+            // API'ye POST isteği gönder
+            const response = await fetch("/api/rolepermission", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(payload)
+            });
+
+            if (response.ok) {
+                // Başarılı ise modalı kapat ve listeyi yeniden yükle
+                bootstrap.Modal.getInstance(document.getElementById("addPermissionModal")).hide();
+                loadPermissions();
+            } else {
+                alert("Yetki eklenirken hata oluştu.");
+            }
+        } catch (error) {
+            console.error("addPermission hatası:", error);
+            alert("Yetki eklenirken bir hata oluştu.");
+        }
+    }
+
 
     // Sayfa yüklendiğinde rolleri ve yetkilendirmeleri yükle
     document.addEventListener("DOMContentLoaded", () => {

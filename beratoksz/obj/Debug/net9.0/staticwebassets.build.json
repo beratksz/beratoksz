@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "YUfVjRDcbhNlT3kb6bRNxug/coD9sxU8p2OFFPR8bRw=",
+  "Hash": "yyx85Yw9+DNc+SUOhw8aYW//THoOW3VQxlBlbFLpIMw=",
   "Source": "beratoksz",
   "BasePath": "_content/beratoksz",
   "Mode": "Default",
@@ -668,27 +668,6 @@
       "OriginalItemSpec": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css"
     },
     {
-      "Identity": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\obj\\Debug\\net9.0\\compressed\\fz3gzduo6p-yfw3yh5seu.gz",
-      "SourceId": "beratoksz",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\obj\\Debug\\net9.0\\compressed\\",
-      "BasePath": "_content/beratoksz",
-      "RelativePath": "js/home_index#[.{fingerprint=yfw3yh5seu}]?.js.gz",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Alternative",
-      "AssetMergeBehavior": "",
-      "AssetMergeSource": "",
-      "RelatedAsset": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\wwwroot\\js\\home_index.js",
-      "AssetTraitName": "Content-Encoding",
-      "AssetTraitValue": "gzip",
-      "Fingerprint": "bxas8w0d6s",
-      "Integrity": "sRE7AZMRCLPwFVNREe2hj3+40M0TqoRNqK7dzUM/ngQ=",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\wwwroot\\js\\home_index.js"
-    },
-    {
       "Identity": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\obj\\Debug\\net9.0\\compressed\\hj37867k4j-b7iojwaux1.gz",
       "SourceId": "beratoksz",
       "SourceType": "Discovered",
@@ -1067,6 +1046,27 @@
       "OriginalItemSpec": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js"
     },
     {
+      "Identity": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\obj\\Debug\\net9.0\\compressed\\okf6jr67t9-kbzgur4ats.gz",
+      "SourceId": "beratoksz",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\obj\\Debug\\net9.0\\compressed\\",
+      "BasePath": "_content/beratoksz",
+      "RelativePath": "js/Register#[.{fingerprint=kbzgur4ats}]?.js.gz",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\wwwroot\\js\\Register.js",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "Fingerprint": "91pr39fqw7",
+      "Integrity": "gzHP6XntTDbt1+NmO6KYaLlIFnHn9MoLKArjiLlDM6Q=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\wwwroot\\js\\Register.js"
+    },
+    {
       "Identity": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\obj\\Debug\\net9.0\\compressed\\onqs7126iy-16095smhkz.gz",
       "SourceId": "beratoksz",
       "SourceType": "Discovered",
@@ -1107,6 +1107,27 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map"
+    },
+    {
+      "Identity": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\obj\\Debug\\net9.0\\compressed\\p5ucyloq1q-92yek0m0xy.gz",
+      "SourceId": "beratoksz",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\obj\\Debug\\net9.0\\compressed\\",
+      "BasePath": "_content/beratoksz",
+      "RelativePath": "js/ResetPassword#[.{fingerprint=92yek0m0xy}]?.js.gz",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\wwwroot\\js\\ResetPassword.js",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "Fingerprint": "hmhn7t3hg8",
+      "Integrity": "B9wXIigLxH327pGlhOVDkeiRe6RbrHzGMtoYD0vu3+I=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\wwwroot\\js\\ResetPassword.js"
     },
     {
       "Identity": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\obj\\Debug\\net9.0\\compressed\\qg0yqrnzzu-fwhahm2icz.gz",
@@ -1739,27 +1760,6 @@
       "OriginalItemSpec": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\wwwroot\\GeoLite2-City.mmdb"
     },
     {
-      "Identity": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\wwwroot\\js\\home_index.js",
-      "SourceId": "beratoksz",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\wwwroot\\",
-      "BasePath": "_content/beratoksz",
-      "RelativePath": "js/home_index#[.{fingerprint}]?.js",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "Fingerprint": "yfw3yh5seu",
-      "Integrity": "/lw/7x0NrQFzCxt7jYihN0qPeI1tJ0qQs9aLjorwfnw=",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\js\\home_index.js"
-    },
-    {
       "Identity": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\wwwroot\\js\\modern.js",
       "SourceId": "beratoksz",
       "SourceType": "Discovered",
@@ -1779,6 +1779,48 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\modern.js"
+    },
+    {
+      "Identity": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\wwwroot\\js\\Register.js",
+      "SourceId": "beratoksz",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\wwwroot\\",
+      "BasePath": "_content/beratoksz",
+      "RelativePath": "js/Register#[.{fingerprint}]?.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "kbzgur4ats",
+      "Integrity": "0AD0VuupNmhXbmbY1AuwZYohnIyMYkmlHShtnmRCvyE=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\Register.js"
+    },
+    {
+      "Identity": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\wwwroot\\js\\ResetPassword.js",
+      "SourceId": "beratoksz",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\wwwroot\\",
+      "BasePath": "_content/beratoksz",
+      "RelativePath": "js/ResetPassword#[.{fingerprint}]?.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "92yek0m0xy",
+      "Integrity": "8Zefd0bL+eRiLl3/HTTqEjx07BKzazTfnx1kRzQSTDk=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\ResetPassword.js"
     },
     {
       "Identity": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
@@ -5788,304 +5830,6 @@
       ]
     },
     {
-      "Route": "js/home_index.js",
-      "AssetFile": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\obj\\Debug\\net9.0\\compressed\\fz3gzduo6p-yfw3yh5seu.gz",
-      "Selectors": [
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip",
-          "Quality": "0.001057082452"
-        }
-      ],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "945"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"sRE7AZMRCLPwFVNREe2hj3+40M0TqoRNqK7dzUM/ngQ=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Wed, 26 Mar 2025 08:06:52 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        },
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip"
-        },
-        {
-          "Name": "Vary",
-          "Value": "Content-Encoding"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/javascript"
-        },
-        {
-          "Name": "ETag",
-          "Value": "W/\"/lw/7x0NrQFzCxt7jYihN0qPeI1tJ0qQs9aLjorwfnw=\""
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-/lw/7x0NrQFzCxt7jYihN0qPeI1tJ0qQs9aLjorwfnw="
-        }
-      ]
-    },
-    {
-      "Route": "js/home_index.js",
-      "AssetFile": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\wwwroot\\js\\home_index.js",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "2876"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/javascript"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"/lw/7x0NrQFzCxt7jYihN0qPeI1tJ0qQs9aLjorwfnw=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Wed, 26 Mar 2025 08:06:52 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-/lw/7x0NrQFzCxt7jYihN0qPeI1tJ0qQs9aLjorwfnw="
-        }
-      ]
-    },
-    {
-      "Route": "js/home_index.js.gz",
-      "AssetFile": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\obj\\Debug\\net9.0\\compressed\\fz3gzduo6p-yfw3yh5seu.gz",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "945"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/javascript"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"sRE7AZMRCLPwFVNREe2hj3+40M0TqoRNqK7dzUM/ngQ=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Wed, 26 Mar 2025 08:06:52 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        },
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip"
-        },
-        {
-          "Name": "Vary",
-          "Value": "Content-Encoding"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-sRE7AZMRCLPwFVNREe2hj3+40M0TqoRNqK7dzUM/ngQ="
-        }
-      ]
-    },
-    {
-      "Route": "js/home_index.yfw3yh5seu.js",
-      "AssetFile": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\obj\\Debug\\net9.0\\compressed\\fz3gzduo6p-yfw3yh5seu.gz",
-      "Selectors": [
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip",
-          "Quality": "0.001057082452"
-        }
-      ],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "945"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"sRE7AZMRCLPwFVNREe2hj3+40M0TqoRNqK7dzUM/ngQ=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Wed, 26 Mar 2025 08:06:52 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        },
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip"
-        },
-        {
-          "Name": "Vary",
-          "Value": "Content-Encoding"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/javascript"
-        },
-        {
-          "Name": "ETag",
-          "Value": "W/\"/lw/7x0NrQFzCxt7jYihN0qPeI1tJ0qQs9aLjorwfnw=\""
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "yfw3yh5seu"
-        },
-        {
-          "Name": "label",
-          "Value": "js/home_index.js"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-/lw/7x0NrQFzCxt7jYihN0qPeI1tJ0qQs9aLjorwfnw="
-        }
-      ]
-    },
-    {
-      "Route": "js/home_index.yfw3yh5seu.js",
-      "AssetFile": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\wwwroot\\js\\home_index.js",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "2876"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/javascript"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"/lw/7x0NrQFzCxt7jYihN0qPeI1tJ0qQs9aLjorwfnw=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Wed, 26 Mar 2025 08:06:52 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "yfw3yh5seu"
-        },
-        {
-          "Name": "label",
-          "Value": "js/home_index.js"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-/lw/7x0NrQFzCxt7jYihN0qPeI1tJ0qQs9aLjorwfnw="
-        }
-      ]
-    },
-    {
-      "Route": "js/home_index.yfw3yh5seu.js.gz",
-      "AssetFile": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\obj\\Debug\\net9.0\\compressed\\fz3gzduo6p-yfw3yh5seu.gz",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "945"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/javascript"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"sRE7AZMRCLPwFVNREe2hj3+40M0TqoRNqK7dzUM/ngQ=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Wed, 26 Mar 2025 08:06:52 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        },
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip"
-        },
-        {
-          "Name": "Vary",
-          "Value": "Content-Encoding"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "yfw3yh5seu"
-        },
-        {
-          "Name": "label",
-          "Value": "js/home_index.js.gz"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-sRE7AZMRCLPwFVNREe2hj3+40M0TqoRNqK7dzUM/ngQ="
-        }
-      ]
-    },
-    {
       "Route": "js/modern.0os86qovel.js",
       "AssetFile": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\obj\\Debug\\net9.0\\compressed\\7rwaap6jkl-0os86qovel.gz",
       "Selectors": [
@@ -6380,6 +6124,602 @@
         {
           "Name": "integrity",
           "Value": "sha256-szlhqRXXvETilYS57MUTx48sYD2iRPPFlG2K8xTQ65o="
+        }
+      ]
+    },
+    {
+      "Route": "js/Register.js",
+      "AssetFile": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\obj\\Debug\\net9.0\\compressed\\okf6jr67t9-kbzgur4ats.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.000499750125"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2000"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"gzHP6XntTDbt1+NmO6KYaLlIFnHn9MoLKArjiLlDM6Q=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 27 Mar 2025 12:49:08 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"0AD0VuupNmhXbmbY1AuwZYohnIyMYkmlHShtnmRCvyE=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-0AD0VuupNmhXbmbY1AuwZYohnIyMYkmlHShtnmRCvyE="
+        }
+      ]
+    },
+    {
+      "Route": "js/Register.js",
+      "AssetFile": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\wwwroot\\js\\Register.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "8283"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"0AD0VuupNmhXbmbY1AuwZYohnIyMYkmlHShtnmRCvyE=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 27 Mar 2025 12:49:08 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-0AD0VuupNmhXbmbY1AuwZYohnIyMYkmlHShtnmRCvyE="
+        }
+      ]
+    },
+    {
+      "Route": "js/Register.js.gz",
+      "AssetFile": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\obj\\Debug\\net9.0\\compressed\\okf6jr67t9-kbzgur4ats.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2000"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"gzHP6XntTDbt1+NmO6KYaLlIFnHn9MoLKArjiLlDM6Q=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 27 Mar 2025 12:49:08 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-gzHP6XntTDbt1+NmO6KYaLlIFnHn9MoLKArjiLlDM6Q="
+        }
+      ]
+    },
+    {
+      "Route": "js/Register.kbzgur4ats.js",
+      "AssetFile": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\obj\\Debug\\net9.0\\compressed\\okf6jr67t9-kbzgur4ats.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.000499750125"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2000"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"gzHP6XntTDbt1+NmO6KYaLlIFnHn9MoLKArjiLlDM6Q=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 27 Mar 2025 12:49:08 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"0AD0VuupNmhXbmbY1AuwZYohnIyMYkmlHShtnmRCvyE=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "kbzgur4ats"
+        },
+        {
+          "Name": "label",
+          "Value": "js/Register.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-0AD0VuupNmhXbmbY1AuwZYohnIyMYkmlHShtnmRCvyE="
+        }
+      ]
+    },
+    {
+      "Route": "js/Register.kbzgur4ats.js",
+      "AssetFile": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\wwwroot\\js\\Register.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "8283"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"0AD0VuupNmhXbmbY1AuwZYohnIyMYkmlHShtnmRCvyE=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 27 Mar 2025 12:49:08 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "kbzgur4ats"
+        },
+        {
+          "Name": "label",
+          "Value": "js/Register.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-0AD0VuupNmhXbmbY1AuwZYohnIyMYkmlHShtnmRCvyE="
+        }
+      ]
+    },
+    {
+      "Route": "js/Register.kbzgur4ats.js.gz",
+      "AssetFile": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\obj\\Debug\\net9.0\\compressed\\okf6jr67t9-kbzgur4ats.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2000"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"gzHP6XntTDbt1+NmO6KYaLlIFnHn9MoLKArjiLlDM6Q=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 27 Mar 2025 12:49:08 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "kbzgur4ats"
+        },
+        {
+          "Name": "label",
+          "Value": "js/Register.js.gz"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-gzHP6XntTDbt1+NmO6KYaLlIFnHn9MoLKArjiLlDM6Q="
+        }
+      ]
+    },
+    {
+      "Route": "js/ResetPassword.92yek0m0xy.js",
+      "AssetFile": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\obj\\Debug\\net9.0\\compressed\\p5ucyloq1q-92yek0m0xy.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.001010101010"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "989"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"B9wXIigLxH327pGlhOVDkeiRe6RbrHzGMtoYD0vu3+I=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 27 Mar 2025 12:59:49 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"8Zefd0bL+eRiLl3/HTTqEjx07BKzazTfnx1kRzQSTDk=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "92yek0m0xy"
+        },
+        {
+          "Name": "label",
+          "Value": "js/ResetPassword.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-8Zefd0bL+eRiLl3/HTTqEjx07BKzazTfnx1kRzQSTDk="
+        }
+      ]
+    },
+    {
+      "Route": "js/ResetPassword.92yek0m0xy.js",
+      "AssetFile": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\wwwroot\\js\\ResetPassword.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2842"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"8Zefd0bL+eRiLl3/HTTqEjx07BKzazTfnx1kRzQSTDk=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 27 Mar 2025 12:59:49 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "92yek0m0xy"
+        },
+        {
+          "Name": "label",
+          "Value": "js/ResetPassword.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-8Zefd0bL+eRiLl3/HTTqEjx07BKzazTfnx1kRzQSTDk="
+        }
+      ]
+    },
+    {
+      "Route": "js/ResetPassword.92yek0m0xy.js.gz",
+      "AssetFile": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\obj\\Debug\\net9.0\\compressed\\p5ucyloq1q-92yek0m0xy.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "989"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"B9wXIigLxH327pGlhOVDkeiRe6RbrHzGMtoYD0vu3+I=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 27 Mar 2025 12:59:49 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "92yek0m0xy"
+        },
+        {
+          "Name": "label",
+          "Value": "js/ResetPassword.js.gz"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-B9wXIigLxH327pGlhOVDkeiRe6RbrHzGMtoYD0vu3+I="
+        }
+      ]
+    },
+    {
+      "Route": "js/ResetPassword.js",
+      "AssetFile": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\obj\\Debug\\net9.0\\compressed\\p5ucyloq1q-92yek0m0xy.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.001010101010"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "989"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"B9wXIigLxH327pGlhOVDkeiRe6RbrHzGMtoYD0vu3+I=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 27 Mar 2025 12:59:49 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"8Zefd0bL+eRiLl3/HTTqEjx07BKzazTfnx1kRzQSTDk=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-8Zefd0bL+eRiLl3/HTTqEjx07BKzazTfnx1kRzQSTDk="
+        }
+      ]
+    },
+    {
+      "Route": "js/ResetPassword.js",
+      "AssetFile": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\wwwroot\\js\\ResetPassword.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2842"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"8Zefd0bL+eRiLl3/HTTqEjx07BKzazTfnx1kRzQSTDk=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 27 Mar 2025 12:59:49 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-8Zefd0bL+eRiLl3/HTTqEjx07BKzazTfnx1kRzQSTDk="
+        }
+      ]
+    },
+    {
+      "Route": "js/ResetPassword.js.gz",
+      "AssetFile": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\obj\\Debug\\net9.0\\compressed\\p5ucyloq1q-92yek0m0xy.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "989"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"B9wXIigLxH327pGlhOVDkeiRe6RbrHzGMtoYD0vu3+I=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 27 Mar 2025 12:59:49 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-B9wXIigLxH327pGlhOVDkeiRe6RbrHzGMtoYD0vu3+I="
         }
       ]
     },

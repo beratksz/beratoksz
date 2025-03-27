@@ -37,8 +37,12 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
-      "Id": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\wwwroot\\js\\home_index.js",
-      "PackagePath": "staticwebassets\\js\\home_index.js"
+      "Id": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\wwwroot\\js\\Register.js",
+      "PackagePath": "staticwebassets\\js\\Register.js"
+    },
+    {
+      "Id": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\wwwroot\\js\\ResetPassword.js",
+      "PackagePath": "staticwebassets\\js\\ResetPassword.js"
     },
     {
       "Id": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\beratoksz\\wwwroot\\js\\modern.js",

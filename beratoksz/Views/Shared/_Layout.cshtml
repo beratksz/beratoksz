@@ -25,10 +25,10 @@
                             <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Anasayfa</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="About">Hakkımızda</a>
+                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Contact">İletişim</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Contact">İletişim</a>
+                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Privacy">Gizlilik</a>
                         </li>
                     </ul>
                     <div id="auth-section" class="d-flex align-items-center ms-3">
@@ -38,6 +38,74 @@
             </div>
         </nav>
     </header>
+
+    <!-- Çerez Bilgilendirme Banner'ı -->
+    <div id="cookieConsent" class="cookie-banner">
+        <div class="cookie-content">
+            <p>
+                Bu web sitesi, kullanıcı deneyimini geliştirmek, analiz ve kişiselleştirme hizmetleri sunmak amacıyla çerezler kullanmaktadır.
+                Sitemizi kullanmaya devam ederek çerez kullanımını kabul etmiş sayılırsınız.
+            </p>
+            <div class="cookie-buttons">
+                <button id="acceptCookies" class="btn btn-primary btn-sm">Kabul Et</button>
+                <button id="declineCookies" class="btn btn-secondary btn-sm">Reddet</button>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        .cookie-banner {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.85);
+            color: #fff;
+            padding: 1rem;
+            z-index: 1000;
+            display: none;
+        }
+
+        .cookie-content {
+            max-width: 960px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+            .cookie-content p {
+                margin: 0 0 0.5rem;
+                text-align: center;
+            }
+
+        .cookie-buttons button {
+            margin: 0 0.25rem;
+        }
+    </style>
+
+    <script>
+        // Kontrol: Kullanıcının daha önce seçim yapıp yapmadığını kontrol et
+        const cookieConsent = localStorage.getItem('cookieConsent');
+        if (!cookieConsent) {
+          document.getElementById('cookieConsent').style.display = 'block';
+        }
+
+        // Kabul etme işlemi
+        document.getElementById('acceptCookies').addEventListener('click', function () {
+          localStorage.setItem('cookieConsent', 'accepted');
+          document.getElementById('cookieConsent').style.display = 'none';
+          // İsteğe bağlı: Çerezlerle ilgili ek işlemleri burada tetikleyebilirsin.
+        });
+
+        // Reddetme işlemi
+        document.getElementById('declineCookies').addEventListener('click', function () {
+          localStorage.setItem('cookieConsent', 'declined');
+          document.getElementById('cookieConsent').style.display = 'none';
+          // İsteğe bağlı: Çerezleri devre dışı bırakacak işlemleri burada uygulayabilirsin.
+        });
+    </script>
+
 
     <main class="container my-4">
         @RenderBody()

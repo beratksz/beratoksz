@@ -141,8 +141,12 @@
             });
         });
 
-        document.getElementById("twoFactorForm").addEventListener("submit", function (event) {
+               document.getElementById("twoFactorForm").addEventListener("submit", function (event) {
             event.preventDefault();
+            const verifyBtn = document.querySelector("#twoFactorForm button[type='submit']");
+            verifyBtn.disabled = true;
+            verifyBtn.textContent = "Doğrulanıyor...";
+
             fetch("/api/Account/verify-2fa", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
@@ -158,11 +162,19 @@
             })
             .catch(() => {
                 Swal.fire('Hata!', 'Bir hata oluştu.', 'error');
+            })
+            .finally(() => {
+                verifyBtn.disabled = false;
+                verifyBtn.textContent = "Kodu Doğrula";
             });
         });
 
         // Kodu tekrar gönderme işlemi
-        document.getElementById("resend2FA").addEventListener("click", function () {
+               document.getElementById("resend2FA").addEventListener("click", function () {
+            const resendBtn = document.getElementById("resend2FA");
+            resendBtn.disabled = true;
+            resendBtn.textContent = "Gönderiliyor...";
+
             fetch("/api/Account/resend-2fa-code", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
@@ -175,6 +187,10 @@
             })
             .catch(() => {
                 Swal.fire('Hata!', 'Kod tekrar gönderilemedi.', 'error');
+            })
+            .finally(() => {
+                resendBtn.disabled = false;
+                resendBtn.textContent = "Kodu Tekrar Gönder";
             });
         });
 
