@@ -42,12 +42,23 @@ services:
     networks:
       - vps_network
     ports:
-      - "3000:3000"  # API dýþarýya açýlacaksa
+      - "3000:3000"  # DÄ±ÅŸ eriÅŸim istenirse (gerek yoksa yorum satÄ±rÄ± yap)
     volumes:
       - ./whatsapp:/usr/src/app/user_data
+    environment:
+      - WA_AUTOMATE_API_PORT=3000
+      - WA_AUTOMATE_API_HOST=0.0.0.0
+      - WA_AUTOMATE_SESSION_NAME=beratoksz_session
+      - WA_AUTOMATE_DISABLE_SPINS=true
+      - WA_AUTOMATE_ENABLE_API=true
     tty: true
     stdin_open: true
     command: [ "--api", "--popup", "false" ]
+    healthcheck:
+      test: curl --fail http://localhost:3000/api/health || exit 1
+      interval: 30s
+      timeout: 10s
+      retries: 5
 
 networks:
   vps_network:
