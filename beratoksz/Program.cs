@@ -62,6 +62,8 @@ builder.Services.AddScoped<UserSecurityService>();
 builder.Services.AddScoped<EmailConfirmationService>();
 builder.Services.AddScoped<SettingsService>();
 builder.Services.AddScoped<PasswordResetEmailService>();
+builder.Services.AddScoped<SmsService>();
+builder.Services.AddSingleton<WhatsAppService>();
 
 // ?? Rate Limiting
 builder.Services.AddOptions();

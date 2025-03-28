@@ -3,18 +3,21 @@ using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 using beratoksz.Models;
 using beratoksz.Services;
+using beratoksz.Controllers;
 
 namespace beratoksz.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    [Authorize(Roles = "Admin")]
     public class SettingsController : Controller
     {
         private readonly SettingsService _settingsService;
+        private readonly ILogger<SettingsController> _logger;
 
-        public SettingsController(SettingsService settingsService)
+        public SettingsController(SettingsService settingsService,
+                                    ILogger<SettingsController> logger)
         {
             _settingsService = settingsService;
+            _logger = logger;
         }
 
         // Ana ayar sayfası: Liste ve form
@@ -38,6 +41,8 @@ namespace beratoksz.Areas.Admin.Controllers
                     EmailVerificationTemplate = "<p>Lütfen emailinizi doğrulamak için <a href='{LINK}'>buraya tıklayın</a>.</p>",
                     TwoFactorEmailTemplate = "<p>Doğrulama kodunuz: {CODE}</p>",
                     PasswordResetEmailTemplate = "<p>Doğrulama kodunuz: {LINK}</p>",
+                    PhoneVerificationTemplate = "<p>WhatsApp doğrulama kodunuz: {CODE}</p>",
+                    SmsSenderPhoneNumber = "+905xxxxxxxxx",
                     IsActive = false
                 };
                 await _settingsService.CreateSettingsAsync(defaultSettings);
@@ -82,6 +87,8 @@ namespace beratoksz.Areas.Admin.Controllers
                 TempData["SuccessMessage"] = "Ayarlar kaydedildi.";
                 return RedirectToAction("Index");
             }
+
+            _logger.LogInformation("Admin '{Admin}' updated settings ID {Id}", User.Identity.Name, model.CurrentSettings.Id);
             model.SettingsList = await _settingsService.GetAllSettingsAsync();
             return View("Index", model);
         }

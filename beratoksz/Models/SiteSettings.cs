@@ -14,6 +14,9 @@
         public string EmailVerificationTemplate { get; set; }
         public string TwoFactorEmailTemplate { get; set; }
         public string PasswordResetEmailTemplate { get; set; }
-        public bool IsActive { get; set; }  // Hangi kayıt aktif?
+        public string PhoneVerificationTemplate { get; set; }
+        public string SmsSenderPhoneNumber { get; set; } 
+
+        public bool IsActive { get; set; }  
     }
 }

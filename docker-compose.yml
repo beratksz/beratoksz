@@ -18,12 +18,14 @@ services:
       - ASPNETCORE_ENVIRONMENT=Production
       - ASPNETCORE_URLS=http://+:80
       - ConnectionStrings__DefaultConnection=Server=sqlserver,1433;Database=beratokszDB;User Id=sa;Password=Dockerdatabase123!;TrustServerCertificate=True
-      - ApiSettings__ApiUrl=https://beratoksz.com/;
+      - ApiSettings__ApiUrl=https://beratoksz.com/
     healthcheck:
       test: ["CMD-SHELL", "curl -f http://localhost:80/ || exit 1"]
       interval: 30s
       timeout: 10s
       retries: 3
+    depends_on:
+      - whatsapp
     deploy:
       resources:
         limits:
@@ -32,6 +34,20 @@ services:
         reservations:
           cpus: '0.25'
           memory: 256M
+
+  whatsapp:
+    image: openwa/wa-automate
+    container_name: whatsapp
+    restart: unless-stopped
+    networks:
+      - vps_network
+    ports:
+      - "3000:3000"  # API dýþarýya açýlacaksa
+    volumes:
+      - ./whatsapp:/usr/src/app/user_data
+    tty: true
+    stdin_open: true
+    command: [ "--api", "--popup", "false" ]
 
 networks:
   vps_network:

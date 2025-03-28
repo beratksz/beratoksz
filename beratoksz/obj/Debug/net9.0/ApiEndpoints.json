@@ -154,6 +154,38 @@
   },
   {
     "ContainingType": "beratoksz.Controllers.AccountController",
+    "Method": "SendPhoneVerificationCode",
+    "RelativePath": "api/Account/send-phone-verification",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "beratoksz.Models.SendPhoneCodeRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "beratoksz.Controllers.AccountController",
+    "Method": "UpdateSecuritySettings",
+    "RelativePath": "api/Account/update-security-settings",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "beratoksz.Models.AccountSecurityUpdateDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "beratoksz.Controllers.AccountController",
     "Method": "GetUserInfo",
     "RelativePath": "api/Account/userinfo",
     "HttpMethod": "GET",
@@ -173,6 +205,22 @@
       {
         "Name": "dto",
         "Type": "beratoksz.Models.Verify2FADto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "beratoksz.Controllers.AccountController",
+    "Method": "VerifyPhoneCode",
+    "RelativePath": "api/Account/verify-phone-code",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "beratoksz.Models.VerifyPhoneCodeRequest",
         "IsRequired": true
       }
     ],

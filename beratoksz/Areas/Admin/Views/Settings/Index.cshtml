@@ -39,6 +39,8 @@
     </div>
 </div>
 
+
+
 <hr />
 
 <form asp-action="Save" method="post">
@@ -52,6 +54,24 @@
     <div class="form-check">
         <input asp-for="CurrentSettings.EnableTwoFactorAuthentication" class="form-check-input" type="checkbox" />
         <label asp-for="CurrentSettings.EnableTwoFactorAuthentication" class="form-check-label">İki Faktörlü Kimlik Doğrulamayı Etkinleştir</label>
+    </div>
+
+        <hr />
+
+    <div class="form-group">
+        <label asp-for="CurrentSettings.SmsSenderPhoneNumber" class="form-label">SMS Gönderici Telefon Numarası</label>
+        <input asp-for="CurrentSettings.SmsSenderPhoneNumber" class="form-control" placeholder="+90 5xx xxx xx xx" />
+        <small class="form-text text-muted">
+            WhatsApp mesajlarında bu numara gönderici olarak gösterilecektir. Örnek: <strong>+90 530 000 00 00</strong>
+        </small>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">WhatsApp Doğrulama Mesajı Şablonu</label>
+        <textarea asp-for="CurrentSettings.PhoneVerificationTemplate" class="form-control" rows="3"></textarea>
+        <small class="form-text text-muted">
+            Mesajda <code>{CODE}</code> mutlaka bulunmalıdır. Firma adınızı doğrudan yazabilirsiniz.
+        </small>
     </div>
 
     <hr />

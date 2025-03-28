@@ -33,6 +33,7 @@ namespace beratoksz.Controllers
         private readonly EmailConfirmationService _emailConfirmationService;
         private readonly ILogger<AccountController> _logger;
         private readonly PasswordResetEmailService _passwordResetEmailService;
+        private readonly SmsService _smsService;
 
         public AccountController(UserManager<AppUser> userManager,
                                  SignInManager<AppUser> signInManager,
@@ -43,7 +44,8 @@ namespace beratoksz.Controllers
                                  SettingsService settingsService,
                                  EmailConfirmationService emailConfirmationService,
                                  ILogger<AccountController> logger,
-                                 PasswordResetEmailService passwordResetEmailService)
+                                 PasswordResetEmailService passwordResetEmailService,
+                                 SmsService smsService)
         {
             _userManager = userManager;
             _configuration = configuration;
@@ -54,6 +56,7 @@ namespace beratoksz.Controllers
             _emailConfirmationService = emailConfirmationService;
             _logger = logger;
             _passwordResetEmailService = passwordResetEmailService;
+            _smsService = smsService;
         }
 
         [HttpPost("register")]
@@ -338,6 +341,108 @@ namespace beratoksz.Controllers
 
         }
 
+        [Authorize]
+        [HttpPost("update-security-settings")]
+        [Throttle(300)]
+
+        public async Task<IActionResult> UpdateSecuritySettings([FromBody] AccountSecurityUpdateDto dto)
+        {
+            var user = await _userManager.GetUserAsync(User);
+            if (user == null)
+                return Unauthorized(new { message = "Kullanıcı bulunamadı." });
+
+            var messages = new List<string>();
+            var isModified = false;
+
+            // Kullanıcı adı güncelleme
+            if (!string.IsNullOrWhiteSpace(dto.UserName) && dto.UserName != user.UserName)
+            {
+                user.UserName = dto.UserName;
+                isModified = true;
+                messages.Add("Kullanıcı adı güncellendi.");
+            }
+
+            // Telefon numarası
+            if (!string.IsNullOrWhiteSpace(dto.PhoneNumber) && dto.PhoneNumber != user.PhoneNumber)
+            {
+                user.PhoneNumber = dto.PhoneNumber;
+                user.PhoneNumberConfirmed = false;
+                isModified = true;
+                messages.Add("Telefon numarası güncellendi. Onay bekleniyor.");
+            }
+
+            // 2FA kontrolü
+            if (dto.EnableTwoFactor.HasValue && dto.EnableTwoFactor != user.TwoFactorEnabled)
+            {
+                user.TwoFactorEnabled = dto.EnableTwoFactor.Value;
+                isModified = true;
+                messages.Add($"2FA {(dto.EnableTwoFactor.Value ? "aktif" : "pasif")} hale getirildi.");
+            }
+
+            // Şifre güncelleme
+            if (!string.IsNullOrWhiteSpace(dto.NewPassword))
+            {
+                if (dto.NewPassword != dto.ConfirmPassword)
+                    return BadRequest(new { message = "Yeni şifreler uyuşmuyor." });
+
+                if (string.IsNullOrWhiteSpace(dto.CurrentPassword))
+                    return BadRequest(new { message = "Mevcut şifre gereklidir." });
+
+                var passwordResult = await _userManager.ChangePasswordAsync(user, dto.CurrentPassword, dto.NewPassword);
+                if (!passwordResult.Succeeded)
+                {
+                    var errors = passwordResult.Errors.Select(e => e.Description);
+                    return BadRequest(new { message = "Şifre değiştirilemedi.", errors });
+                }
+
+                messages.Add("Şifre başarıyla güncellendi.");
+            }
+
+            // Değişiklikleri kaydet
+            if (isModified)
+            {
+                var updateResult = await _userManager.UpdateAsync(user);
+                if (!updateResult.Succeeded)
+                {
+                    var errors = updateResult.Errors.Select(e => e.Description);
+                    return BadRequest(new { message = "Kullanıcı bilgileri güncellenemedi.", errors });
+                }
+            }
+            _logger.LogInformation("User {UserId} security settings updated. Changes: {Changes}", user.Id, string.Join(", ", messages));
+            return Ok(new { message = "Ayarlar başarıyla güncellendi.", details = messages });
+        }
+
+        [Authorize]
+        [HttpPost("send-phone-verification")]
+        [Throttle(300)]
+
+        public async Task<IActionResult> SendPhoneVerificationCode([FromBody] SendPhoneCodeRequest dto)
+        {
+            var user = await _userManager.GetUserAsync(User);
+            if (user == null)
+                return Unauthorized(new { message = "Kullanıcı bulunamadı." });
+
+            var phone = dto.PhoneNumber ?? user.PhoneNumber;
+            if (string.IsNullOrWhiteSpace(phone))
+                return BadRequest(new { message = "Telefon numarası bulunamadı veya geçersiz." });
+
+            var settings = await _settingsService.GetActiveSettingsAsync();
+            if (settings == null)
+                return StatusCode(500, new { message = "Sistem ayarları eksik." });
+
+            // Kod üret
+            var code = new Random().Next(100000, 999999).ToString();
+
+            // Session'a yaz
+            HttpContext.Session.SetString("PhoneCode", code);
+            HttpContext.Session.SetString("PhoneCode_Phone", phone);
+            HttpContext.Session.SetString("PhoneCode_Expire", DateTime.UtcNow.AddMinutes(5).ToString());
+
+            // WhatsApp'tan mesaj gönder
+            await _smsService.SendVerificationCodeAsync(phone, code, settings);
+
+            return Ok(new { message = "Doğrulama kodu gönderildi." });
+        }
 
         [HttpPost("logout")]
         public IActionResult Logout()
@@ -359,6 +464,47 @@ namespace beratoksz.Controllers
             return Ok(new { message = "Çıkış yapıldı." });
         }
 
+        [Authorize]
+        [HttpPost("verify-phone-code")]
+        public async Task<IActionResult> VerifyPhoneCode([FromBody] VerifyPhoneCodeRequest dto)
+        {
+            var user = await _userManager.GetUserAsync(User);
+            if (user == null)
+                return Unauthorized(new { message = "Kullanıcı bulunamadı." });
+
+            var storedCode = HttpContext.Session.GetString("PhoneCode");
+            var expireStr = HttpContext.Session.GetString("PhoneCode_Expire");
+            var phoneInSession = HttpContext.Session.GetString("PhoneCode_Phone");
+
+            if (string.IsNullOrEmpty(storedCode) || string.IsNullOrEmpty(expireStr))
+                return BadRequest(new { message = "Kod bulunamadı veya süresi dolmuş olabilir." });
+
+            if (!DateTime.TryParse(expireStr, out var expireTime) || DateTime.UtcNow > expireTime)
+                return BadRequest(new { message = "Kodun süresi dolmuş." });
+
+            if (dto.Code != storedCode)
+                return BadRequest(new { message = "Kod hatalı." });
+
+            // Telefon numarasını doğrula
+            if (!string.IsNullOrEmpty(phoneInSession))
+            {
+                user.PhoneNumber = phoneInSession;
+                user.PhoneNumberConfirmed = true;
+            }
+            else
+            {
+                user.PhoneNumberConfirmed = true;
+            }
+
+            await _userManager.UpdateAsync(user);
+
+            // Session'ı temizle
+            HttpContext.Session.Remove("PhoneCode");
+            HttpContext.Session.Remove("PhoneCode_Phone");
+            HttpContext.Session.Remove("PhoneCode_Expire");
+
+            return Ok(new { message = "Telefon numaranız başarıyla doğrulandı." });
+        }
 
         [HttpGet("userinfo")]
         public async Task<IActionResult> GetUserInfo()
