@@ -18,7 +18,8 @@ services:
       - ASPNETCORE_ENVIRONMENT=Production
       - ASPNETCORE_URLS=http://+:80
       - ConnectionStrings__DefaultConnection=Server=sqlserver,1433;Database=beratokszDB;User Id=sa;Password=Dockerdatabase123!;TrustServerCertificate=True
-      - ApiSettings__ApiUrl=https://beratoksz.com/
+      - ApiSettings__ApiUrl=https://beratoksz.com
+      - WhatsAppSettings__ApiUrl=http://whatsapp:3000
     healthcheck:
       test: ["CMD-SHELL", "curl -f http://localhost:80/ || exit 1"]
       interval: 30s
@@ -58,7 +59,7 @@ services:
       test: curl --fail http://localhost:3000/api/health || exit 1
       interval: 30s
       timeout: 10s
-      retries: 5
+      retries: 10
 
 networks:
   vps_network:
