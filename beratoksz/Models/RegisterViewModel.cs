@@ -15,7 +15,7 @@ namespace beratoksz.Models
 
         [Required(ErrorMessage = "Telefon numarası zorunludur.")]
         [Phone(ErrorMessage = "Geçerli bir telefon numarası girin.")]
-        [StringLength(15, ErrorMessage = "Telefon numarası en fazla 15 karakter olabilir.")]
+        [StringLength(20, ErrorMessage = "Telefon numarası en fazla 20 karakter olabilir.")]
         public string PhoneNumber { get; set; }
 
         [Required(ErrorMessage = "Şifre zorunludur.")]

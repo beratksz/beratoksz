@@ -17,13 +17,13 @@
         {
             var payload = new
             {
-                to = phoneNumber + "@c.us",
-                message = message
+                chatId = phoneNumber.Replace("+", "") + "@c.us",
+                text = message
             };
 
             try
             {
-                var response = await _httpClient.PostAsJsonAsync(_apiUrl, payload);
+                var response = await _httpClient.PostAsJsonAsync($"{_apiUrl}/sendText", payload);
                 if (response.IsSuccessStatusCode)
                 {
                     _logger.LogInformation("✅ WhatsApp mesajı gönderildi → {Phone}", phoneNumber);

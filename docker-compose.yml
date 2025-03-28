@@ -42,8 +42,6 @@ services:
     restart: unless-stopped
     networks:
       - vps_network
-    ports:
-      - "3000:3000"  # Dış erişim istenirse (gerek yoksa yorum satırı yap)
     volumes:
       - ./whatsapp:/usr/src/app/user_data
     environment:
@@ -54,7 +52,7 @@ services:
       - WA_AUTOMATE_ENABLE_API=true
     tty: true
     stdin_open: true
-    command: [ "--api", "--popup", "false" ]
+    command: [ "--api", "--popup", "false", "--enable-api" ]
     healthcheck:
       test: curl --fail http://localhost:3000/api/health || exit 1
       interval: 30s

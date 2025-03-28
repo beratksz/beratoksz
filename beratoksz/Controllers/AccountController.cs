@@ -76,11 +76,14 @@ namespace beratoksz.Controllers
                 return BadRequest(new { message = "Bu e-posta adresi zaten kayıtlı." });
             }
 
+            // Telefon numarasını uluslararası formata çeviren yardımcı metot kullanılıyor.
+            string formattedPhone = FormatPhoneNumber(model.PhoneNumber);
+
             var user = new AppUser
             {
                 UserName = model.UserName,
                 Email = model.Email,
-                PhoneNumber = model.PhoneNumber
+                PhoneNumber = formattedPhone
             };
 
             var result = await _userManager.CreateAsync(user, model.Password);
@@ -95,9 +98,9 @@ namespace beratoksz.Controllers
             _logger.LogInformation("User registered: {UserId}, Email: {Email}", user.Id, user.Email);
 
             // Email doğrulaması için token üret
-                var emailToken = await _userManager.GenerateEmailConfirmationTokenAsync(user);
-                var safeToken = WebUtility.UrlEncode(emailToken); // using System.Net;
-                var confirmationLink = Url.Action("ConfirmEmail", "VAccount", new { userId = user.Id, token = safeToken }, Request.Scheme);
+            var emailToken = await _userManager.GenerateEmailConfirmationTokenAsync(user);
+            var safeToken = WebUtility.UrlEncode(emailToken); // using System.Net;
+            var confirmationLink = Url.Action("ConfirmEmail", "VAccount", new { userId = user.Id, token = safeToken }, Request.Scheme);
             try
             {
                 await _emailConfirmationService.SendConfirmationEmailAsync(user.Email, confirmationLink);
@@ -110,8 +113,40 @@ namespace beratoksz.Controllers
             }
 
             return Ok(new { message = "Kayıt başarılı. Lütfen emailinizi kontrol edin.", redirectUrl = "/VAccount/EmailConfirmationSent" });
-
         }
+
+        /// <summary>
+        /// Girilen telefon numarasını uluslararası formata çevirir.
+        /// Eğer numara "+" ile başlıyorsa olduğu gibi bırakır.
+        /// Eğer "0" ile başlıyorsa, örneğin Türkiye için "+90" ekler.
+        /// Yurt dışı numaraları için, kullanıcı uygun formatta (ör. "+1...") girmelidir.
+        /// </summary>
+        private string FormatPhoneNumber(string phoneNumber)
+        {
+            if (string.IsNullOrWhiteSpace(phoneNumber))
+                return phoneNumber;
+
+            phoneNumber = phoneNumber.Trim();
+
+            // Eğer numara "+" ile başlıyorsa, uluslararası format zaten mevcut
+            if (phoneNumber.StartsWith("+"))
+                return phoneNumber;
+
+            // Eğer numara "0" ile başlıyorsa (örneğin 05xxxxxxxxx), Türkiye için düzenle:
+            if (phoneNumber.StartsWith("0"))
+            {
+                // Telefon numarasını "05..." girdiyse, "05" yerine "905" ekler.
+                return "+9" + phoneNumber.Substring(1);
+            }
+
+            // Diğer durumlarda, varsayılan olarak eğer 10 hane ise Türkiye numarası olduğunu varsayalım
+            if (phoneNumber.Length == 10)
+                return "+90" + phoneNumber;
+
+            // Aksi halde, olduğu gibi döndür (kullanıcı yurt dışı numarası giriyorsa, örneğin "+1..." gibi)
+            return phoneNumber;
+        }
+
 
         [HttpGet("confirm-email")]
         [Throttle(300)]

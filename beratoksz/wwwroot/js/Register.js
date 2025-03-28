@@ -29,7 +29,7 @@
     function validatePassword(password) {
         const errors = [];
         if (password.length < 6) {
-            errors.push("Şifre en az 6 karakter olmalıdır.");
+            errors.push("Şifre en az 8 karakter olmalıdır.");
         }
         if (!/[A-Z]/.test(password)) {
             errors.push("Şifre en az bir büyük harf içermelidir.");
