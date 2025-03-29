@@ -1,33 +1,56 @@
-DİKKAT ! DİKKAT ! DİKKAT ! DİKKAT ! DİKKAT ! DİKKAT ! DİKKAT ! DİKKAT ! DİKKAT ! DİKKAT ! DİKKAT ! DİKKAT ! 
+## Hakkımda
+Bilgisayar Programcılığı ön lisans mezunuyum ve ASP.NET Core, .NET Framework, Entity Framework, SQL Server, SignalR gibi teknolojilerle gerçek dünya uygulamaları geliştiriyorum. Yazılım geliştirme süreçlerinin tüm katmanlarına hâkimim. Şu anda tam anlamıyla production seviyesinde, güvenli, modüler yapılı bir kimlik doğrulama ve yönetim sistemi geliştirdim. Aşağıda detayları paylaştığım bu proje, hem teknik hem sistem tasarımı hem de güvenlik anlamında derinlemesine bilgi ve beceri sunmaktadır.
 
-bu projeye gelen misafir proje lisanslıdır, production ortamında kullanılmasına kesinlikle müsade edilemez.
+---
 
-***Şifre sıfırlama linki tek seferlik yapılacak
+## Proje 1: Admin Panel ve Kimlik Doğrulama Sistemi (Production Ready)
 
-***2FA doğrulamasına cooldown ve timer eklenecek (frontend tarafında başarılı bilgisi verilecek)
+### Teknolojiler
+- ASP.NET Core Web API
+- Entity Framework Core
+- Identity, JWT & Refresh Token
+- SignalR
+- SQL Server
+- HTML, CSS, JS
+- Docker & open-wa/wa-automate (WhatsApp Service)
 
-***tüm proje de frontend tasarımı yapılacak özellikle kayıt ekranında bilgi mesajları kullanıcı adı, şifre, eposta uygunluk kontrolleri boşluk vb
+### Mimari
+- Katmanlı mimari: API, Service, Repository, DTO yapısı
+- Swagger ile API dokümantasyonu
+- IoC container ile dependency injection
 
-kullanıcı profilinden kullanıcı adını değişitirme, mail adresi değiştirme, telefon numarası değiştirme özellikleri eklenecek (backend tarafında çalışma gerekiyor)
+### Güvenlik Bileşenleri
+- JWT + HttpOnly Cookie ile oturum yönetimi
+- Refresh Token veritabanında tutulur ve cihaz bazlı kontrol edilebilir
+- E-posta doğrulama sistemi (tek kullanımlık link + expire)
+- 2FA (Two-Factor Authentication) - Session tabanlı, e-posta ile
+- Rate Limiting (AspNetCoreRateLimit)
+- Cooldown sistemi (brute force koruması)
+- Şifre sıfırlama ve resend kod işlemlerinde IP ve cihaz bazlı loglama
 
-sms doğrulaması için çalışmalar yapılacak
+### Yetkilendirme ve Yetki Dağıtımı
+- Guest / User / Admin rolleri otomatik sistem rolu olarak atanır daha sonradan roller eklenebilir
+- Sayfa ve API endpoint'leri dinamik olarak PageDiscoveryService ile tespit edilir
+- RolePermissionSeeder ile bu yollar ilgili rollere otomatik olarak atanır
+- SignalR ile yetki ve rol değişiklikleri anlık olarak istemciye yansıtılır
+- Middleware katmanı ile sayfa erişimleri kontrol edilir; statik dosyalar regex ile hariç tutulur
 
-***mail doğrulaması için resend yaparken kullanıcı ve id placeholder kullanılmış sadece mail olması gerek k.adına izin verilmemesi gerekli
+### Loglama ve Denetim
+- Tüm kritik işlemler (giriş, çıkış, doğrulama vb.) Audit Trail olarak veritabanına yazılır
+- GeoIP & UAParser ile IP, tarayıcı, cihaz ve lokasyon bilgileri analiz edilir
 
-***hakkında kısmı için çalışalacak
+### Admin Panel Yetkileri
+- Rol yönetimi (kullanıcılara rol atama)
+- Sayfa bazlı erişim izinlerini checkbox ile belirleme
+- Site ayarları: Whatsapp, SMTP, E-posta, genel güvenlik ayarları
+- Kullanıcı yönetimi silme, ekleme (CRUD)
 
-***gizlilik politikası için çalışılacak
+### Ek Entegrasyonlar
+- WhatsApp servisi entegre edildi (open-wa/wa-automate)
+- Docker Compose ile izole olarak yönetiliyor
+- Her proje için özel session klasörü oluşturuluyor
 
-***siteye girerken çerez kullanımı için uyarı verecek
+---
 
-***anasayfa genelleştirelecek admin panel için link buton olmayacak (/admin ile gidilecek eğer giriş yapmış olan adminse zaten erişim sağlacak)
-
-***geoip çalışmıyor gibi gelen veriler sabit ve değersiz geliyor düzeltilecek
-
-***belirli bir sayıda başarısız girişimde kullanıcı step step engellenecek ve cooldown'a girecek 
-
-***belirli bir sürede en fazla x kadar mail onayı, 2fa, şifre yenileme yapılabilecek ardından uyarı ile cooldown a girecek ve daha sonra denemek için bilgi verecek  
-
-rechapta çalışması yapılacak
-
-***admin panelde site settings yeni kayıt oluşturulmuyor mevcut kayıt aktif mi değil mi gözükmüyor
+## Son Söz
+Bu projede tüm sistem benim tarafımdan planlandı, geliştirildi ve yayına hazır hale getirildi. Gerek frontend gerek backend gerekse sistem mimarisi ve güvenlik tarafında baştan sona sorumluluk aldım. Tüm detayları düşünülmüş bu sistem, bugün herhangi bir kuruma rahatıyla entegre edilebilir ve ölçeklenebilir yapıdadır.
