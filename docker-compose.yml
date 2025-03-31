@@ -52,7 +52,7 @@ services:
       - WA_AUTOMATE_ENABLE_API=true
     tty: true
     stdin_open: true
-    command: [ "--api", "--popup", "false", "--enable-api" ]
+    command: [ "--api", "--popup", "false", "--enable-api", "--api-explorer-port=3000" ]
     healthcheck:
       test: curl --fail http://localhost:3000/api/health || exit 1
       interval: 30s
