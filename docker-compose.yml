@@ -35,6 +35,8 @@ services:
         reservations:
           cpus: '0.25'
           memory: 256M
+    command: >
+      sh -c "dotnet ef migrations add InitialCreate && dotnet ef database update && dotnet run"
 
   whatsapp:
     image: openwa/wa-automate

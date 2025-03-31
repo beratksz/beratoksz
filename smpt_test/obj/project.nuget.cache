@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "IyT4UaqQ+hE=",
+  "dgSpecHash": "e7tZtkrsL8g=",
   "success": true,
-  "projectFilePath": "C:\\Users\\berat-oksuz\\source\\repos\\beratoksz\\smpt_test\\smpt_test.csproj",
+  "projectFilePath": "C:\\Users\\berat\\source\\repos\\beratoksz\\smpt_test\\smpt_test.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\berat-oksuz\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.21.0\\microsoft.visualstudio.azure.containers.tools.targets.1.21.0.nupkg.sha512"
+    "C:\\Users\\berat\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.21.0\\microsoft.visualstudio.azure.containers.tools.targets.1.21.0.nupkg.sha512"
   ],
   "logs": []
 }

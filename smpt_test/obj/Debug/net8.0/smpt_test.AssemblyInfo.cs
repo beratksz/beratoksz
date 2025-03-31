@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("smpt_test")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e09415fc8fadf6488a8663f0249d723f4aee9bfe")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+95f6251b1989710de886617390ba37a37e0cdc77")]
 [assembly: System.Reflection.AssemblyProductAttribute("smpt_test")]
 [assembly: System.Reflection.AssemblyTitleAttribute("smpt_test")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
