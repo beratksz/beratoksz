@@ -1122,10 +1122,6 @@ C:\Users\berat-oksuz\source\repos\beratoksz\beratoksz\obj\Debug\net9.0\compresse
 C:\Users\berat-oksuz\source\repos\beratoksz\beratoksz\obj\Debug\net9.0\compressed\w4agcov9yo-vz9iklblgk.gz
 C:\Users\berat\source\repos\beratoksz\beratoksz\obj\Debug\net9.0\compressed\tcpggfr4g3-0hyq3qxad5.gz
 C:\Users\berat\source\repos\beratoksz\beratoksz\obj\Debug\net9.0\compressed\w4agcov9yo-vz9iklblgk.gz
-C:\Users\berat\source\repos\beratoksz\beratoksz\obj\Debug\net9.0\compressed\fz3gzduo6p-yfw3yh5seu.gz
-C:\Users\berat\source\repos\beratoksz\beratoksz\obj\Debug\net9.0\staticwebassets.upToDateCheck.txt
-C:\Users\berat\source\repos\beratoksz\beratoksz\obj\Debug\net9.0\compressed\vgle2aokzv-pbxc0t1sss.gz
-C:\Users\berat\source\repos\beratoksz\beratoksz\obj\Debug\net9.0\compressed\925xn0q78r-wtnwgwg98y.gz
 C:\Users\berat-oksuz\source\repos\beratoksz\beratoksz\obj\Debug\net9.0\compressed\7rwaap6jkl-0os86qovel.gz
 C:\Users\berat-oksuz\source\repos\beratoksz\beratoksz\obj\Debug\net9.0\compressed\jyjne6f5z2-1rjle3czog.gz
 C:\Users\berat-oksuz\source\repos\beratoksz\beratoksz\obj\Debug\net9.0\compressed\ao7btaswdf-k8oqb9v8mj.gz
@@ -1137,3 +1133,13 @@ C:\Users\berat-oksuz\source\repos\beratoksz\beratoksz\obj\Debug\net9.0\compresse
 C:\Users\berat-oksuz\source\repos\beratoksz\beratoksz\obj\Debug\net9.0\compressed\okf6jr67t9-kbzgur4ats.gz
 C:\Users\berat-oksuz\source\repos\beratoksz\beratoksz\obj\Debug\net9.0\compressed\p5ucyloq1q-92yek0m0xy.gz
 C:\Users\berat-oksuz\source\repos\beratoksz\beratoksz\obj\Debug\net9.0\staticwebassets.upToDateCheck.txt
+C:\Users\berat\source\repos\beratoksz\beratoksz\obj\Debug\net9.0\compressed\jyjne6f5z2-1rjle3czog.gz
+C:\Users\berat\source\repos\beratoksz\beratoksz\obj\Debug\net9.0\compressed\7rwaap6jkl-0os86qovel.gz
+C:\Users\berat\source\repos\beratoksz\beratoksz\obj\Debug\net9.0\compressed\okf6jr67t9-wboz6g0xd7.gz
+C:\Users\berat\source\repos\beratoksz\beratoksz\obj\Debug\net9.0\compressed\p5ucyloq1q-92yek0m0xy.gz
+C:\Users\berat\source\repos\beratoksz\beratoksz\obj\Debug\net9.0\compressed\ao7btaswdf-k8oqb9v8mj.gz
+C:\Users\berat\source\repos\beratoksz\beratoksz\obj\Debug\net9.0\compressed\l4wmj6275z-sj94tkszxq.gz
+C:\Users\berat\source\repos\beratoksz\beratoksz\obj\Debug\net9.0\compressed\d7cj4irbxg-x7bkcg34p0.gz
+C:\Users\berat\source\repos\beratoksz\beratoksz\obj\Debug\net9.0\compressed\hy880z1vth-3kjdigtr90.gz
+C:\Users\berat\source\repos\beratoksz\beratoksz\obj\Debug\net9.0\compressed\dmjbkwtgeg-cge7zmq9wt.gz
+C:\Users\berat\source\repos\beratoksz\beratoksz\obj\Debug\net9.0\compressed\48znbmi98x-odmpys998m.gz
