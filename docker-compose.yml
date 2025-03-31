@@ -19,7 +19,7 @@ services:
       - ASPNETCORE_URLS=http://+:80
       - ConnectionStrings__DefaultConnection=Server=sqlserver,1433;Database=beratokszDB;User Id=sa;Password=Homeserverdatabase1903;TrustServerCertificate=True
       - ApiSettings__ApiUrl=https://beratoksz.com
-      - WhatsAppSettings__ApiUrl=http://whatsapp:3000
+      - WhatsAppSettings__ApiUrl=http://whatsapp:8002
     healthcheck:
       test: ["CMD-SHELL", "curl -f http://localhost:80/ || exit 1"]
       interval: 30s
@@ -45,16 +45,16 @@ services:
     volumes:
       - ./whatsapp:/usr/src/app/user_data
     environment:
-      - WA_AUTOMATE_API_PORT=3000
+      - WA_AUTOMATE_API_PORT=8002
       - WA_AUTOMATE_API_HOST=0.0.0.0
       - WA_AUTOMATE_SESSION_NAME=beratoksz_session
       - WA_AUTOMATE_DISABLE_SPINS=true
       - WA_AUTOMATE_ENABLE_API=true
     tty: true
     stdin_open: true
-    command: [ "--api", "--popup", "false", "--enable-api", "--api-explorer-port=3000" ]
+    command: [ "--api", "--popup", "false", "--enable-api" ]
     healthcheck:
-      test: curl --fail http://localhost:3000/api/health || exit 1
+      test: curl --fail http://localhost:8002/api/health || exit 1
       interval: 30s
       timeout: 10s
       retries: 10
