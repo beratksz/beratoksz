@@ -1143,3 +1143,4 @@ C:\Users\berat\source\repos\beratoksz\beratoksz\obj\Debug\net9.0\compressed\d7cj
 C:\Users\berat\source\repos\beratoksz\beratoksz\obj\Debug\net9.0\compressed\hy880z1vth-3kjdigtr90.gz
 C:\Users\berat\source\repos\beratoksz\beratoksz\obj\Debug\net9.0\compressed\dmjbkwtgeg-cge7zmq9wt.gz
 C:\Users\berat\source\repos\beratoksz\beratoksz\obj\Debug\net9.0\compressed\48znbmi98x-odmpys998m.gz
+C:\Users\berat\source\repos\beratoksz\beratoksz\obj\Debug\net9.0\staticwebassets.upToDateCheck.txt

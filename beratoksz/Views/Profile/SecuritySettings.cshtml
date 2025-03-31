@@ -7,7 +7,43 @@
 {
     <div class="alert alert-danger">Kullanıcı bilgisi alınamadı. Lütfen tekrar giriş yapın.</div>
     return;
-}
+} 
+<style>
+    /* intl-tel-input alanı için temel düzenlemeler */
+    .iti {
+        width: 100% !important;
+        display: block;
+    }
+
+        /* Input alanını bootstrap uyumlu hale getirmek için */
+        .iti input {
+            width: 100%;
+            padding: 0.5rem;
+            font-size: 1rem;
+            border: 1px solid #ced4da;
+            border-radius: 0.25rem;
+            box-shadow: none;
+        }
+
+    /* Dropdown liste stilini düzenleyebilirsiniz */
+    .iti__flag-container {
+        margin-right: 0.5rem;
+    }
+
+    .iti__selected-flag {
+        cursor: pointer;
+    }
+
+    /* Eğer input alanı fazla yüksek geliyorsa, yüksekliği azaltabilirsiniz */
+    .iti--allow-dropdown input {
+        height: calc(2.5rem);
+    }
+
+</style>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.min.css" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js"></script>
 
 <div class="container py-5">
     <div class="row justify-content-center">
@@ -17,7 +53,6 @@
                     <h3 class="mb-0"><i class="bx bx-shield-quarter"></i> Güvenlik Ayarları</h3>
                 </div>
                 <div class="card-body">
-
                     <div id="resultMessage"></div>
 
                     <!-- Kullanıcı Adı -->
@@ -73,10 +108,23 @@
 </div>
 
 @section Scripts {
+   
     <script>
         let phoneVerified = false;
         let timerInterval;
         let remainingSeconds = 300;
+
+        const phoneInput = document.querySelector("#phoneNumber");
+        const iti = window.intlTelInput(phoneInput, {
+            initialCountry: "tr",
+            nationalMode: false,     // uluslararası formatta göster
+            autoHideDialCode: false  // dial code her zaman görünür
+        });
+
+        // Form gönderimi sırasında tam numarayı almak için:
+        function getFullPhoneNumber() {
+            return iti.getNumber(); // Örneğin, +905xxxxxxxxx formatında
+        }
 
         function updateSecuritySettings() {
             if (!phoneVerified) {
@@ -92,7 +140,7 @@
                 newPassword: document.getElementById("newPassword").value,
                 confirmPassword: document.getElementById("confirmPassword").value,
                 enableTwoFactor: document.getElementById("twoFactorSwitch").checked,
-                phoneNumber: document.getElementById("phoneNumber").value
+                phoneNumber: getFullPhoneNumber()  // getFullPhoneNumber fonksiyonu kullanılıyor
             };
 
             fetch("/api/account/update-security-settings", {
@@ -111,8 +159,12 @@
             });
         }
 
-        function sendVerificationCode() {
-            const phone = document.getElementById("phoneNumber").value;
+            function sendVerificationCode() {
+            const phone = getFullPhoneNumber();
+            if (!iti.isValidNumber()) {
+                document.getElementById("phoneMessage").innerHTML = `<div class="alert alert-danger">Geçersiz telefon numarası. Lütfen doğru bir numara girin.</div>`;
+                return;
+            }
             fetch("/api/account/send-phone-verification", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
@@ -126,6 +178,7 @@
                 startTimer();
             });
         }
+
 
         function verifyPhoneCode() {
             const code = document.getElementById("verificationCode").value;

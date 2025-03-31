@@ -3,8 +3,24 @@
   "WorkspaceRootPath": "C:\\Users\\berat\\source\\repos\\beratoksz\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{558C27AA-30C7-4791-9A27-6BE0D6F6550D}|\u00C7\u00F6z\u00FCm \u00D6\u011Feleri{558C27AA-30C7-4791-9A27-6BE0D6F6550D}|C:\\Users\\berat\\source\\repos\\beratoksz\\docker-compose.yml||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{558C27AA-30C7-4791-9A27-6BE0D6F6550D}|\u00C7\u00F6z\u00FCm \u00D6\u011Feleri{558C27AA-30C7-4791-9A27-6BE0D6F6550D}|solutionrelative:docker-compose.yml||{8B382828-6202-11D1-8870-0000F87579D2}"
+      "AbsoluteMoniker": "D:0:0:{7138BA50-D8E2-404D-9C96-32D2CF7CF7C2}|beratoksz\\beratoksz.csproj|c:\\users\\berat\\source\\repos\\beratoksz\\beratoksz\\areas\\admin\\views\\settings\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{7138BA50-D8E2-404D-9C96-32D2CF7CF7C2}|beratoksz\\beratoksz.csproj|solutionrelative:beratoksz\\areas\\admin\\views\\settings\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7138BA50-D8E2-404D-9C96-32D2CF7CF7C2}|beratoksz\\beratoksz.csproj|c:\\users\\berat\\source\\repos\\beratoksz\\beratoksz\\views\\profile\\securitysettings.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{7138BA50-D8E2-404D-9C96-32D2CF7CF7C2}|beratoksz\\beratoksz.csproj|solutionrelative:beratoksz\\views\\profile\\securitysettings.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7138BA50-D8E2-404D-9C96-32D2CF7CF7C2}|beratoksz\\beratoksz.csproj|c:\\users\\berat\\source\\repos\\beratoksz\\beratoksz\\views\\vaccount\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{7138BA50-D8E2-404D-9C96-32D2CF7CF7C2}|beratoksz\\beratoksz.csproj|solutionrelative:beratoksz\\views\\vaccount\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7138BA50-D8E2-404D-9C96-32D2CF7CF7C2}|beratoksz\\beratoksz.csproj|c:\\users\\berat\\source\\repos\\beratoksz\\beratoksz\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7138BA50-D8E2-404D-9C96-32D2CF7CF7C2}|beratoksz\\beratoksz.csproj|solutionrelative:beratoksz\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7138BA50-D8E2-404D-9C96-32D2CF7CF7C2}|beratoksz\\beratoksz.csproj|c:\\users\\berat\\source\\repos\\beratoksz\\beratoksz\\services\\whatsappservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7138BA50-D8E2-404D-9C96-32D2CF7CF7C2}|beratoksz\\beratoksz.csproj|solutionrelative:beratoksz\\services\\whatsappservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -14,7 +30,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -26,15 +42,67 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "AccountController.cs",
+              "DocumentMoniker": "C:\\Users\\berat\\source\\repos\\beratoksz\\beratoksz\\Controllers\\AccountController.cs",
+              "RelativeDocumentMoniker": "beratoksz\\Controllers\\AccountController.cs",
+              "ToolTip": "C:\\Users\\berat\\source\\repos\\beratoksz\\beratoksz\\Controllers\\AccountController.cs",
+              "RelativeToolTip": "beratoksz\\Controllers\\AccountController.cs",
+              "ViewState": "AgIAAFEAAAAAAAAAAAAAAGEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-31T18:35:34.356Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "docker-compose.yml",
-              "DocumentMoniker": "C:\\Users\\berat\\source\\repos\\beratoksz\\docker-compose.yml",
-              "RelativeDocumentMoniker": "docker-compose.yml",
-              "ToolTip": "C:\\Users\\berat\\source\\repos\\beratoksz\\docker-compose.yml",
-              "RelativeToolTip": "docker-compose.yml",
-              "ViewState": "AgIAABIAAAAAAAAAAAAAABMAAABkAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003775|",
-              "WhenOpened": "2025-03-31T16:36:54.863Z",
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\berat\\source\\repos\\beratoksz\\beratoksz\\Areas\\Admin\\Views\\Settings\\Index.cshtml",
+              "RelativeDocumentMoniker": "beratoksz\\Areas\\Admin\\Views\\Settings\\Index.cshtml",
+              "ToolTip": "C:\\Users\\berat\\source\\repos\\beratoksz\\beratoksz\\Areas\\Admin\\Views\\Settings\\Index.cshtml",
+              "RelativeToolTip": "beratoksz\\Areas\\Admin\\Views\\Settings\\Index.cshtml",
+              "ViewState": "AgIAANwAAAAAAAAAAAAYwPYAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-31T18:18:54.17Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Register.cshtml",
+              "DocumentMoniker": "C:\\Users\\berat\\source\\repos\\beratoksz\\beratoksz\\Views\\VAccount\\Register.cshtml",
+              "RelativeDocumentMoniker": "beratoksz\\Views\\VAccount\\Register.cshtml",
+              "ToolTip": "C:\\Users\\berat\\source\\repos\\beratoksz\\beratoksz\\Views\\VAccount\\Register.cshtml",
+              "RelativeToolTip": "beratoksz\\Views\\VAccount\\Register.cshtml",
+              "ViewState": "AgIAAF0AAAAAAAAAAAAAABoAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-31T18:14:06.461Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "SecuritySettings.cshtml",
+              "DocumentMoniker": "C:\\Users\\berat\\source\\repos\\beratoksz\\beratoksz\\Views\\Profile\\SecuritySettings.cshtml",
+              "RelativeDocumentMoniker": "beratoksz\\Views\\Profile\\SecuritySettings.cshtml",
+              "ToolTip": "C:\\Users\\berat\\source\\repos\\beratoksz\\beratoksz\\Views\\Profile\\SecuritySettings.cshtml",
+              "RelativeToolTip": "beratoksz\\Views\\Profile\\SecuritySettings.cshtml",
+              "ViewState": "AgIAALAAAAAAAAAAAAAkwKMAAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-31T18:14:04.997Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "WhatsAppService.cs",
+              "DocumentMoniker": "C:\\Users\\berat\\source\\repos\\beratoksz\\beratoksz\\Services\\WhatsAppService.cs",
+              "RelativeDocumentMoniker": "beratoksz\\Services\\WhatsAppService.cs",
+              "ToolTip": "C:\\Users\\berat\\source\\repos\\beratoksz\\beratoksz\\Services\\WhatsAppService.cs",
+              "RelativeToolTip": "beratoksz\\Services\\WhatsAppService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-31T17:58:58.921Z",
               "EditorCaption": ""
             }
           ]

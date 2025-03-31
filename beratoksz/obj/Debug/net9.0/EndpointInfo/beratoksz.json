@@ -939,7 +939,7 @@
             "format": "email"
           },
           "phoneNumber": {
-            "maxLength": 15,
+            "maxLength": 20,
             "minLength": 0,
             "type": "string",
             "format": "tel"

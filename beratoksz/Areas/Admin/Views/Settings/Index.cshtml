@@ -14,6 +14,38 @@
     .inactive-setting {
         color: red;
     }
+
+
+    /* intl-tel-input alanı için temel düzenlemeler */
+    .iti {
+        width: 100% !important;
+        display: block;
+    }
+
+        /* Input alanını bootstrap uyumlu hale getirmek için */
+        .iti input {
+            width: 100%;
+            padding: 0.5rem;
+            font-size: 1rem;
+            border: 1px solid #ced4da;
+            border-radius: 0.25rem;
+            box-shadow: none;
+        }
+
+    /* Dropdown liste stilini düzenleyebilirsiniz */
+    .iti__flag-container {
+        margin-right: 0.5rem;
+    }
+
+    .iti__selected-flag {
+        cursor: pointer;
+    }
+
+    /* Eğer input alanı fazla yüksek geliyorsa, yüksekliği azaltabilirsiniz */
+    .iti--allow-dropdown input {
+        height: calc(2.5rem);
+    }
+
 </style>
 
 
@@ -60,9 +92,9 @@
 
     <div class="form-group">
         <label asp-for="CurrentSettings.SmsSenderPhoneNumber" class="form-label">SMS Gönderici Telefon Numarası</label>
-        <input asp-for="CurrentSettings.SmsSenderPhoneNumber" class="form-control" placeholder="+90 5xx xxx xx xx" />
+        <input asp-for="CurrentSettings.SmsSenderPhoneNumber" class="form-control" id="PhoneNumber" placeholder="5xx xxx xx xx" />
         <small class="form-text text-muted">
-            WhatsApp mesajlarında bu numara gönderici olarak gösterilecektir. Örnek: <strong>+90 530 000 00 00</strong>
+                WhatsApp mesajlarında bu numara gönderici olarak gösterilecektir.
         </small>
     </div>
 
@@ -130,6 +162,10 @@
     }
 </form>
 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.min.css" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js"></script>
+
 @section Scripts {
     <script>
         function onSettingsSelectChange() {
@@ -188,5 +224,24 @@
                 form.submit();
             }
         }
+
+        const phoneInput = document.querySelector("#PhoneNumber");
+        const iti = window.intlTelInput(phoneInput, {
+            initialCountry: "tr",
+            nationalMode: false, // false olduğunda dial code input alanında gösterilir
+            autoHideDialCode: false // dial code her zaman görünür
+        });
+
+        // Form gönderimi sırasında tam numarayı almak için:
+        function getFullPhoneNumber() {
+            return iti.getNumber(); // Örneğin, +905xxxxxxxxx formatında
+        }
+
+        document.querySelector("form").addEventListener("submit", function(event) {
+            if (!iti.isValidNumber()) {
+                event.preventDefault();
+                alert("Geçersiz telefon numarası. Lütfen doğru bir numara girin.");
+            }
+        });
     </script>
-}
+    }

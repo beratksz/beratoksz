@@ -17,8 +17,11 @@
         {
             var payload = new
             {
-                chatId = phoneNumber.Replace("+", "") + "@c.us",
-                text = message
+                args = new
+                {
+                    to = phoneNumber.Replace("+", "") + "@c.us",
+                    content = message
+                }
             };
 
             try
@@ -42,5 +45,4 @@
             }
         }
     }
-
 }
