@@ -77,7 +77,6 @@ namespace beratoksz.Controllers
             }
 
             
-
             var user = new AppUser
             {
                 UserName = model.UserName,
@@ -147,6 +146,7 @@ namespace beratoksz.Controllers
         }
 
         [HttpPost("login")]
+        [Throttle(300)]
         public async Task<IActionResult> Login([FromBody] LoginViewModel model)
         {
             if (!ModelState.IsValid)
@@ -467,6 +467,7 @@ namespace beratoksz.Controllers
 
         [Authorize]
         [HttpPost("verify-phone-code")]
+        [Throttle(300)]
         public async Task<IActionResult> VerifyPhoneCode([FromBody] VerifyPhoneCodeRequest dto)
         {
             var user = await _userManager.GetUserAsync(User);
