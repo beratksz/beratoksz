@@ -19,8 +19,6 @@ using DotNetEnv;
 DotNetEnv.Env.Load();
 
 var builder = WebApplication.CreateBuilder(args);
-Console.WriteLine($"?? JWT_SECRET: {Environment.GetEnvironmentVariable("JWT_SECRET")}");
-Console.WriteLine($"?? Current Directory: {Directory.GetCurrentDirectory()}");
 
 // ?? Serilog Konfigürasyonu
 Log.Logger = new LoggerConfiguration()
