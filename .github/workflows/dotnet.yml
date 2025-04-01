@@ -34,7 +34,7 @@ jobs:
         key: ${{ secrets.VPS_SSH_KEY }}
         port: 2510
         script: |
-          cd /project/beratoksz
+          cd project/beratoksz
           git reset --hard HEAD
           git pull origin main
           docker compose down
