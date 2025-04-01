@@ -3,8 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\berat\\source\\repos\\beratoksz\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{7138BA50-D8E2-404D-9C96-32D2CF7CF7C2}|beratoksz\\beratoksz.csproj|c:\\users\\berat\\source\\repos\\beratoksz\\beratoksz\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7138BA50-D8E2-404D-9C96-32D2CF7CF7C2}|beratoksz\\beratoksz.csproj|solutionrelative:beratoksz\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{558C27AA-30C7-4791-9A27-6BE0D6F6550D}|\u00C7\u00F6z\u00FCm \u00D6\u011Feleri{558C27AA-30C7-4791-9A27-6BE0D6F6550D}|C:\\Users\\berat\\source\\repos\\beratoksz\\docker-compose.yml||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{558C27AA-30C7-4791-9A27-6BE0D6F6550D}|\u00C7\u00F6z\u00FCm \u00D6\u011Feleri{558C27AA-30C7-4791-9A27-6BE0D6F6550D}|solutionrelative:docker-compose.yml||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7138BA50-D8E2-404D-9C96-32D2CF7CF7C2}|beratoksz\\beratoksz.csproj|c:\\users\\berat\\source\\repos\\beratoksz\\beratoksz\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{7138BA50-D8E2-404D-9C96-32D2CF7CF7C2}|beratoksz\\beratoksz.csproj|solutionrelative:beratoksz\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7138BA50-D8E2-404D-9C96-32D2CF7CF7C2}|beratoksz\\beratoksz.csproj|c:\\users\\berat\\source\\repos\\beratoksz\\beratoksz\\.env||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{7138BA50-D8E2-404D-9C96-32D2CF7CF7C2}|beratoksz\\beratoksz.csproj|solutionrelative:beratoksz\\.env||{8B382828-6202-11D1-8870-0000F87579D2}"
     }
   ],
   "DocumentGroupContainers": [
@@ -27,14 +35,40 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\berat\\source\\repos\\beratoksz\\beratoksz\\Program.cs",
-              "RelativeDocumentMoniker": "beratoksz\\Program.cs",
-              "ToolTip": "C:\\Users\\berat\\source\\repos\\beratoksz\\beratoksz\\Program.cs",
-              "RelativeToolTip": "beratoksz\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAAbAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-01T14:31:22.341Z",
+              "Title": "docker-compose.yml",
+              "DocumentMoniker": "C:\\Users\\berat\\source\\repos\\beratoksz\\docker-compose.yml",
+              "RelativeDocumentMoniker": "docker-compose.yml",
+              "ToolTip": "C:\\Users\\berat\\source\\repos\\beratoksz\\docker-compose.yml*",
+              "RelativeToolTip": "docker-compose.yml*",
+              "ViewState": "AgIAAB0AAAAAAAAAAAAQwDAAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003775|",
+              "WhenOpened": "2025-04-01T14:48:21.926Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\berat\\source\\repos\\beratoksz\\beratoksz\\appsettings.json",
+              "RelativeDocumentMoniker": "beratoksz\\appsettings.json",
+              "ToolTip": "C:\\Users\\berat\\source\\repos\\beratoksz\\beratoksz\\appsettings.json",
+              "RelativeToolTip": "beratoksz\\appsettings.json",
+              "ViewState": "AgIAABQAAAAAAAAAAAAIwDkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-04-01T14:47:16.594Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": ".env",
+              "DocumentMoniker": "C:\\Users\\berat\\source\\repos\\beratoksz\\beratoksz\\.env",
+              "RelativeDocumentMoniker": "beratoksz\\.env",
+              "ToolTip": "C:\\Users\\berat\\source\\repos\\beratoksz\\beratoksz\\.env",
+              "RelativeToolTip": "beratoksz\\.env",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-04-01T14:33:00.012Z",
               "EditorCaption": ""
             }
           ]
