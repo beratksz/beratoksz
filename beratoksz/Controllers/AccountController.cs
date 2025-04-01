@@ -562,19 +562,25 @@ namespace beratoksz.Controllers
 
         private string GenerateJwtToken(AppUser user)
         {
-            var jwtConfig = _configuration.GetSection("JWT");
-            var authSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtConfig["Secret"]));
+            var secret = Environment.GetEnvironmentVariable("JWT_SECRET");
+            var issuer = Environment.GetEnvironmentVariable("JWT_VALID_ISSUER") ?? "https://beratoksz.com";
+            var audience = Environment.GetEnvironmentVariable("JWT_VALID_AUDIENCE") ?? "https://beratoksz.com";
+
+            if (string.IsNullOrWhiteSpace(secret))
+                throw new Exception("JWT_SECRET ortam değişkeni tanımlı değil! .env dosyasını kontrol et.");
+
+            var authSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(secret));
 
             var claims = new List<Claim>
-            {
-                new Claim(ClaimTypes.Name, user.UserName),
-                new Claim(ClaimTypes.Email, user.Email),
-                new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
-            };
+    {
+        new Claim(ClaimTypes.Name, user.UserName ?? ""),
+        new Claim(ClaimTypes.Email, user.Email ?? ""),
+        new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
+    };
 
             var token = new JwtSecurityToken(
-                issuer: jwtConfig["ValidIssuer"],
-                audience: jwtConfig["ValidAudience"],
+                issuer: issuer,
+                audience: audience,
                 expires: DateTime.UtcNow.AddHours(3),
                 claims: claims,
                 signingCredentials: new SigningCredentials(authSigningKey, SecurityAlgorithms.HmacSha256)
@@ -582,5 +588,6 @@ namespace beratoksz.Controllers
 
             return new JwtSecurityTokenHandler().WriteToken(token);
         }
+
     }
 }

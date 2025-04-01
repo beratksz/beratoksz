@@ -120,21 +120,26 @@ namespace beratoksz.Controllers.Api
         // JWT Token üretme fonksiyonu
         private string GenerateJwtToken(AppUser user)
         {
+            var jwtSecret = Environment.GetEnvironmentVariable("JWT_SECRET")
+                            ?? throw new Exception("JWT_SECRET ortam değişkeni tanımlı değil!");
+
+            var jwtIssuer = Environment.GetEnvironmentVariable("JWT_VALID_ISSUER") ?? "https://beratoksz.com";
+            var jwtAudience = Environment.GetEnvironmentVariable("JWT_VALID_AUDIENCE") ?? "https://beratoksz.com";
+
             var claims = new List<Claim>
     {
-        new Claim(ClaimTypes.NameIdentifier, user.Id),         // Kullanıcı ID
-        new Claim(ClaimTypes.Name, user.UserName),             // Kullanıcı Adı
-        new Claim(ClaimTypes.Email, user.Email ?? ""),         // Email
+        new Claim(ClaimTypes.NameIdentifier, user.Id),
+        new Claim(ClaimTypes.Name, user.UserName),
+        new Claim(ClaimTypes.Email, user.Email ?? ""),
         new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
     };
 
-            var jwtConfig = _configuration.GetSection("JWT");
-            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtConfig["Secret"]));
+            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtSecret));
             var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
 
             var token = new JwtSecurityToken(
-                issuer: jwtConfig["ValidIssuer"],
-                audience: jwtConfig["ValidAudience"],
+                issuer: jwtIssuer,
+                audience: jwtAudience,
                 expires: DateTime.UtcNow.AddMinutes(30),
                 claims: claims,
                 signingCredentials: creds
@@ -142,6 +147,7 @@ namespace beratoksz.Controllers.Api
 
             return new JwtSecurityTokenHandler().WriteToken(token);
         }
+
 
 
         // Refresh Token üretme fonksiyonu
