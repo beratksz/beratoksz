@@ -1,44 +1,46 @@
-name: .NET Core CI/CD Pipeline
+name: ?? CI/CD - ASP.NET Core + Docker VPS Deploy
 
 on:
   push:
     branches: [ main ]
-  pull_request:
-    branches: [ main ]
 
 jobs:
-  build:
+  build-and-deploy:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout repository
+    - name: ?? Repo'yu klonla
       uses: actions/checkout@v3
 
-    - name: Setup .NET
+    - name: ?? .NET kurulumu
       uses: actions/setup-dotnet@v3
       with:
-        dotnet-version: '8.0.x'
+        dotnet-version: '9.0.x'
 
-    - name: Restore dependencies
+    - name: ?? Nuget restore
       run: dotnet restore
 
-    - name: Build
+    - name: ??? Build
       run: dotnet build --no-restore --configuration Release
 
-    - name: Run Tests
+    - name: ?? Test
       run: dotnet test --no-build --configuration Release
 
-    - name: Publish
+    - name: ?? Yayýn dosyasý oluþtur (opsiyonel)
       run: dotnet publish --no-build --configuration Release -o publish
 
-    - name: Build Docker image
-      run: docker build -t myproject:latest .
-
-    - name: Push Docker image
-      env:
-        DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
-        DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
-      run: |
-        echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin
-        docker tag beratoksz:latest beratoksz/beratoksz:latest
-        docker push beratoksz/beratoksz:latest
+    - name: ?? VPS'e baðlan ve deploy et
+      uses: appleboy/ssh-action@v1.0.0
+      with:
+        host: ${{ secrets.VPS_HOST }}
+        username: ${{ secrets.VPS_USER }}
+        key: ${{ secrets.VPS_SSH_KEY }}
+        port: 2510
+        script: |
+          cd /home/homeserver/project/beratoksz
+          git reset --hard HEAD
+          git pull origin main
+          docker compose down
+          docker compose build
+          docker compose up -d
+          docker system prune -f

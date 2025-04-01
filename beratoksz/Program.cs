@@ -15,6 +15,8 @@ using System.Security.Claims;
 using beratoksz;
 using Microsoft.AspNetCore.HttpOverrides;
 
+
+
 var builder = WebApplication.CreateBuilder(args);
 
 // ?? Serilog Konfigürasyonu
@@ -94,15 +96,23 @@ builder.Services.AddSignalR(options =>
 // ?? Performans servisi
 builder.Services.AddHostedService<PerformanceMetricsService>();
 
+builder.Configuration["JwtSettings:Secret"] = Environment.GetEnvironmentVariable("JWT_SECRET");
+
 // ?? JWT
 builder.Services.AddAuthentication(options =>
 {
-    options.DefaultAuthenticateScheme = IdentityConstants.ApplicationScheme;
-    options.DefaultChallengeScheme = IdentityConstants.ApplicationScheme;
+    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
 })
-.AddJwtBearer("Jwt", options =>
+.AddJwtBearer(JwtBearerDefaults.AuthenticationScheme, options =>
 {
-    var jwt = builder.Configuration.GetSection("JWT");
+    if (string.IsNullOrWhiteSpace(Environment.GetEnvironmentVariable("JWT_SECRET")))
+    {
+        throw new Exception("JWT_SECRET ortam deðiþkeni tanýmlý deðil! .env dosyasýný kontrol et.");
+    }
+
+    var jwt = builder.Configuration.GetSection("JwtSettings");
+
     options.TokenValidationParameters = new TokenValidationParameters
     {
         ValidateIssuer = true,

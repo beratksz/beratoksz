@@ -1,0 +1,1925 @@
+2025-04-01 01:18:38.212 +03:00 [INF] Executed DbCommand (993ms) [Parameters=[], CommandType='"Text"', CommandTimeout='60']
+CREATE DATABASE [beratokszDB];
+2025-04-01 01:18:38.816 +03:00 [INF] Executed DbCommand (581ms) [Parameters=[], CommandType='"Text"', CommandTimeout='60']
+IF SERVERPROPERTY('EngineEdition') <> 5
+BEGIN
+    ALTER DATABASE [beratokszDB] SET READ_COMMITTED_SNAPSHOT ON;
+END;
+2025-04-01 01:18:38.941 +03:00 [INF] Executed DbCommand (19ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-04-01 01:18:38.944 +03:00 [INF] Acquiring an exclusive lock for migration application. See https://aka.ms/efcore-docs-migrations-lock for more information if this takes too long.
+2025-04-01 01:18:39.001 +03:00 [INF] Executed DbCommand (56ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+DECLARE @result int;
+EXEC @result = sp_getapplock @Resource = '__EFMigrationsLock', @LockOwner = 'Session', @LockMode = 'Exclusive';
+SELECT @result
+2025-04-01 01:18:39.081 +03:00 [INF] Executed DbCommand (32ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF OBJECT_ID(N'[__EFMigrationsHistory]') IS NULL
+BEGIN
+    CREATE TABLE [__EFMigrationsHistory] (
+        [MigrationId] nvarchar(150) NOT NULL,
+        [ProductVersion] nvarchar(32) NOT NULL,
+        CONSTRAINT [PK___EFMigrationsHistory] PRIMARY KEY ([MigrationId])
+    );
+END;
+2025-04-01 01:18:39.140 +03:00 [INF] Executed DbCommand (16ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-04-01 01:18:39.158 +03:00 [INF] Executed DbCommand (18ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2025-04-01 01:18:39.227 +03:00 [INF] Executed DbCommand (68ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2025-04-01 01:18:39.233 +03:00 [INF] Applying migration '20250331221824_Intiallss'.
+2025-04-01 01:18:39.279 +03:00 [INF] Executed DbCommand (20ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [ActivityLogs] (
+    [Id] int NOT NULL IDENTITY,
+    [UserName] nvarchar(max) NULL,
+    [Page] nvarchar(max) NOT NULL,
+    [Timestamp] datetime2 NOT NULL,
+    [IPAddress] nvarchar(max) NOT NULL,
+    [UserAgent] nvarchar(max) NOT NULL,
+    [OS] nvarchar(max) NOT NULL,
+    [Duration] float NOT NULL,
+    [Country] nvarchar(max) NOT NULL,
+    [City] nvarchar(max) NOT NULL,
+    [Region] nvarchar(max) NOT NULL,
+    CONSTRAINT [PK_ActivityLogs] PRIMARY KEY ([Id])
+);
+2025-04-01 01:18:39.301 +03:00 [INF] Executed DbCommand (22ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [AspNetRoles] (
+    [Id] nvarchar(450) NOT NULL,
+    [Aciklama] nvarchar(250) NOT NULL,
+    [OlusturulmaTarihi] datetime2 NOT NULL DEFAULT (GETUTCDATE()),
+    [SistemRoluMu] bit NOT NULL DEFAULT CAST(0 AS bit),
+    [Name] nvarchar(256) NULL,
+    [NormalizedName] nvarchar(256) NULL,
+    [ConcurrencyStamp] nvarchar(max) NULL,
+    CONSTRAINT [PK_AspNetRoles] PRIMARY KEY ([Id])
+);
+2025-04-01 01:18:39.330 +03:00 [INF] Executed DbCommand (29ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [AspNetUsers] (
+    [Id] nvarchar(450) NOT NULL,
+    [UserName] nvarchar(256) NULL,
+    [NormalizedUserName] nvarchar(256) NULL,
+    [Email] nvarchar(256) NULL,
+    [NormalizedEmail] nvarchar(256) NULL,
+    [EmailConfirmed] bit NOT NULL,
+    [PasswordHash] nvarchar(max) NULL,
+    [SecurityStamp] nvarchar(max) NULL,
+    [ConcurrencyStamp] nvarchar(max) NULL,
+    [PhoneNumber] nvarchar(max) NULL,
+    [PhoneNumberConfirmed] bit NOT NULL,
+    [TwoFactorEnabled] bit NOT NULL,
+    [LockoutEnd] datetimeoffset NULL,
+    [LockoutEnabled] bit NOT NULL,
+    [AccessFailedCount] int NOT NULL,
+    CONSTRAINT [PK_AspNetUsers] PRIMARY KEY ([Id])
+);
+2025-04-01 01:18:39.352 +03:00 [INF] Executed DbCommand (22ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [RolePermissions] (
+    [Id] int NOT NULL IDENTITY,
+    [RoleName] nvarchar(max) NOT NULL,
+    [PagePath] nvarchar(max) NOT NULL,
+    [CanAccess] bit NULL,
+    CONSTRAINT [PK_RolePermissions] PRIMARY KEY ([Id])
+);
+2025-04-01 01:18:39.374 +03:00 [INF] Executed DbCommand (22ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [SiteSettings] (
+    [Id] int NOT NULL IDENTITY,
+    [EnableEmailVerification] bit NOT NULL,
+    [EnableTwoFactorAuthentication] bit NOT NULL,
+    [SmtpHost] nvarchar(max) NOT NULL,
+    [SmtpPort] int NOT NULL,
+    [SmtpUsername] nvarchar(max) NOT NULL,
+    [SmtpPassword] nvarchar(max) NOT NULL,
+    [EmailFromAddress] nvarchar(max) NOT NULL,
+    [EmailFromName] nvarchar(max) NOT NULL,
+    [EmailVerificationTemplate] nvarchar(max) NOT NULL,
+    [TwoFactorEmailTemplate] nvarchar(max) NOT NULL,
+    [PasswordResetEmailTemplate] nvarchar(max) NOT NULL,
+    [PhoneVerificationTemplate] nvarchar(max) NOT NULL,
+    [SmsSenderPhoneNumber] nvarchar(max) NOT NULL,
+    [IsActive] bit NOT NULL,
+    CONSTRAINT [PK_SiteSettings] PRIMARY KEY ([Id])
+);
+2025-04-01 01:18:39.394 +03:00 [INF] Executed DbCommand (20ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [UserSecurityActivities] (
+    [Id] int NOT NULL IDENTITY,
+    [UserId] nvarchar(max) NOT NULL,
+    [ActivityType] nvarchar(max) NOT NULL,
+    [IPAddress] nvarchar(max) NOT NULL,
+    [UserAgent] nvarchar(max) NOT NULL,
+    [Timestamp] datetime2 NOT NULL,
+    [IsSuccess] bit NOT NULL,
+    CONSTRAINT [PK_UserSecurityActivities] PRIMARY KEY ([Id])
+);
+2025-04-01 01:18:39.441 +03:00 [INF] Executed DbCommand (46ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [AspNetRoleClaims] (
+    [Id] int NOT NULL IDENTITY,
+    [RoleId] nvarchar(450) NOT NULL,
+    [ClaimType] nvarchar(max) NULL,
+    [ClaimValue] nvarchar(max) NULL,
+    CONSTRAINT [PK_AspNetRoleClaims] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_AspNetRoleClaims_AspNetRoles_RoleId] FOREIGN KEY ([RoleId]) REFERENCES [AspNetRoles] ([Id]) ON DELETE CASCADE
+);
+2025-04-01 01:18:39.463 +03:00 [INF] Executed DbCommand (22ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [AspNetUserClaims] (
+    [Id] int NOT NULL IDENTITY,
+    [UserId] nvarchar(450) NOT NULL,
+    [ClaimType] nvarchar(max) NULL,
+    [ClaimValue] nvarchar(max) NULL,
+    CONSTRAINT [PK_AspNetUserClaims] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_AspNetUserClaims_AspNetUsers_UserId] FOREIGN KEY ([UserId]) REFERENCES [AspNetUsers] ([Id]) ON DELETE CASCADE
+);
+2025-04-01 01:18:39.495 +03:00 [INF] Executed DbCommand (32ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [AspNetUserLogins] (
+    [LoginProvider] nvarchar(450) NOT NULL,
+    [ProviderKey] nvarchar(450) NOT NULL,
+    [ProviderDisplayName] nvarchar(max) NULL,
+    [UserId] nvarchar(450) NOT NULL,
+    CONSTRAINT [PK_AspNetUserLogins] PRIMARY KEY ([LoginProvider], [ProviderKey]),
+    CONSTRAINT [FK_AspNetUserLogins_AspNetUsers_UserId] FOREIGN KEY ([UserId]) REFERENCES [AspNetUsers] ([Id]) ON DELETE CASCADE
+);
+2025-04-01 01:18:39.522 +03:00 [INF] Executed DbCommand (27ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [AspNetUserRoles] (
+    [UserId] nvarchar(450) NOT NULL,
+    [RoleId] nvarchar(450) NOT NULL,
+    CONSTRAINT [PK_AspNetUserRoles] PRIMARY KEY ([UserId], [RoleId]),
+    CONSTRAINT [FK_AspNetUserRoles_AspNetRoles_RoleId] FOREIGN KEY ([RoleId]) REFERENCES [AspNetRoles] ([Id]) ON DELETE CASCADE,
+    CONSTRAINT [FK_AspNetUserRoles_AspNetUsers_UserId] FOREIGN KEY ([UserId]) REFERENCES [AspNetUsers] ([Id]) ON DELETE CASCADE
+);
+2025-04-01 01:18:39.546 +03:00 [INF] Executed DbCommand (24ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [AspNetUserTokens] (
+    [UserId] nvarchar(450) NOT NULL,
+    [LoginProvider] nvarchar(450) NOT NULL,
+    [Name] nvarchar(450) NOT NULL,
+    [Value] nvarchar(max) NULL,
+    CONSTRAINT [PK_AspNetUserTokens] PRIMARY KEY ([UserId], [LoginProvider], [Name]),
+    CONSTRAINT [FK_AspNetUserTokens_AspNetUsers_UserId] FOREIGN KEY ([UserId]) REFERENCES [AspNetUsers] ([Id]) ON DELETE CASCADE
+);
+2025-04-01 01:18:39.568 +03:00 [INF] Executed DbCommand (22ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [RefreshTokens] (
+    [Id] int NOT NULL IDENTITY,
+    [Token] nvarchar(max) NOT NULL,
+    [Expiration] datetime2 NOT NULL,
+    [IsRevoked] bit NOT NULL,
+    [UserId] nvarchar(450) NOT NULL,
+    CONSTRAINT [PK_RefreshTokens] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_RefreshTokens_AspNetUsers_UserId] FOREIGN KEY ([UserId]) REFERENCES [AspNetUsers] ([Id]) ON DELETE CASCADE
+);
+2025-04-01 01:18:39.594 +03:00 [INF] Executed DbCommand (26ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_AspNetRoleClaims_RoleId] ON [AspNetRoleClaims] ([RoleId]);
+2025-04-01 01:18:39.613 +03:00 [INF] Executed DbCommand (18ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE UNIQUE INDEX [RoleNameIndex] ON [AspNetRoles] ([NormalizedName]) WHERE [NormalizedName] IS NOT NULL;
+2025-04-01 01:18:39.632 +03:00 [INF] Executed DbCommand (19ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_AspNetUserClaims_UserId] ON [AspNetUserClaims] ([UserId]);
+2025-04-01 01:18:39.649 +03:00 [INF] Executed DbCommand (17ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_AspNetUserLogins_UserId] ON [AspNetUserLogins] ([UserId]);
+2025-04-01 01:18:39.666 +03:00 [INF] Executed DbCommand (17ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_AspNetUserRoles_RoleId] ON [AspNetUserRoles] ([RoleId]);
+2025-04-01 01:18:39.684 +03:00 [INF] Executed DbCommand (18ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [EmailIndex] ON [AspNetUsers] ([NormalizedEmail]);
+2025-04-01 01:18:39.707 +03:00 [INF] Executed DbCommand (22ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE UNIQUE INDEX [UserNameIndex] ON [AspNetUsers] ([NormalizedUserName]) WHERE [NormalizedUserName] IS NOT NULL;
+2025-04-01 01:18:39.725 +03:00 [INF] Executed DbCommand (18ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_RefreshTokens_UserId] ON [RefreshTokens] ([UserId]);
+2025-04-01 01:18:39.778 +03:00 [INF] Executed DbCommand (52ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20250331221824_Intiallss', N'9.0.3');
+2025-04-01 01:18:39.823 +03:00 [INF] Executed DbCommand (23ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+DECLARE @result int;
+EXEC @result = sp_releaseapplock @Resource = '__EFMigrationsLock', @LockOwner = 'Session';
+SELECT @result
+2025-04-01 03:00:29.812 +03:00 [INF] Executed DbCommand (1,291ms) [Parameters=[], CommandType='"Text"', CommandTimeout='60']
+CREATE DATABASE [beratokszDB];
+2025-04-01 03:00:30.706 +03:00 [INF] Executed DbCommand (871ms) [Parameters=[], CommandType='"Text"', CommandTimeout='60']
+IF SERVERPROPERTY('EngineEdition') <> 5
+BEGIN
+    ALTER DATABASE [beratokszDB] SET READ_COMMITTED_SNAPSHOT ON;
+END;
+2025-04-01 03:00:30.780 +03:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-04-01 03:00:30.782 +03:00 [INF] Acquiring an exclusive lock for migration application. See https://aka.ms/efcore-docs-migrations-lock for more information if this takes too long.
+2025-04-01 03:00:30.837 +03:00 [INF] Executed DbCommand (54ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+DECLARE @result int;
+EXEC @result = sp_getapplock @Resource = '__EFMigrationsLock', @LockOwner = 'Session', @LockMode = 'Exclusive';
+SELECT @result
+2025-04-01 03:00:30.898 +03:00 [INF] Executed DbCommand (28ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF OBJECT_ID(N'[__EFMigrationsHistory]') IS NULL
+BEGIN
+    CREATE TABLE [__EFMigrationsHistory] (
+        [MigrationId] nvarchar(150) NOT NULL,
+        [ProductVersion] nvarchar(32) NOT NULL,
+        CONSTRAINT [PK___EFMigrationsHistory] PRIMARY KEY ([MigrationId])
+    );
+END;
+2025-04-01 03:00:30.923 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-04-01 03:00:30.930 +03:00 [INF] Executed DbCommand (8ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2025-04-01 03:00:31.005 +03:00 [INF] Executed DbCommand (73ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2025-04-01 03:00:31.010 +03:00 [INF] Applying migration '20250331221824_Intiallss'.
+2025-04-01 03:00:31.042 +03:00 [INF] Executed DbCommand (7ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [ActivityLogs] (
+    [Id] int NOT NULL IDENTITY,
+    [UserName] nvarchar(max) NULL,
+    [Page] nvarchar(max) NOT NULL,
+    [Timestamp] datetime2 NOT NULL,
+    [IPAddress] nvarchar(max) NOT NULL,
+    [UserAgent] nvarchar(max) NOT NULL,
+    [OS] nvarchar(max) NOT NULL,
+    [Duration] float NOT NULL,
+    [Country] nvarchar(max) NOT NULL,
+    [City] nvarchar(max) NOT NULL,
+    [Region] nvarchar(max) NOT NULL,
+    CONSTRAINT [PK_ActivityLogs] PRIMARY KEY ([Id])
+);
+2025-04-01 03:00:31.055 +03:00 [INF] Executed DbCommand (12ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [AspNetRoles] (
+    [Id] nvarchar(450) NOT NULL,
+    [Aciklama] nvarchar(250) NOT NULL,
+    [OlusturulmaTarihi] datetime2 NOT NULL DEFAULT (GETUTCDATE()),
+    [SistemRoluMu] bit NOT NULL DEFAULT CAST(0 AS bit),
+    [Name] nvarchar(256) NULL,
+    [NormalizedName] nvarchar(256) NULL,
+    [ConcurrencyStamp] nvarchar(max) NULL,
+    CONSTRAINT [PK_AspNetRoles] PRIMARY KEY ([Id])
+);
+2025-04-01 03:00:31.068 +03:00 [INF] Executed DbCommand (13ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [AspNetUsers] (
+    [Id] nvarchar(450) NOT NULL,
+    [UserName] nvarchar(256) NULL,
+    [NormalizedUserName] nvarchar(256) NULL,
+    [Email] nvarchar(256) NULL,
+    [NormalizedEmail] nvarchar(256) NULL,
+    [EmailConfirmed] bit NOT NULL,
+    [PasswordHash] nvarchar(max) NULL,
+    [SecurityStamp] nvarchar(max) NULL,
+    [ConcurrencyStamp] nvarchar(max) NULL,
+    [PhoneNumber] nvarchar(max) NULL,
+    [PhoneNumberConfirmed] bit NOT NULL,
+    [TwoFactorEnabled] bit NOT NULL,
+    [LockoutEnd] datetimeoffset NULL,
+    [LockoutEnabled] bit NOT NULL,
+    [AccessFailedCount] int NOT NULL,
+    CONSTRAINT [PK_AspNetUsers] PRIMARY KEY ([Id])
+);
+2025-04-01 03:00:31.076 +03:00 [INF] Executed DbCommand (7ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [RolePermissions] (
+    [Id] int NOT NULL IDENTITY,
+    [RoleName] nvarchar(max) NOT NULL,
+    [PagePath] nvarchar(max) NOT NULL,
+    [CanAccess] bit NULL,
+    CONSTRAINT [PK_RolePermissions] PRIMARY KEY ([Id])
+);
+2025-04-01 03:00:31.090 +03:00 [INF] Executed DbCommand (14ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [SiteSettings] (
+    [Id] int NOT NULL IDENTITY,
+    [EnableEmailVerification] bit NOT NULL,
+    [EnableTwoFactorAuthentication] bit NOT NULL,
+    [SmtpHost] nvarchar(max) NOT NULL,
+    [SmtpPort] int NOT NULL,
+    [SmtpUsername] nvarchar(max) NOT NULL,
+    [SmtpPassword] nvarchar(max) NOT NULL,
+    [EmailFromAddress] nvarchar(max) NOT NULL,
+    [EmailFromName] nvarchar(max) NOT NULL,
+    [EmailVerificationTemplate] nvarchar(max) NOT NULL,
+    [TwoFactorEmailTemplate] nvarchar(max) NOT NULL,
+    [PasswordResetEmailTemplate] nvarchar(max) NOT NULL,
+    [PhoneVerificationTemplate] nvarchar(max) NOT NULL,
+    [SmsSenderPhoneNumber] nvarchar(max) NOT NULL,
+    [IsActive] bit NOT NULL,
+    CONSTRAINT [PK_SiteSettings] PRIMARY KEY ([Id])
+);
+2025-04-01 03:00:31.103 +03:00 [INF] Executed DbCommand (13ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [UserSecurityActivities] (
+    [Id] int NOT NULL IDENTITY,
+    [UserId] nvarchar(max) NOT NULL,
+    [ActivityType] nvarchar(max) NOT NULL,
+    [IPAddress] nvarchar(max) NOT NULL,
+    [UserAgent] nvarchar(max) NOT NULL,
+    [Timestamp] datetime2 NOT NULL,
+    [IsSuccess] bit NOT NULL,
+    CONSTRAINT [PK_UserSecurityActivities] PRIMARY KEY ([Id])
+);
+2025-04-01 03:00:31.135 +03:00 [INF] Executed DbCommand (32ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [AspNetRoleClaims] (
+    [Id] int NOT NULL IDENTITY,
+    [RoleId] nvarchar(450) NOT NULL,
+    [ClaimType] nvarchar(max) NULL,
+    [ClaimValue] nvarchar(max) NULL,
+    CONSTRAINT [PK_AspNetRoleClaims] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_AspNetRoleClaims_AspNetRoles_RoleId] FOREIGN KEY ([RoleId]) REFERENCES [AspNetRoles] ([Id]) ON DELETE CASCADE
+);
+2025-04-01 03:00:31.150 +03:00 [INF] Executed DbCommand (15ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [AspNetUserClaims] (
+    [Id] int NOT NULL IDENTITY,
+    [UserId] nvarchar(450) NOT NULL,
+    [ClaimType] nvarchar(max) NULL,
+    [ClaimValue] nvarchar(max) NULL,
+    CONSTRAINT [PK_AspNetUserClaims] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_AspNetUserClaims_AspNetUsers_UserId] FOREIGN KEY ([UserId]) REFERENCES [AspNetUsers] ([Id]) ON DELETE CASCADE
+);
+2025-04-01 03:00:31.158 +03:00 [INF] Executed DbCommand (7ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [AspNetUserLogins] (
+    [LoginProvider] nvarchar(450) NOT NULL,
+    [ProviderKey] nvarchar(450) NOT NULL,
+    [ProviderDisplayName] nvarchar(max) NULL,
+    [UserId] nvarchar(450) NOT NULL,
+    CONSTRAINT [PK_AspNetUserLogins] PRIMARY KEY ([LoginProvider], [ProviderKey]),
+    CONSTRAINT [FK_AspNetUserLogins_AspNetUsers_UserId] FOREIGN KEY ([UserId]) REFERENCES [AspNetUsers] ([Id]) ON DELETE CASCADE
+);
+2025-04-01 03:00:31.172 +03:00 [INF] Executed DbCommand (14ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [AspNetUserRoles] (
+    [UserId] nvarchar(450) NOT NULL,
+    [RoleId] nvarchar(450) NOT NULL,
+    CONSTRAINT [PK_AspNetUserRoles] PRIMARY KEY ([UserId], [RoleId]),
+    CONSTRAINT [FK_AspNetUserRoles_AspNetRoles_RoleId] FOREIGN KEY ([RoleId]) REFERENCES [AspNetRoles] ([Id]) ON DELETE CASCADE,
+    CONSTRAINT [FK_AspNetUserRoles_AspNetUsers_UserId] FOREIGN KEY ([UserId]) REFERENCES [AspNetUsers] ([Id]) ON DELETE CASCADE
+);
+2025-04-01 03:00:31.191 +03:00 [INF] Executed DbCommand (19ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [AspNetUserTokens] (
+    [UserId] nvarchar(450) NOT NULL,
+    [LoginProvider] nvarchar(450) NOT NULL,
+    [Name] nvarchar(450) NOT NULL,
+    [Value] nvarchar(max) NULL,
+    CONSTRAINT [PK_AspNetUserTokens] PRIMARY KEY ([UserId], [LoginProvider], [Name]),
+    CONSTRAINT [FK_AspNetUserTokens_AspNetUsers_UserId] FOREIGN KEY ([UserId]) REFERENCES [AspNetUsers] ([Id]) ON DELETE CASCADE
+);
+2025-04-01 03:00:31.198 +03:00 [INF] Executed DbCommand (7ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [RefreshTokens] (
+    [Id] int NOT NULL IDENTITY,
+    [Token] nvarchar(max) NOT NULL,
+    [Expiration] datetime2 NOT NULL,
+    [IsRevoked] bit NOT NULL,
+    [UserId] nvarchar(450) NOT NULL,
+    CONSTRAINT [PK_RefreshTokens] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_RefreshTokens_AspNetUsers_UserId] FOREIGN KEY ([UserId]) REFERENCES [AspNetUsers] ([Id]) ON DELETE CASCADE
+);
+2025-04-01 03:00:31.213 +03:00 [INF] Executed DbCommand (15ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_AspNetRoleClaims_RoleId] ON [AspNetRoleClaims] ([RoleId]);
+2025-04-01 03:00:31.218 +03:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE UNIQUE INDEX [RoleNameIndex] ON [AspNetRoles] ([NormalizedName]) WHERE [NormalizedName] IS NOT NULL;
+2025-04-01 03:00:31.229 +03:00 [INF] Executed DbCommand (12ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_AspNetUserClaims_UserId] ON [AspNetUserClaims] ([UserId]);
+2025-04-01 03:00:31.233 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_AspNetUserLogins_UserId] ON [AspNetUserLogins] ([UserId]);
+2025-04-01 03:00:31.244 +03:00 [INF] Executed DbCommand (11ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_AspNetUserRoles_RoleId] ON [AspNetUserRoles] ([RoleId]);
+2025-04-01 03:00:31.248 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [EmailIndex] ON [AspNetUsers] ([NormalizedEmail]);
+2025-04-01 03:00:31.252 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE UNIQUE INDEX [UserNameIndex] ON [AspNetUsers] ([NormalizedUserName]) WHERE [NormalizedUserName] IS NOT NULL;
+2025-04-01 03:00:31.264 +03:00 [INF] Executed DbCommand (12ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_RefreshTokens_UserId] ON [RefreshTokens] ([UserId]);
+2025-04-01 03:00:31.300 +03:00 [INF] Executed DbCommand (36ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20250331221824_Intiallss', N'9.0.3');
+2025-04-01 03:00:31.300 +03:00 [INF] Applying migration '20250401000014_ABCkral'.
+2025-04-01 03:00:31.310 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20250401000014_ABCkral', N'9.0.3');
+2025-04-01 03:00:31.323 +03:00 [INF] Executed DbCommand (8ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+DECLARE @result int;
+EXEC @result = sp_releaseapplock @Resource = '__EFMigrationsLock', @LockOwner = 'Session';
+SELECT @result
+2025-04-01 03:08:11.771 +03:00 [INF] Executed DbCommand (1,124ms) [Parameters=[], CommandType='"Text"', CommandTimeout='60']
+CREATE DATABASE [beratokszDB];
+2025-04-01 03:08:12.219 +03:00 [INF] Executed DbCommand (425ms) [Parameters=[], CommandType='"Text"', CommandTimeout='60']
+IF SERVERPROPERTY('EngineEdition') <> 5
+BEGIN
+    ALTER DATABASE [beratokszDB] SET READ_COMMITTED_SNAPSHOT ON;
+END;
+2025-04-01 03:08:12.278 +03:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-04-01 03:08:12.280 +03:00 [INF] Acquiring an exclusive lock for migration application. See https://aka.ms/efcore-docs-migrations-lock for more information if this takes too long.
+2025-04-01 03:08:12.337 +03:00 [INF] Executed DbCommand (56ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+DECLARE @result int;
+EXEC @result = sp_getapplock @Resource = '__EFMigrationsLock', @LockOwner = 'Session', @LockMode = 'Exclusive';
+SELECT @result
+2025-04-01 03:08:12.392 +03:00 [INF] Executed DbCommand (22ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF OBJECT_ID(N'[__EFMigrationsHistory]') IS NULL
+BEGIN
+    CREATE TABLE [__EFMigrationsHistory] (
+        [MigrationId] nvarchar(150) NOT NULL,
+        [ProductVersion] nvarchar(32) NOT NULL,
+        CONSTRAINT [PK___EFMigrationsHistory] PRIMARY KEY ([MigrationId])
+    );
+END;
+2025-04-01 03:08:12.408 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-04-01 03:08:12.412 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2025-04-01 03:08:12.462 +03:00 [INF] Executed DbCommand (49ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2025-04-01 03:08:12.468 +03:00 [INF] Applying migration '20250331221824_Intiallss'.
+2025-04-01 03:08:12.505 +03:00 [INF] Executed DbCommand (11ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [ActivityLogs] (
+    [Id] int NOT NULL IDENTITY,
+    [UserName] nvarchar(max) NULL,
+    [Page] nvarchar(max) NOT NULL,
+    [Timestamp] datetime2 NOT NULL,
+    [IPAddress] nvarchar(max) NOT NULL,
+    [UserAgent] nvarchar(max) NOT NULL,
+    [OS] nvarchar(max) NOT NULL,
+    [Duration] float NOT NULL,
+    [Country] nvarchar(max) NOT NULL,
+    [City] nvarchar(max) NOT NULL,
+    [Region] nvarchar(max) NOT NULL,
+    CONSTRAINT [PK_ActivityLogs] PRIMARY KEY ([Id])
+);
+2025-04-01 03:08:12.517 +03:00 [INF] Executed DbCommand (12ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [AspNetRoles] (
+    [Id] nvarchar(450) NOT NULL,
+    [Aciklama] nvarchar(250) NOT NULL,
+    [OlusturulmaTarihi] datetime2 NOT NULL DEFAULT (GETUTCDATE()),
+    [SistemRoluMu] bit NOT NULL DEFAULT CAST(0 AS bit),
+    [Name] nvarchar(256) NULL,
+    [NormalizedName] nvarchar(256) NULL,
+    [ConcurrencyStamp] nvarchar(max) NULL,
+    CONSTRAINT [PK_AspNetRoles] PRIMARY KEY ([Id])
+);
+2025-04-01 03:08:12.530 +03:00 [INF] Executed DbCommand (13ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [AspNetUsers] (
+    [Id] nvarchar(450) NOT NULL,
+    [UserName] nvarchar(256) NULL,
+    [NormalizedUserName] nvarchar(256) NULL,
+    [Email] nvarchar(256) NULL,
+    [NormalizedEmail] nvarchar(256) NULL,
+    [EmailConfirmed] bit NOT NULL,
+    [PasswordHash] nvarchar(max) NULL,
+    [SecurityStamp] nvarchar(max) NULL,
+    [ConcurrencyStamp] nvarchar(max) NULL,
+    [PhoneNumber] nvarchar(max) NULL,
+    [PhoneNumberConfirmed] bit NOT NULL,
+    [TwoFactorEnabled] bit NOT NULL,
+    [LockoutEnd] datetimeoffset NULL,
+    [LockoutEnabled] bit NOT NULL,
+    [AccessFailedCount] int NOT NULL,
+    CONSTRAINT [PK_AspNetUsers] PRIMARY KEY ([Id])
+);
+2025-04-01 03:08:12.553 +03:00 [INF] Executed DbCommand (22ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [RolePermissions] (
+    [Id] int NOT NULL IDENTITY,
+    [RoleName] nvarchar(max) NOT NULL,
+    [PagePath] nvarchar(max) NOT NULL,
+    [CanAccess] bit NULL,
+    CONSTRAINT [PK_RolePermissions] PRIMARY KEY ([Id])
+);
+2025-04-01 03:08:12.576 +03:00 [INF] Executed DbCommand (23ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [SiteSettings] (
+    [Id] int NOT NULL IDENTITY,
+    [EnableEmailVerification] bit NOT NULL,
+    [EnableTwoFactorAuthentication] bit NOT NULL,
+    [SmtpHost] nvarchar(max) NOT NULL,
+    [SmtpPort] int NOT NULL,
+    [SmtpUsername] nvarchar(max) NOT NULL,
+    [SmtpPassword] nvarchar(max) NOT NULL,
+    [EmailFromAddress] nvarchar(max) NOT NULL,
+    [EmailFromName] nvarchar(max) NOT NULL,
+    [EmailVerificationTemplate] nvarchar(max) NOT NULL,
+    [TwoFactorEmailTemplate] nvarchar(max) NOT NULL,
+    [PasswordResetEmailTemplate] nvarchar(max) NOT NULL,
+    [PhoneVerificationTemplate] nvarchar(max) NOT NULL,
+    [SmsSenderPhoneNumber] nvarchar(max) NOT NULL,
+    [IsActive] bit NOT NULL,
+    CONSTRAINT [PK_SiteSettings] PRIMARY KEY ([Id])
+);
+2025-04-01 03:08:12.590 +03:00 [INF] Executed DbCommand (14ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [UserSecurityActivities] (
+    [Id] int NOT NULL IDENTITY,
+    [UserId] nvarchar(max) NOT NULL,
+    [ActivityType] nvarchar(max) NOT NULL,
+    [IPAddress] nvarchar(max) NOT NULL,
+    [UserAgent] nvarchar(max) NOT NULL,
+    [Timestamp] datetime2 NOT NULL,
+    [IsSuccess] bit NOT NULL,
+    CONSTRAINT [PK_UserSecurityActivities] PRIMARY KEY ([Id])
+);
+2025-04-01 03:08:12.635 +03:00 [INF] Executed DbCommand (45ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [AspNetRoleClaims] (
+    [Id] int NOT NULL IDENTITY,
+    [RoleId] nvarchar(450) NOT NULL,
+    [ClaimType] nvarchar(max) NULL,
+    [ClaimValue] nvarchar(max) NULL,
+    CONSTRAINT [PK_AspNetRoleClaims] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_AspNetRoleClaims_AspNetRoles_RoleId] FOREIGN KEY ([RoleId]) REFERENCES [AspNetRoles] ([Id]) ON DELETE CASCADE
+);
+2025-04-01 03:08:12.650 +03:00 [INF] Executed DbCommand (14ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [AspNetUserClaims] (
+    [Id] int NOT NULL IDENTITY,
+    [UserId] nvarchar(450) NOT NULL,
+    [ClaimType] nvarchar(max) NULL,
+    [ClaimValue] nvarchar(max) NULL,
+    CONSTRAINT [PK_AspNetUserClaims] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_AspNetUserClaims_AspNetUsers_UserId] FOREIGN KEY ([UserId]) REFERENCES [AspNetUsers] ([Id]) ON DELETE CASCADE
+);
+2025-04-01 03:08:12.667 +03:00 [INF] Executed DbCommand (14ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [AspNetUserLogins] (
+    [LoginProvider] nvarchar(450) NOT NULL,
+    [ProviderKey] nvarchar(450) NOT NULL,
+    [ProviderDisplayName] nvarchar(max) NULL,
+    [UserId] nvarchar(450) NOT NULL,
+    CONSTRAINT [PK_AspNetUserLogins] PRIMARY KEY ([LoginProvider], [ProviderKey]),
+    CONSTRAINT [FK_AspNetUserLogins_AspNetUsers_UserId] FOREIGN KEY ([UserId]) REFERENCES [AspNetUsers] ([Id]) ON DELETE CASCADE
+);
+2025-04-01 03:08:12.683 +03:00 [INF] Executed DbCommand (15ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [AspNetUserRoles] (
+    [UserId] nvarchar(450) NOT NULL,
+    [RoleId] nvarchar(450) NOT NULL,
+    CONSTRAINT [PK_AspNetUserRoles] PRIMARY KEY ([UserId], [RoleId]),
+    CONSTRAINT [FK_AspNetUserRoles_AspNetRoles_RoleId] FOREIGN KEY ([RoleId]) REFERENCES [AspNetRoles] ([Id]) ON DELETE CASCADE,
+    CONSTRAINT [FK_AspNetUserRoles_AspNetUsers_UserId] FOREIGN KEY ([UserId]) REFERENCES [AspNetUsers] ([Id]) ON DELETE CASCADE
+);
+2025-04-01 03:08:12.694 +03:00 [INF] Executed DbCommand (11ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [AspNetUserTokens] (
+    [UserId] nvarchar(450) NOT NULL,
+    [LoginProvider] nvarchar(450) NOT NULL,
+    [Name] nvarchar(450) NOT NULL,
+    [Value] nvarchar(max) NULL,
+    CONSTRAINT [PK_AspNetUserTokens] PRIMARY KEY ([UserId], [LoginProvider], [Name]),
+    CONSTRAINT [FK_AspNetUserTokens_AspNetUsers_UserId] FOREIGN KEY ([UserId]) REFERENCES [AspNetUsers] ([Id]) ON DELETE CASCADE
+);
+2025-04-01 03:08:12.706 +03:00 [INF] Executed DbCommand (12ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [RefreshTokens] (
+    [Id] int NOT NULL IDENTITY,
+    [Token] nvarchar(max) NOT NULL,
+    [Expiration] datetime2 NOT NULL,
+    [IsRevoked] bit NOT NULL,
+    [UserId] nvarchar(450) NOT NULL,
+    CONSTRAINT [PK_RefreshTokens] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_RefreshTokens_AspNetUsers_UserId] FOREIGN KEY ([UserId]) REFERENCES [AspNetUsers] ([Id]) ON DELETE CASCADE
+);
+2025-04-01 03:08:12.712 +03:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_AspNetRoleClaims_RoleId] ON [AspNetRoleClaims] ([RoleId]);
+2025-04-01 03:08:12.718 +03:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE UNIQUE INDEX [RoleNameIndex] ON [AspNetRoles] ([NormalizedName]) WHERE [NormalizedName] IS NOT NULL;
+2025-04-01 03:08:12.723 +03:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_AspNetUserClaims_UserId] ON [AspNetUserClaims] ([UserId]);
+2025-04-01 03:08:12.728 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_AspNetUserLogins_UserId] ON [AspNetUserLogins] ([UserId]);
+2025-04-01 03:08:12.733 +03:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_AspNetUserRoles_RoleId] ON [AspNetUserRoles] ([RoleId]);
+2025-04-01 03:08:12.738 +03:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [EmailIndex] ON [AspNetUsers] ([NormalizedEmail]);
+2025-04-01 03:08:12.744 +03:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE UNIQUE INDEX [UserNameIndex] ON [AspNetUsers] ([NormalizedUserName]) WHERE [NormalizedUserName] IS NOT NULL;
+2025-04-01 03:08:12.751 +03:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_RefreshTokens_UserId] ON [RefreshTokens] ([UserId]);
+2025-04-01 03:08:12.768 +03:00 [INF] Executed DbCommand (17ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20250331221824_Intiallss', N'9.0.3');
+2025-04-01 03:08:12.768 +03:00 [INF] Applying migration '20250401000014_ABCkral'.
+2025-04-01 03:08:12.777 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20250401000014_ABCkral', N'9.0.3');
+2025-04-01 03:08:12.777 +03:00 [INF] Applying migration '20250401000759_Abcdkiral'.
+2025-04-01 03:08:12.786 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20250401000759_Abcdkiral', N'9.0.3');
+2025-04-01 03:08:12.803 +03:00 [INF] Executed DbCommand (9ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+DECLARE @result int;
+EXEC @result = sp_releaseapplock @Resource = '__EFMigrationsLock', @LockOwner = 'Session';
+SELECT @result
+2025-04-01 04:11:20.022 +03:00 [INF] User profile is available. Using 'C:\Users\berat\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-04-01 04:11:21.013 +03:00 [INF] Executed DbCommand (39ms) [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[Aciklama], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName], [a].[OlusturulmaTarihi], [a].[SistemRoluMu]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedName_0
+2025-04-01 04:11:21.041 +03:00 [INF] Executed DbCommand (5ms) [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[Aciklama], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName], [a].[OlusturulmaTarihi], [a].[SistemRoluMu]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedName_0
+2025-04-01 04:11:21.156 +03:00 [INF] Executed DbCommand (26ms) [Parameters=[@p0='?' (Size = 450), @p1='?' (Size = 250), @p2='?' (Size = 4000), @p3='?' (Size = 256), @p4='?' (Size = 256), @p5='?' (DbType = DateTime2), @p6='?' (DbType = Boolean)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [AspNetRoles] ([Id], [Aciklama], [ConcurrencyStamp], [Name], [NormalizedName], [OlusturulmaTarihi], [SistemRoluMu])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6);
+2025-04-01 04:11:21.212 +03:00 [INF] Executed DbCommand (49ms) [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[Aciklama], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName], [a].[OlusturulmaTarihi], [a].[SistemRoluMu]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedName_0
+2025-04-01 04:11:21.217 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[Aciklama], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName], [a].[OlusturulmaTarihi], [a].[SistemRoluMu]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedName_0
+2025-04-01 04:11:21.227 +03:00 [INF] Executed DbCommand (6ms) [Parameters=[@p0='?' (Size = 450), @p1='?' (Size = 250), @p2='?' (Size = 4000), @p3='?' (Size = 256), @p4='?' (Size = 256), @p5='?' (DbType = DateTime2), @p6='?' (DbType = Boolean)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [AspNetRoles] ([Id], [Aciklama], [ConcurrencyStamp], [Name], [NormalizedName], [OlusturulmaTarihi], [SistemRoluMu])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6);
+2025-04-01 04:11:21.232 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[Aciklama], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName], [a].[OlusturulmaTarihi], [a].[SistemRoluMu]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedName_0
+2025-04-01 04:11:21.237 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[Aciklama], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName], [a].[OlusturulmaTarihi], [a].[SistemRoluMu]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedName_0
+2025-04-01 04:11:21.247 +03:00 [INF] Executed DbCommand (7ms) [Parameters=[@p0='?' (Size = 450), @p1='?' (Size = 250), @p2='?' (Size = 4000), @p3='?' (Size = 256), @p4='?' (Size = 256), @p5='?' (DbType = DateTime2), @p6='?' (DbType = Boolean)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [AspNetRoles] ([Id], [Aciklama], [ConcurrencyStamp], [Name], [NormalizedName], [OlusturulmaTarihi], [SistemRoluMu])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6);
+2025-04-01 04:11:21.272 +03:00 [INF] Executed DbCommand (15ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+2025-04-01 04:11:21.364 +03:00 [INF] Executed DbCommand (18ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedUserName] = @__normalizedUserName_0
+2025-04-01 04:11:21.445 +03:00 [INF] Executed DbCommand (48ms) [Parameters=[@p0='?' (Size = 450), @p1='?' (DbType = Int32), @p2='?' (Size = 4000), @p3='?' (Size = 256), @p4='?' (DbType = Boolean), @p5='?' (DbType = Boolean), @p6='?' (DbType = DateTimeOffset), @p7='?' (Size = 256), @p8='?' (Size = 256), @p9='?' (Size = 4000), @p10='?' (Size = 4000), @p11='?' (DbType = Boolean), @p12='?' (Size = 4000), @p13='?' (DbType = Boolean), @p14='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [AspNetUsers] ([Id], [AccessFailedCount], [ConcurrencyStamp], [Email], [EmailConfirmed], [LockoutEnabled], [LockoutEnd], [NormalizedEmail], [NormalizedUserName], [PasswordHash], [PhoneNumber], [PhoneNumberConfirmed], [SecurityStamp], [TwoFactorEnabled], [UserName])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14);
+2025-04-01 04:11:21.475 +03:00 [INF] Executed DbCommand (21ms) [Parameters=[@__normalizedRoleName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[Aciklama], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName], [a].[OlusturulmaTarihi], [a].[SistemRoluMu]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedRoleName_0
+2025-04-01 04:11:21.518 +03:00 [INF] Executed DbCommand (11ms) [Parameters=[@__p_0='?' (Size = 450), @__p_1='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[UserId], [a].[RoleId]
+FROM [AspNetUserRoles] AS [a]
+WHERE [a].[UserId] = @__p_0 AND [a].[RoleId] = @__p_1
+2025-04-01 04:11:21.526 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedRoleName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[Aciklama], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName], [a].[OlusturulmaTarihi], [a].[SistemRoluMu]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedRoleName_0
+2025-04-01 04:11:21.625 +03:00 [INF] Executed DbCommand (91ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedUserName] = @__normalizedUserName_0
+2025-04-01 04:11:21.755 +03:00 [INF] Executed DbCommand (108ms) [Parameters=[@p0='?' (Size = 450), @p1='?' (Size = 450), @p16='?' (Size = 450), @p2='?' (DbType = Int32), @p3='?' (Size = 4000), @p17='?' (Size = 4000), @p4='?' (Size = 256), @p5='?' (DbType = Boolean), @p6='?' (DbType = Boolean), @p7='?' (DbType = DateTimeOffset), @p8='?' (Size = 256), @p9='?' (Size = 256), @p10='?' (Size = 4000), @p11='?' (Size = 4000), @p12='?' (DbType = Boolean), @p13='?' (Size = 4000), @p14='?' (DbType = Boolean), @p15='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [AspNetUserRoles] ([RoleId], [UserId])
+VALUES (@p0, @p1);
+UPDATE [AspNetUsers] SET [AccessFailedCount] = @p2, [ConcurrencyStamp] = @p3, [Email] = @p4, [EmailConfirmed] = @p5, [LockoutEnabled] = @p6, [LockoutEnd] = @p7, [NormalizedEmail] = @p8, [NormalizedUserName] = @p9, [PasswordHash] = @p10, [PhoneNumber] = @p11, [PhoneNumberConfirmed] = @p12, [SecurityStamp] = @p13, [TwoFactorEnabled] = @p14, [UserName] = @p15
+OUTPUT 1
+WHERE [Id] = @p16 AND [ConcurrencyStamp] = @p17;
+2025-04-01 04:11:21.949 +03:00 [INF] Executed DbCommand (23ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Admin') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 04:11:21.973 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Admin') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 04:11:21.980 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Admin') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 04:11:21.986 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Admin') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 04:11:22.013 +03:00 [INF] Executed DbCommand (22ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Guest') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 04:11:22.038 +03:00 [INF] Executed DbCommand (21ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'User') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 04:11:22.044 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Admin') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 04:11:22.050 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Guest') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 04:11:22.057 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'User') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 04:11:22.063 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Admin') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 04:11:22.070 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Admin') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 04:11:22.076 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Guest') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 04:11:22.082 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'User') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 04:11:22.089 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Admin') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 04:11:22.095 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Guest') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 04:11:22.102 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'User') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 04:11:22.109 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Admin') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 04:11:22.116 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Guest') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 04:11:22.123 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'User') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 04:11:22.137 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Admin') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 04:11:22.143 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Guest') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 04:11:22.149 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'User') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 04:11:22.156 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Admin') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 04:11:22.162 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Guest') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 04:11:22.170 +03:00 [INF] Executed DbCommand (5ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'User') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 04:11:22.176 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Admin') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 04:11:22.183 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Guest') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 04:11:22.189 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'User') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 04:11:22.196 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Admin') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 04:11:22.201 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'User') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 04:11:22.205 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Admin') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 04:11:22.210 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'User') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 04:11:22.216 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Admin') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 04:11:22.220 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Guest') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 04:11:22.226 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'User') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 04:11:22.232 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Admin') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 04:11:22.237 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'User') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 04:11:22.243 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Admin') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 04:11:22.248 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Guest') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 04:11:22.255 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'User') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 04:11:22.261 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Admin') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 04:11:22.268 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Guest') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 04:11:22.275 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'User') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 04:11:22.281 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Admin') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 04:11:22.288 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Guest') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 04:11:22.295 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'User') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 04:11:22.302 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Admin') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 04:11:22.308 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Guest') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 04:11:22.315 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'User') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 04:11:22.322 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Admin') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 04:11:22.329 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Guest') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 04:11:22.336 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'User') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 04:11:22.343 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Admin') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 04:11:22.349 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Guest') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 04:11:22.356 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'User') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 04:11:22.363 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Admin') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 04:11:22.370 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Guest') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 04:11:22.376 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'User') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 04:11:22.383 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Admin') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 04:11:22.390 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Guest') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 04:11:22.397 +03:00 [INF] Executed DbCommand (5ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'User') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 04:11:22.403 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Admin') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 04:11:22.410 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Guest') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 04:11:22.417 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'User') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 04:11:22.423 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Admin') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 04:11:22.430 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'User') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 04:11:22.437 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Admin') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 04:11:22.444 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Guest') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 04:11:22.450 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'User') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 04:11:22.457 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Admin') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 04:11:22.464 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Guest') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 04:11:22.470 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'User') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 04:11:22.477 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Admin') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 04:11:22.484 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Guest') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 04:11:22.491 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'User') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 04:11:22.500 +03:00 [INF] Executed DbCommand (6ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Admin') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 04:11:22.507 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Guest') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 04:11:22.513 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'User') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 04:11:22.520 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Admin') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 04:11:22.526 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Guest') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 04:11:22.535 +03:00 [INF] Executed DbCommand (5ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'User') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 04:11:22.542 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Admin') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 04:11:22.549 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Guest') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 04:11:22.555 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'User') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 04:11:22.562 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Admin') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 04:11:22.569 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Guest') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 04:11:22.576 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'User') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 04:11:22.584 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Admin') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 04:11:22.592 +03:00 [INF] Executed DbCommand (5ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Guest') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 04:11:22.602 +03:00 [INF] Executed DbCommand (7ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'User') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 04:11:22.609 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Admin') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 04:11:22.617 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Admin') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 04:11:22.624 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Guest') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 04:11:22.633 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'User') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 04:11:22.642 +03:00 [INF] Executed DbCommand (6ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Admin') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 04:11:22.650 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Guest') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 04:11:22.658 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'User') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 04:11:22.665 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Admin') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 04:11:22.672 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Guest') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 04:11:22.680 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'User') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 04:11:22.688 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Admin') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 04:11:22.698 +03:00 [INF] Executed DbCommand (7ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Guest') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 04:11:22.706 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'User') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 04:11:22.713 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Admin') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 04:11:22.720 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Admin') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 04:11:22.728 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Admin') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 04:11:22.738 +03:00 [INF] Executed DbCommand (6ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Admin') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 04:11:22.750 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Admin') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 04:11:22.762 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Admin') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 04:11:22.772 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Admin') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 04:11:22.781 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Admin') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 04:11:22.789 +03:00 [INF] Executed DbCommand (5ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Admin') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 04:11:22.796 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Guest') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 04:11:22.803 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'User') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 04:11:22.810 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Admin') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 04:11:22.816 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Admin') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 04:11:22.824 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Admin') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 04:11:22.831 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Admin') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 04:11:22.838 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Admin') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 04:11:22.846 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Admin') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 04:11:22.853 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Admin') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 04:11:22.860 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Admin') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 04:11:22.880 +03:00 [INF] Executed DbCommand (17ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Admin') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 04:11:22.887 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Admin') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 04:11:22.894 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Admin') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 04:11:22.901 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Admin') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 04:11:22.908 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Admin') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 04:11:22.915 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Guest') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 04:11:22.922 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'User') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 04:11:23.022 +03:00 [INF] Executed DbCommand (83ms) [Parameters=[@p0='?' (DbType = Boolean), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (DbType = Boolean), @p4='?' (Size = 4000), @p5='?' (Size = 4000), @p6='?' (DbType = Boolean), @p7='?' (Size = 4000), @p8='?' (Size = 4000), @p9='?' (DbType = Boolean), @p10='?' (Size = 4000), @p11='?' (Size = 4000), @p12='?' (DbType = Boolean), @p13='?' (Size = 4000), @p14='?' (Size = 4000), @p15='?' (DbType = Boolean), @p16='?' (Size = 4000), @p17='?' (Size = 4000), @p18='?' (DbType = Boolean), @p19='?' (Size = 4000), @p20='?' (Size = 4000), @p21='?' (DbType = Boolean), @p22='?' (Size = 4000), @p23='?' (Size = 4000), @p24='?' (DbType = Boolean), @p25='?' (Size = 4000), @p26='?' (Size = 4000), @p27='?' (DbType = Boolean), @p28='?' (Size = 4000), @p29='?' (Size = 4000), @p30='?' (DbType = Boolean), @p31='?' (Size = 4000), @p32='?' (Size = 4000), @p33='?' (DbType = Boolean), @p34='?' (Size = 4000), @p35='?' (Size = 4000), @p36='?' (DbType = Boolean), @p37='?' (Size = 4000), @p38='?' (Size = 4000), @p39='?' (DbType = Boolean), @p40='?' (Size = 4000), @p41='?' (Size = 4000), @p42='?' (DbType = Boolean), @p43='?' (Size = 4000), @p44='?' (Size = 4000), @p45='?' (DbType = Boolean), @p46='?' (Size = 4000), @p47='?' (Size = 4000), @p48='?' (DbType = Boolean), @p49='?' (Size = 4000), @p50='?' (Size = 4000), @p51='?' (DbType = Boolean), @p52='?' (Size = 4000), @p53='?' (Size = 4000), @p54='?' (DbType = Boolean), @p55='?' (Size = 4000), @p56='?' (Size = 4000), @p57='?' (DbType = Boolean), @p58='?' (Size = 4000), @p59='?' (Size = 4000), @p60='?' (DbType = Boolean), @p61='?' (Size = 4000), @p62='?' (Size = 4000), @p63='?' (DbType = Boolean), @p64='?' (Size = 4000), @p65='?' (Size = 4000), @p66='?' (DbType = Boolean), @p67='?' (Size = 4000), @p68='?' (Size = 4000), @p69='?' (DbType = Boolean), @p70='?' (Size = 4000), @p71='?' (Size = 4000), @p72='?' (DbType = Boolean), @p73='?' (Size = 4000), @p74='?' (Size = 4000), @p75='?' (DbType = Boolean), @p76='?' (Size = 4000), @p77='?' (Size = 4000), @p78='?' (DbType = Boolean), @p79='?' (Size = 4000), @p80='?' (Size = 4000), @p81='?' (DbType = Boolean), @p82='?' (Size = 4000), @p83='?' (Size = 4000), @p84='?' (DbType = Boolean), @p85='?' (Size = 4000), @p86='?' (Size = 4000), @p87='?' (DbType = Boolean), @p88='?' (Size = 4000), @p89='?' (Size = 4000), @p90='?' (DbType = Boolean), @p91='?' (Size = 4000), @p92='?' (Size = 4000), @p93='?' (DbType = Boolean), @p94='?' (Size = 4000), @p95='?' (Size = 4000), @p96='?' (DbType = Boolean), @p97='?' (Size = 4000), @p98='?' (Size = 4000), @p99='?' (DbType = Boolean), @p100='?' (Size = 4000), @p101='?' (Size = 4000), @p102='?' (DbType = Boolean), @p103='?' (Size = 4000), @p104='?' (Size = 4000), @p105='?' (DbType = Boolean), @p106='?' (Size = 4000), @p107='?' (Size = 4000), @p108='?' (DbType = Boolean), @p109='?' (Size = 4000), @p110='?' (Size = 4000), @p111='?' (DbType = Boolean), @p112='?' (Size = 4000), @p113='?' (Size = 4000), @p114='?' (DbType = Boolean), @p115='?' (Size = 4000), @p116='?' (Size = 4000), @p117='?' (DbType = Boolean), @p118='?' (Size = 4000), @p119='?' (Size = 4000), @p120='?' (DbType = Boolean), @p121='?' (Size = 4000), @p122='?' (Size = 4000), @p123='?' (DbType = Boolean), @p124='?' (Size = 4000), @p125='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+MERGE [RolePermissions] USING (
+VALUES (@p0, @p1, @p2, 0),
+(@p3, @p4, @p5, 1),
+(@p6, @p7, @p8, 2),
+(@p9, @p10, @p11, 3),
+(@p12, @p13, @p14, 4),
+(@p15, @p16, @p17, 5),
+(@p18, @p19, @p20, 6),
+(@p21, @p22, @p23, 7),
+(@p24, @p25, @p26, 8),
+(@p27, @p28, @p29, 9),
+(@p30, @p31, @p32, 10),
+(@p33, @p34, @p35, 11),
+(@p36, @p37, @p38, 12),
+(@p39, @p40, @p41, 13),
+(@p42, @p43, @p44, 14),
+(@p45, @p46, @p47, 15),
+(@p48, @p49, @p50, 16),
+(@p51, @p52, @p53, 17),
+(@p54, @p55, @p56, 18),
+(@p57, @p58, @p59, 19),
+(@p60, @p61, @p62, 20),
+(@p63, @p64, @p65, 21),
+(@p66, @p67, @p68, 22),
+(@p69, @p70, @p71, 23),
+(@p72, @p73, @p74, 24),
+(@p75, @p76, @p77, 25),
+(@p78, @p79, @p80, 26),
+(@p81, @p82, @p83, 27),
+(@p84, @p85, @p86, 28),
+(@p87, @p88, @p89, 29),
+(@p90, @p91, @p92, 30),
+(@p93, @p94, @p95, 31),
+(@p96, @p97, @p98, 32),
+(@p99, @p100, @p101, 33),
+(@p102, @p103, @p104, 34),
+(@p105, @p106, @p107, 35),
+(@p108, @p109, @p110, 36),
+(@p111, @p112, @p113, 37),
+(@p114, @p115, @p116, 38),
+(@p117, @p118, @p119, 39),
+(@p120, @p121, @p122, 40),
+(@p123, @p124, @p125, 41)) AS i ([CanAccess], [PagePath], [RoleName], _Position) ON 1=0
+WHEN NOT MATCHED THEN
+INSERT ([CanAccess], [PagePath], [RoleName])
+VALUES (i.[CanAccess], i.[PagePath], i.[RoleName])
+OUTPUT INSERTED.[Id], i._Position;
+2025-04-01 04:11:23.051 +03:00 [INF] Executed DbCommand (10ms) [Parameters=[@p0='?' (DbType = Boolean), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (DbType = Boolean), @p4='?' (Size = 4000), @p5='?' (Size = 4000), @p6='?' (DbType = Boolean), @p7='?' (Size = 4000), @p8='?' (Size = 4000), @p9='?' (DbType = Boolean), @p10='?' (Size = 4000), @p11='?' (Size = 4000), @p12='?' (DbType = Boolean), @p13='?' (Size = 4000), @p14='?' (Size = 4000), @p15='?' (DbType = Boolean), @p16='?' (Size = 4000), @p17='?' (Size = 4000), @p18='?' (DbType = Boolean), @p19='?' (Size = 4000), @p20='?' (Size = 4000), @p21='?' (DbType = Boolean), @p22='?' (Size = 4000), @p23='?' (Size = 4000), @p24='?' (DbType = Boolean), @p25='?' (Size = 4000), @p26='?' (Size = 4000), @p27='?' (DbType = Boolean), @p28='?' (Size = 4000), @p29='?' (Size = 4000), @p30='?' (DbType = Boolean), @p31='?' (Size = 4000), @p32='?' (Size = 4000), @p33='?' (DbType = Boolean), @p34='?' (Size = 4000), @p35='?' (Size = 4000), @p36='?' (DbType = Boolean), @p37='?' (Size = 4000), @p38='?' (Size = 4000), @p39='?' (DbType = Boolean), @p40='?' (Size = 4000), @p41='?' (Size = 4000), @p42='?' (DbType = Boolean), @p43='?' (Size = 4000), @p44='?' (Size = 4000), @p45='?' (DbType = Boolean), @p46='?' (Size = 4000), @p47='?' (Size = 4000), @p48='?' (DbType = Boolean), @p49='?' (Size = 4000), @p50='?' (Size = 4000), @p51='?' (DbType = Boolean), @p52='?' (Size = 4000), @p53='?' (Size = 4000), @p54='?' (DbType = Boolean), @p55='?' (Size = 4000), @p56='?' (Size = 4000), @p57='?' (DbType = Boolean), @p58='?' (Size = 4000), @p59='?' (Size = 4000), @p60='?' (DbType = Boolean), @p61='?' (Size = 4000), @p62='?' (Size = 4000), @p63='?' (DbType = Boolean), @p64='?' (Size = 4000), @p65='?' (Size = 4000), @p66='?' (DbType = Boolean), @p67='?' (Size = 4000), @p68='?' (Size = 4000), @p69='?' (DbType = Boolean), @p70='?' (Size = 4000), @p71='?' (Size = 4000), @p72='?' (DbType = Boolean), @p73='?' (Size = 4000), @p74='?' (Size = 4000), @p75='?' (DbType = Boolean), @p76='?' (Size = 4000), @p77='?' (Size = 4000), @p78='?' (DbType = Boolean), @p79='?' (Size = 4000), @p80='?' (Size = 4000), @p81='?' (DbType = Boolean), @p82='?' (Size = 4000), @p83='?' (Size = 4000), @p84='?' (DbType = Boolean), @p85='?' (Size = 4000), @p86='?' (Size = 4000), @p87='?' (DbType = Boolean), @p88='?' (Size = 4000), @p89='?' (Size = 4000), @p90='?' (DbType = Boolean), @p91='?' (Size = 4000), @p92='?' (Size = 4000), @p93='?' (DbType = Boolean), @p94='?' (Size = 4000), @p95='?' (Size = 4000), @p96='?' (DbType = Boolean), @p97='?' (Size = 4000), @p98='?' (Size = 4000), @p99='?' (DbType = Boolean), @p100='?' (Size = 4000), @p101='?' (Size = 4000), @p102='?' (DbType = Boolean), @p103='?' (Size = 4000), @p104='?' (Size = 4000), @p105='?' (DbType = Boolean), @p106='?' (Size = 4000), @p107='?' (Size = 4000), @p108='?' (DbType = Boolean), @p109='?' (Size = 4000), @p110='?' (Size = 4000), @p111='?' (DbType = Boolean), @p112='?' (Size = 4000), @p113='?' (Size = 4000), @p114='?' (DbType = Boolean), @p115='?' (Size = 4000), @p116='?' (Size = 4000), @p117='?' (DbType = Boolean), @p118='?' (Size = 4000), @p119='?' (Size = 4000), @p120='?' (DbType = Boolean), @p121='?' (Size = 4000), @p122='?' (Size = 4000), @p123='?' (DbType = Boolean), @p124='?' (Size = 4000), @p125='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+MERGE [RolePermissions] USING (
+VALUES (@p0, @p1, @p2, 0),
+(@p3, @p4, @p5, 1),
+(@p6, @p7, @p8, 2),
+(@p9, @p10, @p11, 3),
+(@p12, @p13, @p14, 4),
+(@p15, @p16, @p17, 5),
+(@p18, @p19, @p20, 6),
+(@p21, @p22, @p23, 7),
+(@p24, @p25, @p26, 8),
+(@p27, @p28, @p29, 9),
+(@p30, @p31, @p32, 10),
+(@p33, @p34, @p35, 11),
+(@p36, @p37, @p38, 12),
+(@p39, @p40, @p41, 13),
+(@p42, @p43, @p44, 14),
+(@p45, @p46, @p47, 15),
+(@p48, @p49, @p50, 16),
+(@p51, @p52, @p53, 17),
+(@p54, @p55, @p56, 18),
+(@p57, @p58, @p59, 19),
+(@p60, @p61, @p62, 20),
+(@p63, @p64, @p65, 21),
+(@p66, @p67, @p68, 22),
+(@p69, @p70, @p71, 23),
+(@p72, @p73, @p74, 24),
+(@p75, @p76, @p77, 25),
+(@p78, @p79, @p80, 26),
+(@p81, @p82, @p83, 27),
+(@p84, @p85, @p86, 28),
+(@p87, @p88, @p89, 29),
+(@p90, @p91, @p92, 30),
+(@p93, @p94, @p95, 31),
+(@p96, @p97, @p98, 32),
+(@p99, @p100, @p101, 33),
+(@p102, @p103, @p104, 34),
+(@p105, @p106, @p107, 35),
+(@p108, @p109, @p110, 36),
+(@p111, @p112, @p113, 37),
+(@p114, @p115, @p116, 38),
+(@p117, @p118, @p119, 39),
+(@p120, @p121, @p122, 40),
+(@p123, @p124, @p125, 41)) AS i ([CanAccess], [PagePath], [RoleName], _Position) ON 1=0
+WHEN NOT MATCHED THEN
+INSERT ([CanAccess], [PagePath], [RoleName])
+VALUES (i.[CanAccess], i.[PagePath], i.[RoleName])
+OUTPUT INSERTED.[Id], i._Position;
+2025-04-01 04:11:23.071 +03:00 [INF] Executed DbCommand (9ms) [Parameters=[@p0='?' (DbType = Boolean), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (DbType = Boolean), @p4='?' (Size = 4000), @p5='?' (Size = 4000), @p6='?' (DbType = Boolean), @p7='?' (Size = 4000), @p8='?' (Size = 4000), @p9='?' (DbType = Boolean), @p10='?' (Size = 4000), @p11='?' (Size = 4000), @p12='?' (DbType = Boolean), @p13='?' (Size = 4000), @p14='?' (Size = 4000), @p15='?' (DbType = Boolean), @p16='?' (Size = 4000), @p17='?' (Size = 4000), @p18='?' (DbType = Boolean), @p19='?' (Size = 4000), @p20='?' (Size = 4000), @p21='?' (DbType = Boolean), @p22='?' (Size = 4000), @p23='?' (Size = 4000), @p24='?' (DbType = Boolean), @p25='?' (Size = 4000), @p26='?' (Size = 4000), @p27='?' (DbType = Boolean), @p28='?' (Size = 4000), @p29='?' (Size = 4000), @p30='?' (DbType = Boolean), @p31='?' (Size = 4000), @p32='?' (Size = 4000), @p33='?' (DbType = Boolean), @p34='?' (Size = 4000), @p35='?' (Size = 4000), @p36='?' (DbType = Boolean), @p37='?' (Size = 4000), @p38='?' (Size = 4000), @p39='?' (DbType = Boolean), @p40='?' (Size = 4000), @p41='?' (Size = 4000), @p42='?' (DbType = Boolean), @p43='?' (Size = 4000), @p44='?' (Size = 4000), @p45='?' (DbType = Boolean), @p46='?' (Size = 4000), @p47='?' (Size = 4000), @p48='?' (DbType = Boolean), @p49='?' (Size = 4000), @p50='?' (Size = 4000), @p51='?' (DbType = Boolean), @p52='?' (Size = 4000), @p53='?' (Size = 4000), @p54='?' (DbType = Boolean), @p55='?' (Size = 4000), @p56='?' (Size = 4000), @p57='?' (DbType = Boolean), @p58='?' (Size = 4000), @p59='?' (Size = 4000), @p60='?' (DbType = Boolean), @p61='?' (Size = 4000), @p62='?' (Size = 4000), @p63='?' (DbType = Boolean), @p64='?' (Size = 4000), @p65='?' (Size = 4000), @p66='?' (DbType = Boolean), @p67='?' (Size = 4000), @p68='?' (Size = 4000), @p69='?' (DbType = Boolean), @p70='?' (Size = 4000), @p71='?' (Size = 4000), @p72='?' (DbType = Boolean), @p73='?' (Size = 4000), @p74='?' (Size = 4000), @p75='?' (DbType = Boolean), @p76='?' (Size = 4000), @p77='?' (Size = 4000), @p78='?' (DbType = Boolean), @p79='?' (Size = 4000), @p80='?' (Size = 4000), @p81='?' (DbType = Boolean), @p82='?' (Size = 4000), @p83='?' (Size = 4000), @p84='?' (DbType = Boolean), @p85='?' (Size = 4000), @p86='?' (Size = 4000), @p87='?' (DbType = Boolean), @p88='?' (Size = 4000), @p89='?' (Size = 4000), @p90='?' (DbType = Boolean), @p91='?' (Size = 4000), @p92='?' (Size = 4000), @p93='?' (DbType = Boolean), @p94='?' (Size = 4000), @p95='?' (Size = 4000), @p96='?' (DbType = Boolean), @p97='?' (Size = 4000), @p98='?' (Size = 4000), @p99='?' (DbType = Boolean), @p100='?' (Size = 4000), @p101='?' (Size = 4000), @p102='?' (DbType = Boolean), @p103='?' (Size = 4000), @p104='?' (Size = 4000), @p105='?' (DbType = Boolean), @p106='?' (Size = 4000), @p107='?' (Size = 4000), @p108='?' (DbType = Boolean), @p109='?' (Size = 4000), @p110='?' (Size = 4000), @p111='?' (DbType = Boolean), @p112='?' (Size = 4000), @p113='?' (Size = 4000), @p114='?' (DbType = Boolean), @p115='?' (Size = 4000), @p116='?' (Size = 4000), @p117='?' (DbType = Boolean), @p118='?' (Size = 4000), @p119='?' (Size = 4000), @p120='?' (DbType = Boolean), @p121='?' (Size = 4000), @p122='?' (Size = 4000), @p123='?' (DbType = Boolean), @p124='?' (Size = 4000), @p125='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+MERGE [RolePermissions] USING (
+VALUES (@p0, @p1, @p2, 0),
+(@p3, @p4, @p5, 1),
+(@p6, @p7, @p8, 2),
+(@p9, @p10, @p11, 3),
+(@p12, @p13, @p14, 4),
+(@p15, @p16, @p17, 5),
+(@p18, @p19, @p20, 6),
+(@p21, @p22, @p23, 7),
+(@p24, @p25, @p26, 8),
+(@p27, @p28, @p29, 9),
+(@p30, @p31, @p32, 10),
+(@p33, @p34, @p35, 11),
+(@p36, @p37, @p38, 12),
+(@p39, @p40, @p41, 13),
+(@p42, @p43, @p44, 14),
+(@p45, @p46, @p47, 15),
+(@p48, @p49, @p50, 16),
+(@p51, @p52, @p53, 17),
+(@p54, @p55, @p56, 18),
+(@p57, @p58, @p59, 19),
+(@p60, @p61, @p62, 20),
+(@p63, @p64, @p65, 21),
+(@p66, @p67, @p68, 22),
+(@p69, @p70, @p71, 23),
+(@p72, @p73, @p74, 24),
+(@p75, @p76, @p77, 25),
+(@p78, @p79, @p80, 26),
+(@p81, @p82, @p83, 27),
+(@p84, @p85, @p86, 28),
+(@p87, @p88, @p89, 29),
+(@p90, @p91, @p92, 30),
+(@p93, @p94, @p95, 31),
+(@p96, @p97, @p98, 32),
+(@p99, @p100, @p101, 33),
+(@p102, @p103, @p104, 34),
+(@p105, @p106, @p107, 35),
+(@p108, @p109, @p110, 36),
+(@p111, @p112, @p113, 37),
+(@p114, @p115, @p116, 38),
+(@p117, @p118, @p119, 39),
+(@p120, @p121, @p122, 40),
+(@p123, @p124, @p125, 41)) AS i ([CanAccess], [PagePath], [RoleName], _Position) ON 1=0
+WHEN NOT MATCHED THEN
+INSERT ([CanAccess], [PagePath], [RoleName])
+VALUES (i.[CanAccess], i.[PagePath], i.[RoleName])
+OUTPUT INSERTED.[Id], i._Position;
+2025-04-01 04:11:23.114 +03:00 [INF] Executed DbCommand (33ms) [Parameters=[@p0='?' (DbType = Boolean), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (DbType = Boolean), @p4='?' (Size = 4000), @p5='?' (Size = 4000), @p6='?' (DbType = Boolean), @p7='?' (Size = 4000), @p8='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+MERGE [RolePermissions] USING (
+VALUES (@p0, @p1, @p2, 0),
+(@p3, @p4, @p5, 1),
+(@p6, @p7, @p8, 2)) AS i ([CanAccess], [PagePath], [RoleName], _Position) ON 1=0
+WHEN NOT MATCHED THEN
+INSERT ([CanAccess], [PagePath], [RoleName])
+VALUES (i.[CanAccess], i.[PagePath], i.[RoleName])
+OUTPUT INSERTED.[Id], i._Position;
+2025-04-01 04:11:23.203 +03:00 [INF] 🚀 PerformanceMetricsService BAŞLADI!
+2025-04-01 04:11:23.214 +03:00 [INF] 📡 Veri gönderiliyor: CPU=112,8%, Bellek=138,1MB, Uptime=00:00:06.0675656
+2025-04-01 04:11:23.362 +03:00 [INF] Now listening on: https://localhost:7031
+2025-04-01 04:11:23.363 +03:00 [INF] Now listening on: http://localhost:5234
+2025-04-01 04:11:23.489 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-04-01 04:11:23.490 +03:00 [INF] Hosting environment: Development
+2025-04-01 04:11:23.491 +03:00 [INF] Content root path: C:\Users\berat\source\repos\beratoksz\beratoksz
+2025-04-01 04:11:23.672 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7031/ - null null
+2025-04-01 04:11:23.778 +03:00 [INF] No cached response available for this request.
+2025-04-01 04:11:23.841 +03:00 [INF] Executed DbCommand (14ms) [Parameters=[@__p_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[Id] = @__p_0
+2025-04-01 04:11:23.849 +03:00 [INF] AuthenticationScheme: Identity.Application signed out.
+2025-04-01 04:11:23.851 +03:00 [INF] AuthenticationScheme: Identity.External signed out.
+2025-04-01 04:11:23.852 +03:00 [INF] AuthenticationScheme: Identity.TwoFactorUserId signed out.
+2025-04-01 04:11:23.853 +03:00 [INF] AuthenticationScheme: Identity.TwoFactorRememberMe signed out.
+2025-04-01 04:11:23.857 +03:00 [INF] Identity.Application was not authenticated. Failure message: No principal.
+2025-04-01 04:11:24.022 +03:00 [INF] [RolePermission Middleware] Gelen Path: /home/index
+2025-04-01 04:11:24.023 +03:00 [INF] [RolePermission Middleware] Kullanıcı: Guest | Roller: Guest
+2025-04-01 04:11:24.125 +03:00 [INF] Executed DbCommand (59ms) [Parameters=[@__roles_0='?' (Size = 4000), @__normalizedPagePath_1='?' (Size = 4000), @__simplifiedPath_2='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [r].[CanAccess]
+FROM [RolePermissions] AS [r]
+WHERE [r].[RoleName] IN (
+    SELECT [r0].[value]
+    FROM OPENJSON(@__roles_0) WITH ([value] nvarchar(max) '$') AS [r0]
+) AND (LEFT(@__normalizedPagePath_1, LEN([r].[PagePath])) = [r].[PagePath] OR LEFT(@__simplifiedPath_2, LEN([r].[PagePath])) = [r].[PagePath])
+2025-04-01 04:11:24.130 +03:00 [INF] [DEBUG] Gelen path: /home/index, Normalize: /home/index, AreaPath: /home/index, Simple: /home/index
+2025-04-01 04:11:24.144 +03:00 [INF] Executed DbCommand (10ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [r].[PagePath]
+FROM [RolePermissions] AS [r]
+2025-04-01 04:11:24.146 +03:00 [INF] [DEBUG] DB'deki yollar: /wp-includes/wlwmanifest.xml | /blog/wp-includes/wlwmanifest.xml | /web/wp-includes/wlwmanifest.xml | /wordpress/wp-includes/wlwmanifest.xml | /website/wp-includes/wlwmanifest.xml | /wp/wp-includes/wlwmanifest.xml | /news/wp-includes/wlwmanifest.xml | /*/wp-includes/wlwmanifest.xml | /shop/wp-includes/wlwmanifest.xml | /wp1/wp-includes/wlwmanifest.xml | /test/wp-includes/wlwmanifest.xml | /media/wp-includes/wlwmanifest.xml | /wp2/wp-includes/wlwmanifest.xml | /site/wp-includes/wlwmanifest.xml | /cms/wp-includes/wlwmanifest.xml | /sito/wp-includes/wlwmanifest.xml | /api/pageapi | /api/rolepermission | /api/rolepermission/{id} | /api/account/register | /api/account/register | /api/account/register | /api/account/confirm-email | /api/account/confirm-email | /api/account/confirm-email | /api/account/getemailbyuserid | /api/account/login | /api/account/login | /api/account/login | /api/account/resend-confirmation | /api/account/resend-confirmation | /api/account/resend-confirmation | /api/account/verify-2fa | /api/account/verify-2fa | /api/account/verify-2fa | /api/account/resend-2fa-code | /api/account/resend-2fa-code | /api/account/resend-2fa-code | /api/account/forgot-password | /api/account/forgot-password | /api/account/forgot-password | /api/account/reset-password | /api/account/reset-password | /api/account/reset-password | /api/account/update-security-settings | /api/account/update-security-settings | /api/account/send-phone-verification | /api/account/send-phone-verification | /api/account/logout | /api/account/logout | /api/account/logout | /api/account/verify-phone-code | /api/account/verify-phone-code | /api/account/userinfo | /api/account/userinfo | /api/account/userinfo | /api/account/check-auth | /api/account/check-auth | /api/account/check-auth | /error/{statuscode} | /error/{statuscode} | /error/{statuscode} | /home/index | /home/index | /home/index | /home/about | /home/about | /home/about | /home/contact | /home/contact | /home/contact | /home/accessdenied | /home/accessdenied | /home/accessdenied | /home/privacy | /home/privacy | /home/privacy | /home/error | /home/error | /home/error | /profile/securitysettings | /profile/securitysettings | /vaccount/login | /vaccount/login | /vaccount/login | /vaccount/logout | /vaccount/logout | /vaccount/logout | /vaccount/register | /vaccount/register | /vaccount/register | /vaccount/forgotpassword | /vaccount/forgotpassword | /vaccount/forgotpassword | /reset-password | /reset-password | /reset-password | /vaccount/emailconfirmationsent | /vaccount/emailconfirmationsent | /vaccount/emailconfirmationsent | /vaccount/emailsentpassword | /vaccount/emailsentpassword | /vaccount/emailsentpassword | /email-confirmation | /email-confirmation | /email-confirmation | /api/example | /api/token/login | /api/token/login | /api/token/login | /api/token/refresh | /api/token/refresh | /api/token/refresh | /api/token/logout | /api/token/logout | /api/token/logout | /api/activitylog | /api/activitylog | /api/activitylog | /api/adminanalytics/top-pages | /api/adminanalytics/browsers | /admin/dashboard/index | /admin/dashboard/dashboard | /admin/dashboard/support | /api/roleapi | /api/roleapi/{id} | /admin/role/index | /api/security/activities | /api/security/activities | /api/security/activities | /admin/settings/index | /admin/settings/save | /admin/settings/activate | /admin/settings/delete | /admin/usermanagement/index | /admin/usermanagement/create | /admin/usermanagement/edit | /admin/usermanagement/details | /admin/usermanagement/delete | /admin/usermanagement/deleteconfirmed | /admin/userrole/index | /admin/userrole/manage | /statushub | /statushub | /statushub
+2025-04-01 04:11:24.153 +03:00 [INF] [RolePermission Service] Yetki kontrolü: Kullanıcı: Misaifr(Guest), Roller: Guest, Sayfa: /home/index, Erişim: ✅ İzin Verildi
+2025-04-01 04:11:24.177 +03:00 [INF] Executed DbCommand (18ms) [Parameters=[@__path_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__path_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 04:11:24.181 +03:00 [INF] Executing endpoint 'beratoksz.Controllers.HomeController.Index (beratoksz)'
+2025-04-01 04:11:24.191 +03:00 [INF] Route matched with {action = "Index", controller = "Home", area = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller beratoksz.Controllers.HomeController (beratoksz).
+2025-04-01 04:11:24.199 +03:00 [INF] Executing ViewResult, running view Index.
+2025-04-01 04:11:24.249 +03:00 [INF] Executed ViewResult - view Index executed in 51.0899ms.
+2025-04-01 04:11:24.253 +03:00 [INF] Executed action beratoksz.Controllers.HomeController.Index (beratoksz) in 60.3466ms
+2025-04-01 04:11:24.255 +03:00 [INF] Executed endpoint 'beratoksz.Controllers.HomeController.Index (beratoksz)'
+2025-04-01 04:11:24.279 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7031/css/modern.css - null null
+2025-04-01 04:11:24.300 +03:00 [INF] Sending file. Request path: '/css/modern.css'. Physical path: 'C:\Users\berat\source\repos\beratoksz\beratoksz\wwwroot\css\modern.css'
+2025-04-01 04:11:24.303 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7031/css/modern.css - 200 1464 text/css 23.2655ms
+2025-04-01 04:11:24.392 +03:00 [INF] 📌 Kullanıcı: Bilinmiyor, Sayfa: /Home/Index, IP: ::1, OS: Windows 10, Tarayıcı: Edge 134.0.0, Ülke: Localhost, Şehir: Localhost, Bölge: Localhost
+2025-04-01 04:11:24.425 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7031/_framework/aspnetcore-browser-refresh.js - null null
+2025-04-01 04:11:24.430 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7031/_framework/aspnetcore-browser-refresh.js - 200 13770 application/javascript; charset=utf-8 4.757ms
+2025-04-01 04:11:24.431 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7031/_vs/browserLink - null null
+2025-04-01 04:11:24.462 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7031/_vs/browserLink - 200 null text/javascript; charset=UTF-8 30.7584ms
+2025-04-01 04:11:24.482 +03:00 [INF] Executed DbCommand (72ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (Size = 4000), @p2='?' (DbType = Double), @p3='?' (Size = 4000), @p4='?' (Size = 4000), @p5='?' (Size = 4000), @p6='?' (Size = 4000), @p7='?' (DbType = DateTime2), @p8='?' (Size = 4000), @p9='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [ActivityLogs] ([City], [Country], [Duration], [IPAddress], [OS], [Page], [Region], [Timestamp], [UserAgent], [UserName])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9);
+2025-04-01 04:11:24.488 +03:00 [INF] 🌍 İstek: /Home/Index - 200 | ⏱ Süre: 611 ms
+2025-04-01 04:11:24.490 +03:00 [INF] The response could not be cached for this request.
+2025-04-01 04:11:24.495 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7031/Home/Index - 200 null text/html; charset=utf-8 827.6005ms
+2025-04-01 04:11:28.232 +03:00 [INF] 📡 Veri gönderiliyor: CPU=32,7%, Bellek=178,8MB, Uptime=00:00:11.0896563
+2025-04-01 04:11:28.312 +03:00 [INF] Application is shutting down...
+2025-04-01 04:11:28.341 +03:00 [WRN] ⚠ PerformanceMetricsService durduruldu.
+2025-04-01 04:11:28.342 +03:00 [INF] 🛑 PerformanceMetricsService KAPANDI.
