@@ -1923,3 +1923,1572 @@ VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9);
 2025-04-01 04:11:28.312 +03:00 [INF] Application is shutting down...
 2025-04-01 04:11:28.341 +03:00 [WRN] ⚠ PerformanceMetricsService durduruldu.
 2025-04-01 04:11:28.342 +03:00 [INF] 🛑 PerformanceMetricsService KAPANDI.
+2025-04-01 14:24:20.781 +03:00 [INF] User profile is available. Using 'C:\Users\berat\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-04-01 14:24:21.467 +03:00 [ERR] An error occurred using the connection to database '' on server ''.
+2025-04-01 14:24:21.479 +03:00 [ERR] An exception occurred while iterating over the results of a query for context type 'beratoksz.Data.ApplicationDbContext'.
+System.InvalidOperationException: The ConnectionString property has not been initialized.
+   at Microsoft.Data.SqlClient.SqlConnection.PermissionDemand()
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.PermissionDemand(DbConnection outerConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry, SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.InternalOpenAsync(CancellationToken cancellationToken)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+System.InvalidOperationException: The ConnectionString property has not been initialized.
+   at Microsoft.Data.SqlClient.SqlConnection.PermissionDemand()
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.PermissionDemand(DbConnection outerConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry, SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.InternalOpenAsync(CancellationToken cancellationToken)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+2025-04-01 14:27:33.977 +03:00 [INF] User profile is available. Using 'C:\Users\berat\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-04-01 14:27:34.712 +03:00 [ERR] An error occurred using the connection to database '' on server ''.
+2025-04-01 14:27:34.722 +03:00 [ERR] An exception occurred while iterating over the results of a query for context type 'beratoksz.Data.ApplicationDbContext'.
+System.InvalidOperationException: The ConnectionString property has not been initialized.
+   at Microsoft.Data.SqlClient.SqlConnection.PermissionDemand()
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.PermissionDemand(DbConnection outerConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry, SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.InternalOpenAsync(CancellationToken cancellationToken)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+System.InvalidOperationException: The ConnectionString property has not been initialized.
+   at Microsoft.Data.SqlClient.SqlConnection.PermissionDemand()
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.PermissionDemand(DbConnection outerConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry, SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.InternalOpenAsync(CancellationToken cancellationToken)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+2025-04-01 14:28:40.321 +03:00 [INF] User profile is available. Using 'C:\Users\berat\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-04-01 14:28:40.962 +03:00 [ERR] An error occurred using the connection to database '' on server ''.
+2025-04-01 14:28:40.971 +03:00 [ERR] An exception occurred while iterating over the results of a query for context type 'beratoksz.Data.ApplicationDbContext'.
+System.InvalidOperationException: The ConnectionString property has not been initialized.
+   at Microsoft.Data.SqlClient.SqlConnection.PermissionDemand()
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.PermissionDemand(DbConnection outerConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry, SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.InternalOpenAsync(CancellationToken cancellationToken)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+System.InvalidOperationException: The ConnectionString property has not been initialized.
+   at Microsoft.Data.SqlClient.SqlConnection.PermissionDemand()
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.PermissionDemand(DbConnection outerConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry, SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.InternalOpenAsync(CancellationToken cancellationToken)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+2025-04-01 14:30:43.980 +03:00 [INF] User profile is available. Using 'C:\Users\berat\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-04-01 14:30:44.622 +03:00 [ERR] An error occurred using the connection to database '' on server ''.
+2025-04-01 14:30:44.633 +03:00 [ERR] An exception occurred while iterating over the results of a query for context type 'beratoksz.Data.ApplicationDbContext'.
+System.InvalidOperationException: The ConnectionString property has not been initialized.
+   at Microsoft.Data.SqlClient.SqlConnection.PermissionDemand()
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.PermissionDemand(DbConnection outerConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry, SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.InternalOpenAsync(CancellationToken cancellationToken)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+System.InvalidOperationException: The ConnectionString property has not been initialized.
+   at Microsoft.Data.SqlClient.SqlConnection.PermissionDemand()
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.PermissionDemand(DbConnection outerConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry, SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.InternalOpenAsync(CancellationToken cancellationToken)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+2025-04-01 14:32:43.346 +03:00 [INF] User profile is available. Using 'C:\Users\berat\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-04-01 14:32:43.988 +03:00 [ERR] An error occurred using the connection to database '' on server ''.
+2025-04-01 14:32:43.996 +03:00 [ERR] An exception occurred while iterating over the results of a query for context type 'beratoksz.Data.ApplicationDbContext'.
+System.InvalidOperationException: The ConnectionString property has not been initialized.
+   at Microsoft.Data.SqlClient.SqlConnection.PermissionDemand()
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.PermissionDemand(DbConnection outerConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry, SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.InternalOpenAsync(CancellationToken cancellationToken)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+System.InvalidOperationException: The ConnectionString property has not been initialized.
+   at Microsoft.Data.SqlClient.SqlConnection.PermissionDemand()
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.PermissionDemand(DbConnection outerConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry, SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.InternalOpenAsync(CancellationToken cancellationToken)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+2025-04-01 14:36:30.347 +03:00 [INF] User profile is available. Using 'C:\Users\berat\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-04-01 14:36:47.279 +03:00 [ERR] An error occurred using the connection to database 'beratokszDB' on server 'sqlserver,1433'.
+2025-04-01 14:36:47.293 +03:00 [ERR] An exception occurred while iterating over the results of a query for context type 'beratoksz.Data.ApplicationDbContext'.
+System.InvalidOperationException: An exception has been raised that is likely due to a transient failure. Consider enabling transient error resiliency by adding 'EnableRetryOnFailure' to the 'UseSqlServer' call.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - Bilinen böyle bir ana bilgisayar yok.)
+ ---> System.ComponentModel.Win32Exception (11001): Bilinen böyle bir ana bilgisayar yok.
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.Connect(ServerInfo serverInfo, SqlInternalConnectionTds connHandler, Boolean ignoreSniOpenTimeout, Int64 timerExpire, SqlConnectionString connectionOptions, Boolean withFailover)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.AttemptOneLogin(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean ignoreSniOpenTimeout, TimeoutTimer timeout, Boolean withFailover)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.LoginNoFailover(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString connectionOptions, SqlCredential credential, TimeoutTimer timeout)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.OpenLoginEnlist(TimeoutTimer timeout, SqlConnectionString connectionOptions, SqlCredential credential, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, Boolean applyTransientFaultHandling, String accessToken, DbConnectionPool pool)
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.WaitForPendingOpen()
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+ClientConnectionId:00000000-0000-0000-0000-000000000000
+Error Number:11001,State:0,Class:20
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+System.InvalidOperationException: An exception has been raised that is likely due to a transient failure. Consider enabling transient error resiliency by adding 'EnableRetryOnFailure' to the 'UseSqlServer' call.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - Bilinen böyle bir ana bilgisayar yok.)
+ ---> System.ComponentModel.Win32Exception (11001): Bilinen böyle bir ana bilgisayar yok.
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.Connect(ServerInfo serverInfo, SqlInternalConnectionTds connHandler, Boolean ignoreSniOpenTimeout, Int64 timerExpire, SqlConnectionString connectionOptions, Boolean withFailover)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.AttemptOneLogin(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean ignoreSniOpenTimeout, TimeoutTimer timeout, Boolean withFailover)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.LoginNoFailover(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString connectionOptions, SqlCredential credential, TimeoutTimer timeout)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.OpenLoginEnlist(TimeoutTimer timeout, SqlConnectionString connectionOptions, SqlCredential credential, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, Boolean applyTransientFaultHandling, String accessToken, DbConnectionPool pool)
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.WaitForPendingOpen()
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+ClientConnectionId:00000000-0000-0000-0000-000000000000
+Error Number:11001,State:0,Class:20
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+2025-04-01 14:38:14.181 +03:00 [INF] User profile is available. Using 'C:\Users\berat\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-04-01 14:38:15.015 +03:00 [INF] Executed DbCommand (45ms) [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[Aciklama], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName], [a].[OlusturulmaTarihi], [a].[SistemRoluMu]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedName_0
+2025-04-01 14:38:15.072 +03:00 [INF] Executed DbCommand (5ms) [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[Aciklama], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName], [a].[OlusturulmaTarihi], [a].[SistemRoluMu]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedName_0
+2025-04-01 14:38:15.077 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[Aciklama], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName], [a].[OlusturulmaTarihi], [a].[SistemRoluMu]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedName_0
+2025-04-01 14:38:15.104 +03:00 [INF] Executed DbCommand (20ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+2025-04-01 14:38:15.306 +03:00 [INF] Executed DbCommand (9ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Admin') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 14:38:15.314 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Admin') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 14:38:15.322 +03:00 [INF] Executed DbCommand (5ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Admin') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 14:38:15.329 +03:00 [INF] Executed DbCommand (5ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Admin') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 14:38:15.352 +03:00 [INF] Executed DbCommand (19ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Guest') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 14:38:15.371 +03:00 [INF] Executed DbCommand (15ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'User') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 14:38:15.389 +03:00 [INF] Executed DbCommand (15ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Admin') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 14:38:15.396 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Guest') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 14:38:15.402 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'User') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 14:38:15.409 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Admin') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 14:38:15.415 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Admin') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 14:38:15.422 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Guest') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 14:38:15.428 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'User') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 14:38:15.434 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Admin') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 14:38:15.439 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Guest') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 14:38:15.446 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'User') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 14:38:15.452 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Admin') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 14:38:15.459 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Guest') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 14:38:15.464 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'User') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 14:38:15.470 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Admin') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 14:38:15.482 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Guest') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 14:38:15.490 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'User') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 14:38:15.495 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Admin') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 14:38:15.501 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Guest') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 14:38:15.508 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'User') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 14:38:15.514 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Admin') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 14:38:15.521 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Guest') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 14:38:15.528 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'User') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 14:38:15.535 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Admin') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 14:38:15.541 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'User') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 14:38:15.548 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Admin') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 14:38:15.555 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'User') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 14:38:15.562 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Admin') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 14:38:15.569 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Guest') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 14:38:15.575 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'User') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 14:38:15.583 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Admin') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 14:38:15.590 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'User') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 14:38:15.597 +03:00 [INF] Executed DbCommand (5ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Admin') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 14:38:15.605 +03:00 [INF] Executed DbCommand (5ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Guest') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 14:38:15.612 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'User') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 14:38:15.620 +03:00 [INF] Executed DbCommand (5ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Admin') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 14:38:15.630 +03:00 [INF] Executed DbCommand (7ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Guest') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 14:38:15.641 +03:00 [INF] Executed DbCommand (5ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'User') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 14:38:15.649 +03:00 [INF] Executed DbCommand (5ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Admin') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 14:38:15.656 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Guest') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 14:38:15.664 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'User') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 14:38:15.671 +03:00 [INF] Executed DbCommand (5ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Admin') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 14:38:15.680 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Guest') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 14:38:15.688 +03:00 [INF] Executed DbCommand (5ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'User') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 14:38:15.700 +03:00 [INF] Executed DbCommand (9ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Admin') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 14:38:15.712 +03:00 [INF] Executed DbCommand (7ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Guest') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 14:38:15.731 +03:00 [INF] Executed DbCommand (17ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'User') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 14:38:15.739 +03:00 [INF] Executed DbCommand (5ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Admin') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 14:38:15.748 +03:00 [INF] Executed DbCommand (6ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Guest') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 14:38:15.756 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'User') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 14:38:15.763 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Admin') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 14:38:15.770 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Guest') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 14:38:15.782 +03:00 [INF] Executed DbCommand (9ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'User') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 14:38:15.787 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Admin') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 14:38:15.793 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Guest') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 14:38:15.798 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'User') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 14:38:15.804 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Admin') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 14:38:15.809 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Guest') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 14:38:15.815 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'User') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 14:38:15.820 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Admin') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 14:38:15.825 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'User') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 14:38:15.832 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Admin') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 14:38:15.843 +03:00 [INF] Executed DbCommand (9ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Guest') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 14:38:15.850 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'User') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 14:38:15.855 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Admin') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 14:38:15.861 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Guest') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 14:38:15.866 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'User') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 14:38:15.872 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Admin') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 14:38:15.879 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Guest') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 14:38:15.885 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'User') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 14:38:15.891 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Admin') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 14:38:15.898 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Guest') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 14:38:15.906 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'User') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 14:38:15.912 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Admin') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 14:38:15.919 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Guest') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 14:38:15.927 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'User') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 14:38:15.934 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Admin') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 14:38:15.942 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Guest') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 14:38:15.949 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'User') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 14:38:15.958 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Admin') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 14:38:15.965 +03:00 [INF] Executed DbCommand (5ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Guest') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 14:38:15.974 +03:00 [INF] Executed DbCommand (5ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'User') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 14:38:15.981 +03:00 [INF] Executed DbCommand (5ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Admin') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 14:38:15.990 +03:00 [INF] Executed DbCommand (5ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Guest') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 14:38:15.998 +03:00 [INF] Executed DbCommand (5ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'User') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 14:38:16.006 +03:00 [INF] Executed DbCommand (5ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Admin') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 14:38:16.013 +03:00 [INF] Executed DbCommand (5ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Admin') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 14:38:16.021 +03:00 [INF] Executed DbCommand (5ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Guest') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 14:38:16.029 +03:00 [INF] Executed DbCommand (5ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'User') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 14:38:16.037 +03:00 [INF] Executed DbCommand (5ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Admin') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 14:38:16.044 +03:00 [INF] Executed DbCommand (5ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Guest') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 14:38:16.052 +03:00 [INF] Executed DbCommand (5ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'User') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 14:38:16.059 +03:00 [INF] Executed DbCommand (5ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Admin') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 14:38:16.068 +03:00 [INF] Executed DbCommand (5ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Guest') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 14:38:16.075 +03:00 [INF] Executed DbCommand (5ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'User') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 14:38:16.083 +03:00 [INF] Executed DbCommand (5ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Admin') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 14:38:16.091 +03:00 [INF] Executed DbCommand (5ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Guest') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 14:38:16.099 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'User') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 14:38:16.105 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Admin') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 14:38:16.112 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Admin') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 14:38:16.119 +03:00 [INF] Executed DbCommand (5ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Admin') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 14:38:16.128 +03:00 [INF] Executed DbCommand (5ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Admin') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 14:38:16.135 +03:00 [INF] Executed DbCommand (5ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Admin') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 14:38:16.144 +03:00 [INF] Executed DbCommand (5ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Admin') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 14:38:16.152 +03:00 [INF] Executed DbCommand (5ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Admin') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 14:38:16.160 +03:00 [INF] Executed DbCommand (5ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Admin') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 14:38:16.168 +03:00 [INF] Executed DbCommand (5ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Admin') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 14:38:16.176 +03:00 [INF] Executed DbCommand (5ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Guest') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 14:38:16.184 +03:00 [INF] Executed DbCommand (5ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'User') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 14:38:16.192 +03:00 [INF] Executed DbCommand (5ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Admin') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 14:38:16.199 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Admin') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 14:38:16.205 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Admin') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 14:38:16.211 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Admin') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 14:38:16.219 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Admin') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 14:38:16.225 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Admin') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 14:38:16.232 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Admin') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 14:38:16.240 +03:00 [INF] Executed DbCommand (5ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Admin') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 14:38:16.247 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Admin') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 14:38:16.253 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Admin') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 14:38:16.261 +03:00 [INF] Executed DbCommand (5ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Admin') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 14:38:16.269 +03:00 [INF] Executed DbCommand (5ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Admin') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 14:38:16.276 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Admin') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 14:38:16.284 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Guest') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 14:38:16.292 +03:00 [INF] Executed DbCommand (5ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'User') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 14:38:16.337 +03:00 [INF] 🚀 PerformanceMetricsService BAŞLADI!
+2025-04-01 14:38:16.346 +03:00 [INF] 📡 Veri gönderiliyor: CPU=61,7%, Bellek=132,3MB, Uptime=00:00:03.3803818
+2025-04-01 14:38:16.426 +03:00 [INF] Now listening on: http://[::]:80
+2025-04-01 14:38:16.460 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-04-01 14:38:16.463 +03:00 [INF] Hosting environment: Production
+2025-04-01 14:38:16.465 +03:00 [INF] Content root path: C:\Users\berat\source\repos\beratoksz\beratoksz
+2025-04-01 14:38:21.361 +03:00 [INF] 📡 Veri gönderiliyor: CPU=15,3%, Bellek=147,2MB, Uptime=00:00:08.3988278
+2025-04-01 14:38:26.372 +03:00 [INF] 📡 Veri gönderiliyor: CPU=0,9%, Bellek=144,6MB, Uptime=00:00:13.4103579
+2025-04-01 14:38:33.789 +03:00 [INF] User profile is available. Using 'C:\Users\berat\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-04-01 14:38:34.614 +03:00 [INF] Executed DbCommand (28ms) [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[Aciklama], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName], [a].[OlusturulmaTarihi], [a].[SistemRoluMu]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedName_0
+2025-04-01 14:38:34.678 +03:00 [INF] Executed DbCommand (13ms) [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[Aciklama], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName], [a].[OlusturulmaTarihi], [a].[SistemRoluMu]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedName_0
+2025-04-01 14:38:34.684 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[Aciklama], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName], [a].[OlusturulmaTarihi], [a].[SistemRoluMu]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedName_0
+2025-04-01 14:38:34.695 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+2025-04-01 14:38:34.867 +03:00 [INF] Executed DbCommand (10ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Admin') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 14:38:34.875 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Admin') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 14:38:34.882 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Admin') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 14:38:34.889 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Admin') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 14:38:34.897 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Guest') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 14:38:34.905 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'User') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 14:38:34.911 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Admin') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 14:38:34.918 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Guest') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 14:38:34.929 +03:00 [INF] Executed DbCommand (6ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'User') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 14:38:34.936 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Admin') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 14:38:34.943 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Admin') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 14:38:34.949 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Guest') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 14:38:34.957 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'User') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 14:38:34.965 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Admin') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 14:38:34.972 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Guest') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 14:38:34.980 +03:00 [INF] Executed DbCommand (5ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'User') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 14:38:34.988 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Admin') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 14:38:34.996 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Guest') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 14:38:35.004 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'User') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 14:38:35.011 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Admin') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 14:38:35.019 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Guest') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 14:38:35.026 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'User') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 14:38:35.034 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Admin') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 14:38:35.042 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Guest') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 14:38:35.049 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'User') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-01 14:38:35.056 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedPath_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [RolePermissions] AS [r]
+        WHERE [r].[PagePath] = @__normalizedPath_0 AND [r].[RoleName] = N'Admin') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          2025-04-01 14:48:11.417 +03:00 [INF] User profile is available. Using 'C:\Users\berat\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-04-01 14:48:33.286 +03:00 [ERR] An error occurred using the connection to database 'beratokszDB' on server '46.197.32.51,1433'.
+2025-04-01 14:48:33.303 +03:00 [ERR] An exception occurred while iterating over the results of a query for context type 'beratoksz.Data.ApplicationDbContext'.
+System.InvalidOperationException: An exception has been raised that is likely due to a transient failure. Consider enabling transient error resiliency by adding 'EnableRetryOnFailure' to the 'UseSqlServer' call.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - Bağlanılan uygun olarak belli bir süre içinde yanıt vermediğinden veya kurulan
+bağlantı bağlanılan ana bilgisayar yanıt vermediğinden bir bağlantı kurulamadı.)
+ ---> System.ComponentModel.Win32Exception (10060): Bağlanılan uygun olarak belli bir süre içinde yanıt vermediğinden veya kurulan
+bağlantı bağlanılan ana bilgisayar yanıt vermediğinden bir bağlantı kurulamadı.
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.Connect(ServerInfo serverInfo, SqlInternalConnectionTds connHandler, Boolean ignoreSniOpenTimeout, Int64 timerExpire, SqlConnectionString connectionOptions, Boolean withFailover)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.AttemptOneLogin(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean ignoreSniOpenTimeout, TimeoutTimer timeout, Boolean withFailover)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.LoginNoFailover(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString connectionOptions, SqlCredential credential, TimeoutTimer timeout)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.OpenLoginEnlist(TimeoutTimer timeout, SqlConnectionString connectionOptions, SqlCredential credential, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, Boolean applyTransientFaultHandling, String accessToken, DbConnectionPool pool)
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.WaitForPendingOpen()
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+ClientConnectionId:00000000-0000-0000-0000-000000000000
+Error Number:10060,State:0,Class:20
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+System.InvalidOperationException: An exception has been raised that is likely due to a transient failure. Consider enabling transient error resiliency by adding 'EnableRetryOnFailure' to the 'UseSqlServer' call.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - Bağlanılan uygun olarak belli bir süre içinde yanıt vermediğinden veya kurulan
+bağlantı bağlanılan ana bilgisayar yanıt vermediğinden bir bağlantı kurulamadı.)
+ ---> System.ComponentModel.Win32Exception (10060): Bağlanılan uygun olarak belli bir süre içinde yanıt vermediğinden veya kurulan
+bağlantı bağlanılan ana bilgisayar yanıt vermediğinden bir bağlantı kurulamadı.
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.Connect(ServerInfo serverInfo, SqlInternalConnectionTds connHandler, Boolean ignoreSniOpenTimeout, Int64 timerExpire, SqlConnectionString connectionOptions, Boolean withFailover)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.AttemptOneLogin(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean ignoreSniOpenTimeout, TimeoutTimer timeout, Boolean withFailover)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.LoginNoFailover(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString connectionOptions, SqlCredential credential, TimeoutTimer timeout)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.OpenLoginEnlist(TimeoutTimer timeout, SqlConnectionString connectionOptions, SqlCredential credential, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, Boolean applyTransientFaultHandling, String accessToken, DbConnectionPool pool)
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.WaitForPendingOpen()
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+ClientConnectionId:00000000-0000-0000-0000-000000000000
+Error Number:10060,State:0,Class:20
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()

@@ -14,8 +14,9 @@ using System.Text;
 using System.Security.Claims;
 using beratoksz;
 using Microsoft.AspNetCore.HttpOverrides;
+using DotNetEnv;
 
-
+DotNetEnv.Env.Load();
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -33,8 +34,13 @@ builder.Host.UseSerilog((context, services, config) =>
 });
 
 // ?? Veritabaný
+var connectionString = Environment.GetEnvironmentVariable("DEFAULT_CONNECTION_STRING")
+    ?? builder.Configuration.GetConnectionString("DefaultConnection")
+    ?? throw new InvalidOperationException("Veritabaný baðlantý bilgisi bulunamadý.");
+
+// Veritabaný
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+    options.UseSqlServer(connectionString));
 
 // ?? Identity
 builder.Services.AddIdentity<AppUser, AppRole>(options =>
