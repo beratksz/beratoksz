@@ -1,7 +1,20 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\berat\\source\\repos\\beratoksz\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{558C27AA-30C7-4791-9A27-6BE0D6F6550D}|\u00C7\u00F6z\u00FCm \u00D6\u011Feleri{558C27AA-30C7-4791-9A27-6BE0D6F6550D}|C:\\Users\\berat\\source\\repos\\beratoksz\\.env||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{558C27AA-30C7-4791-9A27-6BE0D6F6550D}|\u00C7\u00F6z\u00FCm \u00D6\u011Feleri{558C27AA-30C7-4791-9A27-6BE0D6F6550D}|solutionrelative:.env||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1629002D-8929-4482-8EBA-D2E80E7C73EA}|whatsapp{1629002D-8929-4482-8EBA-D2E80E7C73EA}|C:\\Users\\berat\\source\\repos\\beratoksz\\.gitignore||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{1629002D-8929-4482-8EBA-D2E80E7C73EA}|whatsapp{1629002D-8929-4482-8EBA-D2E80E7C73EA}|solutionrelative:.gitignore||{3B902123-F8A7-4915-9F01-361F908088D0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{558C27AA-30C7-4791-9A27-6BE0D6F6550D}|\u00C7\u00F6z\u00FCm \u00D6\u011Feleri{558C27AA-30C7-4791-9A27-6BE0D6F6550D}|C:\\Users\\berat\\source\\repos\\beratoksz\\docker-compose.yml||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{558C27AA-30C7-4791-9A27-6BE0D6F6550D}|\u00C7\u00F6z\u00FCm \u00D6\u011Feleri{558C27AA-30C7-4791-9A27-6BE0D6F6550D}|solutionrelative:docker-compose.yml||{8B382828-6202-11D1-8870-0000F87579D2}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -9,7 +22,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
@@ -18,6 +31,44 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{40ea2e6b-2121-4bb8-a43e-c83c04b51041}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": ".env",
+              "DocumentMoniker": "C:\\Users\\berat\\source\\repos\\beratoksz\\.env",
+              "RelativeDocumentMoniker": ".env",
+              "ToolTip": "C:\\Users\\berat\\source\\repos\\beratoksz\\.env",
+              "RelativeToolTip": ".env",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-04-01T14:13:03.898Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": ".gitignore",
+              "DocumentMoniker": "C:\\Users\\berat\\source\\repos\\beratoksz\\.gitignore",
+              "RelativeDocumentMoniker": ".gitignore",
+              "ToolTip": "C:\\Users\\berat\\source\\repos\\beratoksz\\.gitignore",
+              "RelativeToolTip": ".gitignore",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-04-01T12:05:32.919Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "docker-compose.yml",
+              "DocumentMoniker": "C:\\Users\\berat\\source\\repos\\beratoksz\\docker-compose.yml",
+              "RelativeDocumentMoniker": "docker-compose.yml",
+              "ToolTip": "C:\\Users\\berat\\source\\repos\\beratoksz\\docker-compose.yml",
+              "RelativeToolTip": "docker-compose.yml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003775|",
+              "WhenOpened": "2025-04-01T12:05:25.77Z"
             }
           ]
         },

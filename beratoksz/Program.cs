@@ -102,32 +102,25 @@ builder.Services.AddSignalR(options =>
 // ?? Performans servisi
 builder.Services.AddHostedService<PerformanceMetricsService>();
 
-builder.Configuration["JwtSettings:Secret"] = Environment.GetEnvironmentVariable("JWT_SECRET");
+// JWT
+var jwtSecret = Environment.GetEnvironmentVariable("JWT_SECRET")
+    ?? throw new Exception("JWT_SECRET ortam deðiþkeni tanýmlý deðil! .env dosyasýný kontrol et.");
 
-// ?? JWT
-builder.Services.AddAuthentication(options =>
+var jwtIssuer = Environment.GetEnvironmentVariable("JWT_VALID_ISSUER") ?? "https://beratoksz.com";
+var jwtAudience = Environment.GetEnvironmentVariable("JWT_VALID_AUDIENCE") ?? "https://beratoksz.com";
+
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+.AddJwtBearer(options =>
 {
-    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-})
-.AddJwtBearer(JwtBearerDefaults.AuthenticationScheme, options =>
-{
-    if (string.IsNullOrWhiteSpace(Environment.GetEnvironmentVariable("JWT_SECRET")))
-    {
-        throw new Exception("JWT_SECRET ortam deðiþkeni tanýmlý deðil! .env dosyasýný kontrol et.");
-    }
-
-    var jwt = builder.Configuration.GetSection("JwtSettings");
-
     options.TokenValidationParameters = new TokenValidationParameters
     {
         ValidateIssuer = true,
         ValidateAudience = true,
         ValidateLifetime = true,
         ValidateIssuerSigningKey = true,
-        ValidIssuer = jwt["ValidIssuer"],
-        ValidAudience = jwt["ValidAudience"],
-        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwt["Secret"])),
+        ValidIssuer = jwtIssuer,
+        ValidAudience = jwtAudience,
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtSecret)),
         ClockSkew = TimeSpan.Zero
     };
 });
