@@ -7,7 +7,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "beratoksz", "beratoksz\bera
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Çözüm Öğeleri", "Çözüm Öğeleri", "{558C27AA-30C7-4791-9A27-6BE0D6F6550D}"
 	ProjectSection(SolutionItems) = preProject
-		.env = .env
 		docker-compose.yml = docker-compose.yml
 	EndProjectSection
 EndProject
