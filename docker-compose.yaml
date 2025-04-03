@@ -8,7 +8,7 @@ services:
       dockerfile: beratoksz/Dockerfile
     restart: always
     networks:
-      - vps_network
+      - coolify
     expose:
       - "80"
     env_file:
@@ -46,7 +46,7 @@ services:
     container_name: whatsapp
     restart: unless-stopped
     networks:
-      - vps_network
+      - coolify
     volumes:
       - ./whatsapp:/usr/src/app/user_data
     environment:
