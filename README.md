@@ -1,5 +1,5 @@
 ## Hakkımda
-Bilgisayar Programcılığı ön lisans mezunuyum ve ASP.NET Core, .NET Framework, Entity Framework, SQL Server, SignalR gibi teknolojilerle gerçek dünya uygulamaları geliştiriyorum. Yazılım geliştirme süreçlerinin tüm katmanlarına hâkimim. Şu anda tam anlamıyla production seviyesinde, güvenli, modüler yapılı bir kimlik doğrulama ve yönetim sistemi geliştirdim. Aşağıda detayları paylaştığım bu proje, hem teknik hem sistem tasarımı hem de güvenlik anlamında derinlemesine bilgi ve beceri sunmaktadır.
+Bilgisayar Programcılığı ön lisans mezunuyum ve ASP.NET Core, .NET Framework, Entity Framework, SQL Server, SignalR gibi teknolojilerle gerçek dünya uygulamaları geliştiriyorum. Şu anda tam anlamıyla production seviyesinde, güvenli, modüler yapılı bir kimlik doğrulama ve yönetim sistemi geliştirdim. Aşağıda detayları paylaştığım bu proje, hem teknik hem sistem tasarımı hem de güvenlik anlamında derinlemesine bilgi ve beceri sunmaktadır.
 
 ---
 
