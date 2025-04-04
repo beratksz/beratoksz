@@ -54,3 +54,18 @@ Bilgisayar Programcılığı ön lisans mezunuyum ve ASP.NET Core, .NET Framewor
 
 ## Son Söz
 Bu projede tüm sistem benim tarafımdan planlandı, geliştirildi ve yayına hazır hale getirildi. Gerek frontend gerek backend gerekse sistem mimarisi ve güvenlik tarafında baştan sona sorumluluk aldım. Tüm detayları düşünülmüş bu sistem, bugün herhangi bir kuruma rahatıyla entegre edilebilir ve ölçeklenebilir yapıdadır.
+
+
+
+.env config
+
+DEFAULT_CONNECTION_STRING=Server=sqlserver,1433;Database=<DATABASE NAME>;User Id=sa;Password=<SA PASSWORD>;TrustServerCertificate=True
+ASPNETCORE_ENVIRONMENT=Production
+ASPNETCORE_URLS=http://+:80
+API_URL=<DOMAIN>
+WHATSAPP_API=http://whatsapp:8002
+JWT_SECRET=<*>
+JWT_VALID_ISSUER=<DOMAIN>
+JWT_VALID_AUDIENCE=<DOMAIN>
+
+
