@@ -1,9 +1,4 @@
-## Hakkımda
-Bilgisayar Programcılığı ön lisans mezunuyum ve ASP.NET Core, .NET Framework, Entity Framework, SQL Server, SignalR gibi teknolojilerle gerçek dünya uygulamaları geliştiriyorum. Şu anda tam anlamıyla production seviyesinde, güvenli, modüler yapılı bir kimlik doğrulama ve yönetim sistemi geliştirdim. Aşağıda detayları paylaştığım bu proje, hem teknik hem sistem tasarımı hem de güvenlik anlamında derinlemesine bilgi ve beceri sunmaktadır.
-
----
-
-## Proje 1: Admin Panel ve Kimlik Doğrulama Sistemi (Production Ready)
+## Proje 1: Admin Panel ve Kimlik Doğrulama Sistemi
 
 ### Teknolojiler
 - ASP.NET Core Web API
@@ -67,5 +62,19 @@ WHATSAPP_API=http://whatsapp:8002
 JWT_SECRET=<*>
 JWT_VALID_ISSUER=<DOMAIN>
 JWT_VALID_AUDIENCE=<DOMAIN>
+
+
+![dashboard](https://github.com/user-attachments/assets/3ffbf009-e34f-4c00-9429-968d2094a6cc)
+![userma](https://github.com/user-attachments/assets/35dc848f-b85d-4dbf-bb3c-450ceb2812d2)
+![userrole](https://github.com/user-attachments/assets/f3c224d0-cdd5-49d4-ba04-658e750027ae)
+![sitesettings](https://github.com/user-attachments/assets/1eb95fb8-2086-4c4b-b449-221c43b28613)
+![rolepermiss](https://github.com/user-attachments/assets/1dc15add-adaa-4ae4-87d4-6935e08adfbe)
+![report](https://github.com/user-attachments/assets/22b851b3-78ea-496b-98cd-b92577e0a047)
+
+
+
+
+
+
 
 
